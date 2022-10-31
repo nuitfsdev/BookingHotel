@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookingHotel.Views.Page_Home"
+             BackgroundColor="#ffff"
+             >
+    <StackLayout Margin="20">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Hello, Nam!" FontSize="Large"  TextColor="Gray"/>
+                <Image Source="bell.png" WidthRequest="20" HorizontalOptions="EndAndExpand" Scale="1.2" />
+            </StackLayout>
+        <Label Text="Xin chào bạn đến với Booking Hotel!" FontSize="32" FontAttributes="Bold" TextColor="Black"/>
+        <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" Padding="0" HasShadow="False" Margin="0,20,0,0">
+            <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+                <Image Source="search.png" WidthRequest="20"></Image>
+                <Label Text="Tìm kiếm khách sạn..." FontSize="20" VerticalOptions="Center"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+  
+</ContentPage>
