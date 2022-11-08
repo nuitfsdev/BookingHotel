@@ -24,6 +24,8 @@ namespace BookingHotel.Views
             bannerList.Add(new Banner { Image = "Banner5.png" });
 
             BannerCarousel.ItemsSource = bannerList;
+            NoiBatCarousel.ItemsSource = bannerList;
+
             Device.StartTimer(TimeSpan.FromSeconds(2), (Func<bool>)(() =>
             {
                 BannerCarousel.Position = (BannerCarousel.Position + 1) %  indicatorView.Count;
