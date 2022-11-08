@@ -7,6 +7,7 @@
              Shell.NavBarIsVisible="False"
              Shell.TabBarTitleColor="#585de4"
              Shell.TabBarBackgroundColor="#faf7f7"
+             Shell.UnselectedColor="Gray"
              >
     <TabBar >
         <Tab Title="Trang chủ" Icon="home.png">
