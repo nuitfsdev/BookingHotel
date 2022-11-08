@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Home"
              BackgroundColor="#ffff"
              >
@@ -11,14 +12,8 @@
                 <Image Source="bell.png" WidthRequest="20" HorizontalOptions="EndAndExpand" Scale="1.2" />
             </StackLayout>
             <Label Text="Xin chào bạn đến với Booking Hotel!" FontSize="32" FontAttributes="Bold" TextColor="Black"/>
-            <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" Padding="0" HasShadow="False" Margin="0,20,0,0">
-                <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
-                    <Image Source="search.png" WidthRequest="20"></Image>
-                    <Label Text="Tìm kiếm khách sạn..." FontSize="20" VerticalOptions="Center"/>
-                </StackLayout>
-            </Frame>
             <StackLayout HorizontalOptions="FillAndExpand">
-                <CarouselView x:Name="BannerCarousel" Margin="0,10,0,0" IndicatorView="indicatorView" HeightRequest="150" HorizontalOptions="FillAndExpand">
+                <CarouselView x:Name="BannerCarousel" Margin="0,0,0,0" IndicatorView="indicatorView" HeightRequest="150" HorizontalOptions="FillAndExpand">
                     <CarouselView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal">
                         </LinearItemsLayout>
@@ -27,8 +22,8 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame
-                           CornerRadius="10"
-                           HorizontalOptions="Fill" Padding="0">
+                               CornerRadius="10"
+                               HorizontalOptions="Fill" Padding="0">    
                                     <StackLayout>
                                         <Image Source="{Binding Image}"
                                Aspect="AspectFill"
@@ -44,6 +39,26 @@
                    IndicatorColor="LightGray"
                    SelectedIndicatorColor="DarkGray" 
                    IndicatorSize="5"/>
+            </StackLayout>
+            <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" Padding="0" HasShadow="False" Margin="0,0,0,0">
+                <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+                    <Image Source="search.png" WidthRequest="20" ></Image>
+                    <Label Text="Tìm kiếm khách sạn..." FontSize="20" VerticalOptions="Center"/>
+                </StackLayout>
+            </Frame>
+            <StackLayout x:Name="buttonhomefilter" Orientation="Horizontal" Margin="10,10,10,0">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                    <ImageButton Source="time.webp" WidthRequest="80"  CornerRadius="50" Aspect="AspectFill"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4"  />
+                    <Label Text="Theo giờ" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                    <ImageButton Source="quadem.jpg" WidthRequest="80"  CornerRadius="50" Aspect="AspectFill" BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4"  />
+                    <Label Text="Qua đêm" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                    <ImageButton Source="ngay.webp" WidthRequest="80" CornerRadius="50"  BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4"  />
+                    <Label Text="Theo ngày" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+                </StackLayout>
             </StackLayout>
             <StackLayout>
                 <StackLayout Orientation="Horizontal">

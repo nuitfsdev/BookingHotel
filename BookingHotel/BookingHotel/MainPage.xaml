@@ -5,7 +5,7 @@
              xmlns:views="clr-namespace:BookingHotel.Views"
              x:Class="BookingHotel.MainPage"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarTitleColor="#3F3B6C"
+             Shell.TabBarTitleColor="#585de4"
              Shell.TabBarBackgroundColor="#faf7f7"
              Shell.UnselectedColor="Gray"
              >
