@@ -65,27 +65,21 @@
                     <Label Text="Khách sạn nổi bật" TextColor="#3F3B6C" FontSize="20" FontAttributes="Bold" ></Label>
                     <Label Text="Xem tất cả" HorizontalOptions="EndAndExpand" VerticalOptions="End" FontSize="16" FontAttributes="Italic"/>
                 </StackLayout>
-                <CarouselView x:Name="NoiBatCarousel" Margin="0,10,0,0" HeightRequest="150" HorizontalOptions="FillAndExpand" PeekAreaInsets="30">
-                    <CarouselView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Horizontal"/>
-                    </CarouselView.ItemsLayout>
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout>
-                                <Frame HasShadow="True" Margin="0,0,10,0"
-                               CornerRadius="20"
-                               HorizontalOptions="Fill" Padding="0">
-                                    <StackLayout>
-                                        <Image Source="{Binding Image}"
-                                   Aspect="AspectFill"
-                                   HeightRequest="150"
-                                   HorizontalOptions="Center" />
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>
+                <ScrollView>
+                    <ListView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Image Source="time1.png"></Image>
+                                    <Label Text="Khách sạn Hải Âu"/>
+                                    <Label Text="123 Chu Văn, Phù Mỹ , Bình Định"/>
+                                    <Label Text="Giá: 100-20000000 VNĐ"/>
+                                    <Label Text="4.5"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
             </StackLayout>
         </StackLayout>
     </ScrollView>
