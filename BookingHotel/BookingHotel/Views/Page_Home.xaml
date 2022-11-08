@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Home"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              BackgroundColor="#ffff"
              >
     <ScrollView>
@@ -11,7 +11,7 @@
                 <Label Text="Hello, Nam!" FontSize="Large"  TextColor="Gray"/>
                 <Image Source="bell.png" WidthRequest="20" HorizontalOptions="EndAndExpand" Scale="1.2" />
             </StackLayout>
-            <Label Text="Xin chào bạn đến với Booking Hotel!" FontSize="32" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="Xin chào bạn đến với Booking Hotel!" FontSize="32" FontAttributes="Bold" TextColor="Black" />
             <StackLayout HorizontalOptions="FillAndExpand">
                 <CarouselView x:Name="BannerCarousel" Margin="0,0,0,0" IndicatorView="indicatorView" HeightRequest="150" HorizontalOptions="FillAndExpand">
                     <CarouselView.ItemsLayout>
@@ -48,15 +48,21 @@
             </Frame>
             <StackLayout x:Name="buttonhomefilter" Orientation="Horizontal" Margin="10,10,10,0">
                 <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <ImageButton Source="time.webp" WidthRequest="80"  CornerRadius="50" Aspect="AspectFill"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4"  />
+                    <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
+                        <Image Source="time.webp"/>
+                    </Frame>
                     <Label Text="Theo giờ" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </StackLayout>
                 <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <ImageButton Source="quadem.jpg" WidthRequest="80"  CornerRadius="50" Aspect="AspectFill" BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4"  />
+                    <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
+                        <Image Source="quadem.jpg"/>
+                    </Frame>
                     <Label Text="Qua đêm" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </StackLayout>
                 <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <ImageButton Source="ngay.webp" WidthRequest="80" CornerRadius="50"  BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4"  />
+                    <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
+                        <Image Source="ngay.webp"/>
+                    </Frame>
                     <Label Text="Theo ngày" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </StackLayout>
             </StackLayout>
@@ -65,21 +71,66 @@
                     <Label Text="Khách sạn nổi bật" TextColor="#3F3B6C" FontSize="20" FontAttributes="Bold" ></Label>
                     <Label Text="Xem tất cả" HorizontalOptions="EndAndExpand" VerticalOptions="End" FontSize="16" FontAttributes="Italic"/>
                 </StackLayout>
-                <ScrollView>
-                    <ListView>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout>
-                                    <Image Source="time1.png"></Image>
-                                    <Label Text="Khách sạn Hải Âu"/>
-                                    <Label Text="123 Chu Văn, Phù Mỹ , Bình Định"/>
-                                    <Label Text="Giá: 100-20000000 VNĐ"/>
-                                    <Label Text="4.5"/>
-                                </StackLayout>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </ScrollView>
+                <CarouselView x:Name="khachsannoibat" HeightRequest="320"  Loop="False"  PeekAreaInsets="90" Margin="-100,0,0,0" >
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="CurrentItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Opacity"
+                                        Value="1" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PreviousItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                                                <Setter Property="Scale"
+                                        Value="0.95" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="NextItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                                                <Setter Property="Scale"
+                                        Value="0.95" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="DefaultItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Opacity"
+                                        Value="0.25" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame HeightRequest="290" CornerRadius="20" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4" Padding="0" Margin="10,10,10,10">
+                                    <StackLayout >
+                                        <Image Source="{Binding HinhAnhKH}" HeightRequest="180" Aspect="AspectFill"></Image>
+                                        <Label Text="{Binding TenKH}" FontAttributes="Bold" FontSize="18" TextColor="Black" Padding="10,0,10,0"/>
+                                        <Label Text="{Binding DiaChiChiTiet}" Padding="10,0,10,0"/>
+                                        <StackLayout Orientation="Horizontal" Padding="10,0,10,10" VerticalOptions="EndAndExpand">
+                                            <Label Text="{Binding GiaMin}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="-" VerticalTextAlignment="Center" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="{Binding GiaMax}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="vnđ" VerticalTextAlignment="Center" FontSize="16" TextColor="red" />
+                                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" VerticalOptions="End">
+                                                <Label Text="{Binding RateKH}" VerticalTextAlignment="Center" FontSize="16" TextColor="Black"/>
+                                                <Image Source="star.png" WidthRequest="20" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
             </StackLayout>
         </StackLayout>
     </ScrollView>
