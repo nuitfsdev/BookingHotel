@@ -5,6 +5,25 @@
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Booking">
+    <!--Đổi màu selectmode-->
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#eee" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
 <!--___________________________________________Tiêu đề đặt phòng và kính lúp tìm kiếm_____________________________________________-->
@@ -39,7 +58,7 @@
             
 <!--___________________________________________________Tạo lưới chứa Collection View hiện danh sách khách sạn__________________________________-->
 
-            <CollectionView x:Name="Booking_Collection" Grid.Row="0">
+            <CollectionView x:Name="Booking_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White">
                 <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10">

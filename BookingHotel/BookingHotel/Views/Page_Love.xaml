@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Love">
     <ContentPage.Content>
         <StackLayout>
             <!--Tiêu đề trang love và nút tìm kiếm-->
-        <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-            <Label Text="Yêu thích" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+        <StackLayout Padding="20,10,20,10"  Orientation="Horizontal" Margin="-10,0,-10,0" HorizontalOptions="FillAndExpand"
+                     xct:ShadowEffect.OffsetY="-1" xct:ShadowEffect.OffsetX="0" xct:ShadowEffect.Radius="5" xct:ShadowEffect.Color="#eee">
+                <Label Text="Yêu thích" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
             <ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
                          x:Name="Search_Btn"
