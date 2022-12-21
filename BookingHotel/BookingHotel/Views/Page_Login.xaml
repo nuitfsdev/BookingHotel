@@ -1,11 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BookingHotel.Models"
              x:Class="BookingHotel.Views.Page_Login"
              Title="Đăng nhập">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Đăng nhập" TextColor="Black" x:Name="Login_Btn" Clicked="Login_Btn_Clicked"/>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="300">
+                <Label Text="Đăng nhập" FontAttributes="Bold" FontSize="Large" TextColor="Black"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+                <Label Text="Email" TextColor="#585de4" FontSize="Large" FontAttributes="Bold" Margin="10,0,0,0"/>
+                <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0">
+                    <models:MyEntry Placeholder="Nhập Email của bạn..." FontSize="Medium" TextColor="Black" Margin="10,0,0,0" />
+                </Frame>
+                <Label Text="Mật khẩu" TextColor="#585de4" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,0"/>
+                <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0">
+                    <models:MyEntry Placeholder="Nhập mật khẩu của bạn..." FontSize="Medium" IsPassword="True" TextColor="Black" Margin="10,0,0,0"/>
+                </Frame>
+                <Button Text="Đăng nhập" x:Name="Login_Btn" Clicked="Login_Btn_Clicked" Margin="0,30,0,0" HorizontalOptions="Center" Padding="20,10,20,10"
+                        CornerRadius="30" BorderColor="#585de4" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20">
+                <Label Text="Bạn chưa đăng kí tài khoản?" FontSize="Medium" TextColor="Black"/>
+                <Label Text="Đăng kí ngay!" FontSize="Medium"  TextColor="#585de4" FontAttributes="Bold" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="register_btn" Tapped="register_btn_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+             
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
