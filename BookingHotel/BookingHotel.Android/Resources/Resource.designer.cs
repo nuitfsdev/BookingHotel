@@ -22062,7 +22062,11 @@ namespace BookingHotel.Droid
 			public const int account = 2131165269;
 			
 			// aapt resource value: 0x7F070056
+<<<<<<< HEAD
 			public const int arrow_left = 2131165270;
+=======
+			public const int asia = 2131165270;
+>>>>>>> main
 			
 			// aapt resource value: 0x7F070057
 			public const int avd_hide_password = 2131165271;
@@ -22131,6 +22135,7 @@ namespace BookingHotel.Droid
 			public const int design_snackbar_background = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
+<<<<<<< HEAD
 			public const int HCM = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
@@ -22165,6 +22170,42 @@ namespace BookingHotel.Droid
 			
 			// aapt resource value: 0x7F070078
 			public const int ksdemo = 2131165304;
+=======
+			public const int hai_au = 2131165293;
+			
+			// aapt resource value: 0x7F07006E
+			public const int HCM = 2131165294;
+			
+			// aapt resource value: 0x7F070070
+			public const int hoan_vu = 2131165296;
+			
+			// aapt resource value: 0x7F07006F
+			public const int hoa_binh = 2131165295;
+			
+			// aapt resource value: 0x7F070071
+			public const int home = 2131165297;
+			
+			// aapt resource value: 0x7F070072
+			public const int ic_arrow_down_24dp = 2131165298;
+			
+			// aapt resource value: 0x7F070073
+			public const int ic_clock_black_24dp = 2131165299;
+			
+			// aapt resource value: 0x7F070074
+			public const int ic_keyboard_black_24dp = 2131165300;
+			
+			// aapt resource value: 0x7F070075
+			public const int ic_mtrl_checked_circle = 2131165301;
+			
+			// aapt resource value: 0x7F070076
+			public const int ic_mtrl_chip_checked_black = 2131165302;
+			
+			// aapt resource value: 0x7F070077
+			public const int ic_mtrl_chip_checked_circle = 2131165303;
+			
+			// aapt resource value: 0x7F070078
+			public const int ic_mtrl_chip_close_circle = 2131165304;
+>>>>>>> main
 			
 			// aapt resource value: 0x7F070079
 			public const int love = 2131165305;
@@ -22230,6 +22271,7 @@ namespace BookingHotel.Droid
 			public const int mtrl_tabs_default_indicator = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
+<<<<<<< HEAD
 			public const int navigation_empty_icon = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
@@ -22297,6 +22339,78 @@ namespace BookingHotel.Droid
 			
 			// aapt resource value: 0x7F0700A4
 			public const int tooltip_frame_light = 2131165348;
+=======
+			public const int nam_ngoc = 2131165326;
+			
+			// aapt resource value: 0x7F07008F
+			public const int navigation_empty_icon = 2131165327;
+			
+			// aapt resource value: 0x7F070090
+			public const int ngay = 2131165328;
+			
+			// aapt resource value: 0x7F070091
+			public const int notification_action_background = 2131165329;
+			
+			// aapt resource value: 0x7F070092
+			public const int notification_bg = 2131165330;
+			
+			// aapt resource value: 0x7F070093
+			public const int notification_bg_low = 2131165331;
+			
+			// aapt resource value: 0x7F070094
+			public const int notification_bg_low_normal = 2131165332;
+			
+			// aapt resource value: 0x7F070095
+			public const int notification_bg_low_pressed = 2131165333;
+			
+			// aapt resource value: 0x7F070096
+			public const int notification_bg_normal = 2131165334;
+			
+			// aapt resource value: 0x7F070097
+			public const int notification_bg_normal_pressed = 2131165335;
+			
+			// aapt resource value: 0x7F070098
+			public const int notification_icon_background = 2131165336;
+			
+			// aapt resource value: 0x7F070099
+			public const int notification_template_icon_bg = 2131165337;
+			
+			// aapt resource value: 0x7F07009A
+			public const int notification_template_icon_low_bg = 2131165338;
+			
+			// aapt resource value: 0x7F07009B
+			public const int notification_tile_bg = 2131165339;
+			
+			// aapt resource value: 0x7F07009C
+			public const int notify_panel_notification_icon_bg = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int preference_list_divider_material = 2131165341;
+			
+			// aapt resource value: 0x7F07009E
+			public const int quadem = 2131165342;
+			
+			// aapt resource value: 0x7F07009F
+			public const int search = 2131165343;
+			
+			// aapt resource value: 0x7F0700A0
+			public const int star = 2131165344;
+			
+			// aapt resource value: 0x7F0700A1
+			public const int test_custom_background = 2131165345;
+			
+			// aapt resource value: 0x7F0700A2
+			public const int time = 2131165346;
+			
+			// aapt resource value: 0x7F0700A3
+			public const int time1 = 2131165347;
+			
+			// aapt resource value: 0x7F0700A4
+			public const int tooltip_frame_dark = 2131165348;
+			
+			// aapt resource value: 0x7F0700A5
+			public const int tooltip_frame_light = 2131165349;
+>>>>>>> main
 			
 			static Drawable()
 			{

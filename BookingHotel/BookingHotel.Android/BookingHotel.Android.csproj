@@ -134,12 +134,17 @@
     <AndroidResource Include="Resources\drawable\time1.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <AndroidResource Include="Resources\drawable\heart.png" />
+=======
+    <AndroidResource Include="Resources\drawable\hai_au.jpg" />
+>>>>>>> main
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\star.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <AndroidResource Include="Resources\drawable\heartWhite.png" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +152,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\arrow_left.png" />
+=======
+    <AndroidResource Include="Resources\drawable\hoa_binh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\nam_ngoc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\asia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hoan_vu.jpg" />
+>>>>>>> main
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
