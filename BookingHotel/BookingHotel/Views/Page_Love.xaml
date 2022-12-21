@@ -4,9 +4,83 @@
              x:Class="BookingHotel.Views.Page_Love">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Love"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+            <!--Tiêu đề trang love và nút tìm kiếm-->
+        <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Yêu thích" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                       HorizontalOptions="StartAndExpand"/>
+            <ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                         x:Name="Search_Btn"
+                         Clicked="Search_Btn_Clicked"
+                             HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+
+            </StackLayout>
+        <!--Collection View hiện danh sách các khách sạn đang yêu thích/theo dõi-->
+        <CollectionView x:Name="Love_Collection" Grid.Row="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="1.5*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Hình ảnh của Khách sạn-->
+                        <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
+                                       IsClippedToBounds="True" CornerRadius="30">
+                            <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
+                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            </Image>
+                        </Frame>
+
+                        <!--Tên khách sạn-->
+
+                        <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
+                                       Grid.Column="1" Grid.Row="0"
+                                       Margin="10,0,0,0"/>
+
+                        <!--Địa chỉ khách sạn-->
+
+                        <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1"
+                                             Margin="10,0,0,0">
+                            <Label Text="{Binding Tinh}"/>
+                            <Label Text=","/>
+                            <Label Text="{Binding QuanHuyen}"/>
+                        </StackLayout>
+
+                        <!--Xóa khách sạn-->
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+                                              Padding="0,0,2,0" VerticalOptions="Start"
+                                       HorizontalOptions="End">
+                                <Image Source="dat_trash.png" WidthRequest="45" 
+                                          />
+                            </StackLayout>
+
+                        <!--Đặt vé -->
+                            <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="StartAndExpand" Padding="0,0,2,0" Margin="10,0,0,0">
+                                    <Label Text="{Binding RateKH}" FontSize="Medium" VerticalOptions="Center"/>
+                                    <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                                <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" />
+                            </StackLayout>
+                        </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
+                        hiển thị ra Empty View-->
+            <CollectionView.EmptyView>
+                <Label Text="Có lỗi xảy ra"/>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </StackLayout>
     </ContentPage.Content>
 </ContentPage>
