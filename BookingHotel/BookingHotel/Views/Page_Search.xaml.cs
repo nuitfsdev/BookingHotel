@@ -45,6 +45,7 @@ namespace BookingHotel.Views
         {
             InitializeComponent();
             hienthiks();
+            search_entry.Focus();
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)

@@ -4,9 +4,28 @@
              x:Class="BookingHotel.Views.Page_Announcement"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Shell.TabBarIsVisible="False">
+    <!--Đổi màu selectmode-->
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#eee" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout >
-            <StackLayout  Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10" xct:ShadowEffect.OffsetY="-1" HorizontalOptions="Fill" xct:ShadowEffect.OffsetX="0" xct:ShadowEffect.Radius="5" xct:ShadowEffect.Color="#eee">
+            <StackLayout Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10" xct:ShadowEffect.OffsetY="-1" HorizontalOptions="Fill" xct:ShadowEffect.OffsetX="0" xct:ShadowEffect.Radius="5" xct:ShadowEffect.Color="#eee">
                 <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
                              x:Name="back_btn" Clicked="back_btn_Clicked"
                       Margin="15,0,0,0"
@@ -15,7 +34,54 @@
                 <Label Text="Thông báo" TextColor="Black" FontSize="Large" FontAttributes="Bold" Padding="0,0,40,0" 
                        HorizontalOptions="CenterAndExpand"/>
 
+                <ImageButton Source="dat_seen.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                      Margin="0,0,15,0"
+                    HorizontalOptions="Start"/>
+
             </StackLayout>
+
+            <CollectionView x:Name="Announcement_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="6*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Icon thông báo-->
+                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Padding="0" BorderColor="Transparent"
+                                       IsClippedToBounds="True" HasShadow="True">
+                                <Image Source="{Binding Hinh}"  WidthRequest="50" VerticalOptions="Center">
+                                </Image>
+                            </Frame>
+
+                            <!--Tiêu đề của thông báo-->
+
+                            <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                                       Grid.Column="1" Grid.Row="0"
+                                       Margin="10,0,0,0"/>
+
+                            <!--Nôi dung-->
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand"
+                                             Margin="10,0,0,0">
+                                <Label Text="{Binding Content}" FontSize="Small"/>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
+                        hiển thị ra Empty View-->
+                <CollectionView.EmptyView>
+                    <Label Text="Có lỗi xảy ra"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -52,5 +52,10 @@ namespace BookingHotel.Views
         {
             await Shell.Current.GoToAsync(state: "//main/announcement");
         }
+
+        private async void home_search_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(state: "//main/search");
+        }
     }
 }

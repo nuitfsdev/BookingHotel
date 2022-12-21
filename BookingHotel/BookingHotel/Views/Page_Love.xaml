@@ -20,7 +20,7 @@
         <CollectionView x:Name="Love_Collection" Grid.Row="0">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10">
+                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -31,40 +31,40 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                                                            <!--Hình ảnh của Khách sạn-->
 
-                        <!--Hình ảnh của Khách sạn-->
-                        <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
-                                       IsClippedToBounds="True" CornerRadius="30">
-                            <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
-                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                            </Image>
-                        </Frame>
+                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent" WidthRequest="50"
+                                        IsClippedToBounds="True" CornerRadius="10">
+                                    <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
+                                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    </Image>
+                                </Frame>
 
-                        <!--Tên khách sạn-->
+                                <!--Tên khách sạn-->
 
-                        <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
-                                       Grid.Column="1" Grid.Row="0"
-                                       Margin="10,0,0,0"/>
+                                <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
+                                               Grid.Column="1" Grid.Row="0"
+                                               Margin="10,0,0,0"/>
 
-                        <!--Địa chỉ khách sạn-->
+                                <!--Địa chỉ khách sạn-->
 
-                        <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1"
-                                             Margin="10,0,0,0">
-                            <Label Text="{Binding Tinh}"/>
-                            <Label Text=","/>
-                            <Label Text="{Binding QuanHuyen}"/>
-                        </StackLayout>
+                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1"
+                                                     Margin="10,0,0,0">
+                                    <Label Text="{Binding Tinh}"/>
+                                    <Label Text=","/>
+                                    <Label Text="{Binding QuanHuyen}"/>
+                                </StackLayout>
 
-                        <!--Xóa khách sạn-->
+                                <!--Xóa khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
-                                              Padding="0,0,2,0" VerticalOptions="Start"
-                                       HorizontalOptions="End">
-                                <Image Source="dat_trash.png" WidthRequest="45" 
-                                          />
-                            </StackLayout>
+                                <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+                                                      Padding="0,0,2,0" VerticalOptions="Start"
+                                               HorizontalOptions="End">
+                                        <Image Source="dat_trash.png" WidthRequest="45" 
+                                                  />
+                                    </StackLayout>
 
-                        <!--Đặt vé -->
+                                <!--Đặt vé -->
                             <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
                                 <StackLayout Orientation="Horizontal"
                                              HorizontalOptions="StartAndExpand" Padding="0,0,2,0" Margin="10,0,0,0">

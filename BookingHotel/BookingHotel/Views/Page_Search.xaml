@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BookingHotel.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Search"
              Shell.TabBarIsVisible="False"
              >
@@ -33,7 +35,7 @@
                 <!--Ô search-->
                 <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" Padding="0" HasShadow="False" Margin="5,0,5,0" HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
-                        <Entry Placeholder="Tìm kiếm khách sạn..." FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <models:MyEntry Placeholder="Tìm kiếm khách sạn..." FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" x:Name="search_entry"/>
                         <Image Source="search.png" WidthRequest="25" HeightRequest="25" Margin="0,0,20,0"/>
                     </StackLayout>
                 </Frame>
@@ -46,14 +48,14 @@
             <CollectionView x:Name="Search_Collection" Grid.Row="0" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10">
+                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="2*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="120"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>

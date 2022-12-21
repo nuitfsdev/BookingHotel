@@ -61,23 +61,23 @@
             <CollectionView x:Name="Booking_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White">
                 <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10">
+                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="2*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
                                 <!--Hình ảnh của Khách sạn-->
-                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
-                                       IsClippedToBounds="True" CornerRadius="30">
+                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0"  BorderColor="Transparent"
+                                       IsClippedToBounds="True" CornerRadius="10">
                                 <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
-                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                          >
                                 </Image>
                             </Frame>
 
