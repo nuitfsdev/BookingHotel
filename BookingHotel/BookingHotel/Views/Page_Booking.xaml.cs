@@ -1,5 +1,4 @@
 ﻿using BookingHotel.Models;
-using Syncfusion.XForms.PopupLayout;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -64,10 +63,9 @@ namespace BookingHotel.Views
             }
         }
 
-        private void Booking_filter_btn_Clicked(object sender, EventArgs e)
+        private async void Search_Btn_Clicked(object sender, EventArgs e)
         {
-            Button button = (Button)sender; 
-
+            await Shell.Current.GoToAsync(state: "//main/search");
         }
     }
 }
