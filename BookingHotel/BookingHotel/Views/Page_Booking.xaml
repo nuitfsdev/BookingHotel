@@ -60,75 +60,75 @@
 
             <CollectionView x:Name="Booking_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White">
                 <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                    <DataTemplate>
+                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                                <!--Hình ảnh của Khách sạn-->
-                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0"  BorderColor="Transparent"
+                            <!--Hình ảnh của Khách sạn-->
+                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
                                 <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
                                           >
                                 </Image>
                             </Frame>
 
-                                <!--Tên khách sạn-->
+                            <!--Tên khách sạn-->
 
-                                <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
+                            <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
                                        Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
                                        Margin="10,0,0,0"/>
 
-                                <!--Địa chỉ khách sạn-->
+                            <!--Địa chỉ khách sạn-->
 
-                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
-                                    <Label Text="{Binding Tinh}" FontSize="Small"/>
-                                    <Label Text="," FontSize="Small"/>
-                                    <Label Text="{Binding QuanHuyen}" FontSize="Small"/>
-                                </StackLayout>
+                                <Label Text="{Binding Tinh}" FontSize="Small"/>
+                                <Label Text="," FontSize="Small"/>
+                                <Label Text="{Binding QuanHuyen}" FontSize="Small"/>
+                            </StackLayout>
 
-                                <!--Giá phòng của khách sạn-->
+                            <!--Giá phòng của khách sạn-->
 
-                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
-                                    <Label Text="{Binding GiaMin}" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="{Binding GiaMin}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                    <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                    <Label Text="{Binding GiaMax}" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="{Binding GiaMax}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                </StackLayout>
+                            </StackLayout>
 
-                                <!--Đánh giá về khách sạn-->
+                            <!--Đánh giá về khách sạn-->
 
-                                <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
+                            <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
                                              HorizontalOptions="End" Padding="0,0,2,0">
-                                    <Label Text="{Binding RateKH}" FontSize="Medium" VerticalOptions="Center"/>
-                                    <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
+                                <Label Text="{Binding RateKH}" FontSize="Medium" VerticalOptions="Center"/>
+                                <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
                                            VerticalOptions="Center"/>
-                                </StackLayout>
+                            </StackLayout>
 
-                                <!--Thêm khách sạn vào Yêu thích-->
+                            <!--Thêm khách sạn vào Yêu thích-->
 
-                                <Image Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                            <Image Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
                                        HeightRequest="25" WidthRequest="25"
                                        HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"
                                        Margin="0,20,5,0">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer x:Name="Add_Like_List" Tapped="Add_Like_List_Tapped"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                            </Grid>
-                        </DataTemplate>
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="Add_Like_List" Tapped="Add_Like_List_Tapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
                     </CollectionView.ItemTemplate>
 
                     <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
