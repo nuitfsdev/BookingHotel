@@ -11,13 +11,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="20.3.0.56" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Booking_filter_view.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Page_Account.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

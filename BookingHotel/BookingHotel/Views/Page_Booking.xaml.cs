@@ -1,5 +1,4 @@
 ﻿using BookingHotel.Models;
-using Syncfusion.XForms.PopupLayout;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -66,8 +65,8 @@ namespace BookingHotel.Views
 
         private void Booking_filter_btn_Clicked(object sender, EventArgs e)
         {
-            Button button = (Button)sender; 
-
+            Button button = (Button)sender;
+            Booking_filter_View.IsVisible = !Booking_filter_View.IsVisible;
         }
     }
 }
