@@ -47,5 +47,10 @@ namespace BookingHotel.Views
 
 
         }
+
+        private async void announcement_icon_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(state: "//main/announcement");
+        }
     }
 }

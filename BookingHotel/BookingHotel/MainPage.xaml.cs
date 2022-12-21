@@ -16,9 +16,11 @@ namespace BookingHotel
             InitializeComponent();
             Routing.RegisterRoute("main/home",typeof(Page_Home));
             Routing.RegisterRoute("main/book", typeof(Page_Booking));
+            Routing.RegisterRoute("main/order", typeof(Page_Order));
             Routing.RegisterRoute("main/love", typeof(Page_Love));
             Routing.RegisterRoute("main/account", typeof(Page_Account));
             Routing.RegisterRoute("main/search", typeof(Page_Search));
+            Routing.RegisterRoute("main/announcement", typeof(Page_Announcement));
         }
     }
 }

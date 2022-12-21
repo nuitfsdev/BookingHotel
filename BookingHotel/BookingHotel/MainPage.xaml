@@ -22,7 +22,9 @@
         </Tab>
         <Tab Title="Yêu thích" Icon="love.png" Route="love">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Love}" ></ShellContent>
-
+        </Tab>
+        <Tab Title="Đã đặt" Icon="dat_order.png" Route="order">
+            <ShellContent ContentTemplate="{DataTemplate views:Page_Order}" ></ShellContent>
         </Tab>
         <Tab Title="Tài khoản" Icon="account.png" Route="account">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Account}" ></ShellContent>
@@ -30,5 +32,8 @@
     </TabBar>
     <ShellItem Route="search">
         <ShellContent ContentTemplate="{DataTemplate views:Page_Search}"/>
+    </ShellItem>
+    <ShellItem Route="announcement">
+        <ShellContent ContentTemplate="{DataTemplate views:Page_Announcement}"/>
     </ShellItem>
 </Shell>

@@ -4,12 +4,124 @@
              x:Class="BookingHotel.Views.Page_Search"
              Shell.TabBarIsVisible="False"
              >
+    <!--Đổi màu selectmode-->
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#eee" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="back" x:Name="back" Clicked="back_Clicked"/>
-            <Label Text="Search"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                             x:Name="back_btn" Clicked="back_btn_Clicked" 
+                    HorizontalOptions="Start" Margin="0,0,0,0"/>
+
+                <!--Ô search-->
+                <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" Padding="0" HasShadow="False" Margin="5,0,5,0" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+                        <Entry Placeholder="Tìm kiếm khách sạn..." FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <Image Source="search.png" WidthRequest="25" HeightRequest="25" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <ImageButton Source="dat_filter.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                             x:Name="filter_btn" Clicked="filter_btn_Clicked"
+                    HorizontalOptions="End" Margin="0,0,0,0"/>
+            </StackLayout>
+            <!--đổ dữ liệu vào thử cho trang search-->
+            <CollectionView x:Name="Search_Collection" Grid.Row="0" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Hình ảnh của Khách sạn-->
+                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
+                                       IsClippedToBounds="True" CornerRadius="30">
+                                <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
+                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                </Image>
+                            </Frame>
+
+                            <!--Tên khách sạn-->
+
+                            <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
+                                       Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                       Margin="10,0,0,0"/>
+
+                            <!--Địa chỉ khách sạn-->
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                                             Margin="10,0,0,0">
+                                <Label Text="{Binding Tinh}" FontSize="Small"/>
+                                <Label Text="," FontSize="Small"/>
+                                <Label Text="{Binding QuanHuyen}" FontSize="Small"/>
+                            </StackLayout>
+
+                            <!--Giá phòng của khách sạn-->
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                                             Margin="10,0,0,0">
+                                <Label Text="{Binding GiaMin}" TextColor="#585de4" FontSize="Medium" 
+                                           VerticalOptions="EndAndExpand"/>
+                                <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
+                                           VerticalOptions="EndAndExpand"/>
+                                <Label Text="{Binding GiaMax}" TextColor="#585de4" FontSize="Medium" 
+                                           VerticalOptions="EndAndExpand"/>
+                            </StackLayout>
+
+                            <!--Đánh giá về khách sạn-->
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
+                                             HorizontalOptions="End" Padding="0,0,2,0">
+                                <Label Text="{Binding RateKH}" FontSize="Medium" VerticalOptions="Center"/>
+                                <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
+                                           VerticalOptions="Center"/>
+                            </StackLayout>
+
+                            <!--Thêm khách sạn vào Yêu thích-->
+
+                            <Image Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                                       HeightRequest="25" WidthRequest="25"
+                                       HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"
+                                       Margin="0,20,5,0">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="Add_Like_List" Tapped="Add_Like_List_Tapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
+                        hiển thị ra Empty View-->
+                <CollectionView.EmptyView>
+                    <Label Text="Có lỗi xảy ra"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
