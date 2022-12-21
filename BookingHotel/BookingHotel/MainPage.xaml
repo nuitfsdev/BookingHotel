@@ -8,6 +8,9 @@
              Shell.TabBarBackgroundColor="#faf7f7"
              Shell.UnselectedColor="Gray"
              >
+    <ShellItem Route="logo">
+        <ShellContent ContentTemplate="{DataTemplate views:Page_Logo}"/>
+    </ShellItem>
     <ShellItem Route="login">
         <ShellContent ContentTemplate="{DataTemplate views:Page_Login}"/>
     </ShellItem>

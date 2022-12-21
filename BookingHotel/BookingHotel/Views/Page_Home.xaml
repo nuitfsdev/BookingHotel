@@ -41,6 +41,9 @@
                    IndicatorSize="5"/>
             </StackLayout>
             <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" Padding="0" HasShadow="False" Margin="0,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="home_search" Tapped="home_search_Tapped"/>
+                </Frame.GestureRecognizers>
                 <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
                     <Image Source="search.png" WidthRequest="20" ></Image>
                     <Label Text="Tìm kiếm khách sạn..." FontSize="20" VerticalOptions="Center"/>
@@ -48,19 +51,19 @@
             </Frame>
             <StackLayout x:Name="buttonhomefilter" Orientation="Horizontal" Margin="10,10,10,0">
                 <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
+                    <Frame WidthRequest="80"  CornerRadius="20" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
                         <Image Source="time.webp"/>
                     </Frame>
                     <Label Text="Theo giờ" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </StackLayout>
                 <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
+                    <Frame WidthRequest="80"  CornerRadius="20" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
                         <Image Source="quadem.jpg"/>
                     </Frame>
                     <Label Text="Qua đêm" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </StackLayout>
                 <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
+                    <Frame WidthRequest="80"  CornerRadius="20" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
                         <Image Source="ngay.webp"/>
                     </Frame>
                     <Label Text="Theo ngày" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
