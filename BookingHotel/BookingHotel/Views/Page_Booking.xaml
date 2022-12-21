@@ -12,7 +12,9 @@
             <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Label Text="Đặt phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
-                <ImageButton Source="search.png" BackgroundColor="White" WidthRequest="25" HeightRequest="25" 
+                <ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                             x:Name="Search_Btn"
+                             Clicked="Search_Btn_Clicked"
                              HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
             </StackLayout>
             
@@ -35,14 +37,10 @@
                 </StackLayout>
             </ScrollView>
             
-<!--___________________________________________________Tạo lưới chứa Collection View và nút Bộ lọc__________________________________-->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <CollectionView x:Name="Booking_Collection" Grid.Row="0" Grid.RowSpan="2">
-                    <CollectionView.ItemTemplate>
+<!--___________________________________________________Tạo lưới chứa Collection View hiện danh sách khách sạn__________________________________-->
+
+            <CollectionView x:Name="Booking_Collection" Grid.Row="0">
+                <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
@@ -57,12 +55,12 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!--Hình ảnh của Khách sạn-->
-                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent" BackgroundColor="Red"
-                                       IsClippedToBounds="True" CornerRadius="10">
-                                    <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
+                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
+                                       IsClippedToBounds="True" CornerRadius="30">
+                                <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
                                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                    </Image>
-                                </Frame>
+                                </Image>
+                            </Frame>
 
                                 <!--Tên khách sạn-->
 
@@ -122,15 +120,6 @@
                 </CollectionView>
                  
                 <!--_______________________________________________________Nút bộ lọc sẽ ghi đè lên Collection View_________________________________-->
-                <Button Text="Bộ lọc" TextTransform="None" BackgroundColor="#585de4" TextColor="White" BorderColor="#585de4" BorderWidth="1" CornerRadius="20"
-                        WidthRequest="100" HeightRequest="50" HorizontalOptions="Center" Margin="0,0,0,20"
-                        x:Name="Booking_filter_btn" Clicked="Booking_filter_btn_Clicked"
-                        Grid.Row="1" VerticalOptions="EndAndExpand"/>
-                <local:Booking_filter_view Grid.Row="0" Grid.RowSpan="2"
-                        x:Name="Booking_filter_View"
-                        IsVisible="False"/>
-            </Grid>
-            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

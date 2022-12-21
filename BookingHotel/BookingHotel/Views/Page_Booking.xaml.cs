@@ -63,10 +63,9 @@ namespace BookingHotel.Views
             }
         }
 
-        private void Booking_filter_btn_Clicked(object sender, EventArgs e)
+        private async void Search_Btn_Clicked(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            Booking_filter_View.IsVisible = !Booking_filter_View.IsVisible;
+            await Shell.Current.GoToAsync(state: "//main/search");
         }
     }
 }

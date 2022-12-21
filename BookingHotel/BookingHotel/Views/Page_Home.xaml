@@ -48,17 +48,6 @@
             </Frame>
             <StackLayout x:Name="buttonhomefilter" Orientation="Horizontal" Margin="10,10,10,0">
                 <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-<<<<<<< HEAD
-                    <ImageButton Source="time.webp" WidthRequest="80"  CornerRadius="50" Aspect="AspectFill"   BackgroundColor="White"  />
-                    <Label Text="Theo giờ" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
-                </StackLayout>
-                <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <ImageButton Source="quadem.jpg" WidthRequest="80"  CornerRadius="50" Aspect="AspectFill" BackgroundColor="White" />
-                    <Label Text="Qua đêm" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
-                </StackLayout>
-                <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                    <ImageButton Source="ngay.webp" WidthRequest="80" CornerRadius="50"  BackgroundColor="White"/>
-=======
                     <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
                         <Image Source="time.webp"/>
                     </Frame>
@@ -74,7 +63,6 @@
                     <Frame WidthRequest="80"  CornerRadius="50" Padding="0"   BackgroundColor="White" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4">
                         <Image Source="ngay.webp"/>
                     </Frame>
->>>>>>> main
                     <Label Text="Theo ngày" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </StackLayout>
             </StackLayout>
