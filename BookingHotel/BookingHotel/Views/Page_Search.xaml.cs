@@ -53,9 +53,9 @@ namespace BookingHotel.Views
             await Shell.Current.GoToAsync(state: "../");
         }
 
-        private void filter_btn_Clicked(object sender, EventArgs e)
+        private async void filter_btn_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("thong bao", "filter chua co","ok");
+            await Shell.Current.GoToAsync(state: "//main/filter");
         }
 
         private void Add_Like_List_Tapped(object sender, EventArgs e)

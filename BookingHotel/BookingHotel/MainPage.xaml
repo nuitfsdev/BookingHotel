@@ -14,6 +14,9 @@
     <ShellItem Route="login">
         <ShellContent ContentTemplate="{DataTemplate views:Page_Login}"/>
     </ShellItem>
+    <ShellItem Route="register">
+        <ShellContent ContentTemplate="{DataTemplate views:Page_Register}"/>
+    </ShellItem>
     
     <TabBar Route="main" >
         <Tab Title="Trang chủ" Icon="home.png" Route="home">

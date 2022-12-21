@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BookingHotel.Models"
+             x:Class="BookingHotel.Views.Page_Filter">
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout>
+            <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <!--Trở về-->
+                <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                             x:Name="back_btn" Clicked="back_btn_Clicked" 
+                    HorizontalOptions="Start" Margin="0,0,0,0"/>
+
+                <Label Text="Lọc" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="20,0,0,0"
+                       HorizontalOptions="StartAndExpand"/>
+                <!--Xóa bộ lọc-->
+                <Label Text="Clear" TextColor="Red" FontSize="Medium" FontAttributes="Bold" Margin="0,0,20,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="clear_btn" Tapped="clear_btn_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <!--Lọc loại khách sạn-->
+            <!--Mô phỏng giao diện thôi-->
+            <StackLayout>
+                <Label Text="Loại khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,20"/>
+                <ScrollView Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" HeightRequest="250" VerticalScrollBarVisibility="Always">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hotel" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Resort" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hotel" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Resort" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hotel" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Resort" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hotel" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Resort" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                            <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <!--Lọc mức giá-->
+            <StackLayout>
+                <Label Text="Mức giá" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,20"/>
+                <StackLayout Orientation="Horizontal">
+                    <Frame WidthRequest="165" BackgroundColor="#f4f4f8" CornerRadius="50" HeightRequest="50" HasShadow="False" VerticalOptions="Center" HorizontalOptions="StartAndExpand" BorderColor="#585de4" Padding="0" Margin="10,0,0,0">
+                        <models:MyEntry Placeholder="Min" FontSize="Medium" TextColor="Black" Margin="10,0,0,0" />
+                    </Frame>
+                    <Label Text="đến" TextColor="#585de4" FontSize="Large" FontAttributes="Bold" Margin="5,20,5,20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                    <Frame WidthRequest="165" BackgroundColor="#f4f4f8" CornerRadius="50" HeightRequest="50" HasShadow="False" VerticalOptions="Center" HorizontalOptions="EndAndExpand" BorderColor="#585de4" Padding="0" Margin="0,0,10,0">
+                        <models:MyEntry Placeholder="Max" FontSize="Medium" TextColor="Black" Margin="10,0,0,0" />
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <!--Lọc tiện ích của khách sạn-->
+            <StackLayout>
+                <Label Text="Các thiết bị/ tiện tích" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,20"/>
+                    <ScrollView Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" 
+                                HeightRequest="250" VerticalScrollBarVisibility="Always">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Hồ bơi" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Phòng gym" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Máy lạnh" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Quầy bar" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Sân bóng" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Nhà hàng" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
+                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
+                            </StackLayout>
+                        </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <!--Nút Lọc-->
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,30,0,30">
+                <Button Text="Lọc" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
