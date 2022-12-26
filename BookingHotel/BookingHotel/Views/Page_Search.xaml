@@ -45,7 +45,7 @@
                     HorizontalOptions="End" Margin="0,0,0,0"/>
             </StackLayout>
             <!--đổ dữ liệu vào thử cho trang search-->
-            <CollectionView x:Name="Search_Collection" Grid.Row="0" SelectionMode="Single">
+            <CollectionView x:Name="Search_Collection" Grid.Row="0" SelectionMode="Single" SelectionChanged="Search_Collection_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >

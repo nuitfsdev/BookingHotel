@@ -23,7 +23,7 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
         <StackLayout>
 <!--___________________________________________Tiêu đề đặt phòng và kính lúp tìm kiếm_____________________________________________-->
@@ -58,7 +58,7 @@
             
 <!--___________________________________________________Tạo lưới chứa Collection View hiện danh sách khách sạn__________________________________-->
 
-            <CollectionView x:Name="Booking_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White">
+            <CollectionView x:Name="Booking_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White" SelectionChanged="Booking_Collection_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" Margin="10">

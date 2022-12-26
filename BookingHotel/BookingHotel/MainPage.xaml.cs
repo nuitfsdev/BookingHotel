@@ -1,4 +1,5 @@
-﻿using BookingHotel.Views;
+﻿using BookingHotel.Models;
+using BookingHotel.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

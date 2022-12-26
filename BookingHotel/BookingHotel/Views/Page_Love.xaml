@@ -17,7 +17,7 @@
 
             </StackLayout>
         <!--Collection View hiện danh sách các khách sạn đang yêu thích/theo dõi-->
-        <CollectionView x:Name="Love_Collection" Grid.Row="0">
+        <CollectionView x:Name="Love_Collection" Grid.Row="0" SelectionMode="Single" SelectionChanged="Love_Collection_SelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                         <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
