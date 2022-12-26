@@ -16,5 +16,30 @@ namespace BookingHotel.Views
         {
             InitializeComponent();
         }
+
+        private void infomation_Tapped(object sender, EventArgs e)
+        {
+            Shell.Current.Navigation.PushAsync( new Page_User_Info());
+        }
+
+        private void payment_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void notification_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(state: "//main/announcement");
+        }
+
+        private void help_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void feedback_Tapped(object sender, EventArgs e)
+        {
+            Shell.Current.Navigation.PushAsync(new Page_Feedback());
+        }
     }
 }

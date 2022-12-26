@@ -14,6 +14,7 @@ namespace BookingHotel.Models
         public string PhuongXa { get; set; }
         public int RateKH { get; set; }
         public string HinhAnhKH { get; set; }
+        public string Mota { get; set; }
         public string ChuongTrinh { get; set; }
         public string GiaMin { get; set; }
         public string GiaMax { get; set; }

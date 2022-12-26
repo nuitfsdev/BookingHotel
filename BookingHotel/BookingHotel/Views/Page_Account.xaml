@@ -4,9 +4,88 @@
              x:Class="BookingHotel.Views.Page_Account">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Account"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <!--Header-->
+            <StackLayout Orientation="Horizontal" Margin="20">
+                <!--Avatar hình tròn-->
+                <StackLayout Margin="0,0,10,0">
+                    <Frame CornerRadius="100" 
+                           HeightRequest="80"
+                           WidthRequest="80"
+                           HorizontalOptions="Center"
+                           Padding="0"
+                           IsClippedToBounds="True">
+                                    <Image Source="asia.jpg" 
+                                           Aspect="AspectFill"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand" />  
+                    </Frame>
+                </StackLayout>
+                <!--Info-->
+                <StackLayout>
+                    <Label Text="Nguyễn văn A" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10"/>
+                    <Label Text="nguyenvana@gmail.com" FontSize="Small" TextColor="#aaa"/>
+                </StackLayout>
+            </StackLayout>
+            <!--Options-->
+            <StackLayout>
+                <Frame BorderColor="Transparent">
+                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                        <Image Source="account.png" WidthRequest="25" HorizontalOptions="Start"/>
+                        <Label Text="Thông tin cá nhân" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="infomation" Tapped="infomation_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BorderColor="Transparent">
+                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                        <Image Source="dat_payment.png" WidthRequest="25" HorizontalOptions="Start"/>
+                        <Label Text="Thanh toán" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="payment" Tapped="payment_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BorderColor="Transparent">
+                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                        <Image Source="bell.png" WidthRequest="25" HorizontalOptions="Start"/>
+                        <Label Text="Thông báo" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="notification" Tapped="notification_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BorderColor="Transparent">
+                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                        <Image Source="dat_help.png" WidthRequest="25" HorizontalOptions="Start"/>
+                        <Label Text="Giúp đỡ" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="help" Tapped="help_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame BorderColor="Transparent">
+                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                        <Image Source="dat_feedback.png" WidthRequest="25" HorizontalOptions="Start"/>
+                        <Label Text="Gửi feedback" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="feedback" Tapped="feedback_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+            <!--Logout button-->
+
+            <Button Text="Đăng xuất" TextColor="Red" FontSize="Medium"
+                    BackgroundColor="white" BorderColor="Red" BorderWidth="1" CornerRadius="30" 
+                    Margin="10,0,0,40"
+                    VerticalOptions="EndAndExpand"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
