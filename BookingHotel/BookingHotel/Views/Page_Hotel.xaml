@@ -7,19 +7,84 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10" xct:ShadowEffect.OffsetY="-1" HorizontalOptions="Fill" xct:ShadowEffect.OffsetX="0" xct:ShadowEffect.Radius="5" xct:ShadowEffect.Color="#eee">
-                    <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
-                            x:Name="back_btn" Clicked="back_btn_Clicked"
-                            Margin="15,0,0,0"
-                            HorizontalOptions="Start"/>
-
-                    <Label Text="Khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" Padding="0,0,40,0" 
-                    HorizontalOptions="CenterAndExpand"/>
+                <!--Tiêu đề, nút back và hình ảnh ks-->
+                <Grid Margin="0,0,0,40">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="300"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--hình ảnh khách sạn-->
+                    <StackLayout VerticalOptions="StartAndExpand" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                        <Image x:Name="hinhKS" Aspect="AspectFill"/>
+                    </StackLayout>
+                    <!--nút quay lại và thêm vào yêu thích-->
+                    <StackLayout Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10" 
+                                 Grid.Row="0" Grid.Column="0">
+                        <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
+                                x:Name="back_btn" Clicked="back_btn_Clicked"
+                                Margin="15,0,0,0"
+                                HorizontalOptions="Start"/>
+                        <Image Source="heartWhite.png" BackgroundColor="Transparent"
+                                       HeightRequest="25" WidthRequest="25" Margin="0,0,15,0"
+                                       HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="Add_Like_List" Tapped="Add_Like_List_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </Grid>
+                
+                <!--Thông tin khách sạn-->
+                <StackLayout Margin="15,0,0,0">
+                    <Label x:Name="tenKS" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
                 </StackLayout>
-                <StackLayout VerticalOptions="CenterAndExpand">
-                    <Image x:Name="hinhKS" />
-                    <Label x:Name="tenKS"/>
-
+                <!--Địa chỉ-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="15,0,0,0">
+                    <Label x:Name="tinh" FontSize="Small"/>
+                    <Label Text=" - " FontSize="Small"/>
+                    <Label x:Name="quan" FontSize="Small"/>
+                </StackLayout>
+                <!--Đánh giá-->
+                <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Margin="15,0,0,0"
+                                             HorizontalOptions="StartAndExpand" Padding="0,0,2,0">
+                    <Label x:Name="rate" FontSize="Medium" VerticalOptions="Center"/>
+                    <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
+                                           VerticalOptions="Center"/>
+                </StackLayout>
+                
+                <!--Giá tiền của khách sạn-->
+                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                                             Margin="15,0,0,0">
+                    <Label x:Name="min" TextColor="#585de4" FontSize="Medium" 
+                                           VerticalOptions="EndAndExpand"/>
+                    <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
+                                           VerticalOptions="EndAndExpand"/>
+                    <Label x:Name="max" TextColor="#585de4" FontSize="Medium" 
+                                           VerticalOptions="EndAndExpand"/>
+                </StackLayout>
+                
+                <!--Mô tả về khách sạn-->
+                <StackLayout>
+                    <Label x:Name="desc" />
+                </StackLayout>
+                
+                <!--Các tiện ích khác của khách sạn-->
+                <FlexLayout  Margin="15,0,0,0" Wrap="Wrap" JustifyContent="Start">
+                    <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
+                    <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
+                    <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
+                    <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
+                    <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
+                    <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
+                    <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
+                </FlexLayout>
+                <!--Nút đặt ngay-->
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
+                    <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                            x:Name="book_btn" Clicked="book_btn_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

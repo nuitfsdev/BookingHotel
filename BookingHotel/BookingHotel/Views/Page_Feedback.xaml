@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BookingHotel.Models"
+             x:Class="BookingHotel.Views.Page_Feedback"
+             Shell.TabBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Tiêu đề và nút quay lại-->
+            <StackLayout Orientation="Horizontal" Margin="-10,0,-10,20" Padding="10" 
+                                 Grid.Row="0" Grid.Column="0">
+                <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
+                                x:Name="back_btn" Clicked="back_btn_Clicked"
+                                Margin="15,0,0,0"
+                                HorizontalOptions="Start"/>
+                <Label Text="Feedback" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                       HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+            <!--Logo và tên của cái form-->
+            <StackLayout  HorizontalOptions="CenterAndExpand">
+                <Image Source="logo.png" WidthRequest="200"/>
+                <Label Text="Phản hồi của người dùng" FontSize="Large" FontAttributes="Bold" TextColor="Black" TextTransform="Uppercase"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            
+            <!--Tiêu đề và nội dung của form-->
+            <StackLayout Margin="30,20,30,0">
+                <StackLayout Margin="0,0,0,10">
+                    <Label Text="Tiêu đề" Margin="0,0,0,10" FontSize="Large" FontAttributes="Bold"/>
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                        <models:MyEntry Margin="10,0,0,0"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Nội dung" Margin="0,0,0,10" FontSize="Large" FontAttributes="Bold"/>
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20"  HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                        <Editor Keyboard="Chat" Margin="10,0,0,0" HeightRequest="200"/>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            
+            <!--Nút gửi-->
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
+                <Button Text="Gửi" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                        />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
