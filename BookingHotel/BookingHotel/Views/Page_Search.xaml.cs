@@ -71,5 +71,14 @@ namespace BookingHotel.Views
                 tab.Source = "heartWhite.png";
             }
         }
+
+        private void Search_Collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Hotel hotel = e.CurrentSelection[0] as Hotel;
+            if (hotel == null)
+                return;
+            Search_Collection.SelectedItem = SelectableItemsView.EmptyViewProperty;
+            Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
+        }
     }
 }

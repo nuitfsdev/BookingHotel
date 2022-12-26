@@ -67,5 +67,14 @@ namespace BookingHotel.Views
         {
             await Shell.Current.GoToAsync(state: "//main/search");
         }
+
+        private void Booking_Collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Hotel hotel = e.CurrentSelection[0] as Hotel;
+            if (hotel == null)
+                return;
+            Booking_Collection.SelectedItem = SelectableItemsView.EmptyViewProperty;
+            Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
+        }
     }
 }
