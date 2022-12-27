@@ -50,42 +50,68 @@
                         </FlexLayout>
                     </StackLayout>
                 </Grid>
-                <!--Thời gian-->
-                <StackLayout Orientation="Horizontal" Margin="20,20,20,20">
-                    <StackLayout HorizontalOptions="StartAndExpand">
+                <!--Thông tin phòng-->
+                <StackLayout Margin="20">
+                    <Label Text="Thông tin phòng" FontSize="Large" FontAttributes="Bold"/>
+                    <Label Text="Phòng 398"/>
+                    <Label Text="Giường đôi"/>
+                    <Label Text="máy lạnh, free wifi, flat-screen, cách âm, vòi sen"/>
+                </StackLayout>
+                
+                <!--Ngày-->
+                <FlexLayout Margin="20" JustifyContent="SpaceAround"> 
+                    <StackLayout>
                         <Label Text="Ngày đến" FontSize="Large" FontAttributes="Bold"/>
                         <DatePicker MinimumDate="1/12/2022" HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
-                    <StackLayout HorizontalOptions="EndAndExpand">
+                    <StackLayout>
                         <Label Text="Ngày đi" FontSize="Large" FontAttributes="Bold"/>
                         <DatePicker HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
-                </StackLayout>
+                </FlexLayout>
+                
+                <!--Giờ-->
+                <FlexLayout Margin="20" JustifyContent="SpaceAround">
+                    <StackLayout>
+                        <Label Text="Giờ đến" FontSize="Large" FontAttributes="Bold"/>
+                        <TimePicker HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Giờ đi" FontSize="Large" FontAttributes="Bold"/>
+                        <TimePicker HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </FlexLayout>
                 
                 <!--Số lượng khách và số lượng phòng-->
-                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
-                    <StackLayout HorizontalOptions="StartAndExpand">
-                        <Label Text="Người lớn" FontSize="Large" FontAttributes="Bold"/>
-                        <Frame BackgroundColor="#f4f4f8" CornerRadius="20" WidthRequest="20" HasShadow="False" BorderColor="#585de4" Padding="0">
-                            <models:MyEntry Keyboard="Numeric" Text="1" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"/>
-                        </Frame>
+                <StackLayout Margin="20,0,20,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Người lớn" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                            <Button Text="-" x:Name="adult_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="adult_decre_Clicked"/>
+                            <Label x:Name="Adult" Text="1" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                            <Button Text="+" x:Name="adult_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="adult_incre_Clicked"/>
+                        </StackLayout>
                     </StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand">
-                        <Label Text="Trẻ em" FontSize="Large" FontAttributes="Bold"/>
-                        <Frame BackgroundColor="#f4f4f8" CornerRadius="20" WidthRequest="20" HasShadow="False" BorderColor="#585de4" Padding="0">
-                            <models:MyEntry Keyboard="Numeric" Text="0" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"/>
-                        </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Trẻ em" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                            <Button Text="-" x:Name="child_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="child_decre_Clicked"/>
+                            <Label x:Name="Child" Text="1" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                            <Button Text="+" x:Name="child_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="child_incre_Clicked"/>
+                        </StackLayout>
                     </StackLayout>
-                    <StackLayout HorizontalOptions="EndAndExpand">
-                        <Label Text="Số lượng phòng" FontSize="Large" FontAttributes="Bold"/>
-                        <Frame BackgroundColor="#f4f4f8" CornerRadius="20" WidthRequest="20" HasShadow="False" BorderColor="#585de4" Padding="0">
-                            <models:MyEntry Keyboard="Numeric" Text="1" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"/>
-                        </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Số lượng phòng" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                            <Button Text="-" x:Name="room_qty_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="room_qty_decre_Clicked"/>
+                            <Label x:Name="Room_qty" Text="1" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                            <Button Text="+" x:Name="room_qty_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="room_qty_incre_Clicked"/>
+                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
                 
                 <!--Thông tin liên hệ-->
-                <StackLayout Margin="20,0,20,0">
+                <StackLayout Margin="20,30,20,0">
                     <Label Text=" Thông tin liên hệ" FontSize="Large" FontAttributes="Bold" />
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                         <models:MyEntry Text="Nguyễn văn a" Margin="10,0,0,0"/>
@@ -104,6 +130,13 @@
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                         <Editor FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="150" Margin="10,0,0,0"/>
                     </Frame>
+                </StackLayout>
+                
+                <!--Thành tiền-->
+                <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Margin="0,30,30,0">
+                    <Label Text="Tổng:" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="30000" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <Label Text="vnđ" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                 </StackLayout>
                 
                 <!--Nút đặt phòng-->

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookingHotel.Views.Page_Room_Info"
+             Shell.TabBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <!--Tiêu đề và nút quay lại-->
+                <StackLayout Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10" 
+                                 Grid.Row="0" Grid.Column="0">
+                    <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
+                                x:Name="back_btn" Clicked="back_btn_Clicked"
+                                Margin="15,0,0,0"
+                                HorizontalOptions="Start"/>
+                    <Label Text="Thông tin phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                       HorizontalOptions="StartAndExpand"/>
+                </StackLayout>
+                   
+                <StackLayout Margin="10,0,0,0" >
+                    <!--Hình ảnh của phòng-->
+                    <StackLayout Margin="-10,0,0,20">
+                        <Image Source="asia.jpg"  Aspect="AspectFill" VerticalOptions="StartAndExpand"/>
+                    </StackLayout>
+                
+                    <!--Tên phòng-->
+                    <StackLayout>
+                        <Label Text="Phòng 398" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    </StackLayout>
+                
+                    <!--Giá tiền-->
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Giá:" VerticalOptions="EndAndExpand"/>
+                        <Label Text="10000" FontSize="Medium" TextColor="Black"/>
+                        <Label Text="vnđ/giờ" FontSize="Medium" TextColor="Black"/>
+                    </StackLayout>
+                
+                    <!--Nội thất-->
+                    <StackLayout Margin="0,30,0,0">
+                        <Label Text="Nội thất" FontSize="Large" FontAttributes="Bold"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Diện tích: " VerticalOptions="CenterAndExpand"/>
+                            <Label Text="100m2" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Giường: " VerticalOptions="CenterAndExpand"/>
+                            <Label Text="1 giường đôi" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Wifi:" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="miễn phí" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Điều hòa: " VerticalOptions="CenterAndExpand"/>
+                            <Label Text="1" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Cách âm: " VerticalOptions="CenterAndExpand"/>
+                            <Label Text="có" FontSize="Medium"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <!--Nút đặt ngay-->
+                    <StackLayout VerticalOptions="EndAndExpand">
+                        <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                                    x:Name="book_btn" Clicked="book_btn_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

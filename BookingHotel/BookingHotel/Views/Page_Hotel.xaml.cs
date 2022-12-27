@@ -1,6 +1,7 @@
 ﻿using BookingHotel.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -50,7 +51,7 @@ namespace BookingHotel.Views
 
         private void book_btn_Clicked(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PushAsync(new Page_Booking_Info(Thishotel));
+            Shell.Current.Navigation.PushAsync(new Page_Rooms(Thishotel));
         }
     }
 }
