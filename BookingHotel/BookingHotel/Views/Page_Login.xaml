@@ -22,9 +22,28 @@
                     <models:MyEntry Placeholder="Mật khẩu" FontSize="Medium" IsPassword="True" TextColor="Black"/>
                 </Frame>
                 <Label Text="Quên mật khẩu?" FontAttributes="Bold" FontSize="Medium" TextColor="#009EFF"
-                   HorizontalOptions="EndAndExpand" Margin="4,0,20,0" />
+                   HorizontalOptions="EndAndExpand" Margin="4,10,20,0" />
                 <Button Text="Đăng nhập" TextTransform="None" x:Name="Login_Btn" WidthRequest="350" Clicked="Login_Btn_Clicked" Margin="20,10,20,0" HorizontalOptions="FillAndExpand" Padding="20,10,20,10" 
                         CornerRadius="10" BorderColor="#585de4" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0">
+                <Label WidthRequest="50" HeightRequest="1" BackgroundColor="Black" VerticalOptions="Center"></Label>
+                <Label Text="Hoặc đăng nhập với" VerticalOptions="Center" FontSize="16" FontAttributes="Bold" TextColor="Black"/>
+                <Label WidthRequest="50" HeightRequest="1" BackgroundColor="Black" VerticalOptions="Center"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" WidthRequest="350">
+                <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" WidthRequest="150" HasShadow="False" HorizontalOptions="Start" BorderColor="#ccc" Padding="10,0,0,0" Margin="0,20,0,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="nam_google.png" WidthRequest="24" VerticalOptions="Center" Margin="10,0,0,0"></Image>
+                        <Label Text="Google" FontSize="20" VerticalOptions="Center" Margin="15,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" WidthRequest="150" HasShadow="False" HorizontalOptions="EndAndExpand" BorderColor="#ccc" Padding="10,0,0,0" Margin="0,20,0,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="nam_facebook.png" WidthRequest="24" VerticalOptions="Center" Margin="10,0,0,0"></Image>
+                        <Label Text="Facebook" FontSize="20" VerticalOptions="Center" Margin="10,0,0,0"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20">
                 <Label Text="Bạn chưa đăng kí tài khoản?" FontSize="Medium" TextColor="Black"/>
@@ -34,7 +53,11 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-
+            <Label Text="Các chính sách và điều khoản" HorizontalOptions="Center" VerticalOptions="EndAndExpand" FontSize="Medium" TextColor="#009EFF" FontAttributes="Bold" Margin="0,0,0,10" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="terms_btn" Tapped="terms_btn_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

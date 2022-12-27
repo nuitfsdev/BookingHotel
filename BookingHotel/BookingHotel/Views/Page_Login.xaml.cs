@@ -28,5 +28,10 @@ namespace BookingHotel.Views
         {
             Shell.Current.GoToAsync(state: "//register");
         }
+
+        private void terms_btn_Tapped(object sender, EventArgs e)
+        {
+
+        }
     }
 }
