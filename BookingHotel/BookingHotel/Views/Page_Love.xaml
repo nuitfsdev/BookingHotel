@@ -72,7 +72,7 @@
                                     <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
                                            VerticalOptions="Center"/>
                                 </StackLayout>
-                                <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" />
+                                <Button Text="Đặt ngay" x:Name="book_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" Clicked="book_btn_Clicked"/>
                             </StackLayout>
                         </Grid>
                 </DataTemplate>

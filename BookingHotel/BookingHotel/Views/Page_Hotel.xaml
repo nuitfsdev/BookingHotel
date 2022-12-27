@@ -68,7 +68,7 @@
                 
                 <!--Mô tả về khách sạn-->
                 <StackLayout>
-                    <Label x:Name="desc" />
+                    <Label x:Name="desc"/>
                 </StackLayout>
                 
                 <!--Các tiện ích khác của khách sạn-->

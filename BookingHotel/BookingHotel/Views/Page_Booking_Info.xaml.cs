@@ -14,7 +14,7 @@ namespace BookingHotel.Views
     public partial class Page_Booking_Info : ContentPage
     {
         Hotel Thishotel;
-        public Page_Booking_Info(Hotel hotel)
+        public Page_Booking_Info(Hotel hotel,Room room)
         {
             InitializeComponent();
             Thishotel = hotel;
@@ -32,6 +32,46 @@ namespace BookingHotel.Views
         private void book_btn_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        //Xử lý tăng giảm số lượng người lớn, trẻ em và số lượng phòng
+        private void adult_decre_Clicked(object sender, EventArgs e)
+        {
+            int old_value = int.Parse(Adult.Text);
+            if(old_value > 1)
+                Adult.Text = $"{old_value - 1}";  
+        }
+
+        private void adult_incre_Clicked(object sender, EventArgs e)
+        {
+            int old_value = int.Parse(Adult.Text);
+            Adult.Text = $"{old_value + 1}";
+        }
+
+        private void child_decre_Clicked(object sender, EventArgs e)
+        {
+            int old_value = int.Parse(Child.Text);
+            if (old_value > 1)
+                Child.Text = $"{old_value - 1}";
+        }
+
+        private void child_incre_Clicked(object sender, EventArgs e)
+        {
+            int old_value = int.Parse(Child.Text);
+            Child.Text = $"{old_value + 1}";
+        }
+
+        private void room_qty_incre_Clicked(object sender, EventArgs e)
+        {
+            int old_value = int.Parse(Room_qty.Text);
+            Room_qty.Text = $"{old_value + 1}";
+        }
+
+        private void room_qty_decre_Clicked(object sender, EventArgs e)
+        {
+            int old_value = int.Parse(Room_qty.Text);
+            if (old_value > 1)
+                Room_qty.Text = $"{old_value - 1}";
         }
     }
 }

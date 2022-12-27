@@ -60,5 +60,35 @@ namespace BookingHotel.Views
             Order_Collection.SelectedItem = SelectableItemsView.EmptyViewProperty;
             Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
         }
+
+        private void Active_Clicked(object sender, EventArgs e)
+        {
+            Active.TextColor = Color.FromHex("#585de4");
+            Active.BorderColor = Color.FromHex("#585de4");
+            Pass.TextColor = Color.Gray;
+            Pass.BorderColor = Color.FromHex("#ccc");
+            Cancle.TextColor = Color.Gray;
+            Cancle.BorderColor = Color.FromHex("#ccc");
+        }
+
+        private void Pass_Clicked(object sender, EventArgs e)
+        {
+            Active.TextColor = Color.Gray;
+            Active.BorderColor = Color.FromHex("#ccc");
+            Pass.TextColor = Color.FromHex("#585de4");
+            Pass.BorderColor = Color.FromHex("#585de4");
+            Cancle.TextColor = Color.Gray;
+            Cancle.BorderColor = Color.FromHex("#ccc");
+        }
+
+        private void Cancle_Clicked(object sender, EventArgs e)
+        {
+            Active.TextColor = Color.Gray;
+            Active.BorderColor = Color.FromHex("#ccc");
+            Pass.TextColor = Color.Gray;
+            Pass.BorderColor = Color.FromHex("#ccc");
+            Cancle.TextColor = Color.FromHex("#585de4");
+            Cancle.BorderColor = Color.FromHex("#585de4");
+        }
     }
 }

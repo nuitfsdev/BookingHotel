@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookingHotel.Views.Page_Rooms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Shell.TabBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <!--Tiêu đề và nút quay lại-->
+                <StackLayout Orientation="Horizontal" Margin="-10,0,-10,20" Padding="10" 
+                                 Grid.Row="0" Grid.Column="0">
+                    <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
+                                x:Name="back_btn" Clicked="back_btn_Clicked"
+                                Margin="15,0,0,0"
+                                HorizontalOptions="Start"/>
+                    <Label Text="Danh sách phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                       HorizontalOptions="StartAndExpand"/>
+                </StackLayout>
+                
+                <!--Danh sách các phòng-->
+                <CollectionView x:Name="Rooms_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White" SelectionChanged="Rooms_Collection_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--Hình ảnh của Khách sạn-->
+                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
+                                       IsClippedToBounds="True" CornerRadius="10">
+                                    <Image Source="asia.jpg" Aspect="AspectFill"
+                                          >
+                                    </Image>
+                                </Frame>
+
+                                <!--Tên Phòng-->
+
+                                <Label Text="Phòng 398" FontSize="Medium" FontAttributes="Bold" 
+                                       Grid.Column="1" Grid.Row="0"
+                                       Margin="10,0,0,0"/>
+
+                                <!--Địa chỉ khách sạn-->
+
+                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
+                                             Margin="10,0,0,0">
+                                    <Label Text="Hồ Chí Minh" FontSize="Small"/>
+                                    <Label Text="," FontSize="Small"/>
+                                    <Label Text="Thủ Đức" FontSize="Small"/>
+                                </StackLayout>
+                                
+                                <!--Mô tả về phòng-->
+                                <StackLayout Grid.Column="1" Grid.Row="2" Margin="10,0,0,0">
+                                    <Label Text="Giá cho hai người"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="3" Margin="10,0,0,0">
+                                    <Label Text="Một giường đôi"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                                    <Label Text="máy lạnh, free wifi, flat-screen, cách âm, vòi sen"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="0" Grid.Row="5" Margin="10,0,0,0">
+                                    <Label Text="miễn phí hủy"/>
+                                </StackLayout>
+
+                                <!--Giá phòng của khách sạn-->
+
+                                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="StartAndExpand"
+                                             Margin="10,0,0,0">
+                                    <Label Text="10000" TextColor="#585de4" FontSize="Medium" 
+                                           />
+                                    <Label Text="vnđ/giờ" TextColor="#585de4" FontSize="Medium" 
+                                           />
+                                </StackLayout>
+                                
+                                <!--Nút đặt ngay-->
+                                <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2">
+                                    <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                                    x:Name="book_btn" Clicked="book_btn_Clicked"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                    <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
+                        hiển thị ra Empty View-->
+                    <CollectionView.EmptyView>
+                        <Label Text="Có lỗi xảy ra"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

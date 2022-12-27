@@ -14,6 +14,8 @@ namespace BookingHotel.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page_Love : ContentPage
     {
+        Hotel Thishotel;
+        Room Thisroom;
         public ObservableCollection<Hotel> dsks;
         void hienthiks()
         {
@@ -60,6 +62,12 @@ namespace BookingHotel.Views
                 return;
             Love_Collection.SelectedItem = SelectableItemsView.EmptyViewProperty;
             Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
+        }
+
+        private void book_btn_Clicked(object sender, EventArgs e)
+        {
+            Thishotel = dsks[0];
+            Shell.Current.Navigation.PushAsync(new Page_Room_Info(Thishotel,Thisroom));
         }
     }
 }
