@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.CommunityToolkit.Behaviors;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -24,18 +25,14 @@ namespace BookingHotel.Views
 
         private async void change_avatar_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                var file = await FilePicker.PickAsync();
-                if(file == null)
-                    return;
+            var file = await FilePicker.PickAsync();
 
-                change_avatar.Source = file.FileName;
-            }
-            catch (Exception ex)
+            if (file.FileName.EndsWith(".png") || file.FileName.EndsWith(".jpg"))
             {
-
+                change_avatar.Source = file.FullPath;
             }
+
+            else return;
         }
     }
 }
