@@ -2,23 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:BookingHotel.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Login"
              Title="Đăng nhập">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="300">
-                <Label Text="Đăng nhập" FontAttributes="Bold" FontSize="Large" TextColor="Black"
+            <StackLayout >
+                <Image Source="nam_signinimage.jpg"></Image>
+            </StackLayout>
+            <StackLayout  WidthRequest="300" BackgroundColor="White"  Margin="0,-28,0,0"  xct:CornerRadiusEffect.CornerRadius="30" xct:ShadowEffect.OffsetY="-20">
+                <Image Source="nam_logoimage.png" WidthRequest="60" Margin="0,10,0,0"></Image>
+                <Label Text="Đăng nhập" FontAttributes="Bold" FontSize="24" TextColor="Black"
                    HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
-                <Label Text="Email" TextColor="#585de4" FontSize="Large" FontAttributes="Bold" Margin="10,0,0,0"/>
-                <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0">
-                    <models:MyEntry Placeholder="Nhập Email của bạn..." FontSize="Medium" TextColor="Black" Margin="10,0,0,0" />
+
+                <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" WidthRequest="350" HasShadow="False" HorizontalOptions="CenterAndExpand" BorderColor="#ccc" Padding="10,0,0,0" Margin="0,20,0,0">
+                    <models:MyEntry Placeholder="Email" FontSize="Medium" TextColor="Black"  />
                 </Frame>
-                <Label Text="Mật khẩu" TextColor="#585de4" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,0"/>
-                <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0">
-                    <models:MyEntry Placeholder="Nhập mật khẩu của bạn..." FontSize="Medium" IsPassword="True" TextColor="Black" Margin="10,0,0,0"/>
+                <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50"  WidthRequest="350" HasShadow="False" HorizontalOptions="CenterAndExpand" BorderColor="#ccc" Padding="10,0,0,0" Margin="0,10,0,0">
+                    <models:MyEntry Placeholder="Mật khẩu" FontSize="Medium" IsPassword="True" TextColor="Black"/>
                 </Frame>
-                <Button Text="Đăng nhập" x:Name="Login_Btn" Clicked="Login_Btn_Clicked" Margin="0,30,0,0" HorizontalOptions="Center" Padding="20,10,20,10"
-                        CornerRadius="30" BorderColor="#585de4" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="Quên mật khẩu?" FontAttributes="Bold" FontSize="Medium" TextColor="#585de4"
+                   HorizontalOptions="EndAndExpand" Margin="4,0,20,0" />
+                <Button Text="Đăng nhập" TextTransform="None" x:Name="Login_Btn" Clicked="Login_Btn_Clicked" Margin="20,10,20,0" HorizontalOptions="FillAndExpand" Padding="20,10,20,10" 
+                        CornerRadius="20" BorderColor="#585de4" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20">
                 <Label Text="Bạn chưa đăng kí tài khoản?" FontSize="Medium" TextColor="Black"/>
@@ -28,7 +34,7 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-             
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
