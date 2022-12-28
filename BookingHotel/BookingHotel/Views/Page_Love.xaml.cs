@@ -1,8 +1,10 @@
 ﻿using BookingHotel.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,11 +19,15 @@ namespace BookingHotel.Views
         Hotel Thishotel;
         Room Thisroom;
         public ObservableCollection<Hotel> dsks;
-        void hienthiks()
+        async void hienthiks()
         {
-            dsks = new ObservableCollection<Hotel>();
+            HttpClient httpClient = new HttpClient();
+            var subjectList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels");
+            var subjectListConverted = JsonConvert.DeserializeObject<List<Hotel>>(subjectList);
+            Love_Collection.ItemsSource = subjectListConverted;
+            //dsks = new ObservableCollection<Hotel>();
             
-            Love_Collection.ItemsSource = dsks;
+            //Love_Collection.ItemsSource = dsks;
         }
 
         public Page_Love()
@@ -46,8 +52,10 @@ namespace BookingHotel.Views
 
         private void book_btn_Clicked(object sender, EventArgs e)
         {
-            Thishotel = dsks[0];
-            Shell.Current.Navigation.PushAsync(new Page_Room_Info(Thishotel,Thisroom));
+            Button button = (Button)sender;
+            Hotel hotel = (Hotel)button.CommandParameter;
+            //Thishotel = dsks[0];
+            Shell.Current.Navigation.PushAsync(new Page_Room_Info(hotel, Thisroom));
         }
     }
 }

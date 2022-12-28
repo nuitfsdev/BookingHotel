@@ -35,14 +35,14 @@
 
                                 <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent" WidthRequest="50"
                                         IsClippedToBounds="True" CornerRadius="10">
-                                    <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
+                                    <Image Source="{Binding hinh[0]}" Aspect="AspectFill"
                                             VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                     </Image>
                                 </Frame>
 
                                 <!--Tên khách sạn-->
 
-                                <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
+                                <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
                                                Grid.Column="1" Grid.Row="0"
                                                Margin="10,0,0,0"/>
 
@@ -50,9 +50,9 @@
 
                                 <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1"
                                                      Margin="10,0,0,0">
-                                    <Label Text="{Binding Tinh}"/>
+                                    <Label Text="{Binding tinh}"/>
                                     <Label Text=","/>
-                                    <Label Text="{Binding QuanHuyen}"/>
+                                    <Label Text="{Binding quan}"/>
                                 </StackLayout>
 
                                 <!--Xóa khách sạn-->
@@ -68,11 +68,11 @@
                             <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
                                 <StackLayout Orientation="Horizontal"
                                              HorizontalOptions="StartAndExpand" Padding="0,0,2,0" Margin="10,0,0,0">
-                                    <Label Text="{Binding RateKH}" FontSize="Medium" VerticalOptions="Center"/>
+                                    <Label Text="{Binding sosao}" FontSize="Medium" VerticalOptions="Center"/>
                                     <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
                                            VerticalOptions="Center"/>
                                 </StackLayout>
-                                <Button Text="Đặt ngay" x:Name="book_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" Clicked="book_btn_Clicked"/>
+                                <Button Text="Đặt ngay" x:Name="book_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" Clicked="book_btn_Clicked" CommandParameter="{Binding .}"/>
                             </StackLayout>
                         </Grid>
                 </DataTemplate>
