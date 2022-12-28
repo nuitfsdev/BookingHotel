@@ -42,7 +42,7 @@
                         HorizontalScrollBarVisibility="Never"
                         Margin="0,5,0,5">
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Nổi bật" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="#585de4" x:Name="noibat" Clicked="noibat_Clicked"
+                    <Button Text="Nổi bật" FontAttributes="Bold" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="#585de4" x:Name="noibat" Clicked="noibat_Clicked"
                             BorderColor="#585de4" BorderWidth="1" CornerRadius="30" HeightRequest="60"
                             Margin="10,0,0,10"/>
                     <Button Text="Ưu đãi" TextTransform="None" BackgroundColor="#f4f4f8" BorderColor="#ccc" x:Name="uudai" Clicked="uudai_Clicked"

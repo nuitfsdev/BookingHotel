@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookingHotel.Views.Page_Help">
+    <ContentPage.Content>
+        <StackLayout x:Name="main_content">
+            <!--Tiêu đề và nút quay lại-->
+            <StackLayout Orientation="Horizontal" Margin="-10,0,-10,20" Padding="10" BackgroundColor="Red"
+                                 Grid.Row="0" Grid.Column="0">
+                <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
+                                x:Name="back_btn" Clicked="back_btn_Clicked"
+                                Margin="15,0,0,0"
+                                HorizontalOptions="Start"/>
+                <Label Text="Giúp đỡ" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                       HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+            <WebView x:Name="help_page" Source="https://gameitthoi.github.io/F8_todo_list/" HeightRequest="100"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -24,7 +24,7 @@ namespace BookingHotel.Views
 
         private void payment_Tapped(object sender, EventArgs e)
         {
-
+            Shell.Current.Navigation.PushAsync(new Page_Test());
         }
 
         private async void notification_Tapped(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace BookingHotel.Views
 
         private void help_Tapped(object sender, EventArgs e)
         {
-
+            Shell.Current.Navigation.PushAsync(new Page_Help());
         }
 
         private void feedback_Tapped(object sender, EventArgs e)

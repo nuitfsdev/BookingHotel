@@ -81,11 +81,17 @@
                     <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
                     <Image Source="dat_wifi.png" WidthRequest="50" Margin="20,10"/>
                 </FlexLayout>
+                
+                <!--Địa điểm Google map-->
+                <WebView Source="https://www.google.com/maps/place/Nh%C3%A0+ngh%E1%BB%89+Ho%C3%A0ng+Th%E1%BB%8D/@10.8712145,106.8045014,17z/data=!4m12!1m6!3m5!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!2sUniversity+of+Information+Technology+-+VNUHCM!8m2!3d10.8700089!4d106.8030541!3m4!1s0x3174d9ffea78fcb7:0x1dd120a59f495600!8m2!3d10.8717182!4d106.8066931"
+                         HeightRequest="1000" />
+                
                 <!--Nút đặt ngay-->
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
                     <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                             x:Name="book_btn" Clicked="book_btn_Clicked"/>
                 </StackLayout>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

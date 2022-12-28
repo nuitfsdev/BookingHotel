@@ -65,30 +65,39 @@ namespace BookingHotel.Views
         {
             Active.TextColor = Color.FromHex("#585de4");
             Active.BorderColor = Color.FromHex("#585de4");
+            Active.FontAttributes = FontAttributes.Bold;
             Pass.TextColor = Color.Gray;
             Pass.BorderColor = Color.FromHex("#ccc");
+            Pass.FontAttributes = FontAttributes.None;
             Cancle.TextColor = Color.Gray;
             Cancle.BorderColor = Color.FromHex("#ccc");
+            Cancle.FontAttributes = FontAttributes.None;
         }
 
         private void Pass_Clicked(object sender, EventArgs e)
         {
             Active.TextColor = Color.Gray;
             Active.BorderColor = Color.FromHex("#ccc");
+            Active.FontAttributes = FontAttributes.None;
             Pass.TextColor = Color.FromHex("#585de4");
             Pass.BorderColor = Color.FromHex("#585de4");
+            Pass.FontAttributes = FontAttributes.Bold;
             Cancle.TextColor = Color.Gray;
             Cancle.BorderColor = Color.FromHex("#ccc");
+            Cancle.FontAttributes |= FontAttributes.None;
         }
 
         private void Cancle_Clicked(object sender, EventArgs e)
         {
             Active.TextColor = Color.Gray;
             Active.BorderColor = Color.FromHex("#ccc");
+            Active.FontAttributes = FontAttributes.None;
             Pass.TextColor = Color.Gray;
             Pass.BorderColor = Color.FromHex("#ccc");
+            Pass.FontAttributes = FontAttributes.None;
             Cancle.TextColor = Color.FromHex("#585de4");
             Cancle.BorderColor = Color.FromHex("#585de4");
+            Cancle.FontAttributes = FontAttributes.Bold;
         }
     }
 }
