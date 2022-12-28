@@ -115,16 +115,16 @@
                                 </VisualStateManager.VisualStateGroups>
                                 <Frame HeightRequest="290" CornerRadius="20" xct:ShadowEffect.Color="Black" xct:ShadowEffect.Radius="4" Padding="0" Margin="10,10,10,10">
                                     <StackLayout >
-                                        <Image Source="{Binding HinhAnhKH}" HeightRequest="180" Aspect="AspectFill"></Image>
-                                        <Label Text="{Binding TenKH}" FontAttributes="Bold" FontSize="18" TextColor="Black" Padding="10,0,10,0"/>
-                                        <Label Text="{Binding DiaChiChiTiet}" Padding="10,0,10,0"/>
+                                        <Image Source="{Binding hinh[0]}" HeightRequest="180" Aspect="AspectFill"></Image>
+                                        <Label Text="{Binding tenht}" FontAttributes="Bold" FontSize="18" TextColor="Black" Padding="10,0,10,0"/>
+                                        <Label Text="{Binding diachi}" Padding="10,0,10,0"/>
                                         <StackLayout Orientation="Horizontal" Padding="10,0,10,10" VerticalOptions="EndAndExpand">
-                                            <Label Text="{Binding GiaMin}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="{Binding giamin}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
                                             <Label Text="-" VerticalTextAlignment="Center" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
-                                            <Label Text="{Binding GiaMax}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="{Binding giamax}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
                                             <Label Text="vnđ" VerticalTextAlignment="Center" FontSize="16" TextColor="red" />
                                             <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" VerticalOptions="End">
-                                                <Label Text="{Binding RateKH}" VerticalTextAlignment="Center" FontSize="16" TextColor="Black"/>
+                                                <Label Text="{Binding sosao}" VerticalTextAlignment="Center" FontSize="16" TextColor="Black"/>
                                                 <Image Source="star.png" WidthRequest="20" />
                                             </StackLayout>
                                         </StackLayout>

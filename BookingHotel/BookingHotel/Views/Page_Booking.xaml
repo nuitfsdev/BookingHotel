@@ -70,14 +70,14 @@
                             <!--Hình ảnh của Khách sạn-->
                             <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"
+                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill"
                                           >
                                 </Image>
                             </Frame>
 
                             <!--Tên khách sạn-->
 
-                            <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
+                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
                                        Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
                                        Margin="10,0,0,0"/>
 
@@ -85,20 +85,20 @@
 
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding Tinh}" FontSize="Small"/>
+                                <Label Text="{Binding tinh}" FontSize="Small"/>
                                 <Label Text="," FontSize="Small"/>
-                                <Label Text="{Binding QuanHuyen}" FontSize="Small"/>
+                                <Label Text="{Binding quan}" FontSize="Small"/>
                             </StackLayout>
 
                             <!--Giá phòng của khách sạn-->
 
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding GiaMin}" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="{Binding giamin}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
                                 <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="{Binding GiaMax}" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="{Binding giamax}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
                             </StackLayout>
 
@@ -106,7 +106,7 @@
 
                             <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
                                              HorizontalOptions="End" Padding="0,0,2,0">
-                                <Label Text="{Binding RateKH}" FontSize="Medium" VerticalOptions="Center"/>
+                                <Label Text="{Binding sosao}" FontSize="Medium" VerticalOptions="Center"/>
                                 <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
                                            VerticalOptions="Center"/>
                             </StackLayout>

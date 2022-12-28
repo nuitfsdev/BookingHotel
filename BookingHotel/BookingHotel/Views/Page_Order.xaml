@@ -48,19 +48,19 @@
                             
                             <!--Mã khách sạn-->
                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
-                                <Label Text="ID123456"  HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding maht}"  HorizontalOptions="StartAndExpand"/>
                                 <Label Text="Xóa" TextColor="red" HorizontalOptions="EndAndExpand" Margin="0,0,20,0"/>
                             </StackLayout>
 
                             <!--Hình ảnh của Khách sạn-->
                             <Frame Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding HinhAnhKH}" Aspect="AspectFill"/>
+                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill"/>
                             </Frame>
 
                             <!--Tên khách sạn-->
 
-                            <Label Text="{Binding TenKH}" FontSize="Medium" FontAttributes="Bold" 
+                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
                                        Grid.Column="1" Grid.Row="1" HorizontalOptions="StartAndExpand"
                                        Margin="10,0,0,0"/>
 
@@ -68,9 +68,9 @@
 
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalOptions="StartAndExpand"
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding Tinh}" FontSize="Small"/>
+                                <Label Text="{Binding tinh}" FontSize="Small"/>
                                 <Label Text="," FontSize="Small"/>
-                                <Label Text="{Binding QuanHuyen}" FontSize="Small"/>
+                                <Label Text="{Binding quan}" FontSize="Small"/>
                             </StackLayout>
 
                             <!--Thời gian đặt vé-->

@@ -18,10 +18,10 @@ namespace BookingHotel.Views
         {
             InitializeComponent();
             Thishotel = hotel;
-            hinhKS.Source = hotel.HinhAnhKH;
-            tenKS.Text = hotel.TenKH;
-            tinh.Text = hotel.Tinh;
-            quan.Text = hotel.QuanHuyen;
+            hinhKS.Source = hotel.hinh[0];
+            tenKS.Text = hotel.tenht;
+            tinh.Text = hotel.tinh;
+            quan.Text = hotel.quan;
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
