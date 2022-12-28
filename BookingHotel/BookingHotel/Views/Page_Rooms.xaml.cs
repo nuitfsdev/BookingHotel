@@ -20,11 +20,11 @@ namespace BookingHotel.Views
         void hienthiks()
         {
             dsr = new ObservableCollection<Room>();
-            dsr.Add(new Room());
-            dsr.Add(new Room());
-            dsr.Add(new Room());
-            dsr.Add(new Room());
-            dsr.Add(new Room());
+            dsr.Add(new Room { ID = 1 });
+            dsr.Add(new Room { ID = 2 });
+            dsr.Add(new Room { ID = 3 });
+            dsr.Add(new Room { ID = 4 });
+            dsr.Add(new Room { ID = 5 });
             Rooms_Collection.ItemsSource = dsr;
         }
 
@@ -37,7 +37,9 @@ namespace BookingHotel.Views
 
         private void book_btn_Clicked(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PushAsync(new Page_Booking_Info(Thishotel, Thisroom));
+            Button btn = (Button)sender;
+            Room room = (Room)btn.CommandParameter;
+            Shell.Current.Navigation.PushAsync(new Page_Booking_Info(Thishotel, room));
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)

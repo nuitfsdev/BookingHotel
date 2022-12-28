@@ -41,6 +41,7 @@ namespace BookingHotel.Views
             dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
             dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
             dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
+            
             Booking_Collection.ItemsSource = dsks;
         }
 
@@ -82,16 +83,20 @@ namespace BookingHotel.Views
         {
             noibat.TextColor = Color.FromHex("#585de4");
             noibat.BorderColor = Color.FromHex("#585de4");
+            noibat.FontAttributes = FontAttributes.Bold;
             uudai.TextColor = Color.Gray;
             uudai.BorderColor = Color.FromHex("#ccc");
+            uudai.FontAttributes = FontAttributes.None;
         }
 
         private void uudai_Clicked(object sender, EventArgs e)
         {
             noibat.TextColor = Color.Gray;
             noibat.BorderColor = Color.FromHex("#ccc");
+            noibat.FontAttributes = FontAttributes.None;
             uudai.TextColor = Color.FromHex("#585de4");
             uudai.BorderColor = Color.FromHex("#585de4");
+            uudai.FontAttributes = FontAttributes.Bold;
         }
     }
 }

@@ -6,6 +6,9 @@ namespace BookingHotel.Models
 {
     public class Hotel
     {
+
+
+
         public string MAKH { get; set; }
         public string TenKH { get; set; }
         public string DiaChiChiTiet { get; set; }
