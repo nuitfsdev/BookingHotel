@@ -27,9 +27,12 @@ namespace BookingHotel.Views
             //listHotel.Add(new Hotel { MAKH = "0001", HinhAnhKH = "hoan_vu.jpg", TenKH = "Khách sạn Hoàn Vũ", DiaChiChiTiet = "123 Chu Văn An, Phù Mỹ, Bình Định", GiaMin = "100000", GiaMax = "1000000", RateKH = 5 });
             //khachsannoibat.ItemsSource = listHotel;
             HttpClient httpClient = new HttpClient();
-            var subjectList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels");
-            var subjectListConverted = JsonConvert.DeserializeObject<List<Hotel>>(subjectList);
-            khachsannoibat.ItemsSource = subjectListConverted;
+            var ksnoibatList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels?noibat=true");
+            var ksnoibatListConverted = JsonConvert.DeserializeObject<List<Hotel>>(ksnoibatList);
+            khachsannoibat.ItemsSource = ksnoibatListConverted;
+            var ksuudaiList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels?uudai=true");
+            var ksuudaiListConverted = JsonConvert.DeserializeObject<List<Hotel>>(ksuudaiList);
+            khachsanuudai.ItemsSource = ksuudaiListConverted;
         }
         public Page_Home()
         {
@@ -58,7 +61,12 @@ namespace BookingHotel.Views
             await Shell.Current.GoToAsync(state: "//main/announcement");
         }
 
-        private async void home_search_Tapped(object sender, EventArgs e)
+        //private async void home_search_Tapped(object sender, EventArgs e)
+        //{
+        //    await Shell.Current.GoToAsync(state: "//main/search");
+        //}
+
+        private async void search_icon_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(state: "//main/search");
         }
