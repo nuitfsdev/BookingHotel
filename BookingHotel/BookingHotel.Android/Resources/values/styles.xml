@@ -13,6 +13,17 @@
     <!--<item name="colorPrimaryDark">#1976D2</item>-->
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-    <!--<item name="colorAccent">#FF4081</item>-->
+    <item name="colorAccent">#585de4</item>
+    <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+
   </style>
+    <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+	    <item name="colorAccent">#585de4</item>
+    </style>
+	<style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+		<item name="android:headerBackground">#2196F3</item>
+	</style>
+	<style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+		<item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+	</style>
 </resources>

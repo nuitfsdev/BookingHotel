@@ -19,9 +19,23 @@ namespace BookingHotel.Views
             InitializeComponent();
             Thishotel = hotel;
             hinhKS.Source = hotel.hinh[0];
+            ma_ht.Text = hotel.maht;
             tenKS.Text = hotel.tenht;
             tinh.Text = hotel.tinh;
             quan.Text = hotel.quan;
+
+            //Hiện thông tin các tiện ích mà khách sạn đang có
+            foreach (string tienich in hotel.tienich)
+            {
+                StackLayout stack = new StackLayout
+                {
+                    Children = {
+                        new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(10,5,0,0), HeightRequest=20},
+                        new Label {Text = tienich, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
+                    }
+                };
+                tienich_hotel.Children.Add(stack);
+            }
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
@@ -72,6 +86,26 @@ namespace BookingHotel.Views
             int old_value = int.Parse(Room_qty.Text);
             if (old_value > 1)
                 Room_qty.Text = $"{old_value - 1}";
+        }
+
+        private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            RadioButton radioButton = sender as RadioButton;
+            if (radioButton.Content == "Thanh toán online")
+            {
+                online_payment.IsVisible = true;
+                offline_payment.IsVisible = false;
+            }    
+            else
+            {
+                online_payment.IsVisible = false;
+                offline_payment.IsVisible = true;
+            }    
+        }
+
+        private void user_bank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

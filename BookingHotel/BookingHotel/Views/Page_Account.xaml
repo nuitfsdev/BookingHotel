@@ -22,8 +22,8 @@
                 </StackLayout>
                 <!--Info-->
                 <StackLayout>
-                    <Label Text="Nguyễn văn A" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10"/>
-                    <Label Text="nguyenvana@gmail.com" FontSize="Small" TextColor="#aaa"/>
+                    <Label Text="Nguyễn văn A" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
+                    <Label Text="nguyenvana@gmail.com" FontSize="Small" TextColor="Black"/>
                 </StackLayout>
             </StackLayout>
             <!--Options-->
@@ -31,7 +31,7 @@
                 <Frame BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
                         <Image Source="account.png" WidthRequest="25" HorizontalOptions="Start"/>
-                        <Label Text="Thông tin cá nhân" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Label Text="Thông tin cá nhân" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0" TextColor="Black"/>
                         <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                     <Frame.GestureRecognizers>
@@ -41,7 +41,7 @@
                 <Frame BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
                         <Image Source="dat_payment.png" WidthRequest="25" HorizontalOptions="Start"/>
-                        <Label Text="Thanh toán" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Label Text="Thanh toán" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0" TextColor="Black"/>
                         <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                     <Frame.GestureRecognizers>
@@ -51,7 +51,7 @@
                 <Frame BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
                         <Image Source="bell.png" WidthRequest="25" HorizontalOptions="Start"/>
-                        <Label Text="Thông báo" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Label Text="Thông báo" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0" TextColor="Black"/>
                         <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                     <Frame.GestureRecognizers>
@@ -61,7 +61,7 @@
                 <Frame BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
                         <Image Source="dat_help.png" WidthRequest="25" HorizontalOptions="Start"/>
-                        <Label Text="Giúp đỡ" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Label Text="Giúp đỡ" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0" TextColor="Black"/>
                         <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                     <Frame.GestureRecognizers>
@@ -71,7 +71,7 @@
                 <Frame BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
                         <Image Source="dat_feedback.png" WidthRequest="25" HorizontalOptions="Start"/>
-                        <Label Text="Gửi feedback" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0"/>
+                        <Label Text="Gửi feedback" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0" TextColor="Black"/>
                         <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                     <Frame.GestureRecognizers>

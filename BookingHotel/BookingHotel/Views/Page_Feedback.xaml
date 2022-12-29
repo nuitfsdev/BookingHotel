@@ -26,23 +26,22 @@
             <!--Tiêu đề và nội dung của form-->
             <StackLayout Margin="30,20,30,0">
                 <StackLayout Margin="0,0,0,10">
-                    <Label Text="Tiêu đề" Margin="0,0,0,10" FontSize="Large" FontAttributes="Bold"/>
+                    <Label Text="Tiêu đề" Margin="0,0,0,10" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                         <models:MyEntry Margin="10,0,0,0"/>
                     </Frame>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Nội dung" Margin="0,0,0,10" FontSize="Large" FontAttributes="Bold"/>
+                    <Label Text="Nội dung" Margin="0,0,0,10" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20"  HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <Editor Keyboard="Chat" Margin="10,0,0,0" HeightRequest="200"/>
+                        <models:MyEditor Keyboard="Chat" Margin="10,0,0,0" HeightRequest="200"/>
                     </Frame>
                 </StackLayout>
             </StackLayout>
             
             <!--Nút gửi-->
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
-                <Button Text="Gửi" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
-                        />
+                <Button Text="Gửi" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

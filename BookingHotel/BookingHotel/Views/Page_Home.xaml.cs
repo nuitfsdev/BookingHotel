@@ -49,9 +49,8 @@ namespace BookingHotel.Views
                 BannerCarousel.Position = (BannerCarousel.Position + 1) %  indicatorView.Count;
                 return true;
             }));
+
             KhachSanNoiBat();
-
-
         }
 
         private async void announcement_icon_Clicked(object sender, EventArgs e)
