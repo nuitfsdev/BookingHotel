@@ -42,8 +42,11 @@
                         HorizontalScrollBarVisibility="Never"
                         Margin="0,5,0,5">
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Nổi bật" FontAttributes="Bold" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="#585de4" x:Name="noibat" Clicked="noibat_Clicked"
+                    <Button Text="Tất cả" FontAttributes="Bold" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="#585de4" x:Name="all" Clicked="all_Clicked"
                             BorderColor="#585de4" BorderWidth="1" CornerRadius="30" HeightRequest="60"
+                            Margin="10,0,0,10"/>
+                    <Button Text="Nổi bật" FontAttributes="Bold" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="Gray" x:Name="noibat" Clicked="noibat_Clicked"
+                            BorderColor="Gray" BorderWidth="1" CornerRadius="30" HeightRequest="60"
                             Margin="10,0,0,10"/>
                     <Button Text="Ưu đãi" TextTransform="None" BackgroundColor="#f4f4f8" BorderColor="#ccc" x:Name="uudai" Clicked="uudai_Clicked"
                             TextColor="Gray" BorderWidth="1" CornerRadius="30" HeightRequest="60" Margin="0,0,0,10"/>
@@ -94,11 +97,11 @@
 
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding giamin}" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="{Binding giamin, StringFormat='{0:0,0}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="-" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="{Binding giamax}" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="{Binding giamax, StringFormat='{0:0,0 vnđ}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
                             </StackLayout>
 
@@ -126,7 +129,7 @@
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
-                    <Label Text="Danh sách rỗng"/>
+                    <Label x:Name="Null_test" Text="Danh sách rỗng" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 </CollectionView.EmptyView>
             </CollectionView>
         </StackLayout>

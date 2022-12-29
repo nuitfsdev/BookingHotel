@@ -77,7 +77,7 @@
                     <Label Text="Giá:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                     <Label x:Name="min" TextColor="#585de4" FontSize="Medium" Margin="20,0,0,0"
                                            VerticalOptions="EndAndExpand"/>
-                    <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
+                    <Label Text="-" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
                     <Label x:Name="max" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
@@ -108,14 +108,14 @@
                 
                 <!--Địa điểm Google map-->
                 <StackLayout Margin="0,10,0,0">
-                    <Label Text="Địa điểm của khách sạn:"  FontSize="Medium" FontAttributes="Bold" TextColor="Black" Margin="10,10,0,0"/>
-                    <WebView x:Name="map" Source="https://www.google.com/maps/place/Nh%C3%A0+ngh%E1%BB%89+Ho%C3%A0ng+Th%E1%BB%8D/@10.8712145,106.8045014,17z/data=!4m12!1m6!3m5!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!2sUniversity+of+Information+Technology+-+VNUHCM!8m2!3d10.8700089!4d106.8030541!3m4!1s0x3174d9ffea78fcb7:0x1dd120a59f495600!8m2!3d10.8717182!4d106.8066931"
-                         HeightRequest="600" Margin="0,10,0,0"/>
+                    <Button Text="Xem địa điểm của khách sạn trên bản đồ" BackgroundColor="Transparent" BorderColor="#585de4" BorderWidth="1" 
+                            FontSize="Small" FontAttributes="Bold" TextColor="#585de4" Margin="10,10,10,0"
+                            x:Name="map_ht" Clicked="map_ht_Clicked"/>
                 </StackLayout>
                 
                 <!--Nút đặt ngay-->
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
-                    <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                    <Button Text="chọn phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                             x:Name="book_btn" Clicked="book_btn_Clicked"/>
                 </StackLayout>
                 

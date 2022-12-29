@@ -73,5 +73,10 @@ namespace BookingHotel.Views
                 DisplayAlert("Thong bao",$"Đã xóa {hotel.tenht}","OK");
             }
         }
+
+        private void back_btn_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.Navigation.PopAsync();
+        }
     }
 }

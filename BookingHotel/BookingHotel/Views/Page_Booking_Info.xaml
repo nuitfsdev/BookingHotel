@@ -185,7 +185,7 @@
                 
                 <!--Nút đặt phòng-->
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
-                    <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                    <Button Text="Thanh toán" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                             x:Name="book_btn" Clicked="book_btn_Clicked"/>
                 </StackLayout>
             </StackLayout>

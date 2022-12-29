@@ -39,6 +39,7 @@ namespace BookingHotel.Models
         public bool trangthai { get; set; }
         public string lienhe { get; set; }
         public List<string> kieudat { get; set; }
+        public string map { get; set; }
         public string createAt { get; set; }
         public string updateAt { get; set; }
     }
