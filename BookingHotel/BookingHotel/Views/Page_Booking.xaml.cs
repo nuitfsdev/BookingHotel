@@ -17,50 +17,47 @@ namespace BookingHotel.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page_Booking : ContentPage
     {
-        public ObservableCollection<Hotel> dsks;
-        async void hienthiks()
+        async void hienthiks(string urlAPI)
         {
-            //dsks= new ObservableCollection<Hotel>();
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4, Mota="asdf asdf adsf adsf gad fga ffsđ fasg asd fa sdg asdf asd fa dga sdf asd gasdf asd f adg gasd fa sdg asdf a sdg asd f asdg a sdf ads ga sdf adsd ga sdf asd gasdf a dg asd ga gs  asdf a gasd gda agsdg asg asdg asg et ths th rtyj tyk ụy dtyj dtyj srjs tth s h stgh srtgsth shth sehsth sthsths sdhs hshs" });
-
-            //Booking_Collection.ItemsSource = dsks;
             HttpClient httpClient = new HttpClient();
-            var subjectList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels");
-            var subjectListConverted = JsonConvert.DeserializeObject<List<Hotel>>(subjectList);
-            Booking_Collection.ItemsSource = subjectListConverted;
+            var HotelList = await httpClient.GetStringAsync(urlAPI);
+            var HoteltListConverted = JsonConvert.DeserializeObject<List<Hotel>>(HotelList);
+            Booking_Collection.ItemsSource = HoteltListConverted;
         }
 
         public Page_Booking()
         {
             InitializeComponent();
-            hienthiks();
+            hienthiks("https://bookinghotel.onrender.com/hotels");
+        }
+
+        public Page_Booking(int option)
+        {
+            InitializeComponent();
+
+            //1 la uu dai
+            //2 la noi bat
+
+            if (option == 1)
+            {
+                uudaiButton();
+                hienthiks("https://bookinghotel.onrender.com/hotels?uudai=true");
+            }
+            else if (option == 2)
+            {
+                noibatButton();
+                hienthiks("https://bookinghotel.onrender.com/hotels?noibat=true");
+            }
+            else
+            {
+                allButton();
+                hienthiks("https://bookinghotel.onrender.com/hotels");
+            }
         }
 
         private void Add_Like_List_Tapped(object sender, EventArgs e)
         {
             ImageButton tab =(ImageButton)sender;
-            //Lấy Hotel từ image
             Hotel hotel = (Hotel)tab.CommandParameter;
 
             if (tab.Source.ToString() == "File: heartWhite.png")
@@ -90,6 +87,39 @@ namespace BookingHotel.Views
 
         private void noibat_Clicked(object sender, EventArgs e)
         {
+            noibatButton();
+            hienthiks("https://bookinghotel.onrender.com/hotels?noibat=true");
+        }
+
+        private void uudai_Clicked(object sender, EventArgs e)
+        {
+            uudaiButton();
+            hienthiks("https://bookinghotel.onrender.com/hotels?uudai=true");
+        }
+
+        private void all_Clicked(object sender, EventArgs e)
+        {
+            allButton();
+            hienthiks("https://bookinghotel.onrender.com/hotels");
+        }
+
+        void allButton ()
+        {
+            all.TextColor = Color.FromHex("#585de4");
+            all.BorderColor = Color.FromHex("#585de4");
+            all.FontAttributes = FontAttributes.Bold;
+            noibat.TextColor = Color.Gray;
+            noibat.BorderColor = Color.FromHex("#ccc");
+            noibat.FontAttributes = FontAttributes.None;
+            uudai.TextColor = Color.Gray;
+            uudai.BorderColor = Color.FromHex("#ccc");
+            uudai.FontAttributes = FontAttributes.None;
+        }
+        void noibatButton()
+        {
+            all.TextColor = Color.Gray;
+            all.BorderColor = Color.FromHex("#ccc");
+            all.FontAttributes = FontAttributes.None;
             noibat.TextColor = Color.FromHex("#585de4");
             noibat.BorderColor = Color.FromHex("#585de4");
             noibat.FontAttributes = FontAttributes.Bold;
@@ -97,9 +127,11 @@ namespace BookingHotel.Views
             uudai.BorderColor = Color.FromHex("#ccc");
             uudai.FontAttributes = FontAttributes.None;
         }
-
-        private void uudai_Clicked(object sender, EventArgs e)
+        void uudaiButton()
         {
+            all.TextColor = Color.Gray;
+            all.BorderColor = Color.FromHex("#ccc");
+            all.FontAttributes = FontAttributes.None;
             noibat.TextColor = Color.Gray;
             noibat.BorderColor = Color.FromHex("#ccc");
             noibat.FontAttributes = FontAttributes.None;

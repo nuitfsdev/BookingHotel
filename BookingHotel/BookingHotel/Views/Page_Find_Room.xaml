@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BookingHotel.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="BookingHotel.Views.Page_Find_Room">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Tên khách sạn-->
+            <StackLayout Margin="10,10,10,0">
+                <Label Text="Tên khách sạn" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                    <models:MyEntry/>
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout Margin="10,10,10,0">
+                <Label Text="Chọn địa điểm" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" >
+                    <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                        <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
+                    </Frame>
+                    <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                        <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            
+            <!--Giá-->
+            <StackLayout>
+                <Label Text="Giá" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10,10,10,0"/>
+                <xct:RangeSlider
+                        TrackHighlightColor="#585de4"
+                        x:Name="RangeSlider"
+                        MaximumValue="10000000"
+                        MinimumValue="100000"
+                        StepValue="50000"
+                        LowerValue="100000"
+                        UpperValue="10000000" Margin="20,0,20,0" />
+            </StackLayout>
+            
+            <!--Số lượng người-->
+
+            <StackLayout Orientation="Horizontal" Margin="10,10,10,0">
+                <Label Text="Số lượng người" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                    <Button Text="-" x:Name="people_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="people_decre_Clicked"/>
+                    <Label x:Name="People" Text="1" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                    <Button Text="+" x:Name="people_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="people_incre_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <!--Số giường-->
+            <StackLayout Orientation="Horizontal" Margin="10,10,10,0">
+                <Label Text="Số giường" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                    <Button Text="-" x:Name="bed_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="bed_decre_Clicked"/>
+                    <Label x:Name="Bed" Text="1" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                    <Button Text="+" x:Name="bed_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="bed_incre_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <!--Các tiện nghi-->
+            <Label Text="Các tiện nghi, chương trình khuyến mãi" FontAttributes="Bold" FontSize="Medium" TextColor="Black" Margin="10,10,10,0"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Free Wifi" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Điều hòa" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Cách âm" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Phòng gym" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Hồ bơi" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="1">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Sân bóng" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Ưu đãi" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
+                    <CheckBox Color="#585de4" />
+                    <Label Text="Nổi bật" VerticalOptions="Center"/>
+                </StackLayout>
+            </Grid>
+            
+            <!--Nút tìm-->
+            <StackLayout Margin="20,0,20,0">
+                <Button Text="Tìm" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                                    x:Name="book_btn" Clicked="book_btn_Clicked"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

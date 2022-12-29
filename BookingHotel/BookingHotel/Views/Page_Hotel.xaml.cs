@@ -23,8 +23,8 @@ namespace BookingHotel.Views
             BannerCarousel.ItemsSource = hotel.hinh;
             tenKS.Text = hotel.tenht;
             diachi.Text = hotel.diachi;
-            min.Text = hotel.giamin.ToString();
-            max.Text = hotel.giamax.ToString();
+            min.Text = String.Format( "{0:0,0}" , hotel.giamin);
+            max.Text = String.Format("{0:0,0 vnđ}", hotel.giamax);
             rate.Text = hotel.sosao.ToString();
             desc.Text = "\t" + hotel.mota;
             contact.Text ="\t" + hotel.lienhe;
@@ -72,6 +72,11 @@ namespace BookingHotel.Views
         private void book_btn_Clicked(object sender, EventArgs e)
         {
             Shell.Current.Navigation.PushAsync(new Page_Rooms(Thishotel));
+        }
+
+        private void map_ht_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.Navigation.PushAsync(new Page_Hotel_Map(Thishotel));
         }
     }
 }

@@ -30,7 +30,7 @@
                                     <RowDefinition Height="50"/>
                                     <RowDefinition Height="20"/>
                                     <RowDefinition Height="20"/>
-                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="60"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
@@ -106,8 +106,8 @@
                                 </StackLayout>
                                 
                                 <!--Nút đặt ngay-->
-                                <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2">
-                                    <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                                <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Padding="0,20,0,0">
+                                    <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                                             x:Name="book_btn" Clicked="book_btn_Clicked"
                                             CommandParameter="{Binding .}"/>
                                 </StackLayout>
@@ -118,7 +118,7 @@
                     <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                     <CollectionView.EmptyView>
-                        <Label Text="Có lỗi xảy ra"/>
+                        <Label x:Name="Null_test" Text="Danh sách rỗng" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </CollectionView.EmptyView>
                 </CollectionView>
 

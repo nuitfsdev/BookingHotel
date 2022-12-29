@@ -46,15 +46,6 @@
                 <!--Lọc mức giá-->
                 <StackLayout>
                     <Label Text="Mức giá" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,0"/>
-                    <!--<StackLayout Orientation="Horizontal">
-                    <Frame WidthRequest="165" BackgroundColor="#f4f4f8" CornerRadius="50" HeightRequest="50" HasShadow="False" VerticalOptions="Center" HorizontalOptions="StartAndExpand" BorderColor="#585de4" Padding="0" Margin="10,0,0,0">
-                        <models:MyEntry Placeholder="Min" FontSize="Medium" TextColor="Black" Margin="10,0,0,0" />
-                    </Frame>
-                    <Label Text="đến" TextColor="#585de4" FontSize="Large" FontAttributes="Bold" Margin="5,20,5,20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
-                    <Frame WidthRequest="165" BackgroundColor="#f4f4f8" CornerRadius="50" HeightRequest="50" HasShadow="False" VerticalOptions="Center" HorizontalOptions="EndAndExpand" BorderColor="#585de4" Padding="0" Margin="0,0,10,0">
-                        <models:MyEntry Placeholder="Max" FontSize="Medium" TextColor="Black" Margin="10,0,0,0" />
-                    </Frame>
-                </StackLayout>-->
                     <xct:RangeSlider
                         TrackHighlightColor="#585de4"
                         x:Name="RangeSlider"

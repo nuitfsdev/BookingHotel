@@ -41,5 +41,10 @@ namespace BookingHotel.Views
         {
             Shell.Current.Navigation.PushAsync(new Page_Feedback());
         }
+
+        private void love_Tapped(object sender, EventArgs e)
+        {
+            Shell.Current.Navigation.PushAsync(new Page_Love());
+        }
     }
 }

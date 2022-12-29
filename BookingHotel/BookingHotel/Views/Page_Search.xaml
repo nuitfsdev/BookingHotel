@@ -121,7 +121,7 @@
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
-                    <Label Text="Có lỗi xảy ra"/>
+                    <Label x:Name="Null_test" Text="Danh sách rỗng" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 </CollectionView.EmptyView>
             </CollectionView>
         </StackLayout>
