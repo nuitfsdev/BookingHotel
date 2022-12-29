@@ -22,45 +22,145 @@
                     <StackLayout Margin="-10,0,0,20">
                         <Image Source="asia.jpg"  Aspect="AspectFill" VerticalOptions="StartAndExpand"/>
                     </StackLayout>
-                
+                    
                     <!--Tên phòng-->
                     <StackLayout>
                         <Label Text="Phòng 398" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     </StackLayout>
-                
+                    
+                    <!--Giá cho bao nhiêu người-->
+                    
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                        <Image Source="account.png" HeightRequest="15"/>
+                        <Label Text="giá cho" TextColor="Black"/>
+                        <Label Text="2" TextColor="Green" FontAttributes="Bold"/>
+                        <Label Text="người" TextColor="Black"/>
+                    </StackLayout>
+
                     <!--Giá tiền-->
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                        <Label Text="Giá:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="10000" FontSize="Medium" TextColor="Green"/>
+                        <Label Text="vnđ/giờ" FontSize="Medium" TextColor="Green"/>
+                    </StackLayout>
+                    
+                    <!--Miễn phí hủy-->
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                        <Image Source="dat_seen.png" HeightRequest="15"/>
+                        <Label Text="Miễn phí hủy" FontSize="Medium" TextColor="Green" Margin="10,0,0,0"/>
+                    </StackLayout>
+
+                    <!--Diện tích-->
+                    
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Giá:" VerticalOptions="EndAndExpand"/>
-                        <Label Text="10000" FontSize="Medium" TextColor="Black"/>
-                        <Label Text="vnđ/giờ" FontSize="Medium" TextColor="Black"/>
+                        <Label Text="Diện tích: " FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label Text="100m2" FontSize="Medium" TextColor="Black" VerticalOptions="Center"/>
                     </StackLayout>
-                
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                    <!--Mô tả về phòng-->
+                    <StackLayout>
+                        <Label Text="Mô tả" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Đây là căn phòng dành cho các cặp đổi, asdfg asfh asdfhkd  asdfh uôt ao " TextColor="Black"/>
+                    </StackLayout>
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
                     <!--Nội thất-->
-                    <StackLayout Margin="0,30,0,0">
-                        <Label Text="Nội thất" FontSize="Large" FontAttributes="Bold"/>
+                    <StackLayout Margin="0,10,0,0">
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Diện tích: " VerticalOptions="CenterAndExpand"/>
-                            <Label Text="100m2" FontSize="Medium"/>
+                            <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
+                            <Label Text="Nội thất chính" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Giường: " VerticalOptions="CenterAndExpand"/>
-                            <Label Text="1 giường đôi" FontSize="Medium"/>
+                            <Label Text="Giường: " VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="1 giường đôi (> 2 mét)" FontSize="Medium" TextColor="Black"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Wifi:" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="miễn phí" FontSize="Medium"/>
+                            <Label Text="Wifi:" VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="miễn phí" FontSize="Medium" TextColor="Black"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Điều hòa: " VerticalOptions="CenterAndExpand"/>
-                            <Label Text="1" FontSize="Medium"/>
+                            <Label Text="Điều hòa: " VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="1" FontSize="Medium" TextColor="Black"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Cách âm: " VerticalOptions="CenterAndExpand"/>
-                            <Label Text="có" FontSize="Medium"/>
+                            <Label Text="Bàn: " VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="1 bàn dài" FontSize="Medium" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Ghế: " VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="2 sofa" FontSize="Medium" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Phòng tắm: " VerticalOptions="Start" TextColor="Black" FontAttributes="Bold" WidthRequest="100" Margin="0,5,0,0"/>
+                            <Label Text="vòi sen, bồn tắm, toilet, khắn giấy, xà bông, bàn chải" FontSize="Medium" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Cách âm: " VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                            <Image Source="dat_success.png" HeightRequest="15"/>
                         </StackLayout>
                     </StackLayout>
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                    <!--Thông tin khác-->
+                    <StackLayout>
+                        <Label Text="Các tiện nghi khác" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Quạt" VerticalOptions="CenterAndExpand"  FontSize="Medium" TextColor="Black"/>
+                        <Label Text="Thùng rác" VerticalOptions="CenterAndExpand"  FontSize="Medium" TextColor="Black"/>
+                        <Label Text="Chìa khóa phòng" VerticalOptions="CenterAndExpand"  FontSize="Medium" TextColor="Black"/>
+                        <Label Text="Gạt tàn thuốc" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                        <Label Text="Hệ thống báo cháy" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                    </StackLayout>
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                    <!--Thúc ăn và nước uống-->
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
+                            <Label Text="Thúc ăn và nước uống" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <Label Text="Nước đóng chai" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                    </StackLayout>
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                    <!--Media-->
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
+                            <Label Text="Media" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <Label Text="Tivi" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                        <Label Text="Điện thoại bàn" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                    </StackLayout>
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                    <!--View-->
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
+                            <Label Text="Cảnh quan" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <Label Text="Cảnh thành phố" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                        <Label Text="Cảnh biển" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                    </StackLayout>
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                    <!--Quy định-->
+                    <StackLayout>
+                        <Label Text="Quy định" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Xin quý khách tuân thủ quy định của khách sạn khi đến nghỉ" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                    </StackLayout>
+                    
+                    
                     <!--Nút đặt ngay-->
-                    <StackLayout VerticalOptions="EndAndExpand">
+                    <StackLayout VerticalOptions="EndAndExpand" Margin="0,10,0,10">
                         <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                                     x:Name="book_btn" Clicked="book_btn_Clicked"/>
                     </StackLayout>

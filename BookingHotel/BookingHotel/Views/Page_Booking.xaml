@@ -113,14 +113,12 @@
 
                             <!--Thêm khách sạn vào Yêu thích-->
 
-                            <Image Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                            <ImageButton Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                                         BackgroundColor="Transparent"
                                        HeightRequest="25" WidthRequest="25"
                                        HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"
-                                       Margin="0,20,5,0">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="Add_Like_List" Tapped="Add_Like_List_Tapped"/>
-                                </Image.GestureRecognizers>
-                            </Image>
+                                       Margin="0,20,5,0"
+                                       x:Name="Add_Like_List" Clicked="Add_Like_List_Tapped" CommandParameter="{Binding .}"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -128,7 +126,7 @@
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
-                    <Label Text="Có lỗi xảy ra"/>
+                    <Label Text="Danh sách rỗng"/>
                 </CollectionView.EmptyView>
             </CollectionView>
         </StackLayout>

@@ -24,7 +24,7 @@ namespace BookingHotel.Views
 
         private void payment_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PushAsync(new Page_Test());
+            Shell.Current.Navigation.PushAsync(new Page_User_Payment());
         }
 
         private async void notification_Tapped(object sender, EventArgs e)

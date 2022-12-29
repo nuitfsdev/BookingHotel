@@ -21,14 +21,13 @@
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Frame
-                               CornerRadius="10"
-                               HorizontalOptions="Fill" Padding="0">
+                                <Frame CornerRadius="10"
+                                        HorizontalOptions="Fill" Padding="0">
                                     <StackLayout>
                                         <Image Source="{Binding Image}"
-                               Aspect="AspectFill"
-                               HeightRequest="150"
-                               HorizontalOptions="Center" />
+                                               Aspect="AspectFill"
+                                               HeightRequest="150"
+                                               HorizontalOptions="Center" />
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>

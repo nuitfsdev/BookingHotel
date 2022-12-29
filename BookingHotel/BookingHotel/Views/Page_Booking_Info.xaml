@@ -33,51 +33,60 @@
                     </Frame>
 
                     <StackLayout Grid.Column="1" Grid.Row="0" Margin="10,0,0,0">
+                        
                         <!--Tên khách sạn-->
-                        <Label x:Name="tenKS" FontSize="Large" FontAttributes="Bold"/>
+
+                        <Label x:Name="tenKS" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                        
                         <!--Địa chỉ-->
+                        
                         <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
-                            <Label x:Name="tinh" FontSize="Small"/>
-                            <Label Text=" - " FontSize="Small"/>
-                            <Label x:Name="quan" FontSize="Small"/>
+                            <Label x:Name="tinh" FontSize="Small" TextColor="Black"/>
+                            <Label Text=" - " FontSize="Small" TextColor="Black"/>
+                            <Label x:Name="quan" FontSize="Small" TextColor="Black"/>
                         </StackLayout>
+                        
                         <!--Các tiện ích của KS-->
-                        <FlexLayout Wrap="Wrap" JustifyContent="Start" Margin="0,10,0,0">
-                            <Image Source="dat_wifi.png" WidthRequest="20" Margin="10,5,0,0"/>
-                            <Image Source="dat_wifi.png" WidthRequest="20" Margin="10,5,0,0"/>
-                            <Image Source="dat_wifi.png" WidthRequest="20" Margin="10,5,0,0"/>
-                            <Image Source="dat_wifi.png" WidthRequest="20" Margin="10,5,0,0"/>
+
+                        <FlexLayout x:Name="tienich_hotel" Wrap="Wrap" JustifyContent="Start" Margin="0,10,0,0">
                         </FlexLayout>
                     </StackLayout>
                 </Grid>
+                
                 <!--Thông tin phòng-->
-                <StackLayout Margin="20">
-                    <Label Text="Thông tin phòng" FontSize="Large" FontAttributes="Bold"/>
-                    <Label Text="Phòng 398"/>
-                    <Label Text="Giường đôi"/>
-                    <Label Text="máy lạnh, free wifi, flat-screen, cách âm, vòi sen"/>
+                
+                <StackLayout Margin="20,20,20,10">
+                    <Label Text="Thông tin phòng" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Phòng:" TextColor="Black" FontAttributes="Bold"/>
+                        <Label x:Name="ma_ht" TextColor="Black"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Mã phòng:" TextColor="Black" FontAttributes="Bold"/>
+                        <Label Text="R007" TextColor="Black"/>
+                    </StackLayout>
                 </StackLayout>
                 
                 <!--Ngày-->
-                <FlexLayout Margin="20" JustifyContent="SpaceAround"> 
+                <FlexLayout JustifyContent="SpaceAround"> 
                     <StackLayout>
-                        <Label Text="Ngày đến" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Ngày đến" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
                         <DatePicker MinimumDate="1/12/2022" HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Ngày đi" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Ngày đi" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
                         <DatePicker HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </FlexLayout>
                 
                 <!--Giờ-->
-                <FlexLayout Margin="20" JustifyContent="SpaceAround">
+                <FlexLayout Margin="0,20,0,20" JustifyContent="SpaceAround">
                     <StackLayout>
-                        <Label Text="Giờ đến" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Giờ đến" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
                         <TimePicker HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Giờ đi" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Giờ đi" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
                         <TimePicker HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </FlexLayout>
@@ -85,26 +94,26 @@
                 <!--Số lượng khách và số lượng phòng-->
                 <StackLayout Margin="20,0,20,0">
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Người lớn" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="Người lớn" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
                             <Button Text="-" x:Name="adult_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="adult_decre_Clicked"/>
-                            <Label x:Name="Adult" Text="1" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                            <Label x:Name="Adult" Text="1" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
                             <Button Text="+" x:Name="adult_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="adult_incre_Clicked"/>
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Trẻ em" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="Trẻ em" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
                             <Button Text="-" x:Name="child_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="child_decre_Clicked"/>
-                            <Label x:Name="Child" Text="1" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                            <Label x:Name="Child" Text="1" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
                             <Button Text="+" x:Name="child_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="child_incre_Clicked"/>
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Số lượng phòng" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="Số lượng phòng" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
                             <Button Text="-" x:Name="room_qty_decre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="room_qty_decre_Clicked"/>
-                            <Label x:Name="Room_qty" Text="1" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
+                            <Label x:Name="Room_qty" Text="1" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,10,0"/>
                             <Button Text="+" x:Name="room_qty_incre" TextColor="Black" FontSize="Small" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="30" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="room_qty_incre_Clicked"/>
                         </StackLayout>
                     </StackLayout>
@@ -112,29 +121,64 @@
                 
                 <!--Thông tin liên hệ-->
                 <StackLayout Margin="20,30,20,0">
-                    <Label Text=" Thông tin liên hệ" FontSize="Large" FontAttributes="Bold" />
+                    <Label Text=" Thông tin liên hệ" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <Label Text="Họ và tên" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                         <models:MyEntry Text="Nguyễn văn a" Margin="10,0,0,0"/>
                     </Frame>
+                    <Label Text="Địa chỉ Email" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                         <models:MyEntry Text="nguyenvana@gmail.com" Keyboard="Email" Margin="10,0,0,0"/>
                     </Frame>
+                    <Label Text="Số điện thoại" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                         <models:MyEntry Text="0123456789" Keyboard="Telephone" Margin="10,0,0,0"/>
                     </Frame>
+                    <Label Text="Quốc gia" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                        <models:MyEntry Text="Việt Nam" Margin="10,0,0,0"/>
+                    </Frame>
+                </StackLayout>
+                
+                <!--Phương thức thanh toán-->
+                <StackLayout Margin="20,30,20,0">
+                    <Label Text="Phương thức thanh toán" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton Content="Thanh toán online" GroupName="user_payment" CheckedChanged="RadioButton_CheckedChanged" IsChecked="True"/>
+                        <RadioButton Content="Trả bằng tiền mặt" GroupName="user_payment" CheckedChanged="RadioButton_CheckedChanged"/>
+                    </StackLayout>
+                    
+                    <StackLayout x:Name="online_payment" IsVisible="True" >
+                        <Label Text="Ngân hàng" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
+                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                            <models:MyPicker Title="Chọn ngân hàng của bạn" x:Name="user_bank" TextColor="Black" FontSize="Medium"  SelectedIndexChanged="user_bank_SelectedIndexChanged"/>
+                        </Frame>
+                        <Label Text="Số tài khoản" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
+                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                            <models:MyEntry Text="123 456 789" Margin="10,0,0,0"/>
+                        </Frame>
+                        <Label Text="Mật khẩu" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
+                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                            <models:MyEntry Text="123456789" Margin="10,0,0,0" IsPassword="True"/>
+                        </Frame>
+                    </StackLayout>
+                    
+                    <StackLayout x:Name="offline_payment" IsVisible="false">
+                        <Label Text="   Bạn chọn thanh toán bằng tiền mặt, chúng tôi sẽ gửi email hóa đơn thanh toán cho bạn!" TextColor="Black"/>
+                    </StackLayout>
                 </StackLayout>
                 
                 <!--Yêu cầu khác-->
                 <StackLayout  Margin="20,0,20,0">
-                    <Label Text="Các yêu cầu khác" FontSize="Large" FontAttributes="Bold"/>
+                    <Label Text="Các yêu cầu khác" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <Editor FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="150" Margin="10,0,0,0"/>
+                        <models:MyEditor FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="150" Margin="10,0,0,0"/>
                     </Frame>
                 </StackLayout>
                 
                 <!--Thành tiền-->
                 <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Margin="0,30,30,0">
-                    <Label Text="Tổng:" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="Tổng:" FontSize="Medium" VerticalOptions="CenterAndExpand" TextColor="Black"/>
                     <Label Text="30000" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <Label Text="vnđ" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                 </StackLayout>

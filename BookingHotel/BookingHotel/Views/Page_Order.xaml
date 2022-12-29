@@ -5,6 +5,7 @@
              x:Class="BookingHotel.Views.Page_Order">
     <ContentPage.Content>
         <StackLayout>
+            
             <!--Tiêu đề lịch sử và nút tìm kiêm-->
             <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Label Text="Đặt phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
@@ -14,7 +15,9 @@
                              Clicked="Search_Btn_Clicked"
                              HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
             </StackLayout>
+            
             <!--Các options-->
+            
             <ScrollView Orientation="Horizontal"
                         HorizontalScrollBarVisibility="Never"
                         Margin="0,5,0,5">
@@ -30,12 +33,15 @@
                             CornerRadius="30" HeightRequest="60" Margin="0,0,0,10"/>
                 </StackLayout>
             </ScrollView>
+            
             <!--Danh sách các khách sạn theo tiêu chí đã chọn-->
+            
             <CollectionView x:Name="Order_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White" SelectionChanged="Order_Collection_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
@@ -48,19 +54,19 @@
                             
                             <!--Mã khách sạn-->
                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
-                                <Label Text="{Binding maht}"  HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding maht}"  HorizontalOptions="StartAndExpand" TextColor="Black"/>
                                 <Label Text="Xóa" TextColor="red" HorizontalOptions="EndAndExpand" Margin="0,0,20,0"/>
                             </StackLayout>
 
                             <!--Hình ảnh của Khách sạn-->
-                            <Frame Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
+                            <Frame Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Padding="0" BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
                                 <Image Source="{Binding hinh[0]}" Aspect="AspectFill"/>
                             </Frame>
 
                             <!--Tên khách sạn-->
 
-                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
+                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"
                                        Grid.Column="1" Grid.Row="1" HorizontalOptions="StartAndExpand"
                                        Margin="10,0,0,0"/>
 
@@ -68,16 +74,23 @@
 
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalOptions="StartAndExpand"
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding tinh}" FontSize="Small"/>
-                                <Label Text="," FontSize="Small"/>
-                                <Label Text="{Binding quan}" FontSize="Small"/>
+                                <Label Text="{Binding tinh}" FontSize="Small" TextColor="Black"/>
+                                <Label Text="," FontSize="Small" TextColor="Black"/>
+                                <Label Text="{Binding quan}" FontSize="Small" TextColor="Black"/>
+                            </StackLayout>
+                            
+                            <!--Phòng-->
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Margin="10,0,0,0">
+                                <Label Text="Phòng: " TextColor="Black"/>
+                                <Label Text="398" TextColor="Black"/>
                             </StackLayout>
 
                             <!--Thời gian đặt vé-->
-                            <StackLayout Grid.Column="1" Grid.Row="3" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,0,0,0">
-                                <Label Text="8 Apr"/>
-                                <Label Text="-"/>
-                                <Label Text="12 Apr"/>
+                            
+                            <StackLayout Grid.Column="1" Grid.Row="4" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,0,0,0">
+                                <Label Text="8 Apr" TextColor="Black"/>
+                                <Label Text="-" TextColor="Black"/>
+                                <Label Text="12 Apr" TextColor="Black"/>
                             </StackLayout>
                         </Grid>
                     </DataTemplate>
@@ -86,7 +99,7 @@
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
-                    <Label Text="Có lỗi xảy ra"/>
+                    <Label Text="Danh sách rỗng"/>
                 </CollectionView.EmptyView>
             </CollectionView>
         </StackLayout>

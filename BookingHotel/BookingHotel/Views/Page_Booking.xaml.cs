@@ -59,11 +59,14 @@ namespace BookingHotel.Views
 
         private void Add_Like_List_Tapped(object sender, EventArgs e)
         {
-            Image tab =(Image)sender;
-            if(tab.Source.ToString() == "File: heartWhite.png")
+            ImageButton tab =(ImageButton)sender;
+            //Lấy Hotel từ image
+            Hotel hotel = (Hotel)tab.CommandParameter;
+
+            if (tab.Source.ToString() == "File: heartWhite.png")
             {
                 tab.Source = "heart.png";
-                DisplayAlert("Thông báo","Đã thêm vào yêu thích","OK");
+                DisplayAlert("Thông báo",$"Đã thêm {hotel.tenht} vào yêu thích","OK");
             }
             else
             {

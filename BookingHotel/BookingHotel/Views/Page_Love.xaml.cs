@@ -57,5 +57,21 @@ namespace BookingHotel.Views
             //Thishotel = dsks[0];
             Shell.Current.Navigation.PushAsync(new Page_Room_Info(hotel, Thisroom));
         }
+
+        private async void delete_btn_Clicked(object sender, EventArgs e)
+        {
+            ImageButton tab = (ImageButton)sender;
+            //Lấy Hotel từ image
+            Hotel hotel = (Hotel)tab.CommandParameter;
+
+            bool answer = await DisplayAlert("Cảnh báo", "Bạn chắc chắn muốn xóa khách sạn này khỏi danh sách yêu thích", "Yes", "No");
+            if (answer)
+            {
+                //SwipeItem swipeItem = (SwipeItem)sender;
+                //Sanpham sp = swipeItem.CommandParameter as Sanpham;
+                //_ = dssp.Remove(sp);
+                DisplayAlert("Thong bao",$"Đã xóa {hotel.tenht}","OK");
+            }
+        }
     }
 }

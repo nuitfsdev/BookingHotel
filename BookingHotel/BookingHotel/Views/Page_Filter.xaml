@@ -56,12 +56,13 @@
                     </Frame>
                 </StackLayout>-->
                     <xct:RangeSlider
-                x:Name="RangeSlider"
-                MaximumValue="10000000"
-                MinimumValue="100000"
-                StepValue="50000"
-                LowerValue="100000"
-                UpperValue="10000000" Margin="20,0,20,0" />
+                        TrackHighlightColor="#585de4"
+                        x:Name="RangeSlider"
+                        MaximumValue="10000000"
+                        MinimumValue="100000"
+                        StepValue="50000"
+                        LowerValue="100000"
+                        UpperValue="10000000" Margin="20,0,20,0" />
                 </StackLayout>
                 <!--Lọc tiện ích của khách sạn-->
                 <StackLayout>
