@@ -13,24 +13,27 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(MyPicker), typeof(MyPickerRenderer))]
+[assembly: ExportRenderer(typeof(MyDateNgayDi), typeof(MyDateNgayDiRenderer))]
+
 namespace BookingHotel.Droid
 {
-    internal class MyPickerRenderer :PickerRenderer
+    internal class MyDateNgayDiRenderer:DatePickerRenderer
     {
-        public MyPickerRenderer(Context context) : base(context)
+        public MyDateNgayDiRenderer(Context context) : base(context)
         {
+
         }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.DatePicker> e)
         {
             base.OnElementChanged(e);
 
             if (Control != null)
             {
                 Control.SetBackgroundColor(global::Android.Graphics.Color.Transparent);
-
+                Control.Text = "Chọn ngày đi";
             }
         }
     }
+   
 }

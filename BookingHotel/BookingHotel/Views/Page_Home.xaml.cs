@@ -17,15 +17,24 @@ namespace BookingHotel.Views
     public partial class Page_Home : ContentPage
     {
         public ObservableCollection<Hotel> listHotel;
+        string diadiem;
+        DateTime ngayden;
+
         async public void KhachSanNoiBat()
         {
-            //listHotel = new ObservableCollection<Hotel>();
-            //listHotel.Add(new Hotel { MAKH = "0001", HinhAnhKH="hai_au.jpg", TenKH = "Khách sạn Hải Âu", DiaChiChiTiet = "123 Chu Văn An, Phù Mỹ, Bình Định", GiaMin = "100000", GiaMax = "1000000", RateKH =4});
-            //listHotel.Add(new Hotel { MAKH = "0001", HinhAnhKH = "hoa_binh.jpg", TenKH = "Khách sạn Hoà Bình", DiaChiChiTiet = "123 Chu Văn An, Thủ Đức, TP Hồ Chí Minh", GiaMin = "320000", GiaMax = "10000000", RateKH = 5 });
-            //listHotel.Add(new Hotel { MAKH = "0001", HinhAnhKH = "nam_ngoc.jpg", TenKH = "Khách sạn Nam Ngọc", DiaChiChiTiet = "Sông Cầu, Phú Yên", GiaMin = "100000", GiaMax = "9000000", RateKH = 4 });
-            //listHotel.Add(new Hotel { MAKH = "0001", HinhAnhKH = "asia.jpg", TenKH = "Khách sạn Asia", DiaChiChiTiet = "123 Chu Văn An, Thị Trấn Phù Mỹ, Huyện Phù Mỹ, Bình Định", GiaMin = "100000", GiaMax = "1000000", RateKH = 4 });
-            //listHotel.Add(new Hotel { MAKH = "0001", HinhAnhKH = "hoan_vu.jpg", TenKH = "Khách sạn Hoàn Vũ", DiaChiChiTiet = "123 Chu Văn An, Phù Mỹ, Bình Định", GiaMin = "100000", GiaMax = "1000000", RateKH = 5 });
-            //khachsannoibat.ItemsSource = listHotel;
+            List<string> listDiaDiem = new List<string>();
+            listDiaDiem.Add("TP Hồ Chí Minh");
+            listDiaDiem.Add("Đà Nẵng");
+            listDiaDiem.Add("Hà Nội");
+            diadiem_pk.ItemsSource = listDiaDiem;
+            List<string> listQuanHuyen = new List<string>();
+            listQuanHuyen.Add("Quận Thủ Đức");
+            listQuanHuyen.Add("Quận 2");
+            listQuanHuyen.Add("Quận 1");
+            quanhuyen_pk.ItemsSource = listQuanHuyen;
+            ngayden_dpk.MinimumDate = DateTime.Today;
+            ngaydi_dpk.MinimumDate = DateTime.Today;
+            ngaydi_dpk.MinimumDate = DateTime.Today.AddDays(1);
             HttpClient httpClient = new HttpClient();
             var ksnoibatList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels?noibat=true");
             var ksnoibatListConverted = JsonConvert.DeserializeObject<List<Hotel>>(ksnoibatList);
@@ -33,6 +42,8 @@ namespace BookingHotel.Views
             var ksuudaiList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels?uudai=true");
             var ksuudaiListConverted = JsonConvert.DeserializeObject<List<Hotel>>(ksuudaiList);
             khachsanuudai.ItemsSource = ksuudaiListConverted;
+            chuongtrinhkhuyenmai.ItemsSource = ksnoibatListConverted;
+            tintucnoibat.ItemsSource = ksuudaiListConverted;
         }
         public Page_Home()
         {
@@ -69,6 +80,34 @@ namespace BookingHotel.Views
         private async void search_icon_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(state: "//main/search");
+        }
+
+        private void quickSearch_btn_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("TB", $"{diadiem_pk.SelectedItem} {quanhuyen_pk.SelectedItem} {ngayden_dpk.Date.ToString("dd-MM-yyyy")} {ngaydi_dpk.Date.ToString("dd-MM-yyyy")}", "Ok");
+        }
+
+        private void diadiem_pk_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MyPicker myPicker = (MyPicker)sender;
+            diadiem=myPicker.SelectedItem as string;
+            
+        }
+
+        private void quanhuyen_pk_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ngayden_dpk_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            MyDatePicker myDateNgayDen = (MyDatePicker)sender;
+            ngayden = myDateNgayDen.Date;
+        }
+
+        private void ngaydi_dpk_DateSelected(object sender, DateChangedEventArgs e)
+        {
+
         }
     }
 }

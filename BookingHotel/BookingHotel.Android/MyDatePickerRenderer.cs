@@ -13,16 +13,16 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(MyPicker), typeof(MyPickerRenderer))]
+[assembly: ExportRenderer(typeof(MyDatePicker), typeof(MyDatePickerRenderer))]
 namespace BookingHotel.Droid
 {
-    internal class MyPickerRenderer :PickerRenderer
+    internal class MyDatePickerRenderer:DatePickerRenderer
     {
-        public MyPickerRenderer(Context context) : base(context)
+        public MyDatePickerRenderer(Context context) : base(context)
         {
-        }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
+        }
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.DatePicker> e)
         {
             base.OnElementChanged(e);
 
