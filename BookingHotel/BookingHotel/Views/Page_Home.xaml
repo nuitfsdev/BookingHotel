@@ -4,6 +4,7 @@
              x:Class="BookingHotel.Views.Page_Home"
              xmlns:models="clr-namespace:BookingHotel.Models"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              BackgroundColor="#ffff"
              >
     <ScrollView>
