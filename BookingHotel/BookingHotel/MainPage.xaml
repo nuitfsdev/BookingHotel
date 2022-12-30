@@ -29,7 +29,7 @@
         <Tab Title="Phòng" Icon="booking.png" Route="love">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Find_Room}" ></ShellContent>
         </Tab>
-        <Tab Title="Đã đặt" Icon="nam_historyicon.png" Route="order">
+        <Tab Title="Lịch sử" Icon="nam_historyicon.png" Route="order">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Order}" ></ShellContent>
         </Tab>
         <Tab Title="Tài khoản" Icon="account.png" Route="account">

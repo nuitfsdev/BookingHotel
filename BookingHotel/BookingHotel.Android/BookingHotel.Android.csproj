@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MyDatePickerRenderer.cs" />
     <Compile Include="MyEditorRenderer.cs" />
     <Compile Include="MyEntryRenderer.cs" />
     <Compile Include="MyPickerRenderer.cs" />
