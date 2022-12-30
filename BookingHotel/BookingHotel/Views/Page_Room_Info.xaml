@@ -20,12 +20,12 @@
                 <StackLayout Margin="10,0,0,0" >
                     <!--Hình ảnh của phòng-->
                     <StackLayout Margin="-10,0,0,20">
-                        <Image Source="asia.jpg"  Aspect="AspectFill" VerticalOptions="StartAndExpand"/>
+                        <Image x:Name="hinh"  Aspect="AspectFill" VerticalOptions="StartAndExpand"/>
                     </StackLayout>
                     
                     <!--Tên phòng-->
                     <StackLayout>
-                        <Label Text="Phòng 398" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                        <Label x:Name="tenphong" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     </StackLayout>
                     
                     <!--Giá cho bao nhiêu người-->
@@ -37,11 +37,16 @@
                         <Label Text="người" TextColor="Black"/>
                     </StackLayout>
 
-                    <!--Giá tiền-->
+                    <!--Giá tiền theo gio-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
                         <Label Text="Giá:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-                        <Label Text="10000" FontSize="Medium" TextColor="Green"/>
-                        <Label Text="vnđ/giờ" FontSize="Medium" TextColor="Green"/>
+                        <Label x:Name="theogio" FontSize="Medium" TextColor="Green"/>
+                    </StackLayout>
+                    
+                    <!--Gia tien theo ngay-->
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                        <Label Text="Giá:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                        <Label x:Name="theongay" FontSize="Medium" TextColor="Green"/>
                     </StackLayout>
                     
                     <!--Miễn phí hủy-->
@@ -54,7 +59,7 @@
                     
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Diện tích: " FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label Text="100m2" FontSize="Medium" TextColor="Black" VerticalOptions="Center"/>
+                        <Label x:Name="dientich" FontSize="Medium" TextColor="Black" VerticalOptions="Center"/>
                     </StackLayout>
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
@@ -62,7 +67,7 @@
                     <!--Mô tả về phòng-->
                     <StackLayout>
                         <Label Text="Mô tả" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="Đây là căn phòng dành cho các cặp đổi, asdfg asfh asdfhkd  asdfh uôt ao " TextColor="Black"/>
+                        <Label x:Name="mota" TextColor="Black"/>
                     </StackLayout>
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>

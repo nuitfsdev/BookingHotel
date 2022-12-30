@@ -82,7 +82,7 @@
                             <!--Phòng-->
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Margin="10,0,0,0">
                                 <Label Text="Phòng: " TextColor="Black"/>
-                                <Label Text="398" TextColor="Black"/>
+                                <Label x:Name="tenphong" Text="398" TextColor="Black"/>
                             </StackLayout>
 
                             <!--Thời gian đặt vé-->

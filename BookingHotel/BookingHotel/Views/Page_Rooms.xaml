@@ -29,7 +29,7 @@
                                     <RowDefinition Height="30"/>
                                     <RowDefinition Height="50"/>
                                     <RowDefinition Height="20"/>
-                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="30"/>
                                     <RowDefinition Height="60"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
@@ -40,14 +40,13 @@
                                 <!--Hình ảnh của Khách sạn-->
                                 <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                    <Image Source="asia.jpg" Aspect="AspectFill"
-                                          >
+                                    <Image Source="{Binding hinh[0]}" Aspect="AspectFill">
                                     </Image>
                                 </Frame>
 
                                 <!--Tên Phòng-->
 
-                                <Label Text="Phòng 398" FontSize="Medium" FontAttributes="Bold" TextColor="Black"
+                                <Label Text="{Binding tenphong}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"
                                        Grid.Column="1" Grid.Row="0"
                                        Margin="10,0,0,0"/>
 
@@ -60,34 +59,24 @@
                                 </StackLayout>
                                 
                                 <!--Mô tả về phòng-->
-                                <StackLayout Grid.Column="1" Grid.Row="2" Margin="10,0,0,0">
-                                    <Label Text="Một giường đôi" TextColor="Black"/>
+                                <StackLayout Grid.Column="1" Grid.Row="2" Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Label Text="Số giường:" TextColor="Black"/>
+                                    <Label Text="{Binding sogiuong}" TextColor="Black"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" Grid.Row="3" Margin="10,0,0,0" Orientation="Horizontal">
                                     <Label Text="Kích thước: " TextColor="Black"/>
-                                    <Label Text="236 m²" TextColor="Black"/>
+                                    <Label Text="{Binding dientich, StringFormat='{0:0,0 m²}'}" TextColor="Black"/>
                                 </StackLayout>
-                                <FlexLayout JustifyContent="Start"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                                
+                                <!--Các tiện ích của phòng-->
+                                
+                                <FlexLayout x:Name="tienich_room" JustifyContent="Start"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
                                     <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
                                         <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
                                         <Label Text="Free wifi" TextColor="Black"/>
+                                        
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
-                                        <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
-                                        <Label Text="Máy lạnh" TextColor="Black"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
-                                        <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
-                                        <Label Text="Tivi" TextColor="Black"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
-                                        <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
-                                        <Label Text="Cách âm" TextColor="Black"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
-                                        <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
-                                        <Label Text="Cách âm" TextColor="Black"/>
-                                    </StackLayout>
+                                    
                                 </FlexLayout>
                                 
                                 <StackLayout Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" Orientation="Horizontal">
@@ -97,18 +86,17 @@
 
                                 <!--Giá phòng của khách sạn-->
 
-                                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="StartAndExpand"
+                                <FlexLayout Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" JustifyContent="SpaceAround"
                                              Margin="10,0,0,0">
-                                    <Label Text="10000" TextColor="#585de4" FontSize="Medium" 
-                                           />
-                                    <Label Text="vnđ/giờ" TextColor="#585de4" FontSize="Medium" 
-                                           />
-                                </StackLayout>
+                                    <Label Text="{Binding giagio, StringFormat='{0:0,0 vnđ/giờ}'}" TextColor="#585de4" FontSize="Medium"/>
+                                    <Label Text="và" TextColor="Black" VerticalOptions="Center"/>
+                                    <Label Text="{Binding giangay, StringFormat='{0:0,0 vnđ/ngày}'}" TextColor="#585de4" FontSize="Medium" />
+                                </FlexLayout>
                                 
                                 <!--Nút đặt ngay-->
                                 <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Padding="0,20,0,0">
                                     <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
-                                            x:Name="book_btn" Clicked="book_btn_Clicked"
+                                            x:Name="book_rbtn" Clicked="book_btn_Clicked"
                                             CommandParameter="{Binding .}"/>
                                 </StackLayout>
                             </Grid>

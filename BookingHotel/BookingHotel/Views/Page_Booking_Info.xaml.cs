@@ -19,10 +19,12 @@ namespace BookingHotel.Views
             InitializeComponent();
             Thishotel = hotel;
             hinhKS.Source = hotel.hinh[0];
-            ma_ht.Text = hotel.maht;
             tenKS.Text = hotel.tenht;
             tinh.Text = hotel.tinh;
             quan.Text = hotel.quan;
+
+            ten_r.Text = room.tenphong;
+            ma_r.Text = room.maroom;
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
             foreach (string tienich in hotel.tienich)
@@ -36,6 +38,7 @@ namespace BookingHotel.Views
                 };
                 tienich_hotel.Children.Add(stack);
             }
+            showBank();
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
@@ -101,6 +104,18 @@ namespace BookingHotel.Views
                 online_payment.IsVisible = false;
                 offline_payment.IsVisible = true;
             }    
+        }
+
+        void showBank()
+        {
+            List<string> bank = new List<string>();
+            bank.Add("BIDV");
+            bank.Add("SCB");
+            bank.Add("Sacombank");
+            bank.Add("DongABank");
+            bank.Add("Argribank");
+            bank.Add("Momo");
+            user_bank.ItemsSource = bank;
         }
 
         private void user_bank_SelectedIndexChanged(object sender, EventArgs e)
