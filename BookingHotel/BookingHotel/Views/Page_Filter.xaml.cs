@@ -26,5 +26,15 @@ namespace BookingHotel.Views
         {
 
         }
+
+        private void tinh_filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quan_filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -22,7 +22,7 @@
                         HorizontalScrollBarVisibility="Never"
                         Margin="0,5,0,5">
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Thành công" x:Name="Active" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="#585de4" FontAttributes="Bold"
+                    <Button Text="Đang xử lý" x:Name="Active" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="#585de4" FontAttributes="Bold"
                             BorderColor="#585de4" BorderWidth="1" CornerRadius="30" HeightRequest="60" Clicked="Active_Clicked"
                             Margin="10,0,0,10"/>
                     <Button Text="Đã đặt" x:Name="Pass" TextTransform="None" BackgroundColor="#f4f4f8" BorderColor="#ccc"

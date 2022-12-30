@@ -79,7 +79,8 @@
                                 
                                 <!--Đặt vé -->
                                 
-                                <Button Text="Đặt phòng" x:Name="book_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" Clicked="book_btn_Clicked" CommandParameter="{Binding .}"/>
+                                <Button Text="Đặt phòng" x:Name="book_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" 
+                                        Clicked="book_btn_Clicked" CommandParameter="{Binding .}"/>
                             </StackLayout>
                         </Grid>
                 </DataTemplate>
