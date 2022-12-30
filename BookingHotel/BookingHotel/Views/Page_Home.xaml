@@ -80,7 +80,7 @@
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
                 <Frame Grid.Column="0" Grid.Row="0" BorderColor="#ccc" Padding="0" WidthRequest="180" HorizontalOptions="Start" CornerRadius="10">
-                    <models:MyPicker x:Name="diadiem_pk" Margin="8,0,0,0" Title="Chọn địa điểm" HorizontalTextAlignment="Start" TextColor="#585de4" TitleColor="DimGray" SelectedIndexChanged="diadiem_pk_SelectedIndexChanged"  ></models:MyPicker>
+                    <models:MyPicker x:Name="diadiem_pk" Margin="8,0,0,0" Title="Chọn địa điểm"  HorizontalTextAlignment="Start" TextColor="#585de4" TitleColor="DimGray" SelectedIndexChanged="diadiem_pk_SelectedIndexChanged"  ></models:MyPicker>
                 </Frame>
                 <Frame Grid.Column="1" Grid.Row="0" BorderColor="#ccc" Padding="0" WidthRequest="180" HorizontalOptions="Start" CornerRadius="10">
                     <models:MyPicker x:Name="quanhuyen_pk" Margin="8,0,0,0" Title="Chọn quận/huyện" HorizontalTextAlignment="Start" TextColor="#585de4" TitleColor="DimGray" SelectedIndexChanged="quanhuyen_pk_SelectedIndexChanged" ></models:MyPicker>

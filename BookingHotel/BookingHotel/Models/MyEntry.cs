@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace BookingHotel.Models
 {
-    public class MyEntry:Entry
+    public class MyEntry : Entry
     {
     }
 }

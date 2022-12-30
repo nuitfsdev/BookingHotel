@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace BookingHotel.Models
 {
-    public class MyDatePicker:DatePicker
+    public class MyDatePicker : DatePicker
     {
     }
 }
