@@ -59,11 +59,11 @@
                     <Label Text="Thông tin phòng" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Phòng:" TextColor="Black" FontAttributes="Bold"/>
-                        <Label x:Name="ma_ht" TextColor="Black"/>
+                        <Label x:Name="ten_r" TextColor="Black"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Mã phòng:" TextColor="Black" FontAttributes="Bold"/>
-                        <Label Text="R007" TextColor="Black"/>
+                        <Label x:Name="ma_r" TextColor="Black"/>
                     </StackLayout>
                 </StackLayout>
                 
@@ -147,11 +147,11 @@
                         <RadioButton Content="Thanh toán online" GroupName="user_payment" CheckedChanged="RadioButton_CheckedChanged" IsChecked="True"/>
                         <RadioButton Content="Trả bằng tiền mặt" GroupName="user_payment" CheckedChanged="RadioButton_CheckedChanged"/>
                     </StackLayout>
-                    
+                    <!--Online-->
                     <StackLayout x:Name="online_payment" IsVisible="True" >
                         <Label Text="Ngân hàng" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                         <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                            <models:MyPicker Title="Chọn ngân hàng của bạn" x:Name="user_bank" TextColor="Black" FontSize="Medium"  SelectedIndexChanged="user_bank_SelectedIndexChanged"/>
+                            <models:MyPicker Title="Chọn ngân hàng của bạn" x:Name="user_bank" TextColor="Black"  FontSize="Medium"  SelectedIndexChanged="user_bank_SelectedIndexChanged"/>
                         </Frame>
                         <Label Text="Số tài khoản" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                         <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
@@ -162,7 +162,7 @@
                             <models:MyEntry Text="123456789" Margin="10,0,0,0" IsPassword="True"/>
                         </Frame>
                     </StackLayout>
-                    
+                    <!--Offline-->
                     <StackLayout x:Name="offline_payment" IsVisible="false">
                         <Label Text="   Bạn chọn thanh toán bằng tiền mặt, chúng tôi sẽ gửi email hóa đơn thanh toán cho bạn!" TextColor="Black"/>
                     </StackLayout>

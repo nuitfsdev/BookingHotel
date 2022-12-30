@@ -42,12 +42,20 @@ namespace BookingHotel.Views
 
         private void bed_decre_Clicked(object sender, EventArgs e)
         {
-
+            int old_value = int.Parse(People.Text);
+            if (old_value > 1)
+                Bed.Text = $"{old_value - 1}";
         }
 
         private void bed_incre_Clicked(object sender, EventArgs e)
         {
+            int old_value = int.Parse(People.Text);
+            Bed.Text = $"{old_value + 1}";
+        }
 
+        private void book_btn_Clicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

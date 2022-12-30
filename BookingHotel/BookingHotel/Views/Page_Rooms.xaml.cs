@@ -1,8 +1,10 @@
 ﻿using BookingHotel.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,23 +18,36 @@ namespace BookingHotel.Views
     {
         Hotel Thishotel;
         Room Thisroom;
-        public ObservableCollection<Room> dsr;
-        void hienthiks()
+
+        async void hienthir(string urlAPI)
         {
-            dsr = new ObservableCollection<Room>();
-            dsr.Add(new Room { ID = 1 });
-            dsr.Add(new Room { ID = 2 });
-            dsr.Add(new Room { ID = 3 });
-            dsr.Add(new Room { ID = 4 });
-            dsr.Add(new Room { ID = 5 });
-            Rooms_Collection.ItemsSource = dsr;
+            HttpClient httpClient = new HttpClient();
+            var RoomlList = await httpClient.GetStringAsync(urlAPI);
+            var RoomltListConverted = JsonConvert.DeserializeObject<List<Room>>(RoomlList);
+            Rooms_Collection.ItemsSource = RoomltListConverted;
         }
 
         public Page_Rooms(Hotel hotel)
         {
             InitializeComponent();
             Thishotel = hotel;
-            hienthiks();
+            hienthir($"https://bookinghotel.onrender.com/rooms?maht={hotel.maht}");
+
+            //Room room = (Room)book_room_btn.CommandBinding;
+            //foreach (string tienich in room.tienich)
+            //{
+            //    StackLayout stack = new StackLayout
+            //    {
+            //        Orientation = StackOrientation.Horizontal,
+            //        Padding = new Thickness(0, 0, 10, 0),
+            //        HeightRequest = 20,
+            //        Children = {
+            //            new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(0,5,0,0), HeightRequest=10, VerticalOptions = LayoutOptions.Start},
+            //            new Label {Text = tienich, TextColor=Color.Black},
+            //        }
+            //    };
+               
+            //}
         }
 
         private void book_btn_Clicked(object sender, EventArgs e)
