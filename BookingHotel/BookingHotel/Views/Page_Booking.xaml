@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:BookingHotel.Views"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="BookingHotel.Views.Page_Booking">
     <!--Đổi màu selectmode-->
     <ContentPage.Resources>
@@ -29,7 +30,7 @@
 <!--___________________________________________Tiêu đề đặt phòng và kính lúp tìm kiếm_____________________________________________-->
             
             <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Label Text="Đặt phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                <Label Text="Khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
                 <ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
                              x:Name="Search_Btn"
@@ -47,7 +48,7 @@
                             Margin="10,0,0,10"/>
                     <Button Text="Nổi bật" FontAttributes="Bold" TextTransform="None" BackgroundColor="#f4f4f8" TextColor="Gray" x:Name="noibat" Clicked="noibat_Clicked"
                             BorderColor="Gray" BorderWidth="1" CornerRadius="30" HeightRequest="60"
-                            Margin="10,0,0,10"/>
+                            Margin="0,0,0,10"/>
                     <Button Text="Ưu đãi" TextTransform="None" BackgroundColor="#f4f4f8" BorderColor="#ccc" x:Name="uudai" Clicked="uudai_Clicked"
                             TextColor="Gray" BorderWidth="1" CornerRadius="30" HeightRequest="60" Margin="0,0,0,10"/>
                 </StackLayout>
@@ -58,50 +59,58 @@
             <CollectionView x:Name="Booking_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White" SelectionChanged="Booking_Collection_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" Margin="10">
+                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
                             <!--Hình ảnh của Khách sạn-->
-                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0"  BorderColor="Transparent"
+                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill"
-                                          >
+                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill">
                                 </Image>
                             </Frame>
-
+                               
                             <!--Tên khách sạn-->
 
                             <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
-                                       Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                                       Margin="10,0,0,0"/>
+                                       Grid.Column="1" Grid.Row="0"
+                                       Margin="10,0,0,0" TextColor="Black"/>
 
                             <!--Địa chỉ khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding tinh}" FontSize="Small"/>
-                                <Label Text="," FontSize="Small"/>
-                                <Label Text="{Binding quan}" FontSize="Small"/>
+                                <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Center"></Image>
+                                <Label Text="{Binding diachi}" FontSize="Small" VerticalOptions="Start"/>
                             </StackLayout>
-
+                            <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="nam_thanhtoan.png" WidthRequest="20"></Image>
+                                    <Label Text="Thanh toán khi nhận phòng" TextColor="Green"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="nam_discount.png" WidthRequest="20"></Image>
+                                    <Label Text="Giảm đến 10%" TextColor="Red"></Label>
+                                </StackLayout>
+                            </StackLayout>
                             <!--Giá phòng của khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
                                 <Label Text="{Binding giamin, StringFormat='{0:0,0}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
                                 <Label Text="-" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="{Binding giamax, StringFormat='{0:0,0 vnđ}'}" TextColor="#585de4" FontSize="Medium" 
+                                <Label Text="{Binding giamax, StringFormat='{0:0,0 VNĐ}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
                             </StackLayout>
 
@@ -129,7 +138,11 @@
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
-                    <Label x:Name="Null_test" Text="Danh sách rỗng" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <ffimageloading:CachedImage 
+			                    WidthRequest="300" HeightRequest="200"
+			                    DownsampleToViewSize="true"
+			                    Source = "nam_loading.gif">
+                    </ffimageloading:CachedImage>
                 </CollectionView.EmptyView>
             </CollectionView>
         </StackLayout>

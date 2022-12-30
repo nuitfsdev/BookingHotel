@@ -50,19 +50,19 @@
                     <DataTemplate>
                         <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
                             <!--Hình ảnh của Khách sạn-->
                             <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
-                                       IsClippedToBounds="True" CornerRadius="30">
+                                       IsClippedToBounds="True" CornerRadius="10">
                                 <Image Source="{Binding hinh[0]}" Aspect="AspectFill"
                                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                 </Image>
