@@ -22,14 +22,14 @@
         <Tab Title="Trang chủ" Icon="home.png" Route="home">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Home}" ></ShellContent>
         </Tab>
-        <Tab Title="Khách sạn" Icon="booking.png" Route="book">
+        <Tab Title="Khách sạn" Icon="nam_hotelicon.png" Route="book">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Booking} " ></ShellContent>
 
         </Tab>
         <Tab Title="Phòng" Icon="booking.png" Route="love">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Find_Room}" ></ShellContent>
         </Tab>
-        <Tab Title="Đã đặt" Icon="dat_order.png" Route="order">
+        <Tab Title="Đã đặt" Icon="nam_historyicon.png" Route="order">
             <ShellContent ContentTemplate="{DataTemplate views:Page_Order}" ></ShellContent>
         </Tab>
         <Tab Title="Tài khoản" Icon="account.png" Route="account">
