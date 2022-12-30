@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace BookingHotel.Models
 {
-    public class MyPicker:Picker
+    public class MyPicker : Picker
     {
     }
 }

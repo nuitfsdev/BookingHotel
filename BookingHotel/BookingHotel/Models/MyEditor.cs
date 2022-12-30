@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace BookingHotel.Models
 {
-    public class MyEditor:Editor
+    public class MyEditor : Editor
     {
     }
 }
