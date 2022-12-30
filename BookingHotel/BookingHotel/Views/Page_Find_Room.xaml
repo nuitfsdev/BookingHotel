@@ -6,14 +6,7 @@
              x:Class="BookingHotel.Views.Page_Find_Room">
     <ContentPage.Content>
         <StackLayout>
-            <!--Tên khách sạn-->
-            <StackLayout Margin="10,10,10,0">
-                <Label Text="Tên khách sạn" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
-                <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                    <models:MyEntry/>
-                </Frame>
-            </StackLayout>
-            
+            <!--Chọn vị trí khách sạn-->
             <StackLayout Margin="10,10,10,0">
                 <Label Text="Chọn địa điểm" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                 <StackLayout Orientation="Horizontal" >

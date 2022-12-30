@@ -70,14 +70,17 @@
                                 
                                 <!--Các tiện ích của phòng-->
                                 
-                                <FlexLayout x:Name="tienich_room" JustifyContent="Start"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
-                                    <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
-                                        <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
-                                        <Label Text="Free wifi" TextColor="Black"/>
-                                        
-                                    </StackLayout>
-                                    
+                                <FlexLayout x:Name="tienich_room" BindableLayout.ItemsSource="{Binding tienich}" JustifyContent="Start"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
+                                                <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
+                                                <Label Text="{Binding .}" TextColor="Black"/>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
                                 </FlexLayout>
+                                
                                 
                                 <StackLayout Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" Orientation="Horizontal">
                                     <Image Source="dat_success.png" HeightRequest="15" VerticalOptions="Center"/>

@@ -18,22 +18,19 @@ namespace BookingHotel.Views
     {
         Hotel Thishotel;
         Room Thisroom;
-        public ObservableCollection<Hotel> dsks;
-        async void hienthiks()
+
+        async void hienthiks(string urlAPI)
         {
             HttpClient httpClient = new HttpClient();
-            var subjectList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels");
+            var subjectList = await httpClient.GetStringAsync(urlAPI);
             var subjectListConverted = JsonConvert.DeserializeObject<List<Hotel>>(subjectList);
             Love_Collection.ItemsSource = subjectListConverted;
-            //dsks = new ObservableCollection<Hotel>();
-            
-            //Love_Collection.ItemsSource = dsks;
         }
 
         public Page_Love()
         {
             InitializeComponent();
-            hienthiks();
+            hienthiks("https://bookinghotel.onrender.com/hotels");
         }
 
         private async void Search_Btn_Clicked(object sender, EventArgs e)
@@ -54,8 +51,7 @@ namespace BookingHotel.Views
         {
             Button button = (Button)sender;
             Hotel hotel = (Hotel)button.CommandParameter;
-            //Thishotel = dsks[0];
-            Shell.Current.Navigation.PushAsync(new Page_Room_Info(hotel, Thisroom));
+            Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
         }
 
         private async void delete_btn_Clicked(object sender, EventArgs e)

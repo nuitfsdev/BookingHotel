@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:BookingHotel.Models" 
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="BookingHotel.Views.Page_Filter">
+             x:Class="BookingHotel.Views.Page_Filter"
+             Shell.TabBarIsVisible="False">
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout>
@@ -23,7 +24,27 @@
                     </Label>
                 </StackLayout>
                 <!--Lọc loại khách sạn-->
-                <!--Mô phỏng giao diện thôi-->
+               
+                <!--Tên khách sạn-->
+                <StackLayout Margin="10,10,10,0">
+                    <Label Text="Tên khách sạn" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                        <models:MyEntry x:Name="hotel_name"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Margin="10,10,10,0">
+                    <Label Text="Chọn địa điểm" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <StackLayout Orientation="Horizontal" >
+                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                            <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
+                        </Frame>
+                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                            <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                
                 <StackLayout>
                     <Label Text="Loại khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,0"/>
                     <ScrollView Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand"  VerticalScrollBarVisibility="Always">
