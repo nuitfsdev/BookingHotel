@@ -24,8 +24,12 @@
                     </StackLayout>
                     
                     <!--Tên phòng-->
-                    <StackLayout>
+                    <StackLayout Orientation="Horizontal">
                         <Label x:Name="tenphong" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
+                            <Label Text="Ưu đãi" TextColor="red" BackgroundColor="AntiqueWhite" Padding="5" IsVisible="{Binding room.noibat}"/>
+                            <Label Text="Nổi bật" TextColor="White" BackgroundColor="Red" Padding="5" IsVisible="{Binding room.noibat}"/>
+                        </StackLayout>
                     </StackLayout>
                     
                     <!--Giá cho bao nhiêu người-->
@@ -39,18 +43,19 @@
 
                     <!--Giá tiền theo gio-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
-                        <Label Text="Giá:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Giá theo giờ:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                         <Label x:Name="theogio" FontSize="Medium" TextColor="Green"/>
                     </StackLayout>
                     
                     <!--Gia tien theo ngay-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
-                        <Label Text="Giá:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Giá theo ngày:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                         <Label x:Name="theongay" FontSize="Medium" TextColor="Green"/>
                     </StackLayout>
                     
                     <!--Miễn phí hủy-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                        <Label Text="Hủy phòng:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                         <Image Source="dat_seen.png" HeightRequest="15"/>
                         <Label Text="Miễn phí hủy" FontSize="Medium" TextColor="Green" Margin="10,0,0,0"/>
                     </StackLayout>
@@ -72,7 +77,15 @@
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
 
-                    <!--Nội thất-->
+                    <StackLayout>
+                        <Label Text="Các tiện ích" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        <FlexLayout x:Name="tienichlist">
+                        </FlexLayout>
+                    </StackLayout>
+
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                    <!--Nội thất--><!--
                     <StackLayout Margin="0,10,0,0">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
@@ -106,24 +119,25 @@
                             <Label Text="Cách âm: " VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
                             <Image Source="dat_success.png" HeightRequest="15"/>
                         </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Thang máy: " VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                            <Image Source="dat_success.png" HeightRequest="15"/>
+                        </StackLayout>
                     </StackLayout>
 
-                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>-->
 
                     <!--Thông tin khác-->
                     <StackLayout>
                         <Label Text="Các tiện nghi khác" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="Quạt" VerticalOptions="CenterAndExpand"  FontSize="Medium" TextColor="Black"/>
-                        <Label Text="Thùng rác" VerticalOptions="CenterAndExpand"  FontSize="Medium" TextColor="Black"/>
-                        <Label Text="Chìa khóa phòng" VerticalOptions="CenterAndExpand"  FontSize="Medium" TextColor="Black"/>
-                        <Label Text="Gạt tàn thuốc" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
-                        <Label Text="Hệ thống báo cháy" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                        <FlexLayout x:Name="khaclist">
+                        </FlexLayout>
                     </StackLayout>
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
 
                     <!--Thúc ăn và nước uống-->
-                    <StackLayout>
+                    <!--<StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
                             <Label Text="Thúc ăn và nước uống" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
@@ -131,10 +145,10 @@
                         <Label Text="Nước đóng chai" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
                     </StackLayout>
 
-                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>-->
 
                     <!--Media-->
-                    <StackLayout>
+                    <!--<StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
                             <Label Text="Media" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
@@ -143,10 +157,10 @@
                         <Label Text="Điện thoại bàn" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
                     </StackLayout>
 
-                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>-->
 
                     <!--View-->
-                    <StackLayout>
+                    <!--<StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
                             <Label Text="Cảnh quan" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
@@ -155,13 +169,13 @@
                         <Label Text="Cảnh biển" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
                     </StackLayout>
 
-                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>-->
 
                     <!--Quy định-->
-                    <StackLayout>
+                    <!--<StackLayout>
                         <Label Text="Quy định" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
                         <Label Text="Xin quý khách tuân thủ quy định của khách sạn khi đến nghỉ" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
-                    </StackLayout>
+                    </StackLayout>-->
                     
                     
                     <!--Nút đặt ngay-->

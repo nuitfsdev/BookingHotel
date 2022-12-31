@@ -11,10 +11,25 @@
                 <Label Text="Chọn địa điểm" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                 <StackLayout Orientation="Horizontal" >
                     <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
+                        <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" SelectedIndexChanged="tinh_filter_SelectedIndexChanged">
+                            <Picker.Items>
+                                <x:String>Bình Dương</x:String>
+                                <x:String>Bến Tre</x:String>
+                                <x:String>Cao Bằng</x:String>
+                                <x:String>Cà Mau</x:String>
+                                <x:String>Long An</x:String>
+                            </Picker.Items>
+                        </models:MyPicker>
                     </Frame>
                     <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
+                        <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" SelectedIndexChanged="quan_filter_SelectedIndexChanged">
+                            <Picker.Items>
+                                <x:String>Thủ Đức</x:String>
+                                <x:String>Bình Chánh</x:String>
+                                <x:String>Quận 1</x:String>
+                                <x:String>Quận 10</x:String>
+                            </Picker.Items>
+                        </models:MyPicker>
                     </Frame>
                 </StackLayout>
             </StackLayout>

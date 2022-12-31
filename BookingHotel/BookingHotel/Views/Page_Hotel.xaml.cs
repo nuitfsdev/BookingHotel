@@ -37,17 +37,24 @@ namespace BookingHotel.Views
             }));
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
-            foreach(string tienich in hotel.tienich)
-            {
-                StackLayout stack = new StackLayout
+            if(hotel.tienich.Count > 0)
+                foreach(string tienich in hotel.tienich)
                 {
-                    Children = {
-                        new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(20,10)},
-                        new Label {Text = tienich, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-10,0,0)},
-                    }
-                };
-                tienich_hotel.Children.Add(stack);
-            }    
+                    StackLayout stack = new StackLayout
+                    {
+                        Children = {
+                            new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(20,10)},
+                            new Label {Text = tienich, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-10,0,0)},
+                        }
+                    };
+                    tienich_hotel.Children.Add(stack);
+                }
+            else
+            {
+                Label label = new Label { Text = "Đang cập nhật", HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = Color.Black, Margin = new Thickness(10), FontSize = 20 };
+                tienich_hotel.Children.Add(label);
+            } 
+                
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
