@@ -16,7 +16,7 @@ using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(MyPicker), typeof(MyPickerRenderer))]
 namespace BookingHotel.Droid
 {
-    internal class MyPickerRenderer :PickerRenderer
+    internal class MyPickerRenderer : PickerRenderer
     {
         public MyPickerRenderer(Context context) : base(context)
         {
@@ -29,7 +29,7 @@ namespace BookingHotel.Droid
             if (Control != null)
             {
                 Control.SetBackgroundColor(global::Android.Graphics.Color.Transparent);
-
+            
             }
         }
     }

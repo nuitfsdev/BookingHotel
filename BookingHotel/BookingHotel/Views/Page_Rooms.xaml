@@ -27,7 +27,7 @@
                                     <RowDefinition Height="30"/>
                                     <RowDefinition Height="30"/>
                                     <RowDefinition Height="30"/>
-                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="*"/>
                                     <RowDefinition Height="20"/>
                                     <RowDefinition Height="30"/>
                                     <RowDefinition Height="60"/>
@@ -40,22 +40,25 @@
                                 <!--Hình ảnh của Khách sạn-->
                                 <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                    <Image Source="{Binding hinh[0]}" Aspect="AspectFill">
-                                    </Image>
+                                    <Image Source="{Binding hinh[0]}" Aspect="AspectFill"/>
                                 </Frame>
+                                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.RowSpan="4" Padding="0" xct:CornerRadiusEffect.CornerRadius="20">
+                                </StackLayout>
 
                                 <!--Tên Phòng-->
+                                <StackLayout Margin="10,0,10,0" Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                                    <Label Text="{Binding tenphong}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                                    <Label Text="Nổi bật" TextColor="White" BackgroundColor="Red" Padding="5" HorizontalOptions="EndAndExpand" IsVisible="{Binding noibat}"/>
+                                </StackLayout>
 
-                                <Label Text="{Binding tenphong}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"
-                                       Grid.Column="1" Grid.Row="0"
-                                       Margin="10,0,0,0"/>
 
                                 <!--Giá cho n người-->
 
                                 <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
-                                             Margin="10,0,0,0">
+                                             Margin="10,0,10,0">
                                     <Image Source="account.png" WidthRequest="15"/>
                                     <Image Source="account.png" WidthRequest="15"/>
+                                    <Label Text="Ưu đãi" TextColor= "Red" BackgroundColor="AntiqueWhite" Padding="7,5,7,5" HorizontalOptions="EndAndExpand" VerticalOptions="Start" IsVisible="{Binding uudai}"/>
                                 </StackLayout>
                                 
                                 <!--Mô tả về phòng-->
@@ -65,7 +68,7 @@
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" Grid.Row="3" Margin="10,0,0,0" Orientation="Horizontal">
                                     <Label Text="Kích thước: " TextColor="Black"/>
-                                    <Label Text="{Binding dientich, StringFormat='{0:0,0 m²}'}" TextColor="Black"/>
+                                    <Label Text="{Binding dientich, StringFormat='{0} m²'}" TextColor="Black"/>
                                 </StackLayout>
                                 
                                 <!--Các tiện ích của phòng-->
@@ -73,9 +76,9 @@
                                 <FlexLayout x:Name="tienich_room" BindableLayout.ItemsSource="{Binding tienich}" JustifyContent="Start"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
-                                            <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="20">
-                                                <Image Source="dat_wifi.png" HeightRequest="10" VerticalOptions="Start" Margin="0,5,0,0"/>
-                                                <Label Text="{Binding .}" TextColor="Black"/>
+                                            <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="25">
+                                                <Image Source="dat_wifi.png" HeightRequest="15" VerticalOptions="Start" Margin="0,5,0,0"/>
+                                                <Label Text="{Binding .}" FontSize="Medium" TextColor="Black"/>
                                             </StackLayout>
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
@@ -89,15 +92,14 @@
 
                                 <!--Giá phòng của khách sạn-->
 
-                                <FlexLayout Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" JustifyContent="SpaceAround"
-                                             Margin="10,0,0,0">
+                                <FlexLayout Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" JustifyContent="SpaceAround" AlignItems="Center">
                                     <Label Text="{Binding giagio, StringFormat='{0:0,0 vnđ/giờ}'}" TextColor="#585de4" FontSize="Medium"/>
-                                    <Label Text="và" TextColor="Black" VerticalOptions="Center"/>
+                                    <Label Text="và" TextColor="Black"/>
                                     <Label Text="{Binding giangay, StringFormat='{0:0,0 vnđ/ngày}'}" TextColor="#585de4" FontSize="Medium" />
                                 </FlexLayout>
                                 
                                 <!--Nút đặt ngay-->
-                                <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Padding="0,20,0,0">
+                                <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2">
                                     <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                                             x:Name="book_rbtn" Clicked="book_btn_Clicked"
                                             CommandParameter="{Binding .}"/>
