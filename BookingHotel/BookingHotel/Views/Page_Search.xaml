@@ -48,72 +48,78 @@
             <CollectionView x:Name="Search_Collection" Grid.Row="0" SelectionMode="Single" SelectionChanged="Search_Collection_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        <Grid Padding="10">
+                         <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                            <!--Hình ảnh của Khách sạn-->
-                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent"
+                        <!--Hình ảnh của Khách sạn-->
+                        <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill"
-                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                </Image>
-                            </Frame>
+                            <Image Source="{Binding hinh[0]}" Aspect="AspectFill">
+                            </Image>
+                        </Frame>
 
-                            <!--Tên khách sạn-->
+                        <!--Tên khách sạn-->
 
-                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
-                                       Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                                       Margin="10,0,0,0"/>
+                        <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
+                                       Grid.Column="1" Grid.Row="0"
+                                       Margin="10,0,0,0" TextColor="Black"/>
 
-                            <!--Địa chỉ khách sạn-->
+                        <!--Địa chỉ khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                        <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding tinh}" FontSize="Small"/>
-                                <Label Text="," FontSize="Small"/>
-                                <Label Text="{Binding quan}" FontSize="Small"/>
+                            <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Center"></Image>
+                            <Label Text="{Binding diachi}" FontSize="Small" VerticalOptions="Start"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="nam_thanhtoan.png" WidthRequest="20"></Image>
+                                <Label Text="Thanh toán khi nhận phòng" TextColor="Green"></Label>
                             </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="nam_discount.png" WidthRequest="20"></Image>
+                                <Label Text="Giảm đến 10%" TextColor="Red"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--Giá phòng của khách sạn-->
 
-                            <!--Giá phòng của khách sạn-->
-
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                        <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding giamin}" TextColor="#585de4" FontSize="Medium" 
+                            <Label Text="{Binding giamin, StringFormat='{0:0,0}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="đến" TextColor="#585de4" FontSize="Medium" 
+                            <Label Text="-" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="{Binding giamax}" TextColor="#585de4" FontSize="Medium" 
+                            <Label Text="{Binding giamax, StringFormat='{0:0,0 VNĐ}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                            </StackLayout>
+                        </StackLayout>
 
-                            <!--Đánh giá về khách sạn-->
+                        <!--Đánh giá về khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
+                        <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
                                              HorizontalOptions="End" Padding="0,0,2,0">
-                                <Label Text="{Binding sosao}" FontSize="Medium" VerticalOptions="Center"/>
-                                <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
+                            <Label Text="{Binding sosao}" FontSize="Medium" VerticalOptions="Center"/>
+                            <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
                                            VerticalOptions="Center"/>
-                            </StackLayout>
+                        </StackLayout>
 
-                            <!--Thêm khách sạn vào Yêu thích-->
+                        <!--Thêm khách sạn vào Yêu thích-->
 
-                            <Image Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                        <ImageButton Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                                         BackgroundColor="Transparent"
                                        HeightRequest="25" WidthRequest="25"
                                        HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"
-                                       Margin="0,20,5,0">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="Add_Like_List" Tapped="Add_Like_List_Tapped"/>
-                                </Image.GestureRecognizers>
-                            </Image>
+                                       Margin="0,20,5,0"
+                                       x:Name="Add_Like_List" Clicked="Add_Like_List_Tapped" CommandParameter="{Binding .}"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
