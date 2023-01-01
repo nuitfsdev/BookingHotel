@@ -67,20 +67,20 @@ namespace BookingHotel.Views
             KhachSanNoiBat();
         }
 
-        private async void announcement_icon_Clicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync(state: "//main/announcement");
-        }
+        //private async void announcement_icon_Clicked(object sender, EventArgs e)
+        //{
+        //    await Shell.Current.GoToAsync(state: "//main/announcement");
+        //}
 
         //private async void home_search_Tapped(object sender, EventArgs e)
         //{
         //    await Shell.Current.GoToAsync(state: "//main/search");
         //}
 
-        private async void search_icon_Clicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync(state: "//main/search");
-        }
+        //private async void search_icon_Clicked(object sender, EventArgs e)
+        //{
+        //    await Shell.Current.GoToAsync(state: "//main/search");
+        //}
 
         private void quickSearch_btn_Clicked(object sender, EventArgs e)
         {
@@ -106,6 +106,44 @@ namespace BookingHotel.Views
         }
 
         private void ngaydi_dpk_DateSelected(object sender, DateChangedEventArgs e)
+        {
+
+        }
+
+    
+        private async void search_icon_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(state: "//main/search",true);
+        }
+
+        private async void bell_icon_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(state: "//main/announcement",true);
+
+        }
+
+        private void noibat_item_Tapped(object sender, EventArgs e)
+        {
+            Frame tab = (Frame)sender;
+            Hotel hotel = tab.BindingContext as Hotel;
+
+            Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
+        }
+
+        private void uudai_item_Tapped(object sender, EventArgs e)
+        {
+            Frame tab = (Frame)sender;
+            Hotel hotel = tab.BindingContext as Hotel;
+
+            Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
+        }
+
+        private void khuyenmai_item_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tintuc_item_Tapped(object sender, EventArgs e)
         {
 
         }
