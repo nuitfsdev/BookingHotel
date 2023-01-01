@@ -24,7 +24,7 @@ namespace BookingHotel.Views
             tenKS.Text = hotel.tenht;
             diachi.Text = hotel.diachi;
             min.Text = String.Format( "{0:0,0}" , hotel.giamin);
-            max.Text = String.Format("{0:0,0 vnđ}", hotel.giamax);
+            max.Text = String.Format("{0:0,0 VNĐ}", hotel.giamax);
             rate.Text = hotel.sosao.ToString();
             desc.Text = "\t" + hotel.mota;
             contact.Text ="\t" + hotel.lienhe;
@@ -40,13 +40,45 @@ namespace BookingHotel.Views
             if(hotel.tienich.Count > 0)
                 foreach(string tienich in hotel.tienich)
                 {
-                    StackLayout stack = new StackLayout
+                    StackLayout stack= new StackLayout();
+                    if (tienich == "gym")
                     {
-                        Children = {
-                            new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(20,10)},
-                            new Label {Text = tienich, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-10,0,0)},
-                        }
-                    };
+                        stack = new StackLayout
+                        {
+
+                            Children = {
+                                new Image {Source = "nam_gym.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
+                                new Label {Text = "Gym", FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
+                            }
+                        };
+                    }
+                    else if (tienich == "hoboi")
+                    {
+                        stack = new StackLayout
+                        {
+
+                            Children = {
+                                new Image {Source = "nam_swimmingpool.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
+                                new Label {Text = "Hồ bơi",FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
+                            }
+                        };
+                    }
+                    else if (tienich == "view")
+                    {
+                        stack = new StackLayout
+                        {
+
+                            Children = {
+                                new Image {Source = "nam_bar.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
+                                new Label {Text = "Quầy bar",FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
+                            }
+                        };
+                    }
+                    stack.Orientation = StackOrientation.Horizontal;
+
+
+                    stack.WidthRequest = 110;
+                   
                     tienich_hotel.Children.Add(stack);
                 }
             else
@@ -81,7 +113,11 @@ namespace BookingHotel.Views
             Shell.Current.Navigation.PushAsync(new Page_Rooms(Thishotel));
         }
 
-        private void map_ht_Clicked(object sender, EventArgs e)
+        //private void map_ht_Clicked(object sender, EventArgs e)
+        //{
+        //    Shell.Current.Navigation.PushAsync(new Page_Hotel_Map(Thishotel));
+        //}
+        private void maphotel_Clicked(object sender, EventArgs e)
         {
             Shell.Current.Navigation.PushAsync(new Page_Hotel_Map(Thishotel));
         }
