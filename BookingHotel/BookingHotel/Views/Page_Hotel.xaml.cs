@@ -63,7 +63,7 @@ namespace BookingHotel.Views
                             }
                         };
                     }
-                    else if (item.tienich == "view")
+                    else if (item.tienich == "bar")
                     {
                         stack = new StackLayout
                         {

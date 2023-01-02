@@ -22,7 +22,7 @@ namespace BookingHotel
             Routing.RegisterRoute("main/love", typeof(Page_Love));
             Routing.RegisterRoute("main/account", typeof(Page_Account));
             Routing.RegisterRoute("main/search", typeof(Page_Search));
-            Routing.RegisterRoute("main/filter", typeof(Page_Filter));
+            Routing.RegisterRoute("main/search/filter", typeof(Page_Filter));
             Routing.RegisterRoute("main/announcement", typeof(Page_Announcement));
         }
     }
