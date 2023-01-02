@@ -63,11 +63,7 @@ namespace BookingHotel.Views
                             }
                         };
                     }
-<<<<<<< HEAD
-                    else if (tienich.tienich == "view")
-=======
                     else if (item.tienich == "view")
->>>>>>> 5b487e83d3f2c128555d2f3c6b7c0e75b0e52e20
                     {
                         stack = new StackLayout
                         {

@@ -43,10 +43,4 @@ namespace BookingHotel.Models
         public string createAt { get; set; }
         public string updateAt { get; set; }
     }
-
-    public class Tienich
-    {
-        public string tienich { get; set; }
-        public string _id { get; set; }
-    }
 }

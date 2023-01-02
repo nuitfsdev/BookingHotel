@@ -46,7 +46,7 @@ namespace BookingHotel.Views
 
         private void Filter_btn_Clicked(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PushAsync(new Page_Filter());
+            Shell.Current.Navigation.PushAsync(new Page_Filter_Rooms());
         }
 
         private async void book_btn_Clicked(object sender, EventArgs e)
