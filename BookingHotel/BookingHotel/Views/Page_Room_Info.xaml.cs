@@ -29,6 +29,13 @@ namespace BookingHotel.Views
             theongay.Text = String.Format("{0:0,0 vnd/ngay}", room.giangay);
             dientich.Text = String.Format("{0} m²", room.dientich);
             mota.Text = room.mota;
+
+            if (room.noibat)
+                UudaiVaNoibat.Children.Add(new Label { Text = "Nổi bật", TextColor = Color.White, BackgroundColor = Color.Red, Padding = new Thickness(5) });
+
+            if (room.uudai)
+                UudaiVaNoibat.Children.Add(new Label { Text = "Ưu đãi", TextColor = Color.Red, BackgroundColor = Color.AntiqueWhite, Padding = new Thickness(5) });
+
             //hiện danh sách tiện nghi của phòng
             if (room.tienich.Count > 0)
                 foreach (string tienich in room.tienich)

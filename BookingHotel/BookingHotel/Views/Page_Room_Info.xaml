@@ -26,9 +26,7 @@
                     <!--Tên phòng-->
                     <StackLayout Orientation="Horizontal">
                         <Label x:Name="tenphong" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
-                            <Label Text="Ưu đãi" TextColor="red" BackgroundColor="AntiqueWhite" Padding="5" IsVisible="{Binding room.noibat}"/>
-                            <Label Text="Nổi bật" TextColor="White" BackgroundColor="Red" Padding="5" IsVisible="{Binding room.noibat}"/>
+                        <StackLayout x:Name="UudaiVaNoibat" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
                         </StackLayout>
                     </StackLayout>
                     
