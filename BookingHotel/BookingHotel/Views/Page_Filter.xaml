@@ -25,95 +25,106 @@
                 </StackLayout>
                 <!--Lọc loại khách sạn-->
                
-                <!--Tên khách sạn-->
+                <!--Tên khách sạn--><!--
                 <StackLayout Margin="10,10,10,0">
                     <Label Text="Tên khách sạn" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                         <models:MyEntry x:Name="hotel_name"/>
                     </Frame>
-                </StackLayout>
+                </StackLayout>-->
 
                 <StackLayout Margin="10,10,10,0">
                     <Label Text="Chọn địa điểm" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <StackLayout Orientation="Horizontal" >
-                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                            <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
+                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" HorizontalTextAlignment="Center" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
                         </Frame>
-                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                            <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
+                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" HorizontalTextAlignment="Center" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
                         </Frame>
                     </StackLayout>
                 </StackLayout>
                 
                 <StackLayout>
-                    <Label Text="Loại khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,0"/>
-                    <ScrollView Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand"  VerticalScrollBarVisibility="Always">
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="5 sao" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="4 sao" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="3 sao" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </ScrollView>
+                    <Label Text="Loại khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,10,0,0"/>
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <Label Text="5 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                        </Frame>
+                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <Label Text="4 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                        </Frame>
+                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <Label Text="3 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                        </Frame>
+                    </StackLayout>
+
+
                 </StackLayout>
                 <!--Lọc mức giá-->
                 <StackLayout>
                     <Label Text="Mức giá" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,0"/>
-                    <xct:RangeSlider
+                    <xct:RangeSlider 
                         TrackHighlightColor="#585de4"
                         x:Name="RangeSlider"
                         MaximumValue="10000000"
                         MinimumValue="100000"
                         StepValue="50000"
+                        ValueLabelStringFormat=" {0:0,0} VNĐ"
                         LowerValue="100000"
                         UpperValue="10000000" Margin="20,0,20,0" />
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Giá thấp nhất" Grid.Column="0" Grid.Row="0" FontSize="18"  Margin="10,0,0,0"/>
+                        <Label Text="Giá cao nhất nhất" Grid.Column="1" Grid.Row="0"  FontSize="18" Margin="10,0,0,0"/>
+                        <Frame Grid.Column="0" Grid.Row="1" HeightRequest="50" HasShadow="False" CornerRadius="30" BorderColor="#ccc" Padding="0" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <models:MyEntry Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" />
+                                <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Column="1" Grid.Row="1" HeightRequest="50" HasShadow="False" CornerRadius="30" BorderColor="#ccc" Padding="0" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <models:MyEntry Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" />
+                                <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
                 </StackLayout>
                 <!--Lọc tiện ích của khách sạn-->
                 <StackLayout>
-                    <Label Text="Các thiết bị/ tiện tích" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,20"/>
-                    <ScrollView Orientation="Vertical" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" 
-                                VerticalScrollBarVisibility="Always">
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Hồ bơi" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Phòng gym" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Máy lạnh" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Quầy bar" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Sân bóng" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Nhà hàng" TextColor="Black" FontSize="Medium" Margin="20,10,0,10" HorizontalOptions="StartAndExpand"/>
-                                <CheckBox HorizontalOptions="EndAndExpand" Color="#585de4" Margin="0,0,20,0"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </ScrollView>
+                    <Label Text="Các tiện tích" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,10,0,0"/>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame HeightRequest="50" Grid.Column="0" Grid.Row="0" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
+                            <Label Text="Hồ bơi" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                        </Frame>
+                        <Frame HeightRequest="50" Grid.Column="1" Grid.Row="0" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"   >
+                            <Label Text="Phòng gym" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                        </Frame>
+                        <Frame HeightRequest="50" Grid.Column="0" Grid.Row="1" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
+                            <Label Text="Quầy bar" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                        </Frame>
+                    </Grid>
                 </StackLayout>
 
                 <!--Nút Lọc-->
-                <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,30,0,30">
-                    <Button Text="Lọc" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"/>
-                </StackLayout>
+
+                <Button VerticalOptions="EndAndExpand"  Margin="10" Text="Lọc" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
