@@ -48,14 +48,24 @@
                 <StackLayout>
                     <Label Text="Loại khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,10,0,0"/>
                     <StackLayout Orientation="Horizontal" Margin="10">
-                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
-                            <Label Text="5 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                        <Frame x:Name="namsao"  HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <Label  Text="5 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="namsao_tap" Tapped="namsao_tap_Tapped"/>
+                            </Frame.GestureRecognizers>
+
                         </Frame>
-                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                        <Frame x:Name="bonsao" HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
                             <Label Text="4 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="bonsao_tap" Tapped="bonsao_tap_Tapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
-                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                        <Frame x:Name="basao" HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
                             <Label Text="3 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="basao_tap" Tapped="basao_tap_Tapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                     </StackLayout>
 
@@ -68,11 +78,13 @@
                         TrackHighlightColor="#585de4"
                         x:Name="RangeSlider"
                         MaximumValue="10000000"
-                        MinimumValue="100000"
+                        MinimumValue="0"
                         StepValue="50000"
-                        LowerValue="100000"
+                        LowerValue="0"
                         UpperValue="10000000" Margin="20,0,20,0" 
-                        ValueLabelStringFormat='Giá {0:0,0} VNĐ'/>
+                        ValueLabelStringFormat='Giá: {0:0,0} VNĐ'
+                        LowerValueChanged="RangeSlider_LowerValueChanged"
+                        UpperValueChanged="RangeSlider_UpperValueChanged"/>
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25"/>
@@ -86,7 +98,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
-                                <models:MyEntry Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" />
+                                <models:MyEntry x:Name="giamin_entry" Keyboard="Numeric" Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" HorizontalTextAlignment="Center" TextChanged="giamin_entry_TextChanged"/>
                                 <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
                             </Grid>
                         </Frame>
@@ -96,7 +108,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
-                                <models:MyEntry Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" />
+                                <models:MyEntry x:Name="giamax_entry" Keyboard="Numeric" Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" HorizontalTextAlignment="Center" TextChanged="giamax_entry_TextChanged" />
                                 <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
                             </Grid>
                         </Frame>
@@ -110,21 +122,30 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Frame HeightRequest="50" Grid.Column="0" Grid.Row="0" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
+                        <Frame x:Name="hoboi" HeightRequest="50" Grid.Column="0" Grid.Row="0" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
                             <Label Text="Hồ bơi" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="hoboi_tap" Tapped="hoboi_tap_Tapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
-                        <Frame HeightRequest="50" Grid.Column="1" Grid.Row="0" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"   >
+                        <Frame x:Name="gym" HeightRequest="50" Grid.Column="1" Grid.Row="0" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"   >
                             <Label Text="Phòng gym" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="gym_tap" Tapped="gym_tap_Tapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
-                        <Frame HeightRequest="50" Grid.Column="0" Grid.Row="1" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
+                        <Frame x:Name="bar" HeightRequest="50" Grid.Column="0" Grid.Row="1" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
                             <Label Text="Quầy bar" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="bar_tap" Tapped="bar_tap_Tapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                     </Grid>
                 </StackLayout>
 
                 <!--Nút Lọc-->
 
-                <Button VerticalOptions="EndAndExpand"  Margin="10" Text="Lọc" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"/>
+                <Button x:Name="filter_btn" VerticalOptions="EndAndExpand"  Margin="10" Text="Lọc" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4" Clicked="filter_btn_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

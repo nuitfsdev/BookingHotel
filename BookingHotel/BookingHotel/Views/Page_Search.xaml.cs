@@ -24,21 +24,135 @@ namespace BookingHotel.Views
             Search_Collection.ItemsSource = subjectListConverted;
         }
 
+        bool filter=false;
         public Page_Search()
         {
             InitializeComponent();
             hienthiks("https://bookinghotel.onrender.com/hotels");
             search_entry.Focus();
         }
+        public Page_Search(HotelFilter hotelFilter)
+        {
+            InitializeComponent();
+            filter=true;
+            if(hotelFilter == null)
+            {
+                hienthiks("https://bookinghotel.onrender.com/hotels");
+            }
+            else
+            {
+                string queryString = "";
+                if (hotelFilter.tinh != null)
+                {
+                    queryString = queryString + $"tinh={hotelFilter.tinh}";
+                }
+                if (hotelFilter.huyen != null)
+                {
+                    if (queryString != "")
+                    {
+                      queryString = queryString + $"&huyen={hotelFilter.huyen}";
+
+                    }
+                    else
+                    {
+                      queryString = queryString + $"huyen={hotelFilter.huyen}";
+                    }
+
+                }
+                if (hotelFilter.sosao.Count>0)
+                {
+                    if (queryString != "")
+                    {
+                       foreach(var item in hotelFilter.sosao)
+                        {
+                            queryString = queryString + $"&sosao[]={item}";
+                        }
+                    }
+                    else
+                    {
+                        foreach(var item in hotelFilter.sosao)
+                        {
+                            if (queryString.Contains("sosao"))
+                            {
+                                queryString = queryString + $"&sosao[]={item}";
+                            }
+                            else
+                            {
+                                queryString = queryString + $"sosao[]={item}";
+                            }
+                        }    
+                    }
+                }
+                if (hotelFilter.giamin != null)
+                {
+                    if (queryString != "")
+                    {
+                        queryString = queryString + $"&giamin={hotelFilter.giamin}";
+
+                    }
+                    else
+                    {
+                        queryString = queryString + $"giamin={hotelFilter.giamin}";
+                    }
+
+                }
+                if (hotelFilter.giamax != null)
+                {
+                    if (queryString != "")
+                    {
+                        queryString = queryString + $"&giamax={hotelFilter.giamax}";
+
+                    }
+                    else
+                    {
+                        queryString = queryString + $"giamax={hotelFilter.giamax}";
+                    }
+                }
+                if (hotelFilter.tienichs.Count > 0)
+                {
+                    if (queryString != "")
+                    {
+                        foreach (var item in hotelFilter.tienichs)
+                        {
+                            queryString = queryString + $"&tienichs[]={item}";
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in hotelFilter.tienichs)
+                        {
+                            if (queryString.Contains("tienichs"))
+                            {
+                                queryString = queryString + $"&tienichs[]={item}";
+                            }
+                            else
+                            {
+                                queryString = queryString + $"tienichs[]={item}";
+                            }
+                        }
+                    }
+                }
+
+                DisplayAlert("TB", queryString, "OK");
+                hienthiks($"https://bookinghotel.onrender.com/hotels?{queryString}");
+            }
+        }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(state: "../");
+            await Shell.Current.GoToAsync(state: "//main");
         }
 
         private async void filter_btn_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(state: "//main/filter");
+            if (filter == true)
+            {
+                await Shell.Current.GoToAsync(state: "../");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync(state: "//main/search/filter");
+            }    
         }
 
         private void Add_Like_List_Tapped(object sender, EventArgs e)
