@@ -29,7 +29,7 @@ namespace BookingHotel.Models
         public string tinh { get; set; }
         public string quan { get; set; }
         public string sosao { get; set; }
-        public List<string> tienich { get; set; }
+        public List<Tienich> tienichs { get; set; }
         public string mota { get; set; }
         public List<string> hinh { get; set; }
         public long giamin { get; set; }

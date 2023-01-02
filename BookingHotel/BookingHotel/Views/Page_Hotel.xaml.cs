@@ -37,11 +37,11 @@ namespace BookingHotel.Views
             }));
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
-            if(hotel.tienich.Count > 0)
-                foreach(string tienich in hotel.tienich)
+            if(hotel.tienichs.Count > 0)
+                foreach(Tienich item in hotel.tienichs)
                 {
                     StackLayout stack= new StackLayout();
-                    if (tienich == "gym")
+                    if (item.tienich == "gym")
                     {
                         stack = new StackLayout
                         {
@@ -52,7 +52,7 @@ namespace BookingHotel.Views
                             }
                         };
                     }
-                    else if (tienich == "hoboi")
+                    else if (item.tienich == "hoboi")
                     {
                         stack = new StackLayout
                         {
@@ -63,7 +63,7 @@ namespace BookingHotel.Views
                             }
                         };
                     }
-                    else if (tienich == "view")
+                    else if (item.tienich == "view")
                     {
                         stack = new StackLayout
                         {
