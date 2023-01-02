@@ -119,7 +119,7 @@
 
                             <!--Nút đặt ngay-->
                             <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal">
-                                <Button Text="Xem khách sạn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4" 
+                                <Button Text="Xem khách sạn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4" Padding="-10,0,-10,0"
                                         x:Name="KS_btn" Clicked="KS_btn_Clicked" HorizontalOptions="FillAndExpand" TextTransform="None" CommandParameter="{Binding .}"/>
                                 <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
                                             x:Name="book_btn" Clicked="book_btn_Clicked" HorizontalOptions="FillAndExpand" TextTransform="None"

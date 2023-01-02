@@ -31,6 +31,7 @@ namespace BookingHotel.Views
             {
                 StackLayout stack = new StackLayout
                 {
+                    Orientation = StackOrientation.Horizontal,
                     Children = {
                         new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(10,5,0,0), HeightRequest=20},
                         new Label {Text = tienich.tienich, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
