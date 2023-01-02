@@ -25,10 +25,10 @@ namespace BookingHotel.Views
 
             hinh.Source = room.hinh[0];
             tenphong.Text = room.tenphong;
-            theogio.Text = String.Format("{0:0,0 vnd/h}", room.giagio);
-            theongay.Text = String.Format("{0:0,0 vnd/ngay}", room.giangay);
+            theogio.Text = String.Format("{0:0,0 vnđ/giờ}", room.giagio);
+            theongay.Text = String.Format("{0:0,0 vnđ/ngày}", room.giangay);
             dientich.Text = String.Format("{0} m²", room.dientich);
-            mota.Text = room.mota;
+            mota.Text = "\t"+room.mota;
 
             if (room.noibat)
                 UudaiVaNoibat.Children.Add(new Label { Text = "Nổi bật", TextColor = Color.White, BackgroundColor = Color.Red, Padding = new Thickness(5) });

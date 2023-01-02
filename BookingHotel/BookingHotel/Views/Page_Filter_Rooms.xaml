@@ -36,13 +36,55 @@
                 <StackLayout Margin="10,10,10,0">
                     <Label Text="Chọn địa điểm" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <StackLayout Orientation="Horizontal" >
-                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                            <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
+                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" HorizontalTextAlignment="Center" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
                         </Frame>
-                        <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                            <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
+                        <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
+                            <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" HorizontalTextAlignment="Center" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
                         </Frame>
                     </StackLayout>
+                </StackLayout>
+                
+                <!--Mức giá-->
+                <StackLayout>
+                    <Label Text="Mức giá" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,0"/>
+                    <xct:RangeSlider 
+                        TrackHighlightColor="#585de4"
+                        x:Name="RangeSlider"
+                        MaximumValue="10000000"
+                        MinimumValue="100000"
+                        StepValue="50000"
+                        LowerValue="100000"
+                        UpperValue="10000000" Margin="20,0,20,0" 
+                        ValueLabelStringFormat='Giá {0:0,0} VNĐ'/>
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Giá thấp nhất" Grid.Column="0" Grid.Row="0" FontSize="18"  Margin="10,0,0,0"/>
+                        <Label Text="Giá cao nhất nhất" Grid.Column="1" Grid.Row="0"  FontSize="18" Margin="10,0,0,0"/>
+                        <Frame Grid.Column="0" Grid.Row="1" HeightRequest="50" HasShadow="False" CornerRadius="30" BorderColor="#ccc" Padding="0" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <models:MyEntry Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" />
+                                <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Column="1" Grid.Row="1" HeightRequest="50" HasShadow="False" CornerRadius="30" BorderColor="#ccc" Padding="0" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <models:MyEntry Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" />
+                                <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
                 </StackLayout>
                 
                 <!--Loại khách sạn-->

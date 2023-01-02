@@ -32,12 +32,12 @@
                     
                     <!--Giá cho bao nhiêu người-->
                     
-                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                    <!--<StackLayout Orientation="Horizontal" Margin="0,5,0,5">
                         <Image Source="account.png" HeightRequest="15"/>
                         <Label Text="giá cho" TextColor="Black"/>
                         <Label Text="2" TextColor="Green" FontAttributes="Bold"/>
                         <Label Text="người" TextColor="Black"/>
-                    </StackLayout>
+                    </StackLayout>-->
 
                     <!--Giá tiền theo gio-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
@@ -49,13 +49,6 @@
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
                         <Label Text="Giá theo ngày:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
                         <Label x:Name="theongay" FontSize="Medium" TextColor="Green"/>
-                    </StackLayout>
-                    
-                    <!--Miễn phí hủy-->
-                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
-                        <Label Text="Hủy phòng:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-                        <Image Source="dat_seen.png" HeightRequest="15"/>
-                        <Label Text="Miễn phí hủy" FontSize="Medium" TextColor="Green" Margin="10,0,0,0"/>
                     </StackLayout>
 
                     <!--Diện tích-->
@@ -174,8 +167,13 @@
                         <Label Text="Quy định" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
                         <Label Text="Xin quý khách tuân thủ quy định của khách sạn khi đến nghỉ" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
                     </StackLayout>-->
-                    
-                    
+
+                    <!--Miễn phí hủy-->
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                        <Label Text="Hủy phòng:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Miễn phí hủy" FontSize="Medium" TextColor="Green" Margin="10,0,0,0"/>
+                    </StackLayout>
+
                     <!--Nút đặt ngay-->
                     <StackLayout VerticalOptions="EndAndExpand" Margin="0,10,0,10">
                         <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"

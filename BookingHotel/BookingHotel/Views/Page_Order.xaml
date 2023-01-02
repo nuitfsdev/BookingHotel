@@ -54,7 +54,7 @@
                             
                             <!--Mã khách sạn-->
                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
-                                <Label Text="{Binding maht}"  HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                <Label Text="Ngày đặt: 20/11/2022"  HorizontalOptions="StartAndExpand" TextColor="Black"/>
                                 <Label Text="Xóa" TextColor="red" HorizontalOptions="EndAndExpand" Margin="0,0,20,0"/>
                             </StackLayout>
 
@@ -74,6 +74,7 @@
 
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalOptions="StartAndExpand"
                                              Margin="10,0,0,0">
+                                <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Start"/>
                                 <Label Text="{Binding tinh}" FontSize="Small" TextColor="Black"/>
                                 <Label Text="," FontSize="Small" TextColor="Black"/>
                                 <Label Text="{Binding quan}" FontSize="Small" TextColor="Black"/>

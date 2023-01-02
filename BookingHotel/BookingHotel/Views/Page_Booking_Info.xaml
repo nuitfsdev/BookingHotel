@@ -40,7 +40,8 @@
                         
                         <!--Địa chỉ-->
                         
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Center"/>
                             <Label x:Name="tinh" FontSize="Small" TextColor="Black"/>
                             <Label Text=" - " FontSize="Small" TextColor="Black"/>
                             <Label x:Name="quan" FontSize="Small" TextColor="Black"/>
@@ -48,7 +49,7 @@
                         
                         <!--Các tiện ích của KS-->
 
-                        <FlexLayout x:Name="tienich_hotel" Wrap="Wrap" JustifyContent="Start" Margin="0,10,0,0">
+                        <FlexLayout x:Name="tienich_hotel" Wrap="Wrap" JustifyContent="Start" AlignItems="Center" Margin="0,10,0,0">
                         </FlexLayout>
                     </StackLayout>
                 </Grid>
@@ -68,31 +69,27 @@
                 </StackLayout>
                 
                 <!--Ngày-->
-                <FlexLayout JustifyContent="SpaceAround"> 
-                    <StackLayout>
-                        <Label Text="Ngày đến" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                        <DatePicker MinimumDate="1/12/2022" HorizontalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="Ngày đi" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                        <DatePicker HorizontalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </FlexLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Label Text="Ngày:" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,10,0"/>
+                    <FlexLayout JustifyContent="SpaceAround" HorizontalOptions="FillAndExpand" AlignItems="Center">
+                        <DatePicker MinimumDate="1/12/2022" TextColor="#585de4" VerticalOptions="CenterAndExpand" />
+                        <Image Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" Rotation="180" />
+                        <DatePicker TextColor="#585de4" VerticalOptions="CenterAndExpand"/>
+                    </FlexLayout>
+                </StackLayout>
                 
                 <!--Giờ-->
-                <FlexLayout Margin="0,20,0,20" JustifyContent="SpaceAround">
-                    <StackLayout>
-                        <Label Text="Giờ đến" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                        <TimePicker HorizontalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="Giờ đi" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                        <TimePicker HorizontalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </FlexLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Label Text="Giờ:" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,26,0"/>
+                    <FlexLayout JustifyContent="SpaceAround" HorizontalOptions="FillAndExpand" AlignItems="Center">
+                        <TimePicker HorizontalOptions="CenterAndExpand" TextColor="#585de4"/>
+                        <Image Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" Rotation="180" />
+                        <TimePicker HorizontalOptions="CenterAndExpand" TextColor="#585de4"/>
+                    </FlexLayout>
+                </StackLayout>
                 
                 <!--Số lượng khách và số lượng phòng-->
-                <StackLayout Margin="20,0,20,0">
+                <StackLayout Margin="20,20,20,0">
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Người lớn" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
@@ -123,19 +120,19 @@
                 <StackLayout Margin="20,30,20,0">
                     <Label Text=" Thông tin liên hệ" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                     <Label Text="Họ và tên" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
-                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
                         <models:MyEntry Text="Nguyễn văn a" Margin="10,0,0,0"/>
                     </Frame>
                     <Label Text="Địa chỉ Email" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
-                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
                         <models:MyEntry Text="nguyenvana@gmail.com" Keyboard="Email" Margin="10,0,0,0"/>
                     </Frame>
                     <Label Text="Số điện thoại" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
-                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
                         <models:MyEntry Text="0123456789" Keyboard="Telephone" Margin="10,0,0,0"/>
                     </Frame>
                     <Label Text="Quốc gia" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
-                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
                         <models:MyEntry Text="Việt Nam" Margin="10,0,0,0"/>
                     </Frame>
                 </StackLayout>
@@ -157,10 +154,10 @@
                         <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                             <models:MyEntry Text="123 456 789" Margin="10,0,0,0"/>
                         </Frame>
-                        <Label Text="Mật khẩu" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
+                        <!--<Label Text="Mật khẩu" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                         <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
                             <models:MyEntry Text="123456789" Margin="10,0,0,0" IsPassword="True"/>
-                        </Frame>
+                        </Frame>-->
                     </StackLayout>
                     <!--Offline-->
                     <StackLayout x:Name="offline_payment" IsVisible="false">
@@ -171,7 +168,7 @@
                 <!--Yêu cầu khác-->
                 <StackLayout  Margin="20,0,20,0">
                     <Label Text="Các yêu cầu khác" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
-                    <Frame BackgroundColor="#f4f4f8" CornerRadius="20" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
+                    <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
                         <models:MyEditor FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="150" Margin="10,0,0,0"/>
                     </Frame>
                 </StackLayout>

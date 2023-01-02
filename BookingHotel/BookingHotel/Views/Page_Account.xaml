@@ -8,16 +8,8 @@
             <StackLayout Orientation="Horizontal" Margin="20">
                 <!--Avatar hình tròn-->
                 <StackLayout Margin="0,0,10,0">
-                    <Frame CornerRadius="100" 
-                           HeightRequest="80"
-                           WidthRequest="80"
-                           HorizontalOptions="Center"
-                           Padding="0"
-                           IsClippedToBounds="True">
-                                    <Image Source="asia.jpg" 
-                                           Aspect="AspectFill"
-                                           HorizontalOptions="FillAndExpand"
-                                           VerticalOptions="FillAndExpand" />  
+                    <Frame CornerRadius="100" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center" Padding="0" IsClippedToBounds="True">
+                            <Image Source="asia.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />  
                     </Frame>
                 </StackLayout>
                 <!--Info-->
@@ -89,6 +81,7 @@
                     </Frame.GestureRecognizers>
                 </Frame>
             </StackLayout>
+            
             <!--Logout button-->
 
             <Button Text="Đăng xuất" TextColor="Red" FontSize="Medium"
