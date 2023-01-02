@@ -56,14 +56,17 @@ namespace BookingHotel.Views
         async void LayHotel(string maht)
         {
             HttpClient httpClient = new HttpClient();
-            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotel?maht={maht}");
-            var HotelConverted = JsonConvert.DeserializeObject<Hotel>(Hotel);
-            thishotel =  HotelConverted;
+            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={maht}");
+            var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+            thishotel = HotelConverted[0];
         }
 
         private void KS_btn_Clicked(object sender, EventArgs e)
         {
-
+            Button btn = (Button)sender;
+            Room room = (Room)btn.CommandParameter;
+            LayHotel(room.maht);
+            Shell.Current.Navigation.PushAsync(new Page_Hotel(thishotel));
         }
     }
 }

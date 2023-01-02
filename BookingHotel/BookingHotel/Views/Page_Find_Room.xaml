@@ -116,15 +116,13 @@
                                 <Label Text="và" TextColor="Black"/>
                                 <Label Text="{Binding giangay, StringFormat='{0:0,0 vnđ/ngày}'}" TextColor="#585de4" FontSize="Medium" />
                             </FlexLayout>
-                            <StackLayout Grid.Column="0" Grid.Row="7">
-                                <Button Text="Xem khách sạn" BackgroundColor="#585de4" TextColor="White" FontSize="12" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
-                                        x:Name="KS_btn" Clicked="KS_btn_Clicked"/>
-                            </StackLayout>
 
                             <!--Nút đặt ngay-->
-                            <StackLayout Grid.Column="1" Grid.Row="7">
-                                <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
-                                            x:Name="book_btn" Clicked="book_btn_Clicked"
+                            <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                <Button Text="Xem khách sạn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4" 
+                                        x:Name="KS_btn" Clicked="KS_btn_Clicked" HorizontalOptions="FillAndExpand" TextTransform="None" CommandParameter="{Binding .}"/>
+                                <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                                            x:Name="book_btn" Clicked="book_btn_Clicked" HorizontalOptions="FillAndExpand" TextTransform="None"
                                             CommandParameter="{Binding .}"/>
                             </StackLayout>
                         </Grid>
