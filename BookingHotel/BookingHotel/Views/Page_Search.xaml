@@ -4,6 +4,7 @@
              xmlns:models="clr-namespace:BookingHotel.Models"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Search"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Shell.TabBarIsVisible="False"
              >
     <!--Đổi màu selectmode-->
@@ -127,7 +128,11 @@
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
-                    <Label x:Name="Null_test" Text="Danh sách rỗng" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <ffimageloading:CachedImage 
+			                    WidthRequest="300" HeightRequest="200"
+			                    DownsampleToViewSize="true"
+			                    Source = "nam_loading.gif">
+                    </ffimageloading:CachedImage>
                 </CollectionView.EmptyView>
             </CollectionView>
         </StackLayout>
