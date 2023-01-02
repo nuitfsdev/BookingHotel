@@ -70,9 +70,9 @@
                         MaximumValue="10000000"
                         MinimumValue="100000"
                         StepValue="50000"
-                        ValueLabelStringFormat=" {0:0,0} VNĐ"
                         LowerValue="100000"
-                        UpperValue="10000000" Margin="20,0,20,0" />
+                        UpperValue="10000000" Margin="20,0,20,0" 
+                        ValueLabelStringFormat='Giá {0:0,0} VNĐ'/>
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25"/>
