@@ -27,13 +27,13 @@ namespace BookingHotel.Views
             ma_r.Text = room.maroom;
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
-            foreach (string tienich in hotel.tienich)
+            foreach (Tienich tienich in hotel.tienichs)
             {
                 StackLayout stack = new StackLayout
                 {
                     Children = {
                         new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(10,5,0,0), HeightRequest=20},
-                        new Label {Text = tienich, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
+                        new Label {Text = tienich.tienich, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
                     }
                 };
                 tienich_hotel.Children.Add(stack);
