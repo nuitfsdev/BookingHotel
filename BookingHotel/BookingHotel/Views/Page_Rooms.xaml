@@ -57,19 +57,16 @@
 
                                 <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
                                              Margin="10,0,10,0">
-                                    <Image Source="account.png" WidthRequest="15"/>
-                                    <Image Source="account.png" WidthRequest="15"/>
+                                    <Label Text="{Binding loaiphong, StringFormat='Loại: {0}'}" TextColor="Black"/>
                                     <Label Text="Ưu đãi" TextColor= "Red" BackgroundColor="AntiqueWhite" Padding="7,5,7,5" HorizontalOptions="EndAndExpand" VerticalOptions="Start" IsVisible="{Binding uudai}"/>
                                 </StackLayout>
                                 
                                 <!--Mô tả về phòng-->
                                 <StackLayout Grid.Column="1" Grid.Row="2" Margin="10,0,0,0" Orientation="Horizontal">
-                                    <Label Text="Số giường:" TextColor="Black"/>
-                                    <Label Text="{Binding sogiuong}" TextColor="Black"/>
+                                    <Label Text="{Binding sogiuong, StringFormat='Số giường: {0}'}" TextColor="Black"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" Grid.Row="3" Margin="10,0,0,0" Orientation="Horizontal">
-                                    <Label Text="Kích thước: " TextColor="Black"/>
-                                    <Label Text="{Binding dientich, StringFormat='{0} m²'}" TextColor="Black"/>
+                                    <Label Text="{Binding dientich, StringFormat='Kích thước: {0} m²'}" TextColor="Black"/>
                                 </StackLayout>
                                 
                                 <!--Các tiện ích của phòng-->
