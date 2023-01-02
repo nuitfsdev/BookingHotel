@@ -38,10 +38,10 @@ namespace BookingHotel.Views
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
             if(hotel.tienichs.Count > 0)
-                foreach(Tienich tienich in hotel.tienichs)
+                foreach(Tienich item in hotel.tienichs)
                 {
                     StackLayout stack= new StackLayout();
-                    if (tienich.tienich == "gym")
+                    if (item.tienich == "gym")
                     {
                         stack = new StackLayout
                         {
@@ -52,7 +52,7 @@ namespace BookingHotel.Views
                             }
                         };
                     }
-                    else if (tienich.tienich == "hoboi")
+                    else if (item.tienich == "hoboi")
                     {
                         stack = new StackLayout
                         {
@@ -63,7 +63,11 @@ namespace BookingHotel.Views
                             }
                         };
                     }
+<<<<<<< HEAD
                     else if (tienich.tienich == "view")
+=======
+                    else if (item.tienich == "view")
+>>>>>>> 5b487e83d3f2c128555d2f3c6b7c0e75b0e52e20
                     {
                         stack = new StackLayout
                         {
