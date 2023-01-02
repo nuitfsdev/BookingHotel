@@ -17,8 +17,10 @@
             </StackLayout>
             
             <!--Hiện bản đồ-->
-            <WebView x:Name="map_ht" Source="https://www.google.com/maps/place/Nh%C3%A0+ngh%E1%BB%89+Ho%C3%A0ng+Th%E1%BB%8D/@10.8712145,106.8045014,17z/data=!4m12!1m6!3m5!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!2sUniversity+of+Information+Technology+-+VNUHCM!8m2!3d10.8700089!4d106.8030541!3m4!1s0x3174d9ffea78fcb7:0x1dd120a59f495600!8m2!3d10.8717182!4d106.8066931"
-                         VerticalOptions="FillAndExpand"/>
+            <WebView Source="https://gameitthoi.github.io/BookingHotelNews/2"
+                     VerticalOptions="FillAndExpand"/>
+            <!--<WebView x:Name="map_ht" Source="https://www.google.com/maps/place/Nh%C3%A0+ngh%E1%BB%89+Ho%C3%A0ng+Th%E1%BB%8D/@10.8712145,106.8045014,17z/data=!4m12!1m6!3m5!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!2sUniversity+of+Information+Technology+-+VNUHCM!8m2!3d10.8700089!4d106.8030541!3m4!1s0x3174d9ffea78fcb7:0x1dd120a59f495600!8m2!3d10.8717182!4d106.8066931"
+                         VerticalOptions="FillAndExpand"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

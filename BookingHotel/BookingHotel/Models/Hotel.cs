@@ -29,7 +29,7 @@ namespace BookingHotel.Models
         public string tinh { get; set; }
         public string quan { get; set; }
         public string sosao { get; set; }
-        public List<string> tienich { get; set; }
+        public List<Tienich> tienichs { get; set; }
         public string mota { get; set; }
         public List<string> hinh { get; set; }
         public long giamin { get; set; }
@@ -42,5 +42,11 @@ namespace BookingHotel.Models
         public string map { get; set; }
         public string createAt { get; set; }
         public string updateAt { get; set; }
+    }
+
+    public class Tienich
+    {
+        public string tienich { get; set; }
+        public string _id { get; set; }
     }
 }

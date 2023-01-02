@@ -30,14 +30,18 @@ namespace BookingHotel.Views
             hienthiks("https://bookinghotel.onrender.com/rooms");
         }
 
-        private void RoomList_Collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void RoomList_Collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Room room = e.CurrentSelection[0] as Room;
             if (room == null)
                 return;
             RoomList_Collection.SelectedItem = SelectableItemsView.EmptyViewProperty;
-            LayHotel(room.maht);
-            Shell.Current.Navigation.PushAsync(new Page_Room_Info(thishotel,room));
+
+            HttpClient httpClient = new HttpClient();
+            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
+            var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+
+            await Shell.Current.Navigation.PushAsync(new Page_Room_Info(HotelConverted[0], room));
         }
 
         private void Filter_btn_Clicked(object sender, EventArgs e)
@@ -45,28 +49,37 @@ namespace BookingHotel.Views
             Shell.Current.Navigation.PushAsync(new Page_Filter());
         }
 
-        private void book_btn_Clicked(object sender, EventArgs e)
+        private async void book_btn_Clicked(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             Room room = (Room)btn.CommandParameter;
-            LayHotel(room.maht);
-            Shell.Current.Navigation.PushAsync(new Page_Booking_Info(thishotel, room));
-        }
 
-        async void LayHotel(string maht)
-        {
             HttpClient httpClient = new HttpClient();
-            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={maht}");
+            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
             var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
-            thishotel = HotelConverted[0];
+
+            await Shell.Current.Navigation.PushAsync(new Page_Booking_Info(HotelConverted[0], room));
         }
 
-        private void KS_btn_Clicked(object sender, EventArgs e)
+        private async void KS_btn_Clicked(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             Room room = (Room)btn.CommandParameter;
-            LayHotel(room.maht);
-            Shell.Current.Navigation.PushAsync(new Page_Hotel(thishotel));
+
+            HttpClient httpClient = new HttpClient();
+            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
+            var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+
+            await Shell.Current.Navigation.PushAsync(new Page_Hotel(HotelConverted[0]));
         }
+
+        //async void LayHotel(string maht)
+        //{
+        //    HttpClient httpClient = new HttpClient();
+        //    var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={maht}");
+        //    var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+        //    thishotel = HotelConverted[0];
+        //}
+
     }
 }
