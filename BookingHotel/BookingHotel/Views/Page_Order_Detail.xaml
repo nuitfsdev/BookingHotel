@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="BookingHotel.Views.Page_Order_Detail"
+             Shell.TabBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                
+                <!--Tiêu đề và nút quay lại-->
+                
+                <StackLayout Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10">
+                    <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
+                                    x:Name="back_btn" Clicked="back_btn_Clicked"
+                                    Margin="15,0,0,0"
+                                    HorizontalOptions="Start"/>
+                    <Label Text="Chi tiết vé" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                           HorizontalOptions="StartAndExpand"/>
+                </StackLayout>
+
+                <!--Hình ảnh của phòng-->
+                
+                <StackLayout Margin="-10,0,0,20">
+                    <Image x:Name="hinh"  Aspect="AspectFill" VerticalOptions="StartAndExpand"/>
+                </StackLayout>
+                
+                <!--Tên khách sạn-->
+                
+                <StackLayout Margin="10,15,0,0" Orientation="Horizontal">
+                    <Label x:Name="tenKS" FontSize="Large" FontAttributes="Bold" TextColor="Black"
+                               HorizontalOptions="StartAndExpand"/>
+                    <ImageButton x:Name="maphotel" WidthRequest="30" Margin="10,0,20,0" HorizontalOptions="EndAndExpand" Source="nam_maphotelicon.png" Clicked="maphotel_Clicked"/>
+                </StackLayout>
+
+                <!--Địa chỉ-->
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,10,0,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="nam_locationpin.png" WidthRequest="20"></Image>
+                        <Label x:Name="diachi" TextColor="Gray" FontSize="14" VerticalOptions="End" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                        <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
+                                               VerticalOptions="Center"/>
+                        <Label x:Name="rate" FontSize="14" VerticalOptions="Center" TextColor="Gray" FontAttributes="Bold"/>
+                        <Label  FontSize="14" VerticalOptions="Center" TextColor="Gray" FontAttributes="Bold" Text="(2,023)"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <!--Tên phòng-->
+                <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                <StackLayout Orientation="Horizontal" Margin="10,15,0,0">
+                    <Label x:Name="tenphong" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <StackLayout x:Name="UudaiVaNoibat" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
+                    </StackLayout>
+                </StackLayout>
+
+
+                <!--Diện tích-->
+
+                <StackLayout Orientation="Horizontal" Margin="10,15,0,0">
+                    <Label Text="Diện tích: " FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                    <Label x:Name="dientich" FontSize="Medium" TextColor="Black" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                
+                <!--Mô tả về khách sạn-->
+
+                <StackLayout Margin="10,10,0,0">
+                    <Label Text="Mô tả khách sạn" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                    <Label x:Name="desc" TextColor="Gray" FontSize="16" />
+                </StackLayout>
+
+                <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                <!--Mô tả về phòng-->
+
+                <StackLayout Margin="10,15,0,0">
+                    <Label Text="Mô tả phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                    <Label x:Name="mota" TextColor="Black"/>
+                </StackLayout>
+
+                <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                <!--Các tiện ích khác của khách sạn-->
+
+                <StackLayout Margin="10,10,0,0">
+                    <Label Text="Tiện ích của khách sạn" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                    <FlexLayout Margin="15,0,0,0" Wrap="Wrap" JustifyContent="Start" x:Name="tienich_hotel">
+                        <!--Chỗ này dùng code C# để thêm vào-->
+                    </FlexLayout>
+                </StackLayout>
+
+                <!--Tiện tích của phòng-->
+
+                <StackLayout Margin="10,15,0,0">
+                    <Label Text="Các tiện ích của phòng" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                    <FlexLayout x:Name="tienichlist">
+                    </FlexLayout>
+                </StackLayout>
+
+                <!--Thông tin khác-->
+
+                <StackLayout Margin="10,15,0,0">
+                    <Label Text="Các tiện nghi khác" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                    <FlexLayout x:Name="khaclist">
+                    </FlexLayout>
+                </StackLayout>
+
+                <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+
+                <!--Miễn phí hủy-->
+
+                <StackLayout Orientation="Horizontal" Margin="10,15,0,0">
+                    <Label Text="Hủy phòng:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                    <Label Text="Miễn phí hủy" FontSize="Medium" TextColor="Green" Margin="10,0,0,0"/>
+                </StackLayout>
+
+                <StackLayout Margin="10,10,0,0">
+                    <Label Text="Thông tin liên hệ" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                    <Label x:Name="contact" TextColor="Gray" FontSize="16"/>
+                </StackLayout>
+                
+                <!--Thanh toán-->
+                <StackLayout Margin="10,15,0,0">
+                    <Label x:Name="total" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+                
+                <!--Ba nút điều hướng-->
+                <StackLayout Orientation="Horizontal" Margin="10,15,10,20">
+                    <Button Text="Xem khách sạn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                                    x:Name="KS_btn" Clicked="KS_btn_Clicked" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Xem phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                                    x:Name="Room_btn" Clicked="Room_btn_Clicked" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Đặt lại" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                                    x:Name="book_btn" Clicked="book_btn_Clicked" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
