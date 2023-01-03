@@ -46,6 +46,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
@@ -54,14 +55,14 @@
                             
                             <!--Mã khách sạn-->
                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
-                                <Label Text="Ngày đặt: 20/11/2022"  HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                                <Label Text="{Binding create, StringFormat='Ngày đặt: {0}'}"  HorizontalOptions="StartAndExpand" TextColor="Black"/>
                                 <Label Text="Xóa" TextColor="red" HorizontalOptions="EndAndExpand" Margin="0,0,20,0"/>
                             </StackLayout>
 
                             <!--Hình ảnh của Khách sạn-->
                             <Frame Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Padding="0" BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill"/>
+                                <Image Source="{Binding hinh}" Aspect="AspectFill"/>
                             </Frame>
 
                             <!--Tên khách sạn-->
@@ -82,16 +83,21 @@
                             
                             <!--Phòng-->
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Margin="10,0,0,0">
-                                <Label Text="Phòng: " TextColor="Black"/>
-                                <Label x:Name="tenphong" Text="398" TextColor="Black"/>
+                                <Label Text="Loại phòng: " TextColor="Black"/>
+                                <Label Text="{Binding tenphong}" TextColor="Black"/>
                             </StackLayout>
 
                             <!--Thời gian đặt vé-->
-                            
+
                             <StackLayout Grid.Column="1" Grid.Row="4" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,0,0,0">
-                                <Label Text="8 Apr" TextColor="Black"/>
+                                <Label Text="{Binding checkin}" TextColor="Black"/>
                                 <Label Text="-" TextColor="Black"/>
-                                <Label Text="12 Apr" TextColor="Black"/>
+                                <Label Text="{Binding checkout}" TextColor="Black"/>
+                            </StackLayout>
+                            
+                            <!--Tổng thanh toán-->
+                            <StackLayout Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding total, StringFormat='Tổng thanh toán: {0:0,0} vnđ'}" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
                             </StackLayout>
                         </Grid>
                     </DataTemplate>

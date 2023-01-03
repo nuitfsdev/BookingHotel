@@ -68,6 +68,7 @@
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
 
+                    <!--Tiện tích của phòng-->
                     <StackLayout>
                         <Label Text="Các tiện ích" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
                         <FlexLayout x:Name="tienichlist">
