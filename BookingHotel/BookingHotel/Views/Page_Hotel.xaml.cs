@@ -30,7 +30,7 @@ namespace BookingHotel.Views
             contact.Text ="\t" + hotel.lienhe;
             //map.Source = hotel.map;
 
-            Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
+            Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>
             {
                 BannerCarousel.Position = (BannerCarousel.Position + 1) % indicatorView.Count;
                 return true;

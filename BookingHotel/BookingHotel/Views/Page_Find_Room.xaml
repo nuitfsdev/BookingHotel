@@ -67,34 +67,40 @@
                             <!--Tên Phòng-->
                             <StackLayout Margin="10,0,10,0" Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
                                 <Label Text="{Binding tenphong}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-                                <Label Text="Nổi bật" TextColor="White" BackgroundColor="Red" Padding="5" HorizontalOptions="EndAndExpand" IsVisible="{Binding noibat}"/>
+                                <Label Text="Nổi bật" TextColor="White" BackgroundColor="Green" Padding="5" HorizontalOptions="EndAndExpand" IsVisible="{Binding noibat}"  xct:CornerRadiusEffect.CornerRadius="8"/>
                             </StackLayout>
-
 
                             <!--Giá cho n người-->
 
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
                                              Margin="10,0,10,0">
-                                <Label Text="{Binding loaiphong, StringFormat='Loại: {0}'}" TextColor="Black"/>
-                                <Label Text="Ưu đãi" TextColor= "Red" BackgroundColor="AntiqueWhite" Padding="7,5,7,5" HorizontalOptions="EndAndExpand" VerticalOptions="Start" IsVisible="{Binding uudai}"/>
+                                <Image Source="nam_menu.png" WidthRequest="20"></Image>
+                                <Label Text="Loại phòng: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding loaiphong}" TextColor="Black" VerticalTextAlignment="Center"/>
+                                <Label Text="Ưu đãi" TextColor= "Red" BackgroundColor="AntiqueWhite" Padding="7,5,7,5" HorizontalOptions="EndAndExpand" VerticalOptions="Start" IsVisible="{Binding uudai}" xct:CornerRadiusEffect.CornerRadius="8" />
                             </StackLayout>
 
                             <!--Mô tả về phòng-->
                             <StackLayout Grid.Column="1" Grid.Row="2" Margin="10,0,0,0" Orientation="Horizontal">
-                                <Label Text="{Binding sogiuong, StringFormat='Số giường: {0}'}" TextColor="Black"/>
+                                <Image Source="nam_bedroom.png" WidthRequest="20"></Image>
+                                <Label Text="Số giường: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding sogiuong}" TextColor="Black" VerticalTextAlignment="Center"/>
                             </StackLayout>
                             <StackLayout Grid.Column="1" Grid.Row="3" Margin="10,0,0,0" Orientation="Horizontal">
-                                <Label Text="{Binding dientich, StringFormat='Kích thước: {0} m²'}" TextColor="Black"/>
+                                <Image Source="nam_ruler.png" WidthRequest="20"></Image>
+                                <Label Text="Kích thước: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding dientich, StringFormat='{0} m²'}" TextColor="Black" VerticalTextAlignment="Center"/>
                             </StackLayout>
+
 
                             <!--Các tiện ích của phòng-->
 
-                            <FlexLayout x:Name="tienich_room" BindableLayout.ItemsSource="{Binding tienich}" JustifyContent="Start"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                            <FlexLayout x:Name="tienich_room" BindableLayout.ItemsSource="{Binding tienichs}" JustifyContent="SpaceAround"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0" Padding="0,0,0,-20">
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
-                                        <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="25">
-                                            <Image Source="dat_wifi.png" HeightRequest="15" VerticalOptions="Start" Margin="0,5,0,0"/>
-                                            <Label Text="{Binding .}" FontSize="Medium" TextColor="Black"/>
+                                        <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="25" WidthRequest="100">
+                                            <Image Source="{Binding hinh}" HeightRequest="20" VerticalOptions="End" Margin="0,5,0,0"/>
+                                            <Label Text="{Binding tienich}" FontSize="16" TextColor="Black" VerticalOptions="End" />
                                         </StackLayout>
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
@@ -116,7 +122,7 @@
 
                             <!--Nút đặt ngay-->
                             <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal">
-                                <Button Text="Xem khách sạn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4" Padding="-10,0,-10,0"
+                                <Button Text="Xem khách sạn" BackgroundColor="Brown" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4" Padding="-10,0,-10,0"
                                         x:Name="KS_btn" Clicked="KS_btn_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextTransform="None" CommandParameter="{Binding .}"/>
                                 <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
                                             x:Name="book_btn" Clicked="book_btn_Clicked" HorizontalOptions="FillAndExpand" TextTransform="None" VerticalOptions="Center"
