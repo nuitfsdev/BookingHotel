@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookingHotel.Views.Page_Room_Info"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Shell.TabBarIsVisible="False">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <!--Tiêu đề và nút quay lại-->
-                <StackLayout Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10" 
+        <StackLayout>
+            <!--Tiêu đề và nút quay lại-->
+            <!--<StackLayout Orientation="Horizontal" Margin="-10,0,-10,0" Padding="10" 
                                  Grid.Row="0" Grid.Column="0">
                     <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
                                 x:Name="back_btn" Clicked="back_btn_Clicked"
@@ -15,69 +15,112 @@
                                 HorizontalOptions="Start"/>
                     <Label Text="Thông tin phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
+                </StackLayout>-->
+            <AbsoluteLayout>
+                <CarouselView x:Name="bannerCarousel" Margin="0,0,0,0" IndicatorView="indicatorView" HeightRequest="300">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"/>
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding .}" Aspect="AspectFill"
+                                        HorizontalOptions="Center"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView"
+                                IndicatorColor="White"
+                                SelectedIndicatorColor="#585de4" 
+                                IndicatorSize="10" Margin="10,230,0,0"  Padding="10"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"  WidthRequest="380">
+                    <ImageButton Source="dat_back.png"  WidthRequest="40" HeightRequest="40" BackgroundColor="#ddd" Opacity="0.7"  CornerRadius="50" Padding="10"
+                        x:Name="back_btn" Clicked="back_btn_Clicked" HorizontalOptions="StartAndExpand" Margin="10"/>
+
+
+                    <ImageButton Source="heartWhite.png" BackgroundColor="#ddd"
+                                HeightRequest="40" WidthRequest="40" Margin="0,10,10,10" Opacity="0.7"  CornerRadius="50" Padding="10"
+                                HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"
+                                x:Name="Add_Like_List" Clicked="Add_Like_List_Clicked" CommandParameter="{Binding .}">
+                    </ImageButton>
                 </StackLayout>
-                   
-                <StackLayout Margin="10,0,0,0" >
+            </AbsoluteLayout>
+            <StackLayout Margin="0,-50,0,0" Padding="10"  BackgroundColor="White"  xct:CornerRadiusEffect.CornerRadius="30" >
+                <ScrollView>
+                <StackLayout >
                     <!--Hình ảnh của phòng-->
-                    <StackLayout Margin="-10,0,0,20">
+                    <!--<StackLayout Margin="-10,0,0,20">
                         <Image x:Name="hinh"  Aspect="AspectFill" VerticalOptions="StartAndExpand"/>
-                    </StackLayout>
-                    
+                    </StackLayout>-->
                     <!--Tên phòng-->
                     <StackLayout Orientation="Horizontal">
                         <Label x:Name="tenphong" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                         <StackLayout x:Name="UudaiVaNoibat" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
+                            <Label x:Name="noibat" Text="Nổi bật" TextColor="White" BackgroundColor="Green" Padding="5" HorizontalOptions="EndAndExpand" IsVisible="{Binding noibat}" xct:CornerRadiusEffect.CornerRadius="8"/>
+                            <Label x:Name="uudai" Text="Ưu đãi" TextColor= "Red" BackgroundColor="AntiqueWhite" Padding="7,5,7,5" HorizontalOptions="EndAndExpand" VerticalOptions="Start" IsVisible="{Binding uudai}" xct:CornerRadiusEffect.CornerRadius="8" />
                         </StackLayout>
                     </StackLayout>
-                    
+
                     <!--Giá cho bao nhiêu người-->
-                    
+
                     <!--<StackLayout Orientation="Horizontal" Margin="0,5,0,5">
                         <Image Source="account.png" HeightRequest="15"/>
                         <Label Text="giá cho" TextColor="Black"/>
                         <Label Text="2" TextColor="Green" FontAttributes="Bold"/>
                         <Label Text="người" TextColor="Black"/>
                     </StackLayout>-->
-
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout WidthRequest="210" Orientation="Horizontal">
+                            <Label Text="Loại phòng: " FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                            <Label x:Name="loaiphong" VerticalTextAlignment="End" TextColor="Black" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Số giường: " FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label x:Name="sogiuong" VerticalTextAlignment="End" TextColor="Black" FontSize="16"/>
+                        </StackLayout>
+                    </StackLayout>
                     <!--Giá tiền theo gio-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
-                        <Label Text="Giá theo giờ:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-                        <Label x:Name="theogio" FontSize="Medium" TextColor="Green"/>
+                        <Label Text="Giá theo giờ:" VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                        <Label x:Name="theogio" FontSize="Medium" TextColor="#585de4"  VerticalOptions="EndAndExpand"/>
+                        <Label Text="VNĐ" TextColor="Red" VerticalOptions="CenterAndExpand"></Label>
                     </StackLayout>
-                    
+
                     <!--Gia tien theo ngay-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
-                        <Label Text="Giá theo ngày:" VerticalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-                        <Label x:Name="theongay" FontSize="Medium" TextColor="Green"/>
+                        <Label Text="Giá theo ngày:" VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                        <Label x:Name="theongay" FontSize="Medium" TextColor="#585de4" VerticalOptions="EndAndExpand"/>
+                        <Label Text="VNĐ" TextColor="Red" VerticalOptions="CenterAndExpand"></Label>
+
                     </StackLayout>
 
                     <!--Diện tích-->
-                    
+
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Diện tích: " FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Black"/>
-                        <Label x:Name="dientich" FontSize="Medium" TextColor="Black" VerticalOptions="Center"/>
+                        <Label Text="Diện tích: " FontSize="16" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Gray"/>
+                        <Label x:Name="dientich" FontSize="16" TextColor="Black" VerticalOptions="Center"/>
                     </StackLayout>
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
 
                     <!--Mô tả về phòng-->
                     <StackLayout>
-                        <Label Text="Mô tả" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label x:Name="mota" TextColor="Black"/>
+                        <Label Text="Mô tả" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+                            <Label x:Name="mota" TextColor="DimGray" FontSize="16"/>
                     </StackLayout>
 
-                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                    <!--<BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>-->
 
                     <!--Tiện tích của phòng-->
                     <StackLayout>
-                        <Label Text="Các tiện ích" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Tiện ích" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
                         <FlexLayout x:Name="tienichlist">
                         </FlexLayout>
                     </StackLayout>
 
-                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                    <!--<BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>-->
 
-                    <!--Nội thất--><!--
+                    <!--Nội thất-->
+                    <!--
                     <StackLayout Margin="0,10,0,0">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="booking.png" WidthRequest="20" Margin="0,0,10,0"/>
@@ -120,11 +163,11 @@
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>-->
 
                     <!--Thông tin khác-->
-                    <StackLayout>
+                    <!--<StackLayout>
                         <Label Text="Các tiện nghi khác" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
                         <FlexLayout x:Name="khaclist">
                         </FlexLayout>
-                    </StackLayout>
+                    </StackLayout>-->
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
 
@@ -171,17 +214,19 @@
 
                     <!--Miễn phí hủy-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
-                        <Label Text="Hủy phòng:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Hủy phòng:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
                         <Label Text="Miễn phí hủy" FontSize="Medium" TextColor="Green" Margin="10,0,0,0"/>
                     </StackLayout>
 
-                    <!--Nút đặt ngay-->
-                    <StackLayout VerticalOptions="EndAndExpand" Margin="0,10,0,10">
-                        <Button Text="Đặt ngay" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
-                                    x:Name="book_btn" Clicked="book_btn_Clicked"/>
-                    </StackLayout>
+                   
                 </StackLayout>
+            </ScrollView>
             </StackLayout>
-        </ScrollView>
+            <!--Nút đặt ngay-->
+            
+                <Button VerticalOptions="EndAndExpand" Margin="10,0,10,10" Text="Đặt ngay"  TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="20" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                                    x:Name="book_btn" Clicked="book_btn_Clicked"/>
+            
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
