@@ -36,7 +36,7 @@ namespace BookingHotel.Views
 
         private void fogot_pass_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PushAsync(new Page_Confirm());
+            Shell.Current.Navigation.PushAsync(new Page_Email_Confirm_Forgot_Password());
         }
     }
 }
