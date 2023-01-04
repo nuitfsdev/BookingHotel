@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -114,20 +114,21 @@ namespace BookingHotel.Views
                 Room_qty.Text = $"{old_value - 1}";
         }
 
-        private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            RadioButton radioButton = sender as RadioButton;
-            if (radioButton.Content == "Thanh toán online")
-            {
-                online_payment.IsVisible = true;
-                offline_payment.IsVisible = false;
-            }    
-            else
-            {
-                online_payment.IsVisible = false;
-                offline_payment.IsVisible = true;
-            }    
-        }
+        //private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        //{
+        //    RadioButton radioButton = sender as RadioButton;
+        //    if (radioButton.Content == "Thanh toán online")
+        //    {
+        //        online_payment.IsVisible = true;
+        //        offline_payment.IsVisible = false;
+        //    }    
+        //    else
+        //    {
+        //        online_payment.IsVisible = false;
+        //        offline_payment.IsVisible = true;
+        //    }
+           
+        //}
 
         void showBank()
         {
@@ -144,6 +145,45 @@ namespace BookingHotel.Views
         private void user_bank_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void online_radionbtn_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (online_radionbtn.IsChecked == true)
+            {
+                online_payment.IsVisible = true;
+                offline_payment.IsVisible = false;
+                online_paymentmethod.BorderColor = Color.FromHex("#585de4");
+            }
+            else
+            {
+                online_paymentmethod.BorderColor = Color.FromHex("#ccc");
+            }
+            //if (online_radionbtn.IsChecked == false)
+            //{
+            //    online_payment.IsVisible = false;
+            //    offline_payment.IsVisible = true;
+            //}
+        }
+
+        private void offline_radionbtn_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (offline_radionbtn.IsChecked == true)
+            {
+                online_payment.IsVisible = false;
+                offline_payment.IsVisible = true;
+                offline_paymentmethod.BorderColor = Color.FromHex("#585de4");
+            }
+            else
+            {
+                offline_paymentmethod.BorderColor = Color.FromHex("#ccc");
+
+            }
+            //if (offline_radionbtn.IsChecked == false)
+            //{
+            //    online_payment.IsVisible = true;
+            //    offline_payment.IsVisible = false;
+            //}
         }
     }
 }
