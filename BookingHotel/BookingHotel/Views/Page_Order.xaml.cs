@@ -16,41 +16,25 @@ namespace BookingHotel.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page_Order : ContentPage
     {
-        public ObservableCollection<Hotel> dsks;
-        async void hienthiks()
+        public ObservableCollection<Order> dsorder;
+        void hienthiorder()
         {
-            //dsks = new ObservableCollection<Hotel>();
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
-            //dsks.Add(new Hotel { HinhAnhKH = "ksdemo.jpg", TenKH = "Khách sạn Hải Âu", Tinh = "Tp Hồ Chí Minh", QuanHuyen = "Thủ Đức", GiaMin = "500000", GiaMax = "2000000", RateKH = 4 });
+            dsorder = new ObservableCollection<Order>();
+            dsorder.Add(new Order { maht = "HT0", maroom = "RM0", tenht = "Khách sạn Hải Âu", tenphong = "Phòng cơ bản", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total= 100000, create="1/1/2022" });
+            dsorder.Add(new Order { maht = "HT2", maroom = "RM9", tenht = "Khách sạn Hải Âu 3", tenphong = "Phòng cơ bản2", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total = 100000, create = "1/1/2022" });
+            dsorder.Add(new Order { maht = "HT3", maroom = "RM10", tenht = "Khách sạn Hải Âu 4", tenphong = "Phòng cơ bản2", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total = 100000, create = "1/1/2022" });
+            dsorder.Add(new Order { maht = "HT1", maroom = "RM5", tenht = "Khách sạn Hải Âu 2", tenphong = "Phòng cơ bản5", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total = 100000, create = "1/1/2022" });
+            dsorder.Add(new Order { maht = "HT0", maroom = "RM1", tenht = "Khách sạn Hải Âu", tenphong = "Phòng cơ bản2", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total = 100000, create = "1/1/2022" });
+            dsorder.Add(new Order { maht = "HT1", maroom = "RM6", tenht = "Khách sạn Hải Âu 2", tenphong = "Phòng cơ bản4", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total = 100000, create = "1/1/2022" });
+            dsorder.Add(new Order { maht = "HT0", maroom = "RM2", tenht = "Khách sạn Hải Âu", tenphong = "Phòng cơ bản3", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total = 100000, create = "1/1/2022" });
+            dsorder.Add(new Order { maht = "HT2", maroom = "RM9", tenht = "Khách sạn Hải Âu 3", tenphong = "Phòng cơ bản2", hinh = "https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg", tinh = "Bình Định", quan = "Phù Mỹ", checkin= "3/1/2022", checkout="4/1/2022", total = 100000, create = "1/1/2022" });
 
-            //Order_Collection.ItemsSource = dsks;
-            HttpClient httpClient = new HttpClient();
-            var subjectList = await httpClient.GetStringAsync("https://bookinghotel.onrender.com/hotels");
-            var subjectListConverted = JsonConvert.DeserializeObject<List<Hotel>>(subjectList);
-            Order_Collection.ItemsSource = subjectListConverted;
+            Order_Collection.ItemsSource = dsorder;
         }
         public Page_Order()
         {
             InitializeComponent();
-            hienthiks();
+            hienthiorder();
         }
 
         private async void Search_Btn_Clicked(object sender, EventArgs e)
@@ -60,11 +44,11 @@ namespace BookingHotel.Views
 
         private void Order_Collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Hotel hotel = e.CurrentSelection[0] as Hotel;
-            if (hotel == null)
+            Order order = e.CurrentSelection[0] as Order;
+            if (order == null)
                 return;
             Order_Collection.SelectedItem = SelectableItemsView.EmptyViewProperty;
-            Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
+            Shell.Current.Navigation.PushAsync(new Page_Order_Detail(order));
         }
 
         private void Active_Clicked(object sender, EventArgs e)

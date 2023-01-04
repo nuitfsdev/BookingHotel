@@ -22,7 +22,11 @@
                     <models:MyEntry Placeholder="Mật khẩu" FontSize="Medium" IsPassword="True" TextColor="Black"/>
                 </Frame>
                 <Label Text="Quên mật khẩu?" FontAttributes="Bold" FontSize="Medium" TextColor="#009EFF"
-                   HorizontalOptions="EndAndExpand" Margin="4,10,20,0" />
+                   HorizontalOptions="EndAndExpand" Margin="4,10,20,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="fogot_pass" Tapped="fogot_pass_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
                 <Button Text="Đăng nhập" TextTransform="None" x:Name="Login_Btn" WidthRequest="350" Clicked="Login_Btn_Clicked" Margin="20,10,20,0" HorizontalOptions="FillAndExpand" Padding="20,10,20,10" 
                         CornerRadius="10" BorderColor="#585de4" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
