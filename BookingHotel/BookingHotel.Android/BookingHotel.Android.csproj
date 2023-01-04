@@ -66,6 +66,7 @@
     <Compile Include="MyEditorRenderer.cs" />
     <Compile Include="MyEntryRenderer.cs" />
     <Compile Include="MyPickerRenderer.cs" />
+    <Compile Include="MyTimePickerRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

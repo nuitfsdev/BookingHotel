@@ -20,45 +20,47 @@ namespace BookingHotel.Views
             Thishotel = hotel;
             hinhKS.Source = hotel.hinh[0];
             tenKS.Text = hotel.tenht;
-            tinh.Text = hotel.tinh;
-            quan.Text = hotel.quan;
-
+            diachi.Text=hotel.diachi;
+            sosao.Text = hotel.sosao;
             ten_r.Text = room.tenphong;
-            ma_r.Text = room.maroom;
+            loai_r.Text = room.loaiphong;
+            sogiuong_r.Text = room.sogiuong.ToString();
+            hinh_r.Source = room.hinh[0];
+        
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
-            foreach (Tienich tienich in hotel.tienichs)
-            {
-                StackLayout stack = new StackLayout();
-                if (tienich.tienich == "gym")
-                    stack = new StackLayout
-                    {
-                        Orientation = StackOrientation.Horizontal,
-                        Children = {
-                            new Image {Source = "nam_gym.png", WidthRequest=20, Margin= new Thickness(10,5,0,0)},
-                            new Label {Text = "Gym", FontSize=15, VerticalOptions=LayoutOptions.EndAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,5,0)},
-                        }
-                    };
-                else if (tienich.tienich == "view")
-                    stack = new StackLayout
-                    {
-                        Orientation = StackOrientation.Horizontal,
-                        Children = {
-                            new Image {Source = "nam_bar.png", WidthRequest=20, Margin= new Thickness(10,5,0,0)},
-                            new Label {Text = "Quầy bar",FontSize=15, VerticalOptions=LayoutOptions.EndAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
-                        }
-                    };
-                else if (tienich.tienich == "hoboi")
-                    stack = new StackLayout
-                    {
-                        Orientation = StackOrientation.Horizontal,
-                        Children = {
-                            new Image {Source = "nam_swimmingpool.png", WidthRequest=20, Margin= new Thickness(10,5,0,0)},
-                            new Label {Text = "Hồ bơi",FontSize=15, VerticalOptions=LayoutOptions.EndAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
-                        }
-                    };
-                tienich_hotel.Children.Add(stack);
-            }
+            //foreach (Tienich tienich in hotel.tienichs)
+            //{
+            //    StackLayout stack = new StackLayout();
+            //    if (tienich.tienich == "gym")
+            //        stack = new StackLayout
+            //        {
+            //            Orientation = StackOrientation.Horizontal,
+            //            Children = {
+            //                new Image {Source = "nam_gym.png", WidthRequest=20, Margin= new Thickness(10,5,0,0)},
+            //                new Label {Text = "Gym", FontSize=15, VerticalOptions=LayoutOptions.EndAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,5,0)},
+            //            }
+            //        };
+            //    else if (tienich.tienich == "view")
+            //        stack = new StackLayout
+            //        {
+            //            Orientation = StackOrientation.Horizontal,
+            //            Children = {
+            //                new Image {Source = "nam_bar.png", WidthRequest=20, Margin= new Thickness(10,5,0,0)},
+            //                new Label {Text = "Quầy bar",FontSize=15, VerticalOptions=LayoutOptions.EndAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
+            //            }
+            //        };
+            //    else if (tienich.tienich == "hoboi")
+            //        stack = new StackLayout
+            //        {
+            //            Orientation = StackOrientation.Horizontal,
+            //            Children = {
+            //                new Image {Source = "nam_swimmingpool.png", WidthRequest=20, Margin= new Thickness(10,5,0,0)},
+            //                new Label {Text = "Hồ bơi",FontSize=15, VerticalOptions=LayoutOptions.EndAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-5,0,0)},
+            //            }
+            //        };
+            //    tienich_hotel.Children.Add(stack);
+            //}
             showBank();
         }
 
