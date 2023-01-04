@@ -34,11 +34,20 @@ namespace BookingHotel.Views
             tenphong.Text = "Phòng Cơ bản";
             diachi.Text = thishotel.diachi;
             rate.Text = thishotel.sosao;
-            dientich.Text = "50 m2";
-            desc.Text ="\t"+ thishotel.mota;
-            mota.Text = "\t" + "Phòng xịn nhất";
-            contact.Text = thishotel.lienhe;
-            total.Text = String.Format("Tổng thanh toán: {0:0,0} vnđ", order.total);
+            maphong.Text = order.maroom;
+            adult_qty.Text = String.Format("{0}", order.adult);
+            child_qty.Text = String.Format("{0}", order.child);
+            bed_qty.Text = String.Format("{0}", order.bed);
+            checkin_date.Text = order.checkin;
+            checkout_date.Text = order.checkout;
+            timecheckin_date.Text = order.timecheckin;
+            timecheckout_date.Text= order.timecheckout;
+            create_date.Text = order.create;
+            //dientich.Text = "50 m2";
+            //desc.Text ="\t"+ thishotel.mota;
+            //mota.Text = "\t" + "Phòng xịn nhất";
+            //contact.Text = thishotel.lienhe;
+            total.Text = String.Format("{0:0,0 vnđ}", order.total);
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
             if (thishotel.tienichs.Count > 0)

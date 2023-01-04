@@ -25,7 +25,7 @@ namespace BookingHotel.Views
 
         private void login_btn_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PopAsync();
+            Shell.Current.GoToAsync(state: "//login");
         }
 
         private void register_btn_Tapped(object sender, EventArgs e)
