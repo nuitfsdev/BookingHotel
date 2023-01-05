@@ -43,6 +43,7 @@ namespace BookingHotel.Views
             timecheckin_date.Text = order.timecheckin;
             timecheckout_date.Text= order.timecheckout;
             create_date.Text = order.create;
+            if (order.status == 1) cancle_booking.IsVisible = true;
             //dientich.Text = "50 m2";
             //desc.Text ="\t"+ thishotel.mota;
             //mota.Text = "\t" + "Phòng xịn nhất";
