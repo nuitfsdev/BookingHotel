@@ -51,6 +51,7 @@
                             Margin="0,0,0,10"/>
                     <Button Text="Ưu đãi" TextTransform="None" BackgroundColor="#f4f4f8" BorderColor="#ccc" x:Name="uudai" Clicked="uudai_Clicked"
                             TextColor="Gray" BorderWidth="1" CornerRadius="30" HeightRequest="60" Margin="0,0,0,10"/>
+                    <!--<Label x:Name="textOption"/>-->
                 </StackLayout>
             </ScrollView>
             

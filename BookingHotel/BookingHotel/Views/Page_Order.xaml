@@ -8,7 +8,7 @@
             
             <!--Tiêu đề lịch sử và nút tìm kiêm-->
             <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Label Text="Đặt phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                <Label Text="Lịch sử đặt phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
                 <ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
                              x:Name="Search_Btn"
@@ -39,14 +39,14 @@
             <CollectionView x:Name="Order_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White" SelectionChanged="Order_Collection_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
+                        <Grid Padding="10" xct:ShadowEffect.Color="#aaa" xct:ShadowEffect.Radius="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
+                                <RowDefinition Height="28"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="28"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
@@ -55,8 +55,16 @@
                             
                             <!--Mã khách sạn-->
                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
-                                <Label Text="{Binding create, StringFormat='Ngày đặt: {0}'}"  HorizontalOptions="StartAndExpand" TextColor="Black"/>
-                                <Label Text="Xóa" TextColor="red" HorizontalOptions="EndAndExpand" Margin="0,0,20,0"/>
+                                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label Text="Mã đặt phòng: " FontSize="16" FontAttributes="Bold"  TextColor="Gray"/>
+                                    <Label Text="HT0" FontSize="18" FontAttributes="Bold"   TextColor="#585de4"/>
+
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Tình trạng: "  FontAttributes="Bold" FontSize="16" TextColor="Gray" HorizontalOptions="EndAndExpand" />
+                                    <Label Text="Đang xử lí" TextColor="Orange" FontSize="18" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+
                             </StackLayout>
 
                             <!--Hình ảnh của Khách sạn-->
@@ -76,28 +84,30 @@
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalOptions="StartAndExpand"
                                              Margin="10,0,0,0">
                                 <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Start"/>
-                                <Label Text="{Binding tinh}" FontSize="Small" TextColor="Black"/>
-                                <Label Text="," FontSize="Small" TextColor="Black"/>
-                                <Label Text="{Binding quan}" FontSize="Small" TextColor="Black"/>
+                                <Label Text="123 Chu Văn An, Phù Mỹ, Bình Định" FontSize="16" TextColor="Black"/>
                             </StackLayout>
                             
                             <!--Phòng-->
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Margin="10,0,0,0">
-                                <Label Text="Loại phòng: " TextColor="Black"/>
-                                <Label Text="{Binding tenphong}" TextColor="Black"/>
+                                <Image Source="nam_bedroom.png" WidthRequest="20" VerticalOptions="Start"/>
+                                <!--<Label Text="Phòng: " FontSize="16" TextColor="Black" FontAttributes="Bold"/>-->
+                                <Label Text="{Binding tenphong}" FontSize="16" TextColor="Black"/>
                             </StackLayout>
 
                             <!--Thời gian đặt vé-->
 
                             <StackLayout Grid.Column="1" Grid.Row="4" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,0,0,0">
-                                <Label Text="{Binding checkin}" TextColor="Black"/>
-                                <Label Text="-" TextColor="Black"/>
-                                <Label Text="{Binding checkout}" TextColor="Black"/>
+                                <Image Source="nam_timetable.png" WidthRequest="20" VerticalOptions="Start"/>
+                                <!--<Label Text="Thời gian: " TextColor="Black" FontSize="16" FontAttributes="Bold"/>-->
+                                <Label Text="12:00" TextColor="Black" FontSize="16"/>
+                                <Label Text="05-01-2023" TextColor="Black" FontSize="16"/>
                             </StackLayout>
                             
                             <!--Tổng thanh toán-->
-                            <StackLayout Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand">
-                                <Label Text="{Binding total, StringFormat='Tổng thanh toán: {0:0,0} vnđ'}" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="EndAndExpand">
+                                <Label Text="Tổng tiền: " TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <Label Text="{Binding total, StringFormat='{0:0,0}'}" FontSize="Medium" TextColor="#585de4" FontAttributes="Bold"/>
+                                <Label Text="VNĐ" TextColor="Red" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
                         </Grid>
                     </DataTemplate>
