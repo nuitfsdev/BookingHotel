@@ -22,5 +22,6 @@ namespace BookingHotel.Models
         public string timecheckout { get; set; }
         public long total { get; set; }
         public string create { get; set; }
+        public int status { get; set; }   
     }
 }
