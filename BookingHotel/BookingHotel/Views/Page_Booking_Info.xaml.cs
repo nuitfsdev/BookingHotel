@@ -28,8 +28,8 @@ namespace BookingHotel.Views
             loai_r.Text = room.loaiphong;
             sogiuong_r.Text = room.sogiuong.ToString();
             hinh_r.Source = room.hinh[0];
-            save_cost_day = room.giagio;
-            save_cost_time = room.giangay;
+            save_cost_time = room.giagio;
+            save_cost_day = room.giangay;
             cost_time.Text = String.Format("{0:0,0}", room.giagio);
             cost_day.Text = String.Format("{0:0,0}", room.giangay);
             
@@ -100,7 +100,8 @@ namespace BookingHotel.Views
                 else
                     checkout_time.Time -= TimeSpan.Parse("1:00");
                 checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
-                long total_cost = save_cost_time * long.Parse(time_uses.Text);
+
+                long total_cost = save_cost_time + save_cost_time * (long.Parse(time_uses.Text) - 1) / 2;
                 total.Text = String.Format("{0:0,0}", total_cost);
             }    
         }
@@ -124,7 +125,8 @@ namespace BookingHotel.Views
                 checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
   
                 checkout_day_final.Text = checkout_day.Date.Day.ToString() + "/" + checkout_day.Date.Month.ToString();
-                long total_cost = save_cost_time * long.Parse(time_uses.Text);
+
+                long total_cost = save_cost_time + save_cost_time * (long.Parse(time_uses.Text)-1) / 2;
                 total.Text = String.Format("{0:0,0}", total_cost);
             }    
         }
@@ -277,7 +279,7 @@ namespace BookingHotel.Views
             checkin_day.IsEnabled = true;
             checkout_day.IsEnabled = true;
 
-            checkin_time.IsEnabled = false;
+            checkin_time.IsEnabled = true;
             checkout_time.IsEnabled = false;
 
             time_uses_layout.IsVisible = false;
@@ -299,26 +301,36 @@ namespace BookingHotel.Views
         void Theo_gio_show()
         {
             date = RoundUp(DateTime.Now, TimeSpan.FromMinutes(30));
-            //ngày
-            checkin_day.MinimumDate = DateTime.Now.Date;
-            checkout_day.MinimumDate = DateTime.Now.Date;
-            checkin_day.Date = date.Date;
-            checkout_day.Date = checkin_day.Date;
             //giờ
             checkin_time.Time = date.TimeOfDay;
             checkout_time.Time = date.AddHours(1).TimeOfDay;
+            //ngày
+            checkin_day.MinimumDate = DateTime.Now.Date;
+            if(checkin_time.Time.Hours <23)
+            {
+                checkout_day.Date = checkin_day.Date;
+            }    
+            else
+            {
+                checkout_day.Date = checkin_day.Date.AddDays(1);
+            }    
+            checkin_day.Date = date.Date;
+            
             //thanh toán - giờ
-            checkin_time_final.Text = date.Hour.ToString() + ":" + date.Minute.ToString();
-            checkout_time_final.Text = date.Hour.ToString() + ":" + date.Minute.ToString();
+            checkin_time_final.Text = checkin_time.Time.Hours.ToString() + ":" + checkin_time.Time.Minutes.ToString();
+            checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
             //thanh toán - ngày
-            checkin_day_final.Text = date.Day.ToString() +"/"+ date.Month.ToString();
-            checkout_day_final.Text = date.Day.ToString() + "/" + date.Month.ToString();
+            checkin_day_final.Text = checkin_day.Date.Day.ToString() +"/"+ checkin_day.Date.Month.ToString();
+            checkout_day_final.Text = checkout_day.Date.Day.ToString() + "/" + checkout_day.Date.Month.ToString();
 
             time_uses.Text = "1";
             time_uses_final.Text = "1";
 
-            long total_cost = save_cost_time * 1;
-            total.Text = String.Format("{0:0,0}", total_cost);
+            if(time_underline.IsVisible)
+            {
+                long total_cost = save_cost_time * 1;
+                total.Text = String.Format("{0:0,0}", total_cost);
+            }    
         }
 
         void Theo_Ngay_show()
@@ -342,15 +354,24 @@ namespace BookingHotel.Views
 
             day_final.Text = "3";
 
-            long total_cost = save_cost_day * long.Parse(day_final.Text);
-            total.Text = String.Format("{0:0,0}", total_cost);
+            if(day_underline.IsVisible)
+            {
+                long total_cost = save_cost_day * long.Parse(day_final.Text);
+                total.Text = String.Format("{0:0,0}", total_cost);
+            }    
         }
 
         private void checkin_day_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             checkin_day_final.Text = checkin_day.Date.Day.ToString()+ "/" + checkin_day.Date.Month.ToString();
-            if(time_underline.IsVisible)
+            if(time_underline.IsVisible & checkin_time.Time.Hours <23)
+            {
                 checkout_day.Date = checkin_day.Date;
+            }
+            else if(time_underline.IsVisible)
+            {
+                checkout_day.Date = checkin_day.Date.AddDays(1);
+            }    
         }
 
         private void checkout_day_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -364,8 +385,11 @@ namespace BookingHotel.Views
                 int day = timeSpan.Days;
                 day_final.Text = day.ToString();
 
-                long total_cost = save_cost_day * long.Parse(day_final.Text);
-                total.Text = String.Format("{0:0,0}", total_cost);
+                if(day_underline.IsVisible)
+                {
+                    long total_cost = save_cost_day * long.Parse(day_final.Text);
+                    total.Text = String.Format("{0:0,0}", total_cost);
+                }    
             }    
         }
 
@@ -377,8 +401,21 @@ namespace BookingHotel.Views
                 {
                     checkout_time.Time = checkin_time.Time.Add(TimeSpan.Parse("1:00:00"));
                 }
+                else if(checkin_time.Time.Hours == 23)
+                {
+                    checkout_time.Time = TimeSpan.Parse($"0:{checkin_time.Time.Minutes}:00");
+                    checkout_day.Date = checkin_day.Date.AddDays(1);
+                }    
                 else
+                {
                     checkout_time.Time = checkin_time.Time.Add(TimeSpan.Parse($"{time_uses.Text}:00:00"));
+                }    
+                checkin_time_final.Text = checkin_time.Time.Hours.ToString() + ":" + checkin_time.Time.Minutes.ToString();
+                checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
+            }
+            else
+            {
+                checkout_time.Time = checkin_time.Time;
                 checkin_time_final.Text = checkin_time.Time.Hours.ToString() + ":" + checkin_time.Time.Minutes.ToString();
                 checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
             }    
