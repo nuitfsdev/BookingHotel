@@ -84,10 +84,10 @@
             
             <!--Logout button-->
 
-            <Button Text="Đăng xuất" TextColor="Red" FontSize="Medium"
+            <Button x:Name="dangxuat" Text="Đăng xuất" TextColor="Red" FontSize="Medium"
                     BackgroundColor="white" BorderColor="Red" BorderWidth="1" CornerRadius="30" 
                     Margin="10,0,0,40"
-                    VerticalOptions="EndAndExpand"/>
+                    VerticalOptions="EndAndExpand" Clicked="dangxuat_Clicked"/>
             
         </StackLayout>
     </ContentPage.Content>
