@@ -4,7 +4,8 @@
              xmlns:models="clr-namespace:BookingHotel.Models"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Login"
-             Title="Đăng nhập">
+             Title="Đăng nhập"
+             >
     <ContentPage.Content>
         <StackLayout>
             <StackLayout >
@@ -16,10 +17,10 @@
                    HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
 
                 <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" WidthRequest="350" HasShadow="False" HorizontalOptions="CenterAndExpand" BorderColor="#ccc" Padding="10,0,0,0" Margin="0,20,0,0">
-                    <models:MyEntry Placeholder="Email" FontSize="Medium" TextColor="Black"  />
+                    <models:MyEntry x:Name="email" Placeholder="Email" FontSize="Medium" TextColor="Black"  Completed="email_Completed" TextChanged="email_TextChanged" Unfocused="email_Unfocused" />
                 </Frame>
                 <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50"  WidthRequest="350" HasShadow="False" HorizontalOptions="CenterAndExpand" BorderColor="#ccc" Padding="10,0,0,0" Margin="0,10,0,0">
-                    <models:MyEntry Placeholder="Mật khẩu" FontSize="Medium" IsPassword="True" TextColor="Black"/>
+                    <models:MyEntry x:Name="password" Placeholder="Mật khẩu" FontSize="Medium" IsPassword="True" TextColor="Black" Completed="password_Completed" TextChanged="password_TextChanged" Unfocused="password_Unfocused"/>
                 </Frame>
                 <Label Text="Quên mật khẩu?" FontAttributes="Bold" FontSize="Medium" TextColor="#009EFF"
                    HorizontalOptions="EndAndExpand" Margin="4,10,20,0">

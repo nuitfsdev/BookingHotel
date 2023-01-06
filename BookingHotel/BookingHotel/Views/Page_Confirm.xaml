@@ -16,7 +16,7 @@
                    HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
 
                 <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50"  WidthRequest="350" HasShadow="False" HorizontalOptions="CenterAndExpand" BorderColor="#ccc" Padding="10,0,0,0" Margin="0,10,0,0">
-                    <models:MyEntry Placeholder="Nhập code" FontSize="Medium" IsPassword="True" TextColor="Black"/>
+                    <models:MyEntry x:Name="code" Placeholder="Nhập code" FontSize="Medium" IsPassword="True" TextColor="Black"/>
                 </Frame>
                 <Button Text="Xác nhận" TextTransform="None" x:Name="Confirm_btn" WidthRequest="350" Clicked="Confirm_btn_Clicked" Margin="20,10,20,0" HorizontalOptions="FillAndExpand" Padding="20,10,20,10" 
                         CornerRadius="10" BorderColor="#585de4" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold"/>

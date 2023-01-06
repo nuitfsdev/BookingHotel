@@ -46,5 +46,10 @@ namespace BookingHotel.Views
         {
             Shell.Current.Navigation.PushAsync(new Page_Love());
         }
+
+        private void dangxuat_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//login");
+        }
     }
 }
