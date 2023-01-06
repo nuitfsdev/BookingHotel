@@ -87,17 +87,48 @@
                             <Image  x:Name="hinh_r" Aspect="AspectFill"></Image>
                         </Frame>
                     </Grid>
+                    
+                    <!--Chọn ngày hoặc giờ-->
+                    <StackLayout Margin="20,0,20,10">
+                        <Label Text="Thời gian đặt phòng" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+                        <FlexLayout JustifyContent="Start" AlignItems="Center">
+                            <StackLayout>
+                                <Button Text="Theo giờ" TextTransform="None" BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" FontAttributes="Bold" CornerRadius="10"
+                                        x:Name="follow_time_btn" Clicked="follow_time_btn_Clicked"/>
+                                <BoxView x:Name="time_underline" HeightRequest="5" Background="#585de4" Margin="0,-10,0,0"/>
+                            </StackLayout>
+                            <StackLayout>
+                                <Button Text="Theo ngày" TextTransform="None" BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                                        x:Name="follow_day" Clicked="follow_day_Clicked"/>
+                                <BoxView x:Name="day_underline" HeightRequest="5" Background="#585de4" Margin="0,-10,0,0" IsVisible="False"/>
+                            </StackLayout>
+                        </FlexLayout>
+                    </StackLayout>
+                    
+                    <!--Giá theo giờ và ngày-->
+                    <StackLayout Margin="20,0,20,10">
+                        <StackLayout x:Name="cost_time_show" Orientation="Horizontal" IsVisible="True">
+                            <Label Text="Giá theo giờ:" TextColor="Black" FontAttributes="Bold"/>
+                            <Label x:Name="cost_time" VerticalOptions="EndAndExpand" TextColor="Green"/>
+                            <Label Text="VNĐ/giờ" TextColor="Green" VerticalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout x:Name="cost_day_show" Orientation="Horizontal" IsVisible="False">
+                            <Label Text="Giá theo giờ:" TextColor="Black" FontAttributes="Bold"/>
+                            <Label x:Name="cost_day" Text="10000" VerticalOptions="EndAndExpand" TextColor="Green"/>
+                            <Label Text="VNĐ/giờ" TextColor="Green" VerticalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
 
                     <!--Ngày-->
                     <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
                         <Label Text="Ngày:" FontSize="18" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,10,0"/>
                         <FlexLayout JustifyContent="SpaceAround" HorizontalOptions="FillAndExpand" AlignItems="Center">
                             <Frame Padding="5" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <models:MyDatePicker Format="dd-MM-yyyy"  TextColor="#585de4" VerticalOptions="CenterAndExpand" />
+                                <models:MyDatePicker Format="dd-MM-yyyy" x:Name="checkin_day" TextColor="#585de4" VerticalOptions="CenterAndExpand" PropertyChanged="checkin_day_PropertyChanged"/>
                             </Frame>
                             <Image Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" Rotation="180" />
                             <Frame  Padding="5" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <models:MyDatePicker Format="dd-MM-yyyy" TextColor="#585de4" VerticalOptions="CenterAndExpand"/>
+                                <models:MyDatePicker Format="dd-MM-yyyy" x:Name="checkout_day" TextColor="#585de4" VerticalOptions="CenterAndExpand" IsEnabled="False" PropertyChanged="checkout_day_PropertyChanged"/>
                             </Frame>
                         </FlexLayout>
                     </StackLayout>
@@ -107,13 +138,24 @@
                         <Label Text="Giờ:" FontSize="18" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,26,0"/>
                         <FlexLayout JustifyContent="SpaceAround" HorizontalOptions="FillAndExpand" AlignItems="Center">
                             <Frame  Padding="5" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <models:MyTimePicker   HorizontalOptions="CenterAndExpand" TextColor="#585de4"/>
+                                <models:MyTimePicker x:Name="checkin_time" HorizontalOptions="CenterAndExpand" TextColor="#585de4" PropertyChanged="checkin_time_PropertyChanged"/>
                             </Frame>
                             <Image Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" Rotation="180" />
                             <Frame  Padding="5" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <models:MyTimePicker HorizontalOptions="CenterAndExpand" TextColor="#585de4"/>
+                                <models:MyTimePicker x:Name="checkout_time" HorizontalOptions="CenterAndExpand" TextColor="#585de4" IsEnabled="False"/>
                             </Frame>
                         </FlexLayout>
+                    </StackLayout>
+                    
+                    <!--Chọn giờ ở lại trong ngày (Theo giờ)-->
+                    <StackLayout Orientation="Horizontal" Margin="20,20,20,0" x:Name="time_uses_layout">
+                        <Label Text="Số giờ sử dụng" FontSize="18" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                            <Button Text="-" x:Name="time_decre" TextColor="#585de4" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="10" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="time_decre_Clicked"/>
+                            <Label x:Name="time_uses" Text="1" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,0,0"/>
+                            <Label Text="giờ" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
+                            <Button Text="+" x:Name="time_incre" TextColor="#585de4" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="10" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="time_incre_Clicked"/>
+                        </StackLayout>
                     </StackLayout>
 
                     <!--Số lượng khách và số lượng phòng-->
@@ -228,15 +270,52 @@
 
                 </StackLayout>
             </ScrollView>
-            <StackLayout  Orientation="Horizontal" Padding="10,10,10,15" BackgroundColor="White" Margin="0,0,0,-5"  xct:ShadowEffect.Color="Black"   xct:ShadowEffect.OffsetX="-10" xct:ShadowEffect.OffsetY="-10" xct:ShadowEffect.Radius="4" xct:ShadowEffect.Opacity="0.9">
-                <!--Thành tiền-->
-                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                    <Label Text="Tổng:" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Black"/>
-                    <Label Text="30000" TextColor="#585de4"  FontSize="Large" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
-                    <Label Text="VNĐ" TextColor="Red" FontSize="Medium"   VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+            <StackLayout  Orientation="Vertical" Padding="10,10,10,15" BackgroundColor="White" Margin="0,0,0,-5"  xct:ShadowEffect.Color="Black"   xct:ShadowEffect.OffsetX="-10" xct:ShadowEffect.OffsetY="-10" xct:ShadowEffect.Radius="4" xct:ShadowEffect.Opacity="0.9">
+                <FlexLayout JustifyContent="SpaceAround" AlignItems="Center">
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Nhận phòng" TextColor="Black"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Label x:Name="checkin_time_final" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="," TextColor="Black" FontAttributes="Bold"/>
+                            <Label x:Name="checkin_day_final" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                    <BoxView WidthRequest="2" HeightRequest="40" Background="#ccc" ></BoxView>
+                    
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Trả phòng" TextColor="Black"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Label x:Name="checkout_time_final" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="," TextColor="Black" FontAttributes="Bold"/>
+                            <Label x:Name="checkout_day_final" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                    <BoxView WidthRequest="2" HeightRequest="40" Background="#ccc" ></BoxView>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" x:Name="time_uses_show">
+                        <Label Text="Số giờ" TextColor="Black"/>
+                        <Label x:Name="time_uses_final" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand" x:Name="day_show" IsVisible="False">
+                        <Label Text="Số ngày" TextColor="Black"/>
+                        <Label x:Name="day_final" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </FlexLayout>
+                
+                <BoxView HeightRequest="1" Background="#cccc" Margin="10,10,10,0"></BoxView>
+                
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                    <!--Thành tiền-->
+                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                        <Label Text="Tổng:" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+                        <Label x:Name="total" TextColor="#585de4"  FontSize="Large" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        <Label Text="VNĐ" TextColor="Red" FontSize="Medium"   VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                    </StackLayout>
+                        <Button Text="Thanh toán" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="Medium" FontAttributes="Bold" CornerRadius="10"
+                                x:Name="book_btn" Clicked="book_btn_Clicked"/>
                 </StackLayout>
-                <Button Text="Thanh toán" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="Medium" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
-                            x:Name="book_btn" Clicked="book_btn_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
