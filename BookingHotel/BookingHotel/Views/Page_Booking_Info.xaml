@@ -113,9 +113,9 @@
                             <Label Text="VNĐ/giờ" TextColor="Green" VerticalOptions="EndAndExpand"/>
                         </StackLayout>
                         <StackLayout x:Name="cost_day_show" Orientation="Horizontal" IsVisible="False">
-                            <Label Text="Giá theo giờ:" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="Giá theo ngày:" TextColor="Black" FontAttributes="Bold"/>
                             <Label x:Name="cost_day" Text="10000" VerticalOptions="EndAndExpand" TextColor="Green"/>
-                            <Label Text="VNĐ/giờ" TextColor="Green" VerticalOptions="EndAndExpand"/>
+                            <Label Text="VNĐ/ngày" TextColor="Green" VerticalOptions="EndAndExpand"/>
                         </StackLayout>
                     </StackLayout>
 
