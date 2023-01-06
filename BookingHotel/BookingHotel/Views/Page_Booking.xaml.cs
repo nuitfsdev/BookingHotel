@@ -81,7 +81,9 @@ namespace BookingHotel.Views
             //    allButton();
             //    hienthiks("https://bookinghotel.onrender.com/hotels");
             //}
-            
+            allButton();
+            hienthiks("https://bookinghotel.onrender.com/hotels");
+
         }
 
         private void Add_Like_List_Tapped(object sender, EventArgs e)
