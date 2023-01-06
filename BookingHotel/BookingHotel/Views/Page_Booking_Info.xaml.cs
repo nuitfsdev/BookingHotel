@@ -34,7 +34,6 @@ namespace BookingHotel.Views
             cost_day.Text = String.Format("{0:0,0}", room.giangay);
             
             Theo_gio_show();
-            DisplayAlert("", $"{total.Text}", "ok");
 
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
