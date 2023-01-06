@@ -364,7 +364,7 @@
                     <Label Text="Tin tức nổi bật" TextColor="#3F3B6C" FontSize="20" FontAttributes="Bold" ></Label>
                     <!--<Label Text="Xem tất cả" HorizontalOptions="EndAndExpand" VerticalOptions="End" FontSize="16" FontAttributes="Italic"/>-->
                 </StackLayout>
-                <CarouselView x:Name="tintucnoibat" HeightRequest="320"  Loop="False"  PeekAreaInsets="50" Margin="-50,0,0,0" >
+                <CarouselView x:Name="tintucnoibat" HeightRequest="280"  Loop="False"  PeekAreaInsets="50" Margin="-50,0,0,0" >
                     <CarouselView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0"/>
                     </CarouselView.ItemsLayout>
