@@ -34,7 +34,7 @@ namespace BookingHotel.Views
             tenphong.Text = "Phòng Cơ bản";
             diachi.Text = thishotel.diachi;
             rate.Text = thishotel.sosao;
-            maphong.Text = order.maroom;
+            
             adult_qty.Text = String.Format("{0}", order.adult);
             child_qty.Text = String.Format("{0}", order.child);
             bed_qty.Text = String.Format("{0}", order.bed);
@@ -44,62 +44,70 @@ namespace BookingHotel.Views
             timecheckout_date.Text= order.timecheckout;
             create_date.Text = order.create;
             if (order.status == 1) cancle_booking.IsVisible = true;
+
+            //order.kieudat la true la theo gio, false la theo ngay
+            follow_time.IsVisible = order.kieudat;
+            follow_day.IsVisible = !order.kieudat;
+            total_time.IsVisible = order.kieudat;
+            total_day.IsVisible = !order.kieudat;
+
             //dientich.Text = "50 m2";
             //desc.Text ="\t"+ thishotel.mota;
             //mota.Text = "\t" + "Phòng xịn nhất";
             //contact.Text = thishotel.lienhe;
-            total.Text = String.Format("{0:0,0 vnđ}", order.total);
+            total.Text = String.Format("{0:0,0}", order.total);
+            request_of_customer.Text = "\t"+ order.customer_request;
 
             //Hiện thông tin các tiện ích mà khách sạn đang có
-            if (thishotel.tienichs.Count > 0)
-                foreach (Tienich item in thishotel.tienichs)
-                {
-                    StackLayout stack = new StackLayout();
-                    if (item.tienich == "gym")
-                    {
-                        stack = new StackLayout
-                        {
+            //if (thishotel.tienichs.Count > 0)
+            //    foreach (Tienich item in thishotel.tienichs)
+            //    {
+            //        StackLayout stack = new StackLayout();
+            //        if (item.tienich == "gym")
+            //        {
+            //            stack = new StackLayout
+            //            {
 
-                            Children = {
-                                new Image {Source = "nam_gym.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
-                                new Label {Text = "Gym", FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
-                            }
-                        };
-                    }
-                    else if (item.tienich == "hoboi")
-                    {
-                        stack = new StackLayout
-                        {
+            //                Children = {
+            //                    new Image {Source = "nam_gym.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
+            //                    new Label {Text = "Gym", FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
+            //                }
+            //            };
+            //        }
+            //        else if (item.tienich == "hoboi")
+            //        {
+            //            stack = new StackLayout
+            //            {
 
-                            Children = {
-                                new Image {Source = "nam_swimmingpool.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
-                                new Label {Text = "Hồ bơi",FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
-                            }
-                        };
-                    }
-                    else if (item.tienich == "bar")
-                    {
-                        stack = new StackLayout
-                        {
+            //                Children = {
+            //                    new Image {Source = "nam_swimmingpool.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
+            //                    new Label {Text = "Hồ bơi",FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
+            //                }
+            //            };
+            //        }
+            //        else if (item.tienich == "bar")
+            //        {
+            //            stack = new StackLayout
+            //            {
 
-                            Children = {
-                                new Image {Source = "nam_bar.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
-                                new Label {Text = "Quầy bar",FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
-                            }
-                        };
-                    }
-                    stack.Orientation = StackOrientation.Horizontal;
+            //                Children = {
+            //                    new Image {Source = "nam_bar.png", WidthRequest=30,VerticalOptions=LayoutOptions.Center},
+            //                    new Label {Text = "Quầy bar",FontSize=16, VerticalOptions=LayoutOptions.Center, TextColor=Color.Gray},
+            //                }
+            //            };
+            //        }
+            //        stack.Orientation = StackOrientation.Horizontal;
 
 
-                    stack.WidthRequest = 110;
+            //        stack.WidthRequest = 110;
 
-                    tienich_hotel.Children.Add(stack);
-                }
-            else
-            {
-                Label label = new Label { Text = "Đang cập nhật", HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = Color.Black, Margin = new Thickness(10), FontSize = 20 };
-                tienich_hotel.Children.Add(label);
-            }
+            //        tienich_hotel.Children.Add(stack);
+            //    }
+            //else
+            //{
+            //    Label label = new Label { Text = "Đang cập nhật", HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = Color.Black, Margin = new Thickness(10), FontSize = 20 };
+            //    tienich_hotel.Children.Add(label);
+            //}
         }
 
         public Page_Order_Detail(Order order)
