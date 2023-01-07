@@ -19,7 +19,7 @@ namespace BookingHotel.Views
         List<int> _filtersosao = new List<int>();
         List<string> _filtertienichs = new List<string>();
         public string[] tinhlist = new string[] { "Tp Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
-        public string[] quan_HCM = new string[] { "Thành phố Thủ Đức", "Quận 1", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè" };
+        public string[] quan_HCM = new string[] { "Quận Thủ Đức", "Quận 1", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè" };
         public string[] quan_HaNoi = new string[] { "Quận Hoàn Kiếm", "Quận Đống Đa", "Quận Ba Đình", "Quận Hai Bà Trưng", "Quận Hoàng Mai", "Quận Thanh Xuân", "Quận Long Biên", "Quận Nam Từ Liêm", "Quận Bắc Từ Liêm", "Quận Tây Hồ", "Quận Cầu Giấy", "Quận Hà Đông", "Thị xã Sơn Tây", "Huyện Ba Vì", "Huyện Chương Mỹ", "Huyện Phúc Thọ", "Huyện Đan Phượng", "Huyện Đông Anh", "Huyện Gia Lâm", "Huyện Hoài Đức", "Huyện Mê Linh", "Huyện Mỹ Đức", "Huyện Phú Xuyên", "Huyện Quốc Oai", "Huyện Sóc Sơn", "Huyện Thạch Thất", "Huyện Thanh Oai", "Huyện Thường Tín", "Huyện Ứng Hòa", "Huyện Thanh Trì" };
         public string[] quan_DaNang = new string[] { "Quận Hải Châu", "Quận Cẩm Lệ", "Quận Thanh Khê", "Quận Liên Chiểu", "Quận Ngũ Hành Sơn", "Quận Sơn Trà", "Huyện Hòa Vang", "Huyện Hoàng Sa"};
 
@@ -27,6 +27,8 @@ namespace BookingHotel.Views
         {
             InitializeComponent();
             tinh_filter.ItemsSource = tinhlist;
+            giamin_entry.Text = RangeSlider.LowerValue.ToString();
+            giamax_entry.Text = RangeSlider.UpperValue.ToString();
         }
 
         private void back_btn_Clicked(object sender, EventArgs e)
@@ -233,37 +235,52 @@ namespace BookingHotel.Views
 
         private void RangeSlider_LowerValueChanged(object sender, EventArgs e)
         {
-            giamin_entry.Text = RangeSlider.LowerValue.ToString();
+            if (giamin_entry.Text != "")
+            {
+                giamin_entry.Text = RangeSlider.LowerValue.ToString();
+            }
         }
 
         private void RangeSlider_UpperValueChanged(object sender, EventArgs e)
         {
-            giamax_entry.Text = RangeSlider.UpperValue.ToString();
+            if (giamax_entry.Text != "")
+            {
+                giamax_entry.Text = RangeSlider.UpperValue.ToString();
+            }
         }
 
         private void giamin_entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(double.Parse(giamin_entry.Text) >= RangeSlider.MinimumValue && double.Parse(giamin_entry.Text) <= double.Parse(giamax_entry.Text))
+            int n = 0;
+            if (giamin_entry.Text != "" && int.TryParse(giamin_entry.Text, out n))
             {
-                RangeSlider.LowerValue = int.Parse(giamin_entry.Text);
-            }
-            else
-            {
-                giamin_entry.Text = RangeSlider.LowerValue.ToString();
-                DisplayAlert("Không hợp lê","Giá thấp nhất không hợp lệ!","OK");
+                if(double.Parse(giamin_entry.Text) >= RangeSlider.MinimumValue && double.Parse(giamin_entry.Text) <= double.Parse(giamax_entry.Text))
+                {
+                    RangeSlider.LowerValue = int.Parse(giamin_entry.Text);
+                }
+                else
+                {
+                    giamin_entry.Text = RangeSlider.LowerValue.ToString();
+                    DisplayAlert("Không hợp lê","Giá thấp nhất không hợp lệ!","OK");
+                }
             }
         }
 
         private void giamax_entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (double.Parse(giamax_entry.Text) >= double.Parse(giamin_entry.Text) && double.Parse(giamax_entry.Text) <= RangeSlider.MaximumValue)
+            int n=0;
+            if(giamax_entry.Text != "" && int.TryParse(giamax_entry.Text, out n) )
             {
-                RangeSlider.UpperValue = int.Parse(giamax_entry.Text);
-            }
-            else
-            {
-                giamax_entry.Text = RangeSlider.UpperValue.ToString();
-                DisplayAlert("Không hợp lê", "Giá lớn nhất không hợp lệ!", "OK");
+                if (double.Parse(giamax_entry.Text) >= double.Parse(giamin_entry.Text) && double.Parse(giamax_entry.Text) <= RangeSlider.MaximumValue )
+                {
+                    RangeSlider.UpperValue = int.Parse(giamax_entry.Text);
+                }
+                else
+                {
+                    giamax_entry.Text = RangeSlider.UpperValue.ToString();
+                    DisplayAlert("Không hợp lê", "Giá lớn nhất không hợp lệ!", "OK");
+                }
+
             }
         }
 

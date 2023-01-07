@@ -44,9 +44,9 @@
                         TrackHighlightColor="#585de4"
                         x:Name="RangeSlider"
                         MaximumValue="10000000"
-                        MinimumValue="100000"
+                        MinimumValue="0"
                         StepValue="50000"
-                        LowerValue="100000"
+                        LowerValue="0"
                         UpperValue="10000000" Margin="20,0,20,0" 
                         ValueLabelStringFormat='Giá {0:0,0} VNĐ'
                         LowerValueChanged="RangeSlider_LowerValueChanged"
@@ -57,14 +57,14 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Label Text="Giá thấp nhất" Grid.Column="0" Grid.Row="0" FontSize="18"  Margin="10,0,0,0"/>
-                        <Label Text="Giá cao nhất nhất" Grid.Column="1" Grid.Row="0"  FontSize="18" Margin="10,0,0,0"/>
+                        <Label Text="Giá cao nhất" Grid.Column="1" Grid.Row="0"  FontSize="18" Margin="10,0,0,0"/>
                         <Frame Grid.Column="0" Grid.Row="1" HeightRequest="50" HasShadow="False" CornerRadius="30" BorderColor="#ccc" Padding="0" >
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
-                                <models:MyEntry x:Name="giamin_entry" Text="100000" Keyboard="Numeric" Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" TextChanged="giamin_entry_TextChanged"/>
+                                <models:MyEntry x:Name="giamin_entry"  Text="0" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" TextChanged="giamin_entry_TextChanged"/>
                                 <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
                             </Grid>
                         </Frame>
@@ -74,7 +74,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
-                                <models:MyEntry x:Name="giamax_entry" Text="10000000" Keyboard="Numeric" Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" TextChanged="giamax_entry_TextChanged"/>
+                                <models:MyEntry x:Name="giamax_entry" Text="10000000"  HorizontalTextAlignment="Center" Keyboard="Numeric" Grid.Column="0" Margin="10,0,0,0" HeightRequest="50" TextChanged="giamax_entry_TextChanged"/>
                                 <Label Grid.Column="1" Text="VNĐ" HorizontalOptions="End" Margin="0,0,10,0" VerticalOptions="Center" TextColor="Red" />
                             </Grid>
                         </Frame>
