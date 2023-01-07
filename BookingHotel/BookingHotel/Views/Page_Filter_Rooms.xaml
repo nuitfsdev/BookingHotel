@@ -110,7 +110,7 @@
                 
                 <!--Tiện ích khách sạn-->
 
-                <StackLayout>
+                <!--<StackLayout>
                     <Label Text="Các tiện tích" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,10,0,0"/>
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
@@ -136,7 +136,7 @@
                             </Frame.GestureRecognizers>
                         </Frame>
                     </Grid>
-                </StackLayout>
+                </StackLayout>-->
 
                 <!--Loại phòng-->
 
@@ -183,8 +183,8 @@
 
                 <!--Lọc tiện ích của phòng-->
                 
-                <StackLayout>
-                    <Label Text="Các thiết bị/ tiện tích và ưu đãi" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,20"/>
+                <StackLayout Margin="10,0,10,0">
+                    <Label Text="Các tiện ích của phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,20,0,20"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -193,43 +193,43 @@
                         </Grid.ColumnDefinitions>
 
                         <Frame x:Name="Wifi" HeightRequest="50" Grid.Column="0" Grid.Row="0" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Wifi" x:Name="wifi_label" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="Wifi" x:Name="wifi_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Wifi_tap" Tapped="Wifi_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="Tulanh" HeightRequest="50" Grid.Column="1" Grid.Row="0" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Tủ Lạnh" x:Name="tulanh_label" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="Tủ Lạnh" x:Name="tulanh_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Tulanh_tap" Tapped="Tulanh_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="Dieuhoa" HeightRequest="50" Grid.Column="2" Grid.Row="0" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Điều hòa" x:Name="dieuhoa_label" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="Điều hòa" x:Name="dieuhoa_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Dieuhoa_tap" Tapped="Dieuhoa_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="Cacham" HeightRequest="50" Grid.Column="0" Grid.Row="1" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Cách âm" x:Name="cacham_label" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="Cách âm" x:Name="cacham_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Cacham_tap" Tapped="Cacham_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="Giuongdoi" HeightRequest="50" Grid.Column="1" Grid.Row="1" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Giường đôi" x:Name="giuongdoi_label" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="Giường đôi" x:Name="giuongdoi_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Giuongdoi_tap" Tapped="Giuongdoi_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="Uudai" HeightRequest="50" Grid.Column="2" Grid.Row="1" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Ưu đãi" x:Name="uudai_label" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="Ưu đãi" x:Name="uudai_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Uudai_tap" Tapped="Uudai_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="Noibat" HeightRequest="50" Grid.Column="0" Grid.Row="2" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Nổi bật" x:Name="noibat_label" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="Nổi bật" x:Name="noibat_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Noibat_tap" Tapped="Noibat_tap_Tapped"/>
                             </Frame.GestureRecognizers>
