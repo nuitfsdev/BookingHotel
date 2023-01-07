@@ -104,13 +104,13 @@
                 </Frame>
                 <Frame Grid.Column="0" Grid.Row="1"  BorderColor="#ccc" Padding="0" WidthRequest="180" HorizontalOptions="Start" CornerRadius="10" >
                     <StackLayout Padding="10,7,0,0">
-                        <Label Text="Chọn ngày đến"  />
+                        <Label Text="Chọn ngày nhận phòng"  />
                         <models:MyDatePicker Margin="0,-15,0,0" x:Name="ngayden_dpk" Format="dd-MM-yyyy" HorizontalOptions="Start" TextColor="#585de4" DateSelected="ngayden_dpk_DateSelected"></models:MyDatePicker>
                     </StackLayout>
                 </Frame>
                 <Frame Grid.Column="1" Grid.Row="1" BorderColor="#ccc" Padding="0" WidthRequest="180" HorizontalOptions="Start" CornerRadius="10" >
                     <StackLayout Padding="10,7,0,0" >
-                        <Label Text="Chọn ngày đi" />
+                        <Label Text="Chọn ngày trả phòng" />
                         <models:MyDatePicker Margin="0,-15,0,0" x:Name="ngaydi_dpk" Format="dd-MM-yyyy" TextColor="#585de4" HorizontalOptions="Start" DateSelected="ngaydi_dpk_DateSelected" ></models:MyDatePicker>
                     </StackLayout>
                 </Frame>
