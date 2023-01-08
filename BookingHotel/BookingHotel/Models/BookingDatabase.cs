@@ -23,7 +23,7 @@ namespace BookingHotel.Models
         //check xem đã có tài khoản nào đăng nhập vào thiết bị này chưa
         public bool CheckLoginResponse()
         {
-            try
+            try 
             {
                 if(db.Table<User>().Count()>0)
                     return true;
