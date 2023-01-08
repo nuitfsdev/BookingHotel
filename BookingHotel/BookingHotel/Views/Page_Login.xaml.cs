@@ -22,13 +22,12 @@ namespace BookingHotel.Views
             email.Text = "";
             password.Text = "";
 
-            if(App.BookingDb.CheckLoginResponse())
+            if (App.BookingDb.CheckLoginResponse())
             {
                 Shell.Current.GoToAsync("//main/home");
-            }    
-                
-
+            }  
         }
+
 
         private async void Login_Btn_Clicked(object sender, EventArgs e)
         {
