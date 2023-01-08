@@ -94,12 +94,12 @@ namespace BookingHotel.Views
                 if (checkout_time.Time.Hours == 0)
                 {
                     checkout_day.Date = checkout_day.Date.AddDays(-1);
-                    checkout_day_final.Text = checkout_day.Date.Day.ToString() + "/" + checkout_day.Date.Month.ToString();
+                    checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
                     checkout_time.Time = TimeSpan.Parse($"23:{checkout_time.Time.Minutes}:00");
                 }
                 else
                     checkout_time.Time -= TimeSpan.Parse("1:00");
-                checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
+                checkout_time_final.Text = checkout_time.Time.ToString(@"hh\:mm");
 
                 long total_cost = save_cost_time + save_cost_time * (long.Parse(time_uses.Text) - 1) / 2;
                 total.Text = String.Format("{0:0,0}", total_cost);
@@ -124,7 +124,7 @@ namespace BookingHotel.Views
                     checkout_time.Time += TimeSpan.Parse("1:00:00");
                 checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
   
-                checkout_day_final.Text = checkout_day.Date.Day.ToString() + "/" + checkout_day.Date.Month.ToString();
+                checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
 
                 long total_cost = save_cost_time + save_cost_time * (long.Parse(time_uses.Text)-1) / 2;
                 total.Text = String.Format("{0:0,0}", total_cost);
@@ -317,14 +317,14 @@ namespace BookingHotel.Views
             checkin_day.Date = date.Date;
             
             //thanh toán - giờ
-            checkin_time_final.Text = checkin_time.Time.Hours.ToString() + ":" + checkin_time.Time.Minutes.ToString();
-            checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
+            checkin_time_final.Text = checkin_time.Time.ToString(@"hh\:mm");
+            checkout_time_final.Text = checkout_time.Time.ToString(@"hh\:mm");
             //thanh toán - ngày
-            checkin_day_final.Text = checkin_day.Date.Day.ToString() +"/"+ checkin_day.Date.Month.ToString();
-            checkout_day_final.Text = checkout_day.Date.Day.ToString() + "/" + checkout_day.Date.Month.ToString();
+            checkin_day_final.Text = checkin_day.Date.ToString("dd/MM/yyyy");
+            checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
 
             time_uses.Text = "1";
-            time_uses_final.Text = "1";
+                time_uses_final.Text = "1";
 
             if(time_underline.IsVisible)
             {
@@ -349,8 +349,8 @@ namespace BookingHotel.Views
             checkin_time_final.Text = "14:00";
             checkout_time_final.Text = "12:00";
             //thanh toán - ngày
-            checkin_day_final.Text = date.Date.Day.ToString() + "/" + date.Date.Month.ToString();
-            checkout_day_final.Text = date.Date.AddDays(3).Day.ToString() + "/" + date.Date.Month.ToString();
+            checkin_day_final.Text = date.Date.ToString("dd/MM/yyyy");
+            checkout_day_final.Text = date.Date.AddDays(3).ToString("dd/MM/yyyy");
 
             day_final.Text = "3";
 
@@ -363,8 +363,8 @@ namespace BookingHotel.Views
 
         private void checkin_day_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            checkin_day_final.Text = checkin_day.Date.Day.ToString()+ "/" + checkin_day.Date.Month.ToString();
-            if(time_underline.IsVisible & checkin_time.Time.Hours <23)
+            checkin_day_final.Text = checkin_day.Date.ToString("dd/MM/yyyy");
+            if (time_underline.IsVisible & checkin_time.Time.Hours <23)
             {
                 checkout_day.Date = checkin_day.Date;
             }
@@ -378,7 +378,7 @@ namespace BookingHotel.Views
         {
             if(checkout_day.IsVisible)
             {
-                checkout_day_final.Text = checkout_day.Date.Day.ToString()+ "/" + checkout_day.Date.Month.ToString();
+                checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
 
                 //chuyển đổi để có được số ngày
                 TimeSpan timeSpan = checkout_day.Date - checkin_day.Date;
@@ -410,14 +410,14 @@ namespace BookingHotel.Views
                 {
                     checkout_time.Time = checkin_time.Time.Add(TimeSpan.Parse($"{time_uses.Text}:00:00"));
                 }    
-                checkin_time_final.Text = checkin_time.Time.Hours.ToString() + ":" + checkin_time.Time.Minutes.ToString();
-                checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
+                checkin_time_final.Text = checkin_time.Time.ToString(@"hh\:mm");
+                checkout_time_final.Text = checkout_time.Time.ToString(@"hh\:mm");
             }
             else
             {
                 checkout_time.Time = checkin_time.Time;
-                checkin_time_final.Text = checkin_time.Time.Hours.ToString() + ":" + checkin_time.Time.Minutes.ToString();
-                checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
+                checkin_time_final.Text = checkin_time.Time.ToString(@"hh\:mm");
+                checkout_time_final.Text = checkout_time.Time.ToString(@"hh\:mm");
             }    
         }
     }

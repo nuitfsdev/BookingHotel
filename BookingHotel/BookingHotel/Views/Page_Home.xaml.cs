@@ -27,11 +27,11 @@ namespace BookingHotel.Views
             listDiaDiem.Add("Đà Nẵng");
             listDiaDiem.Add("Hà Nội");
             diadiem_pk.ItemsSource = listDiaDiem;
-            List<string> listQuanHuyen = new List<string>();
-            listQuanHuyen.Add("Quận Thủ Đức");
-            listQuanHuyen.Add("Quận 2");
-            listQuanHuyen.Add("Quận 1");
-            quanhuyen_pk.ItemsSource = listQuanHuyen;
+            //List<string> listQuanHuyen = new List<string>();
+            //listQuanHuyen.Add("Quận Thủ Đức");
+            //listQuanHuyen.Add("Quận 2");
+            //listQuanHuyen.Add("Quận 1");
+            //quanhuyen_pk.ItemsSource = listQuanHuyen;
             ngayden_dpk.MinimumDate = DateTime.Today;
             ngaydi_dpk.MinimumDate = DateTime.Today;
             ngaydi_dpk.MinimumDate = DateTime.Today.AddDays(1);
@@ -67,6 +67,7 @@ namespace BookingHotel.Views
         public Page_Home()
         {
             InitializeComponent();
+            say_greet.Text = "Hello, " + App.BookingDb.GetUserLastName();
             List<Banner> bannerList = new List<Banner>();
             bannerList.Add(new Banner { Image="Banner1.png"});
             bannerList.Add(new Banner { Image = "Banner2.png" });
@@ -111,14 +112,38 @@ namespace BookingHotel.Views
 
         private void quickSearch_btn_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("TB", $"{diadiem_pk.SelectedItem} {quanhuyen_pk.SelectedItem} {ngayden_dpk.Date.ToString("dd-MM-yyyy")} {ngaydi_dpk.Date.ToString("dd-MM-yyyy")}", "Ok");
+            //luu thông tin tìm kiếm nhanh vào home_save_filter
+            if(diadiem_pk.SelectedItem == null || quanhuyen_pk.SelectedItem == null)
+            {
+                DisplayAlert("Thông báo","Bạn chưa nhập thiếu thông tin","OK");
+            }    
+            else
+            {
+                Home_save_filter home_Save_Filter = new Home_save_filter();
+                home_Save_Filter.tinh = diadiem_pk.SelectedItem.ToString();
+                home_Save_Filter.quan = quanhuyen_pk.SelectedItem.ToString();
+                home_Save_Filter.checkin_day = ngayden_dpk.Date.ToString("dd-MM-yyyy");
+                home_Save_Filter.checkout_day = ngaydi_dpk.Date.ToString("dd-MM-yyyy");
+                App.BookingDb.CreateHome_save_filter(home_Save_Filter);
+                DisplayAlert("TB", $"{diadiem_pk.SelectedItem} {quanhuyen_pk.SelectedItem} {ngayden_dpk.Date.ToString("dd-MM-yyyy")} {ngaydi_dpk.Date.ToString("dd-MM-yyyy")}", "Ok");
+            }    
         }
+
+        public string[] quan_HCM = new string[] { "Quận Thủ Đức", "Quận 1", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè" };
+        public string[] quan_HaNoi = new string[] { "Quận Hoàn Kiếm", "Quận Đống Đa", "Quận Ba Đình", "Quận Hai Bà Trưng", "Quận Hoàng Mai", "Quận Thanh Xuân", "Quận Long Biên", "Quận Nam Từ Liêm", "Quận Bắc Từ Liêm", "Quận Tây Hồ", "Quận Cầu Giấy", "Quận Hà Đông", "Thị xã Sơn Tây", "Huyện Ba Vì", "Huyện Chương Mỹ", "Huyện Phúc Thọ", "Huyện Đan Phượng", "Huyện Đông Anh", "Huyện Gia Lâm", "Huyện Hoài Đức", "Huyện Mê Linh", "Huyện Mỹ Đức", "Huyện Phú Xuyên", "Huyện Quốc Oai", "Huyện Sóc Sơn", "Huyện Thạch Thất", "Huyện Thanh Oai", "Huyện Thường Tín", "Huyện Ứng Hòa", "Huyện Thanh Trì" };
+        public string[] quan_DaNang = new string[] { "Quận Hải Châu", "Quận Cẩm Lệ", "Quận Thanh Khê", "Quận Liên Chiểu", "Quận Ngũ Hành Sơn", "Quận Sơn Trà", "Huyện Hòa Vang", "Huyện Hoàng Sa" };
 
         private void diadiem_pk_SelectedIndexChanged(object sender, EventArgs e)
         {
             MyPicker myPicker = (MyPicker)sender;
             diadiem=myPicker.SelectedItem as string;
-            
+            if (diadiem_pk.SelectedItem.ToString() == "Tp Hồ Chí Minh")
+                quanhuyen_pk.ItemsSource = quan_HCM;
+            else if (diadiem_pk.SelectedItem.ToString() == "Hà Nội")
+                quanhuyen_pk.ItemsSource = quan_HaNoi;
+            else
+                quanhuyen_pk.ItemsSource = quan_DaNang;
+            quanhuyen_pk.IsEnabled = true;
         }
 
         private void quanhuyen_pk_SelectedIndexChanged(object sender, EventArgs e)

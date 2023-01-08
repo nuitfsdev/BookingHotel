@@ -139,7 +139,7 @@
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
-                    <ffimageloading:CachedImage 
+                    <ffimageloading:CachedImage x:Name="loading_gif" IsVisible="true"
 			                    WidthRequest="300" HeightRequest="200"
 			                    DownsampleToViewSize="true"
 			                    Source = "nam_loading.gif">

@@ -276,7 +276,7 @@
                         <Label Text="Nhận phòng" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                             <Label x:Name="checkin_time_final" TextColor="Black" FontAttributes="Bold"/>
-                            <Label Text="," TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="," TextColor="Black" FontAttributes="Bold" Margin="-4,0,0,0"/>
                             <Label x:Name="checkin_day_final" TextColor="Black" FontAttributes="Bold"/>
                         </StackLayout>
                     </StackLayout>
@@ -287,7 +287,7 @@
                         <Label Text="Trả phòng" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                             <Label x:Name="checkout_time_final" TextColor="Black" FontAttributes="Bold"/>
-                            <Label Text="," TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="," TextColor="Black" FontAttributes="Bold" Margin="-4,0,0,0"/>
                             <Label x:Name="checkout_day_final" TextColor="Black" FontAttributes="Bold"/>
                         </StackLayout>
                     </StackLayout>

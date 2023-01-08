@@ -21,6 +21,7 @@ namespace BookingHotel.Views
         public Page_Filter()
         {
             InitializeComponent();
+            tinh_filter.ItemsSource = tinhlist;
             giamin_entry.Text=RangeSlider.LowerValue.ToString();
             giamax_entry.Text = RangeSlider.UpperValue.ToString();
         }
@@ -35,9 +36,20 @@ namespace BookingHotel.Views
 
         }
 
+        public string[] tinhlist = new string[] { "Tp Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
+        public string[] quan_HCM = new string[] { "Quận Thủ Đức", "Quận 1", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè" };
+        public string[] quan_HaNoi = new string[] { "Quận Hoàn Kiếm", "Quận Đống Đa", "Quận Ba Đình", "Quận Hai Bà Trưng", "Quận Hoàng Mai", "Quận Thanh Xuân", "Quận Long Biên", "Quận Nam Từ Liêm", "Quận Bắc Từ Liêm", "Quận Tây Hồ", "Quận Cầu Giấy", "Quận Hà Đông", "Thị xã Sơn Tây", "Huyện Ba Vì", "Huyện Chương Mỹ", "Huyện Phúc Thọ", "Huyện Đan Phượng", "Huyện Đông Anh", "Huyện Gia Lâm", "Huyện Hoài Đức", "Huyện Mê Linh", "Huyện Mỹ Đức", "Huyện Phú Xuyên", "Huyện Quốc Oai", "Huyện Sóc Sơn", "Huyện Thạch Thất", "Huyện Thanh Oai", "Huyện Thường Tín", "Huyện Ứng Hòa", "Huyện Thanh Trì" };
+        public string[] quan_DaNang = new string[] { "Quận Hải Châu", "Quận Cẩm Lệ", "Quận Thanh Khê", "Quận Liên Chiểu", "Quận Ngũ Hành Sơn", "Quận Sơn Trà", "Huyện Hòa Vang", "Huyện Hoàng Sa" };
+
         private void tinh_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (tinh_filter.SelectedItem.ToString() == "Tp Hồ Chí Minh")
+                quan_filter.ItemsSource = quan_HCM;
+            else if (tinh_filter.SelectedItem.ToString() == "Hà Nội")
+                quan_filter.ItemsSource = quan_HaNoi;
+            else
+                quan_filter.ItemsSource = quan_DaNang;
+            quan_filter.IsEnabled = true;
         }
 
         private void quan_filter_SelectedIndexChanged(object sender, EventArgs e)

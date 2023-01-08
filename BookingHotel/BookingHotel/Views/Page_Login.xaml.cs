@@ -22,6 +22,11 @@ namespace BookingHotel.Views
             email.Text = "";
             password.Text = "";
 
+            if(App.BookingDb.CheckLoginResponse())
+            {
+                Shell.Current.GoToAsync("//main/home");
+            }    
+                
 
         }
 
@@ -48,6 +53,8 @@ namespace BookingHotel.Views
                 {
                     string contentRes = await responseMessage.Content.ReadAsStringAsync();
                     LoginResponse loginResponse =JsonConvert.DeserializeObject<LoginResponse>(contentRes); 
+                    //tạo một User và Token lưu trong CSDL của người dùng
+                    App.BookingDb.CreateLoginResponse(loginResponse);
                     await DisplayAlert("TB", $"{loginResponse.user.name}", "OK");
                     await Shell.Current.GoToAsync("//main/home");
                     password.Text = "";

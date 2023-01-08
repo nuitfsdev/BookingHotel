@@ -40,7 +40,7 @@
                             <models:MyPicker x:Name="tinh_filter" WidthRequest="50" Title="Chọn tỉnh" HorizontalTextAlignment="Center" SelectedIndexChanged="tinh_filter_SelectedIndexChanged"/>
                         </Frame>
                         <Frame HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
-                            <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" HorizontalTextAlignment="Center" SelectedIndexChanged="quan_filter_SelectedIndexChanged"/>
+                            <models:MyPicker x:Name="quan_filter" WidthRequest="50" Title="Chọn quận" HorizontalTextAlignment="Center" SelectedIndexChanged="quan_filter_SelectedIndexChanged" IsEnabled="False"/>
                         </Frame>
                     </StackLayout>
                 </StackLayout>

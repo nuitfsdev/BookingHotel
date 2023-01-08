@@ -47,16 +47,16 @@ namespace BookingHotel.Views
                 {
                     queryString = queryString + $"tinh={roomFilter.tinh}";
                 }
-                if (roomFilter.huyen != null)
+                if (roomFilter.quan != null)
                 {
                     if (queryString != "")
                     {
-                        queryString = queryString + $"&huyen={roomFilter.huyen}";
+                        queryString = queryString + $"&quan={roomFilter.quan}";
 
                     }
                     else
                     {
-                        queryString = queryString + $"huyen={roomFilter.huyen}";
+                        queryString = queryString + $"quan={roomFilter.quan}";
                     }
 
                 }
@@ -169,28 +169,28 @@ namespace BookingHotel.Views
                         }
                     }
                 }
-                if (roomFilter.khac.Count > 0)
+                if (roomFilter.uudai == true)
                 {
                     if (queryString != "")
                     {
-                        foreach (var item in roomFilter.khac)
-                        {
-                            queryString = queryString + $"&khac[]={item}";
-                        }
+                        queryString = queryString + $"&uudai=1";
+
                     }
                     else
                     {
-                        foreach (var item in roomFilter.khac)
-                        {
-                            if (queryString.Contains("khac"))
-                            {
-                                queryString = queryString + $"&khac[]={item}";
-                            }
-                            else
-                            {
-                                queryString = queryString + $"khac[]={item}";
-                            }
-                        }
+                        queryString = queryString + $"uudai=1";
+                    }
+                }
+                if (roomFilter.noibat == true)
+                {
+                    if (queryString != "")
+                    {
+                        queryString = queryString + $"&noibat=1";
+
+                    }
+                    else
+                    {
+                        queryString = queryString + $"noibat=1";
                     }
                 }
                 if (roomFilter.loaiphong.Count >0)

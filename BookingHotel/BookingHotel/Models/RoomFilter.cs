@@ -7,7 +7,7 @@ namespace BookingHotel.Models
     public class RoomFilter
     {
         public string tinh { get; set; }
-        public string huyen { get; set; }
+        public string quan { get; set; }
         public List<int> sosao { get; set; }
         public long giamin { get; set; }
         public long giamax { get; set; }
@@ -15,6 +15,7 @@ namespace BookingHotel.Models
         public List<string> loaigiuong { get; set; }
         public List<string> loaiphong { get; set; }
         public List<string> tienichs { get; set; }
-        public List<string> khac { get; set; }
+        public bool uudai { get; set; } = false;
+        public bool noibat { get; set; } = false;
     }
 }
