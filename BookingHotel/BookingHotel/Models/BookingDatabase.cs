@@ -43,6 +43,7 @@ namespace BookingHotel.Models
             try
             {
                 User user = new User();
+                user._id = loginResponse.user._id;
                 user.mauser = loginResponse.user.mauser;
                 user.name = loginResponse.user.name;
                 user.email = loginResponse.user.email;
