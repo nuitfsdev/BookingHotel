@@ -14,7 +14,8 @@
                 <Label Text="Giúp đỡ" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
             </StackLayout>
-            <WebView x:Name="help_page" Source="https://gameitthoi.github.io/F8_todo_list/" HeightRequest="100"/>
+            <WebView x:Name="help_page" Source="https://www.traveloka.com/vi-vn/help"
+                     VerticalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

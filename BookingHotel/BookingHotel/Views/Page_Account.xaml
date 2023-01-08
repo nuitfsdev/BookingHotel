@@ -14,8 +14,8 @@
                 </StackLayout>
                 <!--Info-->
                 <StackLayout>
-                    <Label Text="Nguyễn văn A" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
-                    <Label Text="nguyenvana@gmail.com" FontSize="Small" TextColor="Black"/>
+                    <Label x:Name="user_name" Text="Nguyễn văn A" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
+                    <Label x:Name="user_email" Text="nguyenvana@gmail.com" FontSize="Small" TextColor="Black"/>
                 </StackLayout>
             </StackLayout>
             <!--Options-->
@@ -40,16 +40,7 @@
                         <TapGestureRecognizer x:Name="love" Tapped="love_Tapped"/>
                     </Frame.GestureRecognizers>
                 </Frame>
-                <Frame BorderColor="Transparent">
-                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
-                        <Image Source="dat_payment.png" WidthRequest="25" HorizontalOptions="Start"/>
-                        <Label Text="Thanh toán" FontSize="Large" HorizontalOptions="Center" Margin="20,0,0,0" TextColor="Black"/>
-                        <Image Source="dat_right_arrow.png" WidthRequest="15" HorizontalOptions="EndAndExpand"/>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="payment" Tapped="payment_Tapped"/>
-                    </Frame.GestureRecognizers>
-                </Frame>
+               
                 <Frame BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
                         <Image Source="bell.png" WidthRequest="25" HorizontalOptions="Start"/>

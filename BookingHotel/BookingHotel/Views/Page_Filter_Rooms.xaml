@@ -16,7 +16,7 @@
                         <Label Text="Lọc phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="50,0,0,0"
                        HorizontalOptions="CenterAndExpand"/>
                         <!--Xóa bộ lọc-->
-                        <Label Text="Xóa bộ lọc" TextColor="Red" FontSize="Medium" FontAttributes="Bold" Margin="0,0,0,0" HorizontalOptions="End" VerticalOptions="Center">
+                        <Label Text="Đặt lại" TextColor="Red" FontSize="Medium" FontAttributes="Bold" Margin="0,0,0,0" HorizontalOptions="End" VerticalOptions="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="clear_btn" Tapped="clear_btn_Tapped"/>
                             </Label.GestureRecognizers>
@@ -149,33 +149,27 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Frame x:Name="Standard" HeightRequest="50" Grid.Column="0" Grid.Row="0" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                                <Label Text="Phòng cơ bản" x:Name="Standard_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                                <Label Text="Basic" x:Name="Standard_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="Standard_tap" Tapped="Standard_tap_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                             <Frame x:Name="Superior" HeightRequest="50" Grid.Column="1" Grid.Row="0" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                                <Label Text="Phòng Superior" x:Name="Superior_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                                <Label Text="Superior" x:Name="Superior_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="Superior_tap" Tapped="Superior_tap_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                             <Frame x:Name="Deluxe" HeightRequest="50" Grid.Column="0" Grid.Row="1" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                                <Label Text="Phòng Deluxe" x:Name="Deluxe_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                                <Label Text="Deluxe" x:Name="Deluxe_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="Deluxe_tap" Tapped="Deluxe_tap_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                             <Frame x:Name="Suite" HeightRequest="50" Grid.Column="1" Grid.Row="1" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                                <Label Text="Phòng Suite" x:Name="Suite_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                                <Label Text="Suite" x:Name="Suite_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="Suite_tap" Tapped="Suite_tap_Tapped"/>
-                                </Frame.GestureRecognizers>
-                            </Frame>
-                            <Frame x:Name="Connecting" HeightRequest="50" Grid.Column="0" Grid.Row="2" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                                <Label Text="Connecting room" x:Name="Connecting_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="Connecting_tap" Tapped="Connecting_tap_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookingHotel.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,10 @@ namespace BookingHotel.Views
         public Page_User_Info()
         {
             InitializeComponent();
+            User user = App.BookingDb.GetUser();
+            user_name.Text = user.name;
+            user_email.Text = user.email;
+            user_telephone.Text = user.sdt;
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
@@ -33,6 +38,18 @@ namespace BookingHotel.Views
             }
 
             else return;
+        }
+
+        private void save_btn_Clicked(object sender, EventArgs e)
+        {
+            User user = App.BookingDb.GetUser();
+            user.name = user_name.Text;
+            user.email = user_email.Text;
+            user.sdt = user_telephone.Text;
+            if(App.BookingDb.UpdateUser(user))
+                DisplayAlert("Thông báo","Cập nhật thành công","Ok");
+            else
+                DisplayAlert("Thông báo", "Thất bại!", "Ok");
         }
     }
 }

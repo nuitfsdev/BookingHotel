@@ -5,10 +5,10 @@ using System.Text;
 
 namespace BookingHotel.Models
 {
-    public class LoginResponse
+    public class Token
     {
-        public int Id { get; set; }
-        public User user { get; set; }
+        [PrimaryKey]
+        public string mauser { get; set; }
         public string token { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookingHotel.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,9 @@ namespace BookingHotel.Views
         public Page_Account()
         {
             InitializeComponent();
+            User user = App.BookingDb.GetUser();
+            user_name.Text = user.name;
+            user_email.Text = user.email;
         }
 
         private void infomation_Tapped(object sender, EventArgs e)
@@ -22,10 +26,7 @@ namespace BookingHotel.Views
             Shell.Current.Navigation.PushAsync( new Page_User_Info());
         }
 
-        private void payment_Tapped(object sender, EventArgs e)
-        {
-            Shell.Current.Navigation.PushAsync(new Page_User_Payment());
-        }
+
 
         private async void notification_Tapped(object sender, EventArgs e)
         {
@@ -49,6 +50,7 @@ namespace BookingHotel.Views
 
         private void dangxuat_Clicked(object sender, EventArgs e)
         {
+            App.BookingDb.DeleteLoginResponse();
             Shell.Current.GoToAsync("//login");
         }
     }

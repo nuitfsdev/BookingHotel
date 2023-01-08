@@ -27,23 +27,15 @@
                 <StackLayout Margin="30,30,30,0">
                     <Label Text="Họ và tên" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <models:MyEntry Text="Nguyễn văn a" Margin="10,0,0,0"/>
+                        <models:MyEntry x:Name="user_name" Text="Nguyễn văn a" Margin="10,0,0,0"/>
                     </Frame>
                 </StackLayout>
-                
-                <!--CCCD-->
-                <StackLayout Margin="30,10,30,0">
-                    <Label Text="Số CCCD/GPLX" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
-                    <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <models:MyEntry Text="123456789" Margin="10,0,0,0"/>
-                    </Frame>
-                </StackLayout>
-                
+
                 <!--Email-->
                 <StackLayout Margin="30,10,30,0">
                     <Label Text="Email" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <models:MyEntry Keyboard="Email" Text="nguyenvana@gmail.com" Margin="10,0,0,0"/>
+                        <models:MyEntry x:Name="user_email" Keyboard="Email" Text="nguyenvana@gmail.com" Margin="10,0,0,0"/>
                     </Frame>
                 </StackLayout>
                 
@@ -51,13 +43,13 @@
                 <StackLayout Margin="30,10,30,0">
                     <Label Text="Số điện thoại" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <models:MyEntry Keyboard="Telephone" Text="0123456789" Margin="10,0,0,0"/>
+                        <models:MyEntry x:Name="user_telephone" Keyboard="Telephone" Text="0123456789" Margin="10,0,0,0"/>
                     </Frame>
                 </StackLayout>
                 
                 <!--Nút gửi-->
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
-                    <Button Text="Lưu" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="20" BorderColor="#585de4"/>
+                    <Button Text="Lưu" x:Name="save_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="20" BorderColor="#585de4" Clicked="save_btn_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
