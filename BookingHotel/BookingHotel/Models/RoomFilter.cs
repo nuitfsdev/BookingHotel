@@ -12,7 +12,9 @@ namespace BookingHotel.Models
         public long giamin { get; set; }
         public long giamax { get; set; }
         public int sogiuong { get; set; }
+        public List<string> loaigiuong { get; set; }
         public List<string> loaiphong { get; set; }
         public List<string> tienichs { get; set; }
+        public List<string> khac { get; set; }
     }
 }
