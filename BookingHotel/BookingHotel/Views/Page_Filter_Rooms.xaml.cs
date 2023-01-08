@@ -19,6 +19,9 @@ namespace BookingHotel.Views
         List<int> _filtersosao = new List<int>();
         List<string> _filtertienichs = new List<string>();
         List<string> _filterloaiphong = new List<string>();
+        List<string> _filterloaigiuong = new List<string>();
+        List<string> _filterkhac = new List<string>();
+
         public string[] tinhlist = new string[] { "Tp Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
         public string[] quan_HCM = new string[] { "Quận Thủ Đức", "Quận 1", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè" };
         public string[] quan_HaNoi = new string[] { "Quận Hoàn Kiếm", "Quận Đống Đa", "Quận Ba Đình", "Quận Hai Bà Trưng", "Quận Hoàng Mai", "Quận Thanh Xuân", "Quận Long Biên", "Quận Nam Từ Liêm", "Quận Bắc Từ Liêm", "Quận Tây Hồ", "Quận Cầu Giấy", "Quận Hà Đông", "Thị xã Sơn Tây", "Huyện Ba Vì", "Huyện Chương Mỹ", "Huyện Phúc Thọ", "Huyện Đan Phượng", "Huyện Đông Anh", "Huyện Gia Lâm", "Huyện Hoài Đức", "Huyện Mê Linh", "Huyện Mỹ Đức", "Huyện Phú Xuyên", "Huyện Quốc Oai", "Huyện Sóc Sơn", "Huyện Thạch Thất", "Huyện Thanh Oai", "Huyện Thường Tín", "Huyện Ứng Hòa", "Huyện Thanh Trì" };
@@ -61,6 +64,9 @@ namespace BookingHotel.Views
                 //ActiveCheckbox(gym, gym_label, "gym", true);
                 //ActiveCheckbox(bar, bar_label, "bar", true);
 
+                //refresh so luong phong
+                bed_qty.Text = "1";
+
                 //refresh loai phong
                 ActiveLoaiphong(Standard, Standard_label, "standard", true);
                 ActiveLoaiphong(Superior, Superior_label, "superior", true);
@@ -73,10 +79,13 @@ namespace BookingHotel.Views
                 ActiveCheckbox(Tulanh, tulanh_label, "tulanh", true);
                 ActiveCheckbox(Dieuhoa, dieuhoa_label, "dieuhoa", true);
                 ActiveCheckbox(Cacham, cacham_label, "cacham", true);
-                ActiveCheckbox(Giuongdoi, giuongdoi_label, "giuongdoi", true);
-                //ActiveCheckbox(Uudai, uudai_label, "uudai", true);
-                //ActiveCheckbox(Noibat, noibat_label, "noibat", true);
-                ActiveCheckbox(Khac, khac_label, "khac", true);
+                //refresh loai phong
+                ActiveLoaiGiuong(Giuongdoi, giuongdoi_label, "giuongdoi", true);
+                ActiveLoaiGiuong(Giuongdon, giuongdon_label, "giuongdon", true);
+                //refresh khac
+                ActiveKhac(Uudai, uudai_label, "uudai", true);
+                ActiveKhac(Noibat, noibat_label, "noibat", true);
+
 
                 //dat lai bo loc
                 _filter.tinh = "";
@@ -217,22 +226,29 @@ namespace BookingHotel.Views
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveCheckbox(frame, label, "giuongdoi");
+            ActiveLoaiGiuong(frame, label, "giuongdoi");
         }
 
-        //private void Uudai_tap_Tapped(object sender, EventArgs e)
-        //{
-        //    Frame frame = (Frame)sender;
-        //    Label label = (Label)frame.Content;
-        //    ActiveCheckbox(frame, label, "uudai");
-        //}
+        private void Giuongdon_tap_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            Label label = (Label)frame.Content;
+            ActiveLoaiGiuong(frame, label, "giuongdon");
+        }
 
-        //private void Noibat_tap_Tapped(object sender, EventArgs e)
-        //{
-        //    Frame frame = (Frame)sender;
-        //    Label label = (Label)frame.Content;
-        //    ActiveCheckbox(frame, label, "noibat");
-        //}
+        private void Uudai_tap_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            Label label = (Label)frame.Content;
+            ActiveKhac(frame, label, "uudai");
+        }
+
+        private void Noibat_tap_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            Label label = (Label)frame.Content;
+            ActiveKhac(frame, label, "noibat");
+        }
 
         private void RangeSlider_LowerValueChanged(object sender, EventArgs e)
         {
@@ -301,7 +317,9 @@ namespace BookingHotel.Views
             _filter.sogiuong = int.Parse(bed_qty.Text);
             _filter.sosao = _filtersosao;
             _filter.loaiphong = _filterloaiphong;
+            _filter.loaigiuong = _filterloaigiuong;
             _filter.tienichs = _filtertienichs;
+            _filter.khac = _filterkhac;
 
             await Shell.Current.Navigation.PushAsync(new Page_Find_Room(_filter));
         }
@@ -313,7 +331,7 @@ namespace BookingHotel.Views
                 frame.BorderColor = Color.FromHex("#ccc");
                 frame.BackgroundColor = Color.FromHex("#fff");
                 label.TextColor = Color.DimGray;
-                if (_filtertienichs.Contains(loaiphong))
+                if (_filterloaiphong.Contains(loaiphong))
                 {
                     _filterloaiphong.Remove(loaiphong);
                 }
@@ -332,9 +350,42 @@ namespace BookingHotel.Views
                 frame.BorderColor = Color.FromHex("#ccc");
                 frame.BackgroundColor = Color.FromHex("#fff");
                 label.TextColor = Color.DimGray;
-                if (_filtertienichs.Contains(loaiphong))
+                if (_filterloaiphong.Contains(loaiphong))
                 {
-                    _filtertienichs.Remove(loaiphong);
+                    _filterloaiphong.Remove(loaiphong);
+                }
+            }
+        }
+
+        void ActiveLoaiGiuong(Frame frame, Label label, string loaigiuong, bool filter_delete_all = false)
+        {
+            if (filter_delete_all)
+            {
+                frame.BorderColor = Color.FromHex("#ccc");
+                frame.BackgroundColor = Color.FromHex("#fff");
+                label.TextColor = Color.DimGray;
+                if (_filterloaigiuong.Contains(loaigiuong))
+                {
+                    _filterloaigiuong.Remove(loaigiuong);
+                }
+                return;
+            }
+
+            if (frame.BorderColor == Color.FromHex("#ccc"))
+            {
+                frame.BorderColor = Color.FromHex("#585de4");
+                frame.BackgroundColor = Color.FromHex("#e6e6f6");
+                label.TextColor = Color.FromHex("#585de4");
+                _filterloaigiuong.Add(loaigiuong);
+            }
+            else
+            {
+                frame.BorderColor = Color.FromHex("#ccc");
+                frame.BackgroundColor = Color.FromHex("#fff");
+                label.TextColor = Color.DimGray;
+                if (_filterloaigiuong.Contains(loaigiuong))
+                {
+                    _filterloaigiuong.Remove(loaigiuong);
                 }
             }
         }
@@ -372,6 +423,39 @@ namespace BookingHotel.Views
             }
         }
 
+        void ActiveKhac (Frame frame, Label label, string khac, bool filter_delete_all = false)
+        {
+            if (filter_delete_all)
+            {
+                frame.BorderColor = Color.FromHex("#ccc");
+                frame.BackgroundColor = Color.FromHex("#fff");
+                label.TextColor = Color.DimGray;
+                if (_filterkhac.Contains(khac))
+                {
+                    _filterkhac.Remove(khac);
+                }
+                return;
+            }
+
+            if (frame.BorderColor == Color.FromHex("#ccc"))
+            {
+                frame.BorderColor = Color.FromHex("#585de4");
+                frame.BackgroundColor = Color.FromHex("#e6e6f6");
+                label.TextColor = Color.FromHex("#585de4");
+                _filterkhac.Add(khac);
+            }
+            else
+            {
+                frame.BorderColor = Color.FromHex("#ccc");
+                frame.BackgroundColor = Color.FromHex("#fff");
+                label.TextColor = Color.DimGray;
+                if (_filterkhac.Contains(khac))
+                {
+                    _filterkhac.Remove(khac);
+                }
+            }
+        }
+
         void Sosao(Frame frame, Label label, int sosao, bool filter_delete_all = false)
         {
             if (filter_delete_all)
@@ -403,13 +487,6 @@ namespace BookingHotel.Views
                     _filtersosao.Remove(sosao);
                 }
             }
-        }
-
-        private void khac_tap_Tapped(object sender, EventArgs e)
-        {
-            Frame frame = (Frame)sender;
-            Label label = (Label)frame.Content;
-            ActiveCheckbox(frame, label, "khac");
         }
 
         private void bed_qty_decre_Clicked(object sender, EventArgs e)

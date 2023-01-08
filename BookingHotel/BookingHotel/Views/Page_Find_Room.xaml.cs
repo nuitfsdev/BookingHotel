@@ -120,7 +120,31 @@ namespace BookingHotel.Views
                     {
                         queryString = queryString + $"sogiuong={roomFilter.sogiuong}";
                     }
-                }    
+                }
+                if (roomFilter.loaigiuong.Count >0)
+                {
+                    if (queryString != "")
+                    {
+                        foreach (var item in roomFilter.loaigiuong)
+                        {
+                            queryString = queryString + $"&loaigiuong[]={item}";
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in roomFilter.loaigiuong)
+                        {
+                            if (queryString.Contains("loaigiuong"))
+                            {
+                                queryString = queryString + $"&loaigiuong[]={item}";
+                            }
+                            else
+                            {
+                                queryString = queryString + $"loaigiuong[]={item}";
+                            }
+                        }
+                    }
+                }
                 if (roomFilter.tienichs.Count > 0)
                 {
                     if (queryString != "")
@@ -145,7 +169,31 @@ namespace BookingHotel.Views
                         }
                     }
                 }
-                if(roomFilter.loaiphong.Count >0)
+                if (roomFilter.khac.Count > 0)
+                {
+                    if (queryString != "")
+                    {
+                        foreach (var item in roomFilter.khac)
+                        {
+                            queryString = queryString + $"&khac[]={item}";
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in roomFilter.khac)
+                        {
+                            if (queryString.Contains("khac"))
+                            {
+                                queryString = queryString + $"&khac[]={item}";
+                            }
+                            else
+                            {
+                                queryString = queryString + $"khac[]={item}";
+                            }
+                        }
+                    }
+                }
+                if (roomFilter.loaiphong.Count >0)
                 {
                     if (queryString != "")
                     {
