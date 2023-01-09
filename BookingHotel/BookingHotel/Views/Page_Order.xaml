@@ -4,6 +4,24 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="BookingHotel.Views.Page_Order">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#eee" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
             
@@ -58,12 +76,12 @@
                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
                                 <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                                     <Label Text="Mã đặt phòng: " FontSize="16" FontAttributes="Bold"  TextColor="Gray"/>
-                                    <Label Text="HT0" FontSize="18" FontAttributes="Bold"   TextColor="#585de4"/>
+                                    <Label Text="{Binding mahd}" FontSize="18" FontAttributes="Bold"   TextColor="#585de4"/>
 
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Tình trạng: "  FontAttributes="Bold" FontSize="16" TextColor="Gray" HorizontalOptions="EndAndExpand" />
-                                    <Label Text="Đang xử lí" TextColor="Orange" FontSize="18" HorizontalOptions="EndAndExpand" />
+                                    <Label  Text="{Binding tinhtrang}" TextColor="{Binding tinhtrangColor}" FontSize="18" HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
 
                             </StackLayout>
@@ -71,12 +89,12 @@
                             <!--Hình ảnh của Khách sạn-->
                             <Frame Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Padding="0" BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding hinh}" Aspect="AspectFill"/>
+                                <Image Source="{Binding hotel.hinh[0]}" Aspect="AspectFill"/>
                             </Frame>
 
                             <!--Tên khách sạn-->
 
-                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"
+                            <Label Text="{Binding hotel.tenht}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"
                                        Grid.Column="1" Grid.Row="1" HorizontalOptions="StartAndExpand"
                                        Margin="10,0,0,0"/>
 
@@ -85,14 +103,14 @@
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalOptions="StartAndExpand"
                                              Margin="10,0,0,0">
                                 <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Start"/>
-                                <Label Text="123 Chu Văn An, Phù Mỹ, Bình Định" FontSize="16" TextColor="Black"/>
+                                <Label Text="{Binding hotel.diachi}" FontSize="16" TextColor="Black"/>
                             </StackLayout>
                             
                             <!--Phòng-->
                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Margin="10,0,0,0">
                                 <Image Source="nam_bedroom.png" WidthRequest="20" VerticalOptions="Start"/>
                                 <!--<Label Text="Phòng: " FontSize="16" TextColor="Black" FontAttributes="Bold"/>-->
-                                <Label Text="{Binding tenphong}" FontSize="16" TextColor="Black"/>
+                                <Label Text="{Binding room.tenphong}" FontSize="16" TextColor="Black"/>
                             </StackLayout>
 
                             <!--Thời gian đặt vé-->
@@ -100,14 +118,13 @@
                             <StackLayout Grid.Column="1" Grid.Row="4" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,0,0,0">
                                 <Image Source="nam_timetable.png" WidthRequest="20" VerticalOptions="Start"/>
                                 <!--<Label Text="Thời gian: " TextColor="Black" FontSize="16" FontAttributes="Bold"/>-->
-                                <Label Text="12:00" TextColor="Black" FontSize="16"/>
-                                <Label Text="05-01-2023" TextColor="Black" FontSize="16"/>
+                                <Label Text="{Binding ngayhd}" TextColor="Black" FontSize="16"/>
                             </StackLayout>
                             
                             <!--Tổng thanh toán-->
                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="EndAndExpand">
                                 <Label Text="Tổng tiền: " TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                                <Label Text="{Binding total, StringFormat='{0:0,0}'}" FontSize="Medium" TextColor="#585de4" FontAttributes="Bold"/>
+                                <Label Text="{Binding trigia, StringFormat='{0:0,0}'}" FontSize="Medium" TextColor="#585de4" FontAttributes="Bold"/>
                                 <Label Text="VNĐ" TextColor="Red" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
                         </Grid>

@@ -46,7 +46,7 @@ namespace BookingHotel.Views
         void Tintuc()
         {
             List<Tintuc> tintucList = new List<Tintuc>();
-            tintucList.Add(new Tintuc { Id = 1, tentt= "Top 10 địa điểm du lịch têt dương lịch 2023 cực hot",hinhtt= "https://gameitthoi.github.io/BookingHotelNews/img/1_hcm.jpeg" });
+            tintucList.Add(new Tintuc { Id = 1, tentt= "Top 10 địa điểm du lịch tết dương lịch 2023 cực hot",hinhtt= "https://gameitthoi.github.io/BookingHotelNews/img/1_hcm.jpeg" });
             tintucList.Add(new Tintuc { Id = 2,tentt= "Top 10 địa điểm đi chơi Noel ở Hà Nội đón trọn không khí lạnh",hinhtt= "https://gameitthoi.github.io/BookingHotelNews/img/2_Nha_tho_lon.jpg" });
             tintucList.Add(new Tintuc { Id = 3,tentt= "Hòn một Phú Quốc – Vẻ đẹp hoang sơ níu chân mọi du khách",hinhtt= "https://gameitthoi.github.io/BookingHotelNews/img/3_2.jpg" });
             tintucList.Add(new Tintuc { Id = 4,tentt= "Cầu Ánh Sao: Địa điểm sống ảo cực lung linh tại quận 7",hinhtt= "https://gameitthoi.github.io/BookingHotelNews/img/4_1.jpg" });
@@ -67,7 +67,7 @@ namespace BookingHotel.Views
         public Page_Home()
         {
             InitializeComponent();
-            say_greet.Text = "Hello, " + App.BookingDb.GetUserLastName();
+            say_greet.Text = "Xin chào, " + App.BookingDb.GetUserLastName()+"!";
             List<Banner> bannerList = new List<Banner>();
             bannerList.Add(new Banner { Image="Banner1.png"});
             bannerList.Add(new Banner { Image = "Banner2.png" });
@@ -115,7 +115,7 @@ namespace BookingHotel.Views
             //luu thông tin tìm kiếm nhanh vào home_save_filter
             if(diadiem_pk.SelectedItem == null || quanhuyen_pk.SelectedItem == null)
             {
-                DisplayAlert("Thông báo","Bạn chưa nhập thiếu thông tin","OK");
+                DisplayAlert("Thông báo","Bạn chưa nhập thông tin","OK");
             }    
             else
             {

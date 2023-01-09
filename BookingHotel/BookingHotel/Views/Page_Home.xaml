@@ -10,7 +10,7 @@
     <ScrollView>
         <StackLayout Margin="20">
             <StackLayout Orientation="Horizontal">
-                <Label x:Name="say_greet" Text="Hello, Nam!" FontSize="Large"  TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name="say_greet" Text="Xin chào, Nam!" FontSize="Large"  TextColor="Black" FontAttributes="Bold"/>
                 <!--<ImageButton Source="bell.png" WidthRequest="20" HorizontalOptions="EndAndExpand" Scale="1.2" x:Name="announcement_icon" Clicked="announcement_icon_Clicked" Margin="0,0,20,0" />-->
                 <!--<ImageButton Source="search.png" WidthRequest="20" BackgroundColor="White" HorizontalOptions="End" Scale="1.2" x:Name="search_icon" Clicked="search_icon_Clicked" Margin="0,0,10,0"/>-->
                 <ffimageloading:CachedImage  HorizontalOptions="EndAndExpand"  Margin="0,0,20,0"

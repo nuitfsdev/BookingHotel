@@ -95,42 +95,42 @@
 
                     <!--Ngày đặt phòng-->
                     <StackLayout Margin="20,10,0,10" Orientation="Horizontal">
-                        <Label Text="Ngày đặt phòng:" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="0,0,10,0"/>
+                        <Label Text="Thời gian đặt phòng:" TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="0,0,10,0"/>
                         <Label x:Name="create_date" TextColor="Black" FontSize="Medium" Margin="0,0,10,0" VerticalOptions="EndAndExpand"/>
                     </StackLayout>
 
                     <!--Phương thức đặt phòng-->
 
                     <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
-                        <Label Text="Phương thức đặt phòng:" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="Theo giờ" x:Name="follow_time" TextColor="Green" FontSize="Large" FontAttributes="Bold" VerticalOptions="EndAndExpand" IsVisible="true"/>
-                        <Label Text="Theo ngày" x:Name="follow_day" TextColor="Green" FontSize="Large" FontAttributes="Bold" VerticalOptions="EndAndExpand" IsVisible="false"/>
+                        <Label Text="Phương thức đặt phòng:" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                        <Label Text="Theo giờ" x:Name="follow_time" TextColor="Green" FontSize="18" FontAttributes="Bold" VerticalOptions="EndAndExpand" IsVisible="true"/>
+                        <Label Text="Theo ngày" x:Name="follow_day" TextColor="Green" FontSize="18" FontAttributes="Bold" VerticalOptions="EndAndExpand" IsVisible="false"/>
                     </StackLayout>
 
                     <!--Ngày-->
                     <StackLayout Orientation="Horizontal" Margin="20,10,20,0">
-                        <Label Text="Ngày:" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,10,0"/>
+                        <Label Text="Ngày:" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,10,0"/>
                         <FlexLayout JustifyContent="SpaceAround" HorizontalOptions="FillAndExpand" AlignItems="Center">
                             <Frame Padding="12" WidthRequest="80" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <Label x:Name="checkin_date" FontSize="Medium" TextColor="#585de4" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
+                                <Label x:Name="checkin_date" FontSize="14" TextColor="#585de4" VerticalOptions="CenterAndExpand" FontAttributes="Bold" />
                             </Frame>
                             <Image Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" Rotation="180" />
                             <Frame Padding="12" WidthRequest="80" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <Label x:Name="checkout_date" FontSize="Medium" TextColor="#585de4" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                                <Label x:Name="checkout_date" FontSize="14" TextColor="#585de4" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
                             </Frame>
                         </FlexLayout>
                     </StackLayout>
 
                     <!--Giờ-->
                     <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
-                        <Label Text="Giờ:" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,26,0"/>
+                        <Label Text="Giờ:" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="0,0,26,0"/>
                         <FlexLayout JustifyContent="SpaceAround" HorizontalOptions="FillAndExpand" AlignItems="Center">
                             <Frame Padding="12" WidthRequest="80" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <Label x:Name="timecheckin_date" FontSize="Medium" HorizontalOptions="CenterAndExpand" TextColor="#585de4" FontAttributes="Bold"/>
+                                <Label x:Name="timecheckin_date" FontSize="14" HorizontalOptions="CenterAndExpand" TextColor="#585de4" FontAttributes="Bold"/>
                             </Frame>
                             <Image Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" Rotation="180" />
                             <Frame Padding="12" WidthRequest="80" CornerRadius="10" BorderColor="#ccc" HasShadow="False">
-                                <Label x:Name="timecheckout_date" FontSize="Medium" HorizontalOptions="CenterAndExpand" TextColor="#585de4" FontAttributes="Bold"/>
+                                <Label x:Name="timecheckout_date" FontSize="14" HorizontalOptions="CenterAndExpand" TextColor="#585de4" FontAttributes="Bold"/>
                             </Frame>
                         </FlexLayout>
                     </StackLayout>
@@ -139,9 +139,9 @@
                     <StackLayout Margin="20,10,20,0">
                         <StackLayout IsVisible="true" x:Name="total_time" Orientation="Horizontal">
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Giá:" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
-                                <Label Text="10000" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
-                                <Label Text="vnđ/giờ" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                                <Label Text="Giá:" FontSize="20" TextColor="Black"  FontAttributes="Bold" />
+                                <Label x:Name="giagio" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                                <Label Text="VNĐ/giờ" TextColor="Red" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                 <Label Text="Số giờ:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -152,8 +152,8 @@
                         <StackLayout IsVisible="false" x:Name="total_day" Orientation="Horizontal">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Giá:" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
-                                <Label Text="10000" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
-                                <Label Text="vnđ/ngày" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                                <Label x:Name="giangay" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                                <Label Text="VNĐ/ngày" TextColor="Red" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                 <Label Text="Số ngày:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -188,39 +188,41 @@
                     <!--Thông tin liên hệ-->
 
                     <StackLayout Orientation="Horizontal" Margin="10,10,10,0">
-                        <Label Text="Người đặt phòng: " TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="Nguyễn văn a" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
+                        <Label Text="Tên khách hàng: " WidthRequest="150" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                        <Label x:Name="tenkh" Text="Nguyễn Ngọc Nam" FontSize="18" TextColor="Black" VerticalOptions="EndAndExpand"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
-                        <Label Text="Email:" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="abc@gmail.com" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
+                        <Label Text="Email:" WidthRequest="150" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                        <Label x:Name="email" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
-                        <Label Text="Số điện thoại: " TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="0123456789" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
+                        <Label Text="Số điện thoại: " WidthRequest="150" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                        <Label x:Name="sdt" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
                     </StackLayout>
 
                     <!--Phương thức thanh toán-->
                     <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
-                        <Label Text="Hình thức thanh toán:" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="Online" FontSize="Medium" TextColor="Green" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                        <Label Text="Hình thức thanh toán:" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                        <Label x:Name="ptthanhtoan" FontSize="Medium" TextColor="Green" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
                     </StackLayout>
 
                     <!--Thông tin thanh toán-->
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal" Margin="10,20,10,0">
-                            <Label Text="Ngân hàng: " TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                            <Label Text="BIDV" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
+                    <Frame  IsVisible="false" x:Name="ttthanhtoan" Padding="0" Margin="0" HasShadow="False" >
+                        <StackLayout>
+                        <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                            <Label Text="Ngân hàng: " WidthRequest="150" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="nganhang" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
-                            <Label Text="Tên tài khoản: " TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                            <Label Text="Nguyen Van A" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
+                            <Label Text="Tên tài khoản: " WidthRequest="150" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="tennganhang" Text="Nguyen Van A" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
-                            <Label Text="Số tài khoản:" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
-                            <Label Text="1234567890" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
+                            <Label Text="Số tài khoản:" WidthRequest="150" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="stk" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand"/>
                         </StackLayout>
                     </StackLayout>
+                    </Frame>
 
                     <BoxView Color="LightGray" Margin="10,10,10,0" HeightRequest="1"/>
 
@@ -286,8 +288,8 @@
                     <Label x:Name="contact" TextColor="Gray" FontSize="16"/>
                 </StackLayout> -->
 
-                    <StackLayout Margin="10,15,0,10">
-                        <Label Text="Yêu cầu của khách" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                    <StackLayout Margin="10,0,0,10">
+                        <Label Text="Yêu cầu của khách" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
                         <Label x:Name="request_of_customer" TextColor="Black" FontSize="Medium"/>
                     </StackLayout>
 
@@ -302,12 +304,12 @@
                 </StackLayout>
                 <!--Ba nút điều hướng-->
                 <StackLayout Orientation="Horizontal" Margin="10,0,10,20">
-                    <Button Text="Xem khách sạn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                    <Button Text="Xem khách sạn" TextTransform="None" WidthRequest="150" BackgroundColor="#585de4" TextColor="White" FontSize="16" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
                             x:Name="KS_btn" Clicked="KS_btn_Clicked" HorizontalOptions="FillAndExpand"/>
-                    <Button Text="Xem phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
-                            x:Name="Room_btn" Clicked="Room_btn_Clicked" HorizontalOptions="FillAndExpand"/>
-                    <Button Text="Đặt lại" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
-                            x:Name="book_btn" Clicked="book_btn_Clicked" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Xem phòng" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="16" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                            x:Name="Room_btn" Clicked="Room_btn_Clicked"  WidthRequest="150" HorizontalOptions="FillAndExpand"/>
+                    <!--<Button Text="Đặt lại" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                            x:Name="book_btn" Clicked="book_btn_Clicked" HorizontalOptions="FillAndExpand"/>-->
                 </StackLayout>
             </StackLayout>
         </StackLayout>
