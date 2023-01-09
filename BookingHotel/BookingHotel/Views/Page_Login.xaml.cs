@@ -68,9 +68,9 @@ namespace BookingHotel.Views
 
         }
 
-        private void register_btn_Tapped(object sender, EventArgs e)
+        private async void register_btn_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync(state: "//register");
+            await Shell.Current.GoToAsync(state: "//register");
         }
 
         private void terms_btn_Tapped(object sender, EventArgs e)

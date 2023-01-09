@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BookingHotel.Views.Page_Help">
     <ContentPage.Content>
         <StackLayout x:Name="main_content">
             <!--Tiêu đề và nút quay lại-->
-            <StackLayout Orientation="Horizontal" Margin="-10,0,-10,20" Padding="10"
+            <StackLayout Orientation="Horizontal" Margin="-10,0,-10,-5" Padding="10" xct:ShadowEffect.Color="Black" xct:ShadowEffect.OffsetX="-10" xct:ShadowEffect.OffsetY="-10" xct:ShadowEffect.Radius="2" xct:ShadowEffect.Opacity="0.9"
                                  Grid.Row="0" Grid.Column="0">
                 <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
                                 x:Name="back_btn" Clicked="back_btn_Clicked"

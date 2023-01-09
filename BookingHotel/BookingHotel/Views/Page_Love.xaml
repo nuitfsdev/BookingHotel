@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout>
             <!--Tiêu đề trang love và nút tìm kiếm-->
-            <StackLayout Padding="20,10,20,10"  Orientation="Horizontal" Margin="-10,0,-10,0" HorizontalOptions="FillAndExpand"
+            <StackLayout Padding="20,10,20,0"  Orientation="Horizontal" Margin="-10,0,-10,0" HorizontalOptions="FillAndExpand"
                      xct:ShadowEffect.OffsetY="-1" xct:ShadowEffect.OffsetX="0" xct:ShadowEffect.Radius="5" xct:ShadowEffect.Color="#eee">
                 <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"
                                 x:Name="back_btn" Clicked="back_btn_Clicked"

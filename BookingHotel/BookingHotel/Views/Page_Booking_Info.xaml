@@ -193,15 +193,15 @@
                         <Label Text=" Thông tin liên hệ" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
                         <Label Text="Họ và tên" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0" FontSize="16"/>
                         <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
-                            <models:MyEntry Text="Nguyễn Văn A" Margin="10,0,0,0"/>
+                            <models:MyEntry x:Name="user_name" Text="Nguyễn Văn A" Margin="10,0,0,0"/>
                         </Frame>
                         <Label Text="Email" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0" FontSize="16"/>
                         <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
-                            <models:MyEntry Text="nguyenvana@gmail.com" Keyboard="Email" Margin="10,0,0,0" />
+                            <models:MyEntry x:Name="user_email" Text="nguyenvana@gmail.com" Keyboard="Email" Margin="10,0,0,0" />
                         </Frame>
                         <Label Text="Số điện thoại" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0" FontSize="16"/>
                         <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
-                            <models:MyEntry Text="0123456789" Keyboard="Telephone" Margin="10,0,0,0"/>
+                            <models:MyEntry x:Name="user_telephone" Text="0123456789" Keyboard="Telephone" Margin="10,0,0,0"/>
                         </Frame>
                         <!--<Label Text="Quốc gia" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
@@ -226,8 +226,9 @@
                         <StackLayout x:Name="online_payment" IsVisible="True" >
                             <Label FontSize="16" Text="Ngân hàng" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                             <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" CornerRadius="10">
-                                <StackLayout>
-                                    <models:MyPicker Title="Chọn ngân hàng của bạn" x:Name="user_bank" TextColor="Black" Margin="10,0,0,0"  FontSize="Medium"   SelectedIndexChanged="user_bank_SelectedIndexChanged" VerticalOptions="CenterAndExpand"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <models:MyPicker Title="Chọn ngân hàng của bạn" x:Name="user_bank" TextColor="Black" Margin="10,0,0,0"  FontSize="Medium" SelectedIndexChanged="user_bank_SelectedIndexChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
+                                    <Image x:Name="bank_logo" WidthRequest="30" Margin="0,0,15,0" HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                             </Frame>
                             <Label FontSize="16" Text="Tên tài khoản" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>

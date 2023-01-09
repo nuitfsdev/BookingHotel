@@ -57,14 +57,19 @@ namespace BookingHotel.Views
           
         }
 
-        private void login_btn_Tapped(object sender, EventArgs e)
+        private async void login_btn_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync(state: "//login");
+            await Shell.Current.GoToAsync(state: "//login");
         }
 
-        private void register_btn_Tapped(object sender, EventArgs e)
+        private async void register_btn_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PushAsync(new Page_Register());
+            await Shell.Current.GoToAsync(state: "//register");
+        }
+
+        private async void back_btn_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PopAsync();
         }
     }
 }

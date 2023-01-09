@@ -9,7 +9,7 @@
                 <!--Avatar hình tròn-->
                 <StackLayout Margin="0,0,10,0">
                     <Frame CornerRadius="100" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center" Padding="0" IsClippedToBounds="True">
-                            <Image Source="asia.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />  
+                        <Image Source="asia.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                     </Frame>
                 </StackLayout>
                 <!--Info-->
@@ -40,7 +40,7 @@
                         <TapGestureRecognizer x:Name="love" Tapped="love_Tapped"/>
                     </Frame.GestureRecognizers>
                 </Frame>
-               
+
                 <Frame BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
                         <Image Source="bell.png" WidthRequest="25" HorizontalOptions="Start"/>
@@ -72,14 +72,14 @@
                     </Frame.GestureRecognizers>
                 </Frame>
             </StackLayout>
-            
+
             <!--Logout button-->
 
             <Button x:Name="dangxuat" Text="Đăng xuất" TextColor="Red" FontSize="Medium"
-                    BackgroundColor="white" BorderColor="Red" BorderWidth="1" CornerRadius="30" 
-                    Margin="10,0,0,40"
-                    VerticalOptions="EndAndExpand" Clicked="dangxuat_Clicked"/>
-            
+                        BackgroundColor="white" BorderColor="Red" BorderWidth="1" CornerRadius="30" 
+                        Margin="10,0,0,40"
+                        VerticalOptions="EndAndExpand" Clicked="dangxuat_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

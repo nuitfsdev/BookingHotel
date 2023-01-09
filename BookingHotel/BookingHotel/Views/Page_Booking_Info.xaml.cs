@@ -20,6 +20,12 @@ namespace BookingHotel.Views
         {
             InitializeComponent();
             Thishotel = hotel;
+
+            User user = App.BookingDb.GetUser();
+            user_name.Text = user.name;
+            user_email.Text = user.email;
+            user_telephone.Text = user.sdt;
+
             hinhKS.Source = hotel.hinh[0];
             tenKS.Text = hotel.tenht;
             diachi.Text=hotel.diachi;
@@ -196,13 +202,31 @@ namespace BookingHotel.Views
             bank.Add("Sacombank");
             bank.Add("DongABank");
             bank.Add("Argribank");
-            bank.Add("Momo");
             user_bank.ItemsSource = bank;
         }
 
         private void user_bank_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(user_bank.SelectedItem == "BIDV")
+            {
+                bank_logo.Source = "nam_bar.png";
+            }
+            if (user_bank.SelectedItem == "SCB")
+            {
+                bank_logo.Source = "nam_bellicon.png";
+            }
+            if (user_bank.SelectedItem == "Sacombank")
+            {
+                bank_logo.Source = "nam_bedroom.png";
+            }
+            if (user_bank.SelectedItem == "DongABank")
+            {
+                bank_logo.Source = "nam_gym.png";
+            }
+            if (user_bank.SelectedItem == "Argribank")
+            {
+                bank_logo.Source = "nam_maylanh.png";
+            }
         }
 
         private void online_radionbtn_CheckedChanged(object sender, CheckedChangedEventArgs e)

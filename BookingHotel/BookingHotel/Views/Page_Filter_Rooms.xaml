@@ -274,9 +274,9 @@
                 </StackLayout>
             </ScrollView>
             <!--Nút Lọc-->
-            <StackLayout xct:ShadowEffect.Color="Black" xct:ShadowEffect.OffsetX="-10" xct:ShadowEffect.OffsetY="-10" xct:ShadowEffect.Radius="4" xct:ShadowEffect.Opacity="0.9">
+            <StackLayout Margin="10,10,10,10">
                 <StackLayout >
-                    <Button Text="Lọc" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="0" BorderColor="#585de4"
+                    <Button Text="Lọc" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                             x:Name="filter_btn" Clicked="filter_btn_Clicked"/>
                 </StackLayout>
             </StackLayout>
