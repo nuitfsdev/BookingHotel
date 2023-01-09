@@ -23,7 +23,7 @@ namespace BookingHotel.Views
 
         private async void Confirm_btn_Clicked(object sender, EventArgs e)
         {
-            if (email.Text == "" )
+            if (email.Text == "")
             {
                 await DisplayAlert("TB", $"Vui lòng điền vào các ô còn trống", "OK");
 
@@ -44,7 +44,7 @@ namespace BookingHotel.Views
                     await Shell.Current.Navigation.PushAsync(new Page_Confirm(forgotPassword));
 
                 }
-                else if (responseMessage.StatusCode.ToString()=="NotFound")
+                else if (responseMessage.StatusCode.ToString() == "NotFound")
                 {
                     await DisplayAlert("TB", $"Email không tồn tại!", "OK");
                 }
@@ -54,17 +54,21 @@ namespace BookingHotel.Views
                 }
 
             }
-          
         }
 
-        private void login_btn_Tapped(object sender, EventArgs e)
+        private async void login_btn_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PopAsync();
+            await Shell.Current.GoToAsync(state: "//login");
         }
 
-        private void register_btn_Tapped(object sender, EventArgs e)
+        private async void register_btn_Tapped(object sender, EventArgs e)
         {
-            Shell.Current.Navigation.PushAsync(new Page_Register());
+            await Shell.Current.GoToAsync(state: "//register");
+        }
+
+        private async void back_btn_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(state: "//login");
         }
     }
 }

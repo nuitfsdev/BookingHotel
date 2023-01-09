@@ -28,16 +28,16 @@ namespace BookingHotel.Views
             await Shell.Current.Navigation.PopAsync();
         }
 
-        private async void change_avatar_Clicked(object sender, EventArgs e)
+        private void change_avatar_Clicked(object sender, EventArgs e)
         {
-            var file = await FilePicker.PickAsync();
+            //var file = await FilePicker.PickAsync();
 
-            if (file.FileName.EndsWith(".png") || file.FileName.EndsWith(".jpg"))
-            {
-                change_avatar.Source = file.FullPath;
-            }
+            //if (file.FileName.EndsWith(".png") || file.FileName.EndsWith(".jpg"))
+            //{
+            //    change_avatar.Source = file.FullPath;
+            //}
 
-            else return;
+            //else return;
         }
 
         private void save_btn_Clicked(object sender, EventArgs e)

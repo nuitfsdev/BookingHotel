@@ -26,8 +26,6 @@ namespace BookingHotel.Views
             Shell.Current.Navigation.PushAsync( new Page_User_Info());
         }
 
-
-
         private async void notification_Tapped(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(state: "//main/announcement");
