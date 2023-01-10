@@ -19,7 +19,7 @@
             <!--Logo và tên của cái form-->
             <StackLayout  HorizontalOptions="CenterAndExpand">
                 <Image Source="logo.png" WidthRequest="200"/>
-                <Label Text="Phản hồi của người dùng" FontSize="Large" FontAttributes="Bold" TextColor="Black" TextTransform="Uppercase"
+                <Label Text="Phản hồi đến chúng tôi" FontSize="Large" FontAttributes="Bold" TextColor="Black" 
                        HorizontalTextAlignment="Center"/>
             </StackLayout>
             
@@ -41,7 +41,7 @@
             
             <!--Nút gửi-->
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
-                <Button Text="Gửi" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"/>
+                <Button Text="Gửi" WidthRequest="350" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
