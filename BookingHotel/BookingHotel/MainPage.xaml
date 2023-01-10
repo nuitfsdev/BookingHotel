@@ -11,6 +11,9 @@
     <ShellItem Route="logo">
         <ShellContent ContentTemplate="{DataTemplate views:Page_Logo}"/>
     </ShellItem>
+    <ShellItem Route="intro">
+        <ShellContent ContentTemplate="{DataTemplate views:Page_Intro}"/>
+    </ShellItem>
     <ShellItem Route="login">
         <ShellContent ContentTemplate="{DataTemplate views:Page_Login}"/>
     </ShellItem>

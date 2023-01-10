@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="BookingHotel.Views.Page_Intro">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" Margin="0,30,0,30">
+                <CarouselView x:Name="BannerCarousel" Margin="0,0,0,0" IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal">
+                        </LinearItemsLayout>
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HorizontalOptions="FillAndExpand" Padding="0" VerticalOptions="FillAndExpand" HeightRequest="1000">
+                                    <StackLayout>
+                                        <Image Source="{Binding Image}" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Content}" TextColor="Black" FontSize="Large" HorizontalTextAlignment="Center" HorizontalOptions="Center" Margin="0,30,0,30" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView"
+                               
+                               IndicatorColor="LightGray"
+                               SelectedIndicatorColor="DarkGray" 
+                               IndicatorSize="5"/>
+            </StackLayout>
+            <FlexLayout JustifyContent="SpaceBetween" Margin="10,0,10,20" AlignItems="Center" VerticalOptions="EndAndExpand">
+                <Button Text="Bỏ qua" TextColor="#585de4" BackgroundColor="Transparent" FontSize="Large" FontAttributes="Bold"
+                        x:Name="skip_btn" Clicked="skip_btn_Clicked"/>
+                <Button Text="Tiếp tục" TextColor="white" BackgroundColor="#585de4" FontSize="Large" FontAttributes="Bold" CornerRadius="30"
+                        x:Name="continue_btn" Clicked="continue_btn_Clicked"/>
+            </FlexLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

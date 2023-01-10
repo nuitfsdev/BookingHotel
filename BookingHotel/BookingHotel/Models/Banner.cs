@@ -7,5 +7,6 @@ namespace BookingHotel.Models
     public class Banner
     {
         public string Image { get; set; }
+        public string Content { get; set; } = "";
     }
 }
