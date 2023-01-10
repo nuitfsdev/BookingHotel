@@ -44,7 +44,7 @@
                     </ImageButton>
                 </StackLayout>
             </AbsoluteLayout>
-            <StackLayout Margin="0,-50,0,0" Padding="10"  BackgroundColor="White"  xct:CornerRadiusEffect.CornerRadius="30" >
+            <StackLayout x:Name="detail" Margin="0,-50,0,0" Padding="10"  BackgroundColor="White" VerticalOptions="FillAndExpand"  xct:CornerRadiusEffect.CornerRadius="30" TranslationX="0" TranslationY="1000">
                 <ScrollView>
                 <StackLayout >
                     <!--Hình ảnh của phòng-->
@@ -224,7 +224,7 @@
             </StackLayout>
             <!--Nút đặt ngay-->
             
-                <Button VerticalOptions="EndAndExpand" Margin="10,0,10,10" Text="Đặt ngay"  TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="20" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                <Button VerticalOptions="End" Margin="10,0,10,10" Text="Đặt ngay"  TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="20" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
                                     x:Name="book_btn" Clicked="book_btn_Clicked"/>
             
         </StackLayout>

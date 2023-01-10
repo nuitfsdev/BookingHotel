@@ -28,7 +28,7 @@ namespace BookingHotel.Views
         private async void GoToMaster()
         {
             await Task.Delay(4000);
-            await Shell.Current.GoToAsync(state: "//login");
+            await Shell.Current.GoToAsync(state: "//intro");
            
         }
     }

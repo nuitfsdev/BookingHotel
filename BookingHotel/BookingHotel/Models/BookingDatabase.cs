@@ -17,6 +17,7 @@ namespace BookingHotel.Models
             db.CreateTable<User>();
             db.CreateTable<Token>();
             db.CreateTable<Home_save_filter>();
+            db.CreateTable<Intro>();
         }
 
         //User
@@ -187,6 +188,39 @@ namespace BookingHotel.Models
             }
         }
         
+        public bool checkIntro()
+        {
+            try
+            {
+                if (db.Table<Intro>().Count() > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("Exception: " + ex);
+                return false;
+                throw;
+            }
+        }
+        public bool CreateIntro()
+        {
+            try
+            {
+                Intro intro = new Intro();
+                intro.skip = 1;
+                intro.Id = 1;
+                db.Insert(intro);
+                return true;
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("Exception: " + ex);
+                return false;
+                throw;
+            }
+        }
     }
 }
 
