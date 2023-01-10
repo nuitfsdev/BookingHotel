@@ -16,8 +16,8 @@ namespace BookingHotel.Models
         public string sdt { get; set; }
         public string ngayhd { get; set; }
         public string tinhtrang { get; set; }
-        public int trigia { get; set; }
-        public int gia { get; set; }
+        public long trigia { get; set; }
+        public long gia { get; set; }
         public string ptdatphong { get; set; }
         public string ngaynhan { get; set; }
         public string ngaytra { get; set; }
@@ -28,11 +28,11 @@ namespace BookingHotel.Models
         public int slnguoilon { get; set; }
         public int sltreem { get; set; }
         public int slphong { get; set; }
-        public string phuongthuc { get; set; }
-        public string nganhang { get; set; }
-        public string tennganhang { get; set; }
-        public string sotaikhoan { get; set; }
-        public string khac { get; set; }
+        public string phuongthuc { get; set; } 
+        public string nganhang { get; set; } = "";
+        public string tennganhang { get; set; } = "";
+        public string sotaikhoan { get; set; } = "";
+        public string khac { get; set; } = "";
 
         public string createdAt  { get; set; }
         public string updatedAt { get; set; }

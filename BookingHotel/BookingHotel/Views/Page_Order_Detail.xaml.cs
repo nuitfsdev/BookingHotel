@@ -55,6 +55,7 @@ namespace BookingHotel.Views
                 total_time.IsVisible = true;
                 total_day.IsVisible = false;
                 giagio.Text = String.Format("{0:0,0}", order.gia);
+                sogio.Text = order.sogio.ToString();
             }
             else
             {
@@ -63,6 +64,8 @@ namespace BookingHotel.Views
                 total_time.IsVisible = false;
                 total_day.IsVisible = true;
                 giangay.Text = String.Format("{0:0,0}", order.gia);
+                songay.Text = order.songay.ToString();
+
             }
             if (order.phuongthuc == "online")
             {
