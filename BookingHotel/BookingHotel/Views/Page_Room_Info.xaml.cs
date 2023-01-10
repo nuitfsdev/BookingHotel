@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.CommunityToolkit.Markup;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace BookingHotel.Views
 {
@@ -63,26 +65,6 @@ namespace BookingHotel.Views
                 Label label = new Label { Text = "Đang cập nhật", HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = Color.Black, Margin = new Thickness(10), FontSize = 20 };
                 tienichlist.Children.Add(label);
             }    
-              
-            ////hiện danh sách các tiện nghi khác
-            //if(room.khac.Count > 0)
-            //    foreach (string khac in room.khac)
-            //    {
-            //        StackLayout stack = new StackLayout
-            //        {
-            //            Children = {
-            //                new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(20,10)},
-            //                new Label {Text = khac, HorizontalOptions=LayoutOptions.CenterAndExpand, TextColor=Color.Black, Margin=new Thickness(0,-10,0,0)},
-            //            }
-            //        };
-            //        khaclist.Children.Add(stack);
-            //    }
-            //else
-            //{
-            //    Label label = new Label { Text = "Đang cập nhật", HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = Color.Black, Margin = new Thickness(10), FontSize= 20 };
-            //    khaclist.Children.Add(label);
-            //}
-
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
@@ -95,9 +77,47 @@ namespace BookingHotel.Views
             await Shell.Current.Navigation.PushAsync(new Page_Booking_Info(Thishotel, Thisroom));
         }
 
-        private void Add_Like_List_Clicked(object sender, EventArgs e)
+        private async void Add_Like_List_Clicked(object sender, EventArgs e)
         {
+            ImageButton tab = (ImageButton)sender;
+            Room room = Thisroom;
 
+            Love_room love_room = new Love_room();
+            love_room.makh = App.BookingDb.GetUser().mauser;
+            love_room.maroom = room.maroom;
+
+            HttpClient httpClient = new HttpClient();
+            string json = JsonConvert.SerializeObject(love_room);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage responseMessage = null;
+
+            if (tab.Source.ToString() == "File: heartWhite.png")
+            {
+                tab.Source = "heart.png";
+                responseMessage = await httpClient.PostAsync($"https://bookinghotel.onrender.com/loves/room?makh={love_room.makh}&maroom={love_room.maroom}", content);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    _ = DisplayAlert("Thông báo", $"Đã thêm {room.tenphong} vào yêu thích", "OK");
+                }
+                else
+                {
+                    _ = DisplayAlert("Thông báo", $"Thêm {room.tenphong} vào yêu thích THẤT BẠI", "OK");
+                }
+            }
+            else
+            {
+                tab.Source = "heartWhite.png";
+                responseMessage = await httpClient.DeleteAsync($"https://bookinghotel.onrender.com/loves/room?makh={love_room.makh}&maroom={love_room.maroom}");
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    _ = DisplayAlert("Thông báo", $"Đã xóa {room.tenphong} khỏi yêu thích", "OK");
+                }
+                else
+                {
+                    _ = DisplayAlert("Thông báo", $"Xóa {room.tenphong} vào yêu thích THẤT BẠI", "OK");
+                }
+            }
         }
     }
 }

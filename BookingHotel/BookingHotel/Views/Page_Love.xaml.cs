@@ -64,22 +64,6 @@ namespace BookingHotel.Views
             Shell.Current.Navigation.PushAsync(new Page_Hotel(hotel));
         }
 
-        private async void delete_btn_Clicked(object sender, EventArgs e)
-        {
-            ImageButton tab = (ImageButton)sender;
-            //Lấy Hotel từ image
-            Hotel hotel = (Hotel)tab.CommandParameter;
-
-            bool answer = await DisplayAlert("Cảnh báo", "Bạn chắc chắn muốn xóa khách sạn này khỏi danh sách yêu thích", "Yes", "No");
-            if (answer)
-            {
-                //SwipeItem swipeItem = (SwipeItem)sender;
-                //Sanpham sp = swipeItem.CommandParameter as Sanpham;
-                //_ = dssp.Remove(sp);
-               await DisplayAlert("Thong bao",$"Đã xóa {hotel.tenht}","OK");
-            }
-        }
-
         private void back_btn_Clicked(object sender, EventArgs e)
         {
             Shell.Current.Navigation.PopAsync();
@@ -166,5 +150,57 @@ namespace BookingHotel.Views
                 tab.Source = "heart.png";
             }
         }
+
+        private async void Hotel_SwipeItem_Invoked(object sender, EventArgs e)
+        {
+            SwipeItem swipeItem = (SwipeItem)sender;
+            Hotel hotel = swipeItem.CommandParameter as Hotel;
+            bool answer = await DisplayAlert("Cảnh báo", $"Bạn thật sự muốn xóa {hotel.tenht} khỏi danh sách yêu thích", "Yes", "No");
+            if (answer)
+            {
+                HttpClient httpClient = new HttpClient();
+                Love_hotel love_Hotel = new Love_hotel();
+                love_Hotel.makh = App.BookingDb.GetUser().mauser;
+                love_Hotel.maht = hotel.maht;
+
+                HttpResponseMessage responseMessage = null;
+                responseMessage = await httpClient.DeleteAsync($"https://bookinghotel.onrender.com/loves/hotel?makh={love_Hotel.makh}&maht={love_Hotel.maht}");
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    _ = DisplayAlert("Thông báo", $"Đã xóa {hotel.tenht} khỏi yêu thích", "OK");
+                    hienthiks($"https://bookinghotel.onrender.com/loves/hotel?makh={user.mauser}");
+                }
+                else
+                {
+                    _ = DisplayAlert("Thông báo", $"Xóa {hotel.tenht} vào yêu thích THẤT BẠI", "OK");
+                }
+            }
+        }
+        private async void Room_SwipeItem_Invoked(object sender, EventArgs e)
+        {
+            SwipeItem swipeItem = (SwipeItem)sender;
+            Room room = swipeItem.CommandParameter as Room;
+            bool answer = await DisplayAlert("Cảnh báo", $"Bạn thật sự muốn xóa {room.tenphong} khỏi danh sách yêu thích", "Yes", "No");
+            if (answer)
+            {
+                HttpClient httpClient = new HttpClient();
+                Love_room love_Room = new Love_room();
+                love_Room.makh = App.BookingDb.GetUser().mauser;
+                love_Room.maroom = room.maroom;
+
+                HttpResponseMessage responseMessage = null;
+                responseMessage = await httpClient.DeleteAsync($"https://bookinghotel.onrender.com/loves/room?makh={love_Room.makh}&maroom={love_Room.maroom}");
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    _ = DisplayAlert("Thông báo", $"Đã xóa {room.tenphong} khỏi yêu thích", "OK");
+                    hienthidsroom($"https://bookinghotel.onrender.com/loves/room?makh={user.mauser}");
+                }
+                else
+                {
+                    _ = DisplayAlert("Thông báo", $"Xóa {room.tenphong} vào yêu thích THẤT BẠI", "OK");
+                }
+            }
+        }
+        
     }
 }

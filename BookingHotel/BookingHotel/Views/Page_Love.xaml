@@ -36,156 +36,87 @@
                     </StackLayout>
                 </FlexLayout>
             </StackLayout>
-            <!--Collection View hiện danh sách các khách sạn đang yêu thích/theo dõi-->
-            <!--<CollectionView x:Name="Love_Collection" Grid.Row="0" SelectionMode="Single" SelectionChanged="Love_Collection_SelectionChanged" IsVisible="true">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="1.5*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                            --><!--Hình ảnh của Khách sạn--><!--
 
-                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0" BorderColor="Transparent" WidthRequest="50"
-                                    IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill"
-                                        VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-                            </Frame>
-
-                            --><!--Tên khách sạn--><!--
-
-                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" TextColor="Black" Grid.Column="1" Grid.Row="0" Margin="10,0,0,0"/>
-
-                            --><!--Địa chỉ khách sạn--><!--
-
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
-                                <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Start"/>
-                                <Label Text="{Binding tinh}" TextColor="Black"/>
-                                <Label Text="," TextColor="Black"/>
-                                <Label Text="{Binding quan}" TextColor="Black"/>
-                            </StackLayout>
-
-                            --><!--Xóa khách sạn--><!--
-
-                            <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Padding="0,0,2,0" VerticalOptions="Start" HorizontalOptions="End">
-                                    <ImageButton Source="dat_trash.png" WidthRequest="35" x:Name="delete_btn" Clicked="delete_btn_Clicked" CommandParameter="{Binding .}"/>
-                            </StackLayout>
-                            
-                            --><!--Đánh giá--><!--
-    
-                            <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,0,2,0" Margin="10,0,0,0">
-                                    <Label Text="{Binding sosao}" FontSize="Medium" VerticalOptions="Center" TextColor="Black"/>
-                                    <Image Source="star.png" HeightRequest="20" WidthRequest="20"  VerticalOptions="Center"/>
-                                </StackLayout>
-                                
-                                --><!--Đặt vé --><!--
-                                
-                                <Button Text="Đặt phòng" x:Name="book_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Small" WidthRequest="150" CornerRadius="10" 
-                                        Clicked="book_btn_Clicked" CommandParameter="{Binding .}"/>
-                            </StackLayout>
-                        </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            --><!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
-                        hiển thị ra Empty View--><!--
-                <CollectionView.EmptyView>
-                    <StackLayout>
-                        <ffimageloading:CachedImage x:Name="loading_gif" IsVisible="true"
-			                        WidthRequest="300" HeightRequest="200"
-			                        DownsampleToViewSize="true"
-			                        Source = "nam_loading.gif">
-                        </ffimageloading:CachedImage>
-                        <Label x:Name="NullList" Text="Danh sách rỗng" FontSize="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
-                    </StackLayout>
-                </CollectionView.EmptyView>
-        </CollectionView>-->
-            
             <!--hiện danh sách các khách sạn-->
 
             <CollectionView x:Name="Love_Collection" Grid.Row="0" SelectionMode="Single" BackgroundColor="White" SelectionChanged="Love_Collection_SelectionChanged" IsVisible="true">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        <SwipeView WidthRequest="200">
+                            <SwipeView.RightItems>
+                                <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                    <SwipeItem Text="Delete"
+                                                   IconImageSource=""
+                                                   BackgroundColor="Red"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="Hotel_SwipeItem_Invoked"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <!--Hình ảnh của Khách sạn-->
-                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
+                                <!--Hình ảnh của Khách sạn-->
+                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill">
-                                </Image>
-                            </Frame>
+                                    <Image Source="{Binding hinh[0]}" Aspect="AspectFill">
+                                    </Image>
+                                </Frame>
 
-                            <!--Tên khách sạn-->
+                                <!--Tên khách sạn-->
 
-                            <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
+                                <Label Text="{Binding tenht}" FontSize="Medium" FontAttributes="Bold" 
                                        Grid.Column="1" Grid.Row="0"
                                        Margin="10,0,0,0" TextColor="Black"/>
 
-                            <!--Địa chỉ khách sạn-->
+                                <!--Địa chỉ khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
+                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
                                              Margin="10,0,0,0">
-                                <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Center"></Image>
-                                <Label Text="{Binding diachi}" FontSize="Small" VerticalOptions="Start"/>
-                            </StackLayout>
-                            <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="nam_thanhtoan.png" WidthRequest="20"></Image>
-                                    <Label Text="Thanh toán khi nhận phòng" TextColor="Green"></Label>
+                                    <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Center"></Image>
+                                    <Label Text="{Binding diachi}" FontSize="Small" VerticalOptions="Start"/>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="nam_discount.png" WidthRequest="20"></Image>
-                                    <Label Text="Giảm đến 10%" TextColor="Red"></Label>
+                                <StackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="nam_thanhtoan.png" WidthRequest="20"></Image>
+                                        <Label Text="Thanh toán khi nhận phòng" TextColor="Green"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="nam_discount.png" WidthRequest="20"></Image>
+                                        <Label Text="Giảm đến 10%" TextColor="Red"></Label>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                            <!--Giá phòng của khách sạn-->
+                                <!--Giá phòng của khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
+                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
                                              Margin="10,0,0,0">
-                                <Label Text="{Binding giamin, StringFormat='{0:0,0}'}" TextColor="#585de4" FontSize="Medium" 
+                                    <Label Text="{Binding giamin, StringFormat='{0:0,0}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="-" TextColor="#585de4" FontSize="Medium" 
+                                    <Label Text="-" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                                <Label Text="{Binding giamax, StringFormat='{0:0,0 VNĐ}'}" TextColor="#585de4" FontSize="Medium" 
+                                    <Label Text="{Binding giamax, StringFormat='{0:0,0 VNĐ}'}" TextColor="#585de4" FontSize="Medium" 
                                            VerticalOptions="EndAndExpand"/>
-                            </StackLayout>
+                                </StackLayout>
 
-                            <!--Đánh giá về khách sạn-->
+                                <!--Đánh giá về khách sạn-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
+                                <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="0" 
                                              HorizontalOptions="End" Padding="0,0,2,0">
-                                <Label Text="{Binding sosao}" FontSize="Medium" VerticalOptions="Center"/>
-                                <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
+                                    <Label Text="{Binding sosao}" FontSize="Medium" VerticalOptions="Center"/>
+                                    <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
                                            VerticalOptions="Center"/>
-                            </StackLayout>
-
-                            <!--Thêm khách sạn vào Yêu thích-->
-
-                            <ImageButton Source="heart.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
-                                         BackgroundColor="Transparent"
-                                       HeightRequest="25" WidthRequest="25"
-                                       HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"
-                                       Margin="0,20,5,0"
-                                       x:Name="Add_Like_List" Clicked="Add_Like_List_Clicked" CommandParameter="{Binding .}"/>
-                        </Grid>
+                                </StackLayout>
+                            </Grid>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
 
@@ -198,7 +129,7 @@
 			                        DownsampleToViewSize="true"
 			                        Source = "nam_loading.gif">
                         </ffimageloading:CachedImage>
-                        <Label x:Name="NullList" Text="Danh sách rỗng" FontSize="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
+                        <Label x:Name="NullList" Text="Danh sách rỗng" FontSize="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
                     </StackLayout>
                 </CollectionView.EmptyView>
             </CollectionView>
@@ -208,95 +139,106 @@
             <CollectionView x:Name="Room_Collection" Grid.Row="0" SelectionMode="Single" SelectionChanged="Room_Collection_SelectionChanged" IsVisible="false">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="60"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        <SwipeView WidthRequest="200">
+                            <SwipeView.RightItems>
+                                <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                    <SwipeItem Text="Delete"
+                                                   IconImageSource=""
+                                                   BackgroundColor="Red"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="Room_SwipeItem_Invoked"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <!--Hình ảnh của Khách sạn-->
-                            <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
+                                <!--Hình ảnh của Khách sạn-->
+                                <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Padding="0"  BorderColor="Transparent"
                                        IsClippedToBounds="True" CornerRadius="10">
-                                <Image Source="{Binding hinh[0]}" Aspect="AspectFill"/>
-                            </Frame>
-                            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.RowSpan="4" Padding="0" xct:CornerRadiusEffect.CornerRadius="20">
-                            </StackLayout>
+                                    <Image Source="{Binding hinh[0]}" Aspect="AspectFill"/>
+                                </Frame>
+                                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.RowSpan="4" Padding="0" xct:CornerRadiusEffect.CornerRadius="20">
+                                </StackLayout>
 
-                            <!--Tên Phòng-->
-                            <StackLayout Margin="10,0,10,0" Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
-                                <Label Text="{Binding tenphong}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-                                <Label Text="Nổi bật" TextColor="White" BackgroundColor="Green" Padding="5" HorizontalOptions="EndAndExpand" IsVisible="{Binding noibat}"  xct:CornerRadiusEffect.CornerRadius="8"/>
-                            </StackLayout>
+                                <!--Tên Phòng-->
+                                <StackLayout Margin="10,0,10,0" Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                                    <Label Text="{Binding tenphong}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                                    <Label Text="Nổi bật" TextColor="White" BackgroundColor="Green" Padding="5" HorizontalOptions="EndAndExpand" IsVisible="{Binding noibat}"  xct:CornerRadiusEffect.CornerRadius="8"/>
+                                </StackLayout>
 
-                            <!--Giá cho n người-->
+                                <!--Giá cho n người-->
 
-                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
+                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" 
                                              Margin="10,0,10,0">
-                                <Image Source="nam_menu.png" WidthRequest="20"></Image>
-                                <Label Text="Loại phòng: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
-                                <Label Text="{Binding loaiphong}" TextColor="Black" VerticalTextAlignment="Center"/>
-                                <Label Text="Ưu đãi" TextColor= "Red" BackgroundColor="AntiqueWhite" Padding="7,5,7,5" HorizontalOptions="EndAndExpand" VerticalOptions="Start" IsVisible="{Binding uudai}" xct:CornerRadiusEffect.CornerRadius="8" />
-                            </StackLayout>
+                                    <Image Source="nam_menu.png" WidthRequest="20"></Image>
+                                    <Label Text="Loại phòng: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding loaiphong}" TextColor="Black" VerticalTextAlignment="Center"/>
+                                    <Label Text="Ưu đãi" TextColor= "Red" BackgroundColor="AntiqueWhite" Padding="7,5,7,5" HorizontalOptions="EndAndExpand" VerticalOptions="Start" IsVisible="{Binding uudai}" xct:CornerRadiusEffect.CornerRadius="8" />
+                                </StackLayout>
 
-                            <!--Mô tả về phòng-->
-                            <StackLayout Grid.Column="1" Grid.Row="2" Margin="10,0,0,0" Orientation="Horizontal">
-                                <Image Source="nam_bedroom.png" WidthRequest="20"></Image>
-                                <Label Text="Số giường: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
-                                <Label Text="{Binding sogiuong}" TextColor="Black" VerticalTextAlignment="Center"/>
-                            </StackLayout>
-                            <StackLayout Grid.Column="1" Grid.Row="3" Margin="10,0,0,0" Orientation="Horizontal">
-                                <Image Source="nam_ruler.png" WidthRequest="20"></Image>
-                                <Label Text="Kích thước: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
-                                <Label Text="{Binding dientich, StringFormat='{0} m²'}" TextColor="Black" VerticalTextAlignment="Center"/>
-                            </StackLayout>
-
-
-                            <!--Các tiện ích của phòng-->
-
-                            <FlexLayout x:Name="tienich_room" BindableLayout.ItemsSource="{Binding tienichs}" JustifyContent="SpaceAround"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0" Padding="0,0,0,-20">
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="25" WidthRequest="100">
-                                            <Image Source="{Binding hinh}" HeightRequest="20" VerticalOptions="End" Margin="0,5,0,0"/>
-                                            <Label Text="{Binding tienich}" FontSize="16" TextColor="Black" VerticalOptions="End" />
-                                        </StackLayout>
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </FlexLayout>
+                                <!--Mô tả về phòng-->
+                                <StackLayout Grid.Column="1" Grid.Row="2" Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Image Source="nam_bedroom.png" WidthRequest="20"></Image>
+                                    <Label Text="Số giường: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding sogiuong}" TextColor="Black" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="3" Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Image Source="nam_ruler.png" WidthRequest="20"></Image>
+                                    <Label Text="Kích thước: " TextColor="DimGray" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding dientich, StringFormat='{0} m²'}" TextColor="Black" VerticalTextAlignment="Center"/>
+                                </StackLayout>
 
 
-                            <StackLayout Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" Orientation="Horizontal">
-                                <Image Source="dat_success.png" HeightRequest="15" VerticalOptions="Center"/>
-                                <Label Text="Miễn phí hủy" TextColor="Green" VerticalOptions="Center"/>
-                            </StackLayout>
+                                <!--Các tiện ích của phòng-->
 
-                            <!--Giá phòng của khách sạn-->
+                                <FlexLayout x:Name="tienich_room" BindableLayout.ItemsSource="{Binding tienichs}" JustifyContent="SpaceAround"  Wrap="Wrap" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0" Padding="0,0,0,-20">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HeightRequest="25" WidthRequest="100">
+                                                <Image Source="{Binding hinh}" HeightRequest="20" VerticalOptions="End" Margin="0,5,0,0"/>
+                                                <Label Text="{Binding tienich}" FontSize="16" TextColor="Black" VerticalOptions="End" />
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </FlexLayout>
 
-                            <FlexLayout Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" JustifyContent="SpaceAround" AlignItems="Center">
-                                <Label Text="{Binding giagio, StringFormat='{0:0,0 vnđ/giờ}'}" TextColor="#585de4" FontSize="Medium"/>
-                                <Label Text="và" TextColor="Black"/>
-                                <Label Text="{Binding giangay, StringFormat='{0:0,0 vnđ/ngày}'}" TextColor="#585de4" FontSize="Medium" />
-                            </FlexLayout>
 
-                            <!--Nút đặt ngay-->
-                            <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal">
-                                <Button Text="Xem khách sạn" BackgroundColor="Brown" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4" Padding="-10,0,-10,0"
+                                <StackLayout Grid.Column="0" Grid.Row="5" Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Image Source="dat_success.png" HeightRequest="15" VerticalOptions="Center"/>
+                                    <Label Text="Miễn phí hủy" TextColor="Green" VerticalOptions="Center"/>
+                                </StackLayout>
+
+                                <!--Giá phòng của khách sạn-->
+
+                                <FlexLayout Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" JustifyContent="SpaceAround" AlignItems="Center">
+                                    <Label Text="{Binding giagio, StringFormat='{0:0,0 vnđ/giờ}'}" TextColor="#585de4" FontSize="Medium"/>
+                                    <Label Text="và" TextColor="Black"/>
+                                    <Label Text="{Binding giangay, StringFormat='{0:0,0 vnđ/ngày}'}" TextColor="#585de4" FontSize="Medium" />
+                                </FlexLayout>
+
+                                <!--Nút đặt ngay-->
+                                <StackLayout Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                    <Button Text="Xem khách sạn" BackgroundColor="Brown" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4" Padding="-10,0,-10,0"
                                         x:Name="KS_btn" Clicked="KS_btn_Clicked_1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextTransform="None" CommandParameter="{Binding .}"/>
-                                <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
+                                    <Button Text="Đặt phòng" BackgroundColor="#585de4" TextColor="White" FontSize="Small" FontAttributes="Bold" CornerRadius="10" BorderColor="#585de4"
                                             x:Name="book_btn" Clicked="book_btn_Clicked_1" HorizontalOptions="FillAndExpand" TextTransform="None" VerticalOptions="Center"
                                             CommandParameter="{Binding .}"/>
-                            </StackLayout>
-                        </Grid>
+                                </StackLayout>
+                            </Grid>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <!--Khi không có dữ liệu trong Collection View hoặc bị lỗi hiển thị làm cho ItemSource thành null thì màn hình
@@ -308,7 +250,7 @@
 			                        DownsampleToViewSize="true"
 			                        Source = "nam_loading.gif">
                         </ffimageloading:CachedImage>
-                        <Label x:Name="RoomNullList" Text="Danh sách rỗng" FontSize="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
+                        <Label x:Name="RoomNullList" Text="Danh sách rỗng" FontSize="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
                     </StackLayout>
                 </CollectionView.EmptyView>
             </CollectionView>

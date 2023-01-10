@@ -144,22 +144,25 @@ namespace BookingHotel.Views
             else
                 quanhuyen_pk.ItemsSource = quan_DaNang;
             quanhuyen_pk.IsEnabled = true;
+            App.quick_tinh = diadiem_pk.SelectedItem.ToString();
         }
 
         private void quanhuyen_pk_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            MyPicker myPicker = (MyPicker)sender;
+            App.quick_quan = quanhuyen_pk.SelectedItem.ToString();
         }
 
         private void ngayden_dpk_DateSelected(object sender, DateChangedEventArgs e)
         {
             MyDatePicker myDateNgayDen = (MyDatePicker)sender;
             ngayden = myDateNgayDen.Date;
+            App.quick_checkinday = ngayden_dpk.Date.ToString("dd-MM-yyyy");
         }
 
         private void ngaydi_dpk_DateSelected(object sender, DateChangedEventArgs e)
         {
-
+            App.quick_checkoutday = ngaydi_dpk.Date.ToString("dd-MM-yyyy");
         }
 
     
