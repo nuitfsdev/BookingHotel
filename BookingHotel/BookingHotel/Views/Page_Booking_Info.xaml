@@ -234,13 +234,13 @@
                             <Label FontSize="16" Text="Tên tài khoản" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                             <Frame  HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" CornerRadius="10">
                                 <StackLayout>
-                                    <models:MyEntry  x:Name="name_bank" TextColor="Black" Margin="10,0,0,0"  FontSize="Medium" Placeholder="Tên tài khoản ngân hàng"   VerticalOptions="CenterAndExpand"/>
+                                    <models:MyEntry  x:Name="name_bank" TextChanged="name_bank_TextChanged" TextColor="Black" Margin="10,0,0,0"  FontSize="Medium" Placeholder="Tên tài khoản ngân hàng"   VerticalOptions="CenterAndExpand"/>
                                 </StackLayout>
                             </Frame>
                             <Label FontSize="16" Text="Số tài khoản" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>
                             <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" CornerRadius="10" >
                                 <StackLayout Orientation="Horizontal">
-                                    <models:MyEntry Keyboard="Numeric" Placeholder="123 456 789" Margin="10,0,0,0" HorizontalOptions="StartAndExpand" WidthRequest="200"/>
+                                    <models:MyEntry x:Name="stk_bank" TextChanged="stk_bank_TextChanged" Keyboard="Numeric" Placeholder="123 456 789" Margin="10,0,0,0" HorizontalOptions="StartAndExpand" WidthRequest="200"/>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Margin="0,0,10,0">
                                         <Image Source="nam_napas.png" WidthRequest="50" Aspect="AspectFit"/>
                                         <Image Source="nam_visa.png" WidthRequest="40" Aspect="AspectFit"/>
@@ -264,7 +264,7 @@
                     <StackLayout  Margin="20,0,20,0">
                         <Label Text="Các yêu cầu khác" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
                         <Frame Margin="0,0,0,10" BackgroundColor="#f4f4f8" CornerRadius="10" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="LightGray" Padding="0" >
-                            <models:MyEditor FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="150" Margin="10,0,0,0"/>
+                            <models:MyEditor x:Name="khac" FontSize="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="150" Margin="10,0,0,0"/>
                         </Frame>
                     </StackLayout>
 

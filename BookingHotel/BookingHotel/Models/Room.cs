@@ -18,7 +18,9 @@ namespace BookingHotel.Models
         public List<TienIchRoom> tienichs { get; set; }
         public string mota { get; set; }
         public List<string> hinh { get; set; }
-        public long giagio { get; set; } 
+        public long giagio { get; set; }
+        public long giagio2 { get; set; }
+
         public long giangay { get; set; }
         public bool uudai { get; set; }
         public bool noibat { get; set; }

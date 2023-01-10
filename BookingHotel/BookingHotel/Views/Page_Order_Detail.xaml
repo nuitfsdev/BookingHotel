@@ -13,7 +13,7 @@
                             x:Name="back_btn" Clicked="back_btn_Clicked"
                             Margin="15,0,0,0"
                             HorizontalOptions="Start"/>
-                <Label Text="Chi tiết vé" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
+                <Label Text="Chi tiết đặt phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                     HorizontalOptions="StartAndExpand"/>
                 <Label x:Name="cancle_booking" Text="Hủy đặt phòng" TextColor="red" FontSize="Medium" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" VerticalOptions="CenterAndExpand" IsVisible="False"/>
             </StackLayout>
@@ -145,7 +145,7 @@
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                 <Label Text="Số giờ:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                                <Label Text="12" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                                <Label x:Name="sogio" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
                             </StackLayout>
                         </StackLayout>
                         
@@ -157,7 +157,7 @@
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                 <Label Text="Số ngày:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                                <Label Text="3" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                                <Label x:Name="songay" TextColor="Green" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

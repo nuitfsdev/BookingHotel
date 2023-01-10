@@ -16,8 +16,8 @@ namespace BookingHotel.Models
         public string sdt { get; set; }
         public string ngayhd { get; set; }
         public string tinhtrang { get; set; }
-        public int trigia { get; set; }
-        public int gia { get; set; }
+        public long trigia { get; set; }
+        public long gia { get; set; }
         public string ptdatphong { get; set; }
         public string ngaynhan { get; set; }
         public string ngaytra { get; set; }
