@@ -19,6 +19,7 @@ namespace BookingHotel.Views
         Hotel Thishotel;
         Room Thisroom;
 
+        User user = App.BookingDb.GetUser();
         async void hienthiks(string urlAPI)
         {
             HttpClient httpClient = new HttpClient();
@@ -38,8 +39,8 @@ namespace BookingHotel.Views
         public Page_Love()
         {
             InitializeComponent();
-            hienthiks("https://bookinghotel.onrender.com/hotels");
-            hienthidsroom("https://bookinghotel.onrender.com/rooms");
+            hienthiks($"https://bookinghotel.onrender.com/loves/hotel?makh={user.mauser}");
+            hienthidsroom($"https://bookinghotel.onrender.com/loves/room?makh={user.mauser}");
         }
 
         private async void Search_Btn_Clicked(object sender, EventArgs e)
@@ -75,7 +76,7 @@ namespace BookingHotel.Views
                 //SwipeItem swipeItem = (SwipeItem)sender;
                 //Sanpham sp = swipeItem.CommandParameter as Sanpham;
                 //_ = dssp.Remove(sp);
-                DisplayAlert("Thong bao",$"Đã xóa {hotel.tenht}","OK");
+               await DisplayAlert("Thong bao",$"Đã xóa {hotel.tenht}","OK");
             }
         }
 
@@ -86,7 +87,7 @@ namespace BookingHotel.Views
 
         private void ks_btn_Clicked(object sender, EventArgs e)
         {
-            hienthiks("https://bookinghotel.onrender.com/hotels");
+            hienthiks($"https://bookinghotel.onrender.com/loves/hotel?makh={user.mauser}");
             ks_underline.IsVisible = true;
             room_underline.IsVisible = false;
             Love_Collection.IsVisible = true;
@@ -100,7 +101,7 @@ namespace BookingHotel.Views
 
         private void room_btn_Clicked(object sender, EventArgs e)
         {
-            hienthidsroom("https://bookinghotel.onrender.com/rooms");
+            hienthidsroom($"https://bookinghotel.onrender.com/loves/room?makh={user.mauser}");
             ks_underline.IsVisible = false;
             room_underline.IsVisible = true;
             Love_Collection.IsVisible = false;
