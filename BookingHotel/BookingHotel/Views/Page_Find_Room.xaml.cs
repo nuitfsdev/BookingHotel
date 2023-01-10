@@ -27,6 +27,8 @@ namespace BookingHotel.Views
         public Page_Find_Room()
         {
             InitializeComponent();
+            back_btn.IsVisible = false;
+            Shell.SetTabBarIsVisible(this, true);
             hienthidsphong("https://bookinghotel.onrender.com/rooms");
         }
 
@@ -36,6 +38,8 @@ namespace BookingHotel.Views
         {
             InitializeComponent();
             filter = true;
+            back_btn.IsVisible = true;
+            Shell.SetTabBarIsVisible(this, false);
             if (roomFilter == null)
             {
                 hienthidsphong("https://bookinghotel.onrender.com/rooms");
@@ -272,6 +276,11 @@ namespace BookingHotel.Views
             var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
 
             await Shell.Current.Navigation.PushAsync(new Page_Hotel(HotelConverted[0]));
+        }
+
+        private async void back_btn_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(state: "../");
         }
 
         //async void LayHotel(string maht)

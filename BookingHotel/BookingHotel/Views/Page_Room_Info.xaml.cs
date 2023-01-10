@@ -21,6 +21,8 @@ namespace BookingHotel.Views
         public Page_Room_Info(Hotel hotel ,Room room)
         {
             InitializeComponent();
+            // 1000 là số giây
+            detail.TranslateTo(0, 0, 1000);
             Thisroom = room;
             Thishotel = hotel;
 
