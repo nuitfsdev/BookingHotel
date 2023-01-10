@@ -17,7 +17,7 @@
                                 <Frame HorizontalOptions="FillAndExpand" Padding="0" VerticalOptions="FillAndExpand" HeightRequest="1000">
                                     <StackLayout>
                                         <Image Source="{Binding Image}" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-                                        <Label Text="{Binding Content}" FontAttributes="Bold" TextColor="#585de4" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" Margin="0,30,0,30" />
+                                        <Label Text="{Binding Content}" FontAttributes="Bold" TextColor="#585de4" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" Margin="20,30,20,30" />
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
@@ -27,7 +27,7 @@
                 <IndicatorView x:Name="indicatorView"
                                
                                IndicatorColor="LightGray"
-                               SelectedIndicatorColor="DarkGray" 
+                               SelectedIndicatorColor="#585de4" 
                                IndicatorSize="10" />
             </StackLayout>
             <FlexLayout JustifyContent="SpaceBetween" Margin="10,80,10,20" AlignItems="Center" VerticalOptions="EndAndExpand">

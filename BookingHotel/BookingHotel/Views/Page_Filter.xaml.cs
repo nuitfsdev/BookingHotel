@@ -244,6 +244,8 @@ namespace BookingHotel.Views
         {
             _filter.sosao = _filtersosao;
             _filter.tienichs = _filtertienichs;
+            _filter.tinh = tinh_filter.SelectedItem.ToString();
+            _filter.huyen = quan_filter.SelectedItem.ToString();
             await Shell.Current.Navigation.PushAsync(new Page_Search(_filter));
         }
     }

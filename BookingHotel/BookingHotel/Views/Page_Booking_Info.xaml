@@ -228,7 +228,7 @@
                             <Frame HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" CornerRadius="10">
                                 <StackLayout Orientation="Horizontal">
                                     <models:MyPicker Title="Chọn ngân hàng của bạn" x:Name="user_bank" TextColor="Black" Margin="10,0,0,0"  FontSize="Medium" SelectedIndexChanged="user_bank_SelectedIndexChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
-                                    <Image x:Name="bank_logo" WidthRequest="30" Margin="0,0,15,0" HorizontalOptions="EndAndExpand"/>
+                                    <Image x:Name="bank_logo" WidthRequest="100" Margin="0,0,15,0" HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                             </Frame>
                             <Label FontSize="16" Text="Tên tài khoản" TextColor="Black" FontAttributes="Bold" Margin="10,0,0,0"/>

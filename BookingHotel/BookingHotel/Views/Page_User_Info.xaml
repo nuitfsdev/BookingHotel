@@ -49,7 +49,7 @@
                 
                 <!--Nút gửi-->
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,30,0,30">
-                    <Button Text="Lưu" x:Name="save_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="20" BorderColor="#585de4" Clicked="save_btn_Clicked"/>
+                    <Button Text="Lưu" TextTransform="None" WidthRequest="350" x:Name="save_btn" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="20" BorderColor="#585de4" Clicked="save_btn_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

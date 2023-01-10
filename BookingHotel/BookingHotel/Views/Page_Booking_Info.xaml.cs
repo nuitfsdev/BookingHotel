@@ -283,7 +283,7 @@ namespace BookingHotel.Views
             bank.Add("SCB");
             bank.Add("Sacombank");
             bank.Add("DongABank");
-            bank.Add("Argribank");
+            bank.Add("Agribank");
             user_bank.ItemsSource = bank;
         }
 
@@ -291,23 +291,23 @@ namespace BookingHotel.Views
         {
             if(user_bank.SelectedItem.ToString() == "BIDV")
             {
-                bank_logo.Source = "nam_bar.png";
+                bank_logo.Source = "BIDV.png";
             }
             if (user_bank.SelectedItem.ToString() == "SCB")
             {
-                bank_logo.Source = "nam_bellicon.png";
+                bank_logo.Source = "SCB.webp";
             }
             if (user_bank.SelectedItem.ToString() == "Sacombank")
             {
-                bank_logo.Source = "nam_bedroom.png";
+                bank_logo.Source = "Sacombank.png";
             }
             if (user_bank.SelectedItem.ToString() == "DongABank")
             {
-                bank_logo.Source = "nam_gym.png";
+                bank_logo.Source = "DongABank.png";
             }
-            if (user_bank.SelectedItem.ToString() == "Argribank")
+            if (user_bank.SelectedItem.ToString() == "Agribank")
             {
-                bank_logo.Source = "nam_maylanh.png";
+                bank_logo.Source = "Argibank.png";
             }
             addHoaDon.nganhang = user_bank.SelectedItem.ToString();
            

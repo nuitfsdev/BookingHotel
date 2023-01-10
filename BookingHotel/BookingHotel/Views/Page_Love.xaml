@@ -45,7 +45,7 @@
                         <SwipeView WidthRequest="200">
                             <SwipeView.RightItems>
                                 <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
-                                    <SwipeItem Text="Delete"
+                                    <SwipeItem Text="Xóa"
                                                    IconImageSource=""
                                                    BackgroundColor="Red"
                                                    CommandParameter="{Binding .}"
