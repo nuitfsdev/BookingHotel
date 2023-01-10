@@ -19,6 +19,8 @@ namespace BookingHotel.Views
         public Page_Hotel(Hotel hotel)
         {
             InitializeComponent();
+            // 1000 là số giây
+            detail.TranslateTo(0,0,1000);
             Thishotel = hotel;
             BannerCarousel.ItemsSource = hotel.hinh;
             tenKS.Text = hotel.tenht;

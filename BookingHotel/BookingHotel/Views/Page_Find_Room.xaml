@@ -29,6 +29,10 @@
             <!--___________________________________________Tiêu đề danh sách phòng và Nút lọc_____________________________________________-->
 
             <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <!--Trở về-->
+                <ImageButton Source="dat_back.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                             x:Name="back_btn" Clicked="back_btn_Clicked" 
+                    HorizontalOptions="Start" Margin="0,0,0,0" IsVisible="false"/>
                 <Label Text="Danh sách phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
                 <ImageButton Source="dat_filter.png" WidthRequest="22" BackgroundColor="White"
