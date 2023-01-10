@@ -1,8 +1,10 @@
 ﻿using BookingHotel.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,17 +98,46 @@ namespace BookingHotel.Views
             await Shell.Current.Navigation.PopAsync();
         }
 
-        private void Add_Like_List_Tapped(object sender, EventArgs e)
+        private async void Add_Like_List_Tapped(object sender, EventArgs e)
         {
             ImageButton tab = (ImageButton)sender;
+            Hotel hotel = Thishotel;
+
+            Love_hotel love_Hotel = new Love_hotel();
+            love_Hotel.makh = App.BookingDb.GetUser().mauser;
+            love_Hotel.maht = hotel.maht;
+
+            HttpClient httpClient = new HttpClient();
+            string json = JsonConvert.SerializeObject(love_Hotel);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage responseMessage = null;
+
             if (tab.Source.ToString() == "File: heartWhite.png")
             {
                 tab.Source = "heart.png";
-                DisplayAlert("Thông báo", $"Đã thêm {Thishotel.tenht} vào yêu thích", "OK");
+                responseMessage = await httpClient.PostAsync($"https://bookinghotel.onrender.com/loves/hotel?makh={love_Hotel.makh}&maht={love_Hotel.maht}", content);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    _ = DisplayAlert("Thông báo", $"Đã thêm {hotel.tenht} vào yêu thích", "OK");
+                }
+                else
+                {
+                    _ = DisplayAlert("Thông báo", $"Thêm {hotel.tenht} vào yêu thích THẤT BẠI", "OK");
+                }
             }
             else
             {
                 tab.Source = "heartWhite.png";
+                responseMessage = await httpClient.DeleteAsync($"https://bookinghotel.onrender.com/loves/hotel?makh={love_Hotel.makh}&maht={love_Hotel.maht}");
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    _ = DisplayAlert("Thông báo", $"Đã xóa {hotel.tenht} khỏi yêu thích", "OK");
+                }
+                else
+                {
+                    _ = DisplayAlert("Thông báo", $"Xóa {hotel.tenht} vào yêu thích THẤT BẠI", "OK");
+                }
             }
         }
 

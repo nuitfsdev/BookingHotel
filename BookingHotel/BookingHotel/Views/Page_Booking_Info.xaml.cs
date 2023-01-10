@@ -173,7 +173,7 @@ namespace BookingHotel.Views
                     checkout_time.Time -= TimeSpan.Parse("1:00");
                 checkout_time_final.Text = checkout_time.Time.ToString(@"hh\:mm");
 
-                long total_cost = save_cost_time + Thisroom.giagio2 * (long.Parse(time_uses.Text) - 1);
+                long total_cost = (save_cost_time + Thisroom.giagio2 * (long.Parse(time_uses.Text) - 1)) * int.Parse(Room_qty.Text);
                 addHoaDon.trigia = total_cost;
                 total.Text = String.Format("{0:0,0}", total_cost);
             }    
@@ -195,11 +195,11 @@ namespace BookingHotel.Views
                 }    
                 else
                     checkout_time.Time += TimeSpan.Parse("1:00:00");
-                checkout_time_final.Text = checkout_time.Time.Hours.ToString() + ":" + checkout_time.Time.Minutes.ToString();
-  
+                checkout_time_final.Text = checkout_time.Time.ToString(@"hh\:mm");
+
                 checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
 
-                long total_cost = save_cost_time + save_cost_time * (long.Parse(time_uses.Text)-1) / 2;
+                long total_cost = (save_cost_time + save_cost_time * (long.Parse(time_uses.Text)-1) / 2) * int.Parse(Room_qty.Text);
                 addHoaDon.trigia=total_cost;
                 total.Text = String.Format("{0:0,0}", total_cost);
             }    
@@ -231,19 +231,33 @@ namespace BookingHotel.Views
         {
             int old_value = int.Parse(Child.Text);
             Child.Text = $"{old_value + 1}";
+
+            //Nếu số trẻ em lớn hơn 3 thì báo là cần tăng thêm phí
+            if(old_value + 1 == 3 )
+            {
+                DisplayAlert("Thông báo", "Số trẻ em vượt qua số lượng trẻ em cho phép của phòng!\nBạn phải trả thêm phí!", "OK");
+            }    
         }
 
         private void room_qty_incre_Clicked(object sender, EventArgs e)
         {
             int old_value = int.Parse(Room_qty.Text);
             Room_qty.Text = $"{old_value + 1}";
+
+            long total_cost = long.Parse(total.Text.Replace(",","")) + long.Parse(total.Text.Replace(",", "")) / old_value;
+            total.Text = String.Format("{0:0,0}", total_cost);
         }
 
         private void room_qty_decre_Clicked(object sender, EventArgs e)
         {
             int old_value = int.Parse(Room_qty.Text);
             if (old_value > 1)
+            {
                 Room_qty.Text = $"{old_value - 1}";
+
+            long total_cost = long.Parse(total.Text.Replace(",", "")) - long.Parse(total.Text.Replace(",", "")) / old_value;
+            total.Text = String.Format("{0:0,0}", total_cost);
+            }    
         }
 
         //private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -431,7 +445,7 @@ namespace BookingHotel.Views
 
             if(time_underline.IsVisible)
             {
-                long total_cost = save_cost_time * 1;
+                long total_cost = (save_cost_time * 1) * int.Parse(Room_qty.Text);
                 addHoaDon.gia = save_cost_time;
                 addHoaDon.trigia = total_cost;
                 total.Text = String.Format("{0:0,0}", total_cost);
@@ -444,22 +458,31 @@ namespace BookingHotel.Views
             //ngày
             checkin_day.MinimumDate = DateTime.Now.Date;
             checkout_day.MinimumDate = DateTime.Now.AddDays(1).Date;
-            checkin_day.Date = date.Date;
-            checkout_day.Date = date.AddDays(1).Date;
+            //nếu trang home có chọn ngày checkin và ngày checkout rồi thì lấy hai ngày đó
+            if (App.quick_checkinday != "" & App.quick_checkoutday != "" & App.quick_checkinday != App.quick_checkoutday)
+            {
+                checkin_day.Date = DateTime.Parse(App.quick_checkinday);
+                checkout_day.Date = DateTime.Parse(App.quick_checkoutday);
+            } 
+            else
+            {
+                checkin_day.Date = date.Date;
+                checkout_day.Date = date.AddDays(1).Date;
+            }    
             //giờ
             checkout_time.Time = checkin_time.Time;
             //thanh toán - giờ
             checkin_time_final.Text = checkin_time.Time.ToString(@"hh\:mm");
             checkout_time_final.Text = checkin_time.Time.ToString(@"hh\:mm");
             //thanh toán - ngày
-            checkin_day_final.Text = date.Date.ToString("dd/MM/yyyy");
-            checkout_day_final.Text = date.Date.AddDays(1).ToString("dd/MM/yyyy");
+            checkin_day_final.Text = checkin_day.Date.ToString("dd/MM/yyyy");
+            checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
 
-            day_final.Text = "3";
+            day_final.Text = "1";
 
             if(day_underline.IsVisible)
             {
-                long total_cost = save_cost_day * long.Parse(day_final.Text);
+                long total_cost = (save_cost_day * long.Parse(day_final.Text)) * int.Parse(Room_qty.Text);
                 addHoaDon.gia = save_cost_day;
                 addHoaDon.trigia = total_cost;
                 total.Text = String.Format("{0:0,0}", total_cost);
@@ -492,7 +515,7 @@ namespace BookingHotel.Views
 
                 if(day_underline.IsVisible)
                 {
-                    long total_cost = save_cost_day * long.Parse(day_final.Text);
+                    long total_cost = (save_cost_day * long.Parse(day_final.Text)) * int.Parse(Room_qty.Text);
                     addHoaDon.trigia = total_cost;
                     total.Text = String.Format("{0:0,0}", total_cost);
                 }    

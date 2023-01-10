@@ -32,22 +32,6 @@ namespace BookingHotel.Views
             InitializeComponent();
             Thishotel = hotel;
             hienthir($"https://bookinghotel.onrender.com/rooms?maht={hotel.maht}");
-
-            //Room room = (Room)book_room_btn.CommandBinding;
-            //foreach (string tienich in room.tienich)
-            //{
-            //    StackLayout stack = new StackLayout
-            //    {
-            //        Orientation = StackOrientation.Horizontal,
-            //        Padding = new Thickness(0, 0, 10, 0),
-            //        HeightRequest = 20,
-            //        Children = {
-            //            new Image {Source = "dat_wifi.png", WidthRequest=50, Margin= new Thickness(0,5,0,0), HeightRequest=10, VerticalOptions = LayoutOptions.Start},
-            //            new Label {Text = tienich, TextColor=Color.Black},
-            //        }
-            //    };
-               
-            //}
         }
 
         private void book_btn_Clicked(object sender, EventArgs e)

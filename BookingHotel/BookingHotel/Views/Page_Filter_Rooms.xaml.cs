@@ -32,6 +32,20 @@ namespace BookingHotel.Views
             tinh_filter.ItemsSource = tinhlist;
             giamin_entry.Text = RangeSlider.LowerValue.ToString();
             giamax_entry.Text = RangeSlider.UpperValue.ToString();
+
+            //gán sẵn tỉnh và quận cho hai picker
+            if (App.quick_tinh != "")
+            {
+                tinh_filter.SelectedItem = App.quick_tinh;
+                if (App.quick_tinh == "Tp Hồ Chí Minh")
+                    quan_filter.ItemsSource = quan_HCM;
+                else if (App.quick_tinh == "Hà Nội")
+                    quan_filter.ItemsSource = quan_HaNoi;
+                else
+                    quan_filter.ItemsSource = quan_DaNang;
+                quan_filter.IsEnabled = true;
+                quan_filter.SelectedItem = App.quick_quan;
+            }
         }
 
         private void back_btn_Clicked(object sender, EventArgs e)

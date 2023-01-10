@@ -60,7 +60,6 @@ namespace BookingHotel.Views
                 {
                     string contentRes = await responseMessage.Content.ReadAsStringAsync();
                     LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(contentRes);
-                    await DisplayAlert("TB", $"{loginResponse.user.name}", "OK");
                     await Shell.Current.GoToAsync("//main/home");
                     password.Text = "";
                     email.Text = "";
