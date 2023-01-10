@@ -330,7 +330,8 @@ namespace BookingHotel.Views
             checkout_time.Time = date.AddHours(1).TimeOfDay;
             //ngày
             checkin_day.MinimumDate = DateTime.Now.Date;
-            if(checkin_time.Time.Hours <23)
+            checkout_day.MinimumDate = DateTime.Now.Date;
+            if (checkin_time.Time.Hours <23)
             {
                 checkout_day.Date = checkin_day.Date;
             }    
