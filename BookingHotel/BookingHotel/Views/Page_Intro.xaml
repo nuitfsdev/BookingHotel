@@ -17,7 +17,7 @@
                                 <Frame HorizontalOptions="FillAndExpand" Padding="0" VerticalOptions="FillAndExpand" HeightRequest="1000">
                                     <StackLayout>
                                         <Image Source="{Binding Image}" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-                                        <Label Text="{Binding Content}" TextColor="Black" FontSize="Large" HorizontalTextAlignment="Center" HorizontalOptions="Center" Margin="0,30,0,30" />
+                                        <Label Text="{Binding Content}" FontAttributes="Bold" TextColor="#585de4" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" Margin="0,30,0,30" />
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
@@ -28,12 +28,12 @@
                                
                                IndicatorColor="LightGray"
                                SelectedIndicatorColor="DarkGray" 
-                               IndicatorSize="5"/>
+                               IndicatorSize="10" />
             </StackLayout>
-            <FlexLayout JustifyContent="SpaceBetween" Margin="10,0,10,20" AlignItems="Center" VerticalOptions="EndAndExpand">
-                <Button Text="Bỏ qua" TextColor="#585de4" BackgroundColor="Transparent" FontSize="Large" FontAttributes="Bold"
+            <FlexLayout JustifyContent="SpaceBetween" Margin="10,80,10,20" AlignItems="Center" VerticalOptions="EndAndExpand">
+                <Button  Text="Bỏ qua" TextTransform="None" TextColor="Gray" BackgroundColor="Transparent" FontSize="20" FontAttributes="Bold"
                         x:Name="skip_btn" Clicked="skip_btn_Clicked"/>
-                <Button Text="Tiếp tục" TextColor="white" BackgroundColor="#585de4" FontSize="Large" FontAttributes="Bold" CornerRadius="30"
+                <Button Text="Tiếp tục" TextTransform="None" WidthRequest="150" TextColor="white" BackgroundColor="#585de4" FontSize="Large" FontAttributes="Bold" CornerRadius="30"
                         x:Name="continue_btn" Clicked="continue_btn_Clicked"/>
             </FlexLayout>
         </StackLayout>

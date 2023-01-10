@@ -23,19 +23,18 @@ namespace BookingHotel.Views
             }    
 
             List<Banner> bannerList = new List<Banner>();
-            bannerList.Add(new Banner { Image = "Banner1.png", Content="Đặt phòng mọi lúc, mọi nơi, với nhiều chương trình khuyến mãi" });
-            bannerList.Add(new Banner { Image = "Banner2.png", Content="Thoải mái thanh toán với nhiều phương thức khác nhau" });
-            bannerList.Add(new Banner { Image = "Banner3.png", Content="Khách sạn đa dạng, phòng nhiều tùy chọn" });
-            bannerList.Add(new Banner { Image = "Banner4.png", Content="Ko biết nữa" });
-            bannerList.Add(new Banner { Image = "Banner5.png", Content = "Ko biết nữa" });
+            bannerList.Add(new Banner { Image = "Introduce1.jpg", Content= "Khách sạn đa dạng, phòng nhiều tùy chọn" });
+            bannerList.Add(new Banner { Image = "Introduce2.jpg", Content="Thoải mái thanh toán với nhiều phương thức khác nhau"});
+            bannerList.Add(new Banner { Image = "Introduce3.jpg", Content= "Đặt phòng mọi lúc, mọi nơi, với nhiều chương trình khuyến mãi" });
+            
 
             BannerCarousel.ItemsSource = bannerList;
 
-            Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>
-            {
-                BannerCarousel.Position = (BannerCarousel.Position + 1) % indicatorView.Count;
-                return true;
-            }));
+            //Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>
+            //{
+            //    BannerCarousel.Position = (BannerCarousel.Position + 1) % indicatorView.Count;
+            //    return true;
+            //}));
         }
 
         private async void skip_btn_Clicked(object sender, EventArgs e)
@@ -44,9 +43,17 @@ namespace BookingHotel.Views
             await Shell.Current.GoToAsync(state: "//login");
         }
 
-        private void continue_btn_Clicked(object sender, EventArgs e)
+        private async void continue_btn_Clicked(object sender, EventArgs e)
         {
-            BannerCarousel.Position = (BannerCarousel.Position + 1) % indicatorView.Count;
+            if(BannerCarousel.Position == 2)
+            {
+                App.BookingDb.CreateIntro();
+                await Shell.Current.GoToAsync(state: "//login");
+            }
+            else
+            {
+             BannerCarousel.Position = (BannerCarousel.Position + 1) % indicatorView.Count;
+            }
         }
     }
 }
