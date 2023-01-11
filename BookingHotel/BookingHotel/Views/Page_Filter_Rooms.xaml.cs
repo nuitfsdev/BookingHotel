@@ -90,7 +90,7 @@ namespace BookingHotel.Views
                 ActiveCheckbox(Wifi, wifi_label, "wifi", true);
                 ActiveCheckbox(Tulanh, tulanh_label, "tulanh", true);
                 ActiveCheckbox(Dieuhoa, dieuhoa_label, "dieuhoa", true);
-                ActiveCheckbox(Cacham, cacham_label, "cacham", true);
+                //ActiveCheckbox(Cacham, cacham_label, "cacham", true);
 
                 //refresh loai phong
                 ActiveLoaiGiuong(Giuongdoi, giuongdoi_label, "giuongdoi", true);
@@ -112,7 +112,7 @@ namespace BookingHotel.Views
         
         private void tinh_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tinh_filter.SelectedItem.ToString() == "Tp Hồ Chí Minh")
+            if(tinh_filter.SelectedItem.ToString() == "TP Hồ Chí Minh")
                 quan_filter.ItemsSource = quan_HCM;
             else if (tinh_filter.SelectedItem.ToString() == "Hà Nội")
                 quan_filter.ItemsSource = quan_HaNoi;
@@ -309,13 +309,13 @@ namespace BookingHotel.Views
 
         private async void filter_btn_Clicked(object sender, EventArgs e)
         {
-            if (tinh_filter.SelectedItem == null)
+            if (tinh_filter.SelectedItem == null || tinh_filter.SelectedItem.ToString() == "-1" || tinh_filter.SelectedItem.ToString() == "")
                 _filter.tinh = null;
             else
                 _filter.tinh = tinh_filter.SelectedItem.ToString();
 
-            if (quan_filter.SelectedItem == null)
-                _filter.tinh = null;
+            if (quan_filter.SelectedItem == null || quan_filter.SelectedItem.ToString() == "-1" || quan_filter.SelectedItem.ToString() == "")
+                _filter.quan = null;
             else
                 _filter.quan = quan_filter.SelectedItem.ToString();
             _filter.giamin = (long)RangeSlider.LowerValue;

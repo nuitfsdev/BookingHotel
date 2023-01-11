@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
@@ -422,7 +423,11 @@ namespace BookingHotel.Views
             //ngày
             checkin_day.MinimumDate = DateTime.Now.Date;
             checkout_day.MinimumDate = DateTime.Now.Date;
-            checkin_day.Date = date.Date;
+            //checkin_day.Date = date.Date;
+            if (App.quick_checkinday != "")
+                checkin_day.Date = DateTime.ParseExact(App.quick_checkinday, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            else
+                checkin_day.Date = date.Date;
 
             if (checkin_time.Time.Hours < 23)
             {
@@ -441,7 +446,7 @@ namespace BookingHotel.Views
             checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
 
             time_uses.Text = "1";
-                time_uses_final.Text = "1";
+            time_uses_final.Text = "1";
 
             if(time_underline.IsVisible)
             {
@@ -461,10 +466,15 @@ namespace BookingHotel.Views
             //nếu trang home có chọn ngày checkin và ngày checkout rồi thì lấy hai ngày đó
             if (App.quick_checkinday != "" & App.quick_checkoutday != "" & App.quick_checkinday != App.quick_checkoutday)
             {
-                checkin_day.Date = DateTime.Parse(App.quick_checkinday);
-                checkout_day.Date = DateTime.Parse(App.quick_checkoutday);
+                checkin_day.Date = DateTime.ParseExact(App.quick_checkinday, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                checkout_day.Date = DateTime.ParseExact(App.quick_checkoutday, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             } 
-            else
+            else if (App.quick_checkinday != "" & App.quick_checkoutday != "" & App.quick_checkinday == App.quick_checkoutday)
+            {
+                checkin_day.Date = DateTime.ParseExact(App.quick_checkinday, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                checkout_day.Date = checkin_day.Date.AddDays(1);
+            }    
+            else 
             {
                 checkin_day.Date = date.Date;
                 checkout_day.Date = date.AddDays(1).Date;
@@ -478,9 +488,11 @@ namespace BookingHotel.Views
             checkin_day_final.Text = checkin_day.Date.ToString("dd/MM/yyyy");
             checkout_day_final.Text = checkout_day.Date.ToString("dd/MM/yyyy");
 
-            day_final.Text = "1";
+            TimeSpan timeSpan = checkout_day.Date - checkin_day.Date;
+            int day = timeSpan.Days;
+            day_final.Text = day.ToString();
 
-            if(day_underline.IsVisible)
+            if (day_underline.IsVisible)
             {
                 long total_cost = (save_cost_day * long.Parse(day_final.Text)) * int.Parse(Room_qty.Text);
                 addHoaDon.gia = save_cost_day;

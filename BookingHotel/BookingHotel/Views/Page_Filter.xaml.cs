@@ -45,9 +45,65 @@ namespace BookingHotel.Views
             await Shell.Current.GoToAsync(state: "../");
         }
 
-        private void clear_btn_Tapped(object sender, EventArgs e)
+        private async void clear_btn_Tapped(object sender, EventArgs e)
         {
-
+            bool answer = await DisplayAlert("Cảnh báo", "Xóa tất cả các mục đã chỉnh sửa", "Yes", "No");
+            if (answer)
+            {
+                //refresh tinh va quan
+                tinh_filter.SelectedItem = -1;
+                quan_filter.SelectedItem = -1;
+                quan_filter.IsEnabled = false;
+                //refresh rangslider
+                RangeSlider.LowerValue = RangeSlider.MinimumValue;
+                RangeSlider.UpperValue = RangeSlider.MaximumValue;
+                giamin_entry.Text = RangeSlider.LowerValue.ToString();
+                giamax_entry.Text = RangeSlider.UpperValue.ToString();
+                //refresh cac so sao
+                if (_filtersosao.Contains(5))
+                {
+                    namsao.BorderColor = Color.FromHex("#ccc");
+                    namsao.BackgroundColor = Color.FromHex("#fff");
+                    namsao_label.TextColor = Color.DimGray;
+                    _filtersosao.Remove(5);
+                }
+                if (_filtersosao.Contains(4))
+                {
+                    bonsao.BorderColor = Color.FromHex("#ccc");
+                    bonsao.BackgroundColor = Color.FromHex("#fff");
+                    bonsao_label.TextColor = Color.DimGray;
+                    _filtersosao.Remove(4);
+                }
+                if (_filtersosao.Contains(3))
+                {
+                    basao.BorderColor = Color.FromHex("#ccc");
+                    basao.BackgroundColor = Color.FromHex("#fff");
+                    basao_label.TextColor = Color.DimGray;
+                    _filtersosao.Remove(3);
+                }
+                //refesh cac tien ich
+                if (_filtertienichs.Contains("hoboi"))
+                {
+                    hoboi.BorderColor = Color.FromHex("#ccc");
+                    hoboi.BackgroundColor = Color.FromHex("#fff");
+                    hoboi_label.TextColor = Color.DimGray;
+                    _filtertienichs.Remove("hoboi");
+                }
+                if (_filtertienichs.Contains("gym"))
+                {
+                    gym.BorderColor = Color.FromHex("#ccc");
+                    gym.BackgroundColor = Color.FromHex("#fff");
+                    gym_label.TextColor = Color.DimGray;
+                    _filtertienichs.Remove("gym");
+                }
+                if (_filtertienichs.Contains("bar"))
+                {
+                    bar.BorderColor = Color.FromHex("#ccc");
+                    bar.BackgroundColor = Color.FromHex("#fff");
+                    bar_label.TextColor = Color.DimGray;
+                    _filtertienichs.Remove("bar");
+                }
+            }
         }
 
         public string[] tinhlist = new string[] { "TP Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
@@ -244,8 +300,15 @@ namespace BookingHotel.Views
         {
             _filter.sosao = _filtersosao;
             _filter.tienichs = _filtertienichs;
-            _filter.tinh = tinh_filter.SelectedItem.ToString();
-            _filter.huyen = quan_filter.SelectedItem.ToString();
+            if (tinh_filter.SelectedItem == null || tinh_filter.SelectedItem.ToString() == "-1" || tinh_filter.SelectedItem.ToString() == "")
+                _filter.tinh = null;
+            else
+                _filter.tinh = tinh_filter.SelectedItem.ToString();
+
+            if (quan_filter.SelectedItem == null || quan_filter.SelectedItem.ToString() == "-1" || quan_filter.SelectedItem.ToString() == "")
+                _filter.huyen = null;
+            else
+                _filter.huyen = quan_filter.SelectedItem.ToString();
             await Shell.Current.Navigation.PushAsync(new Page_Search(_filter));
         }
     }

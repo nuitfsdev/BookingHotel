@@ -71,11 +71,11 @@ namespace BookingHotel.Views
         {
             HttpClient httpClient = new HttpClient();
             var RoomList = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/loves/room?makh={makh}");
-            var RoomListConverted = JsonConvert.DeserializeObject<List<Hotel>>(RoomList);
+            var RoomListConverted = JsonConvert.DeserializeObject<List<Room>>(RoomList);
             //hiện trái tim đỏ khi đã nằm trong yêu thích
             if (RoomListConverted.Count > 0)
-                foreach (Hotel i in RoomListConverted)
-                    if (i.maht == Thishotel.maht)
+                foreach (Room i in RoomListConverted)
+                    if (i.maroom == Thisroom.maroom)
                     {
                         Add_Like_List.Source = "heart.png";
                         break;
