@@ -311,6 +311,14 @@ namespace BookingHotel.Views
         {
             if (tinh_filter.SelectedItem == null || tinh_filter.SelectedItem.ToString() == "-1" || tinh_filter.SelectedItem.ToString() == "")
                 _filter.tinh = null;
+            else if (tinh_filter.SelectedItem.ToString() == "TP Hồ Chí Minh")
+            {
+                _filter.tinh = "TP";
+            }
+            else if (tinh_filter.SelectedItem.ToString() == "Hà Nội")
+            {
+                _filter.tinh = "Ha";
+            }
             else
                 _filter.tinh = tinh_filter.SelectedItem.ToString();
 
@@ -318,6 +326,7 @@ namespace BookingHotel.Views
                 _filter.quan = null;
             else
                 _filter.quan = quan_filter.SelectedItem.ToString();
+            
             _filter.giamin = (long)RangeSlider.LowerValue;
             _filter.giamax = (long)RangeSlider.UpperValue;
             _filter.sogiuong = int.Parse(bed_qty.Text);

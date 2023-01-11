@@ -33,7 +33,12 @@ namespace BookingHotel.Views
             HttpClient httpClient = new HttpClient();
             var subjectList = await httpClient.GetStringAsync(urlAPI);
             var subjectListConverted = JsonConvert.DeserializeObject<List<Room>>(subjectList);
-            Room_Collection.ItemsSource = subjectListConverted;
+            if(subjectListConverted.Count > 0)
+            {
+                Room_Collection.ItemsSource = subjectListConverted;
+            }    
+            else
+                Room_Collection.ItemsSource = null;
         }
 
         public Page_Love()
@@ -76,10 +81,11 @@ namespace BookingHotel.Views
             room_underline.IsVisible = false;
             Love_Collection.IsVisible = true;
             Room_Collection.IsVisible = false;
+            RoomNullList.IsVisible = false;
             if (Love_Collection.ItemsSource == null)
             {
-                loading_gif.IsVisible = false;
-                NullList.IsVisible = true;
+                //loading_gif.IsVisible = false;
+                //NullList.IsVisible = true;
             }    
         }
 
@@ -89,11 +95,16 @@ namespace BookingHotel.Views
             ks_underline.IsVisible = false;
             room_underline.IsVisible = true;
             Love_Collection.IsVisible = false;
-            Room_Collection.IsVisible = true;
             if (Room_Collection.ItemsSource == null)
             {
                 //room_loading_gif.IsVisible = false;
-                //RoomNullList.IsVisible = true;
+                Room_Collection.IsVisible = false;
+                RoomNullList.IsVisible = true;
+            }
+            else
+            {
+                Room_Collection.IsVisible = true;
+                RoomNullList.IsVisible = false;
             }
         }
 

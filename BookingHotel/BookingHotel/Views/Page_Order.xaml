@@ -135,12 +135,12 @@
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
                     <StackLayout>
-                        <ffimageloading:CachedImage x:Name="loading_gif" IsVisible="true"
+                        <!--<ffimageloading:CachedImage x:Name="loading_gif" IsVisible="true"
 			                        WidthRequest="300" HeightRequest="200"
 			                        DownsampleToViewSize="true"
 			                        Source = "nam_loading.gif">
-                        </ffimageloading:CachedImage>
-                        <Label x:Name="NullList" Text="Danh sách rỗng" FontSize="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
+                        </ffimageloading:CachedImage>-->
+                        <Label Text="Danh sách rỗng" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </CollectionView.EmptyView>
             </CollectionView>
