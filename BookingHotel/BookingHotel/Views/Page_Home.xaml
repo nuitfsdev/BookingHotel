@@ -193,9 +193,9 @@
                                         <Label Text="{Binding tenht}" FontAttributes="Bold" FontSize="18" TextColor="Black" Padding="10,0,10,0" Grid.Column="0" Grid.Row="1"/>
                                         <Label Text="{Binding diachi}" Padding="10,0,10,0" Grid.Column="0" Grid.Row="2"/>
                                         <StackLayout Orientation="Horizontal" Padding="10,0,10,10" VerticalOptions="EndAndExpand" Grid.Column="0" Grid.Row="3">
-                                            <Label Text="{Binding giamin}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="{Binding giamin, StringFormat='{0:0,0}'}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
                                             <Label Text="-" VerticalTextAlignment="Center" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
-                                            <Label Text="{Binding giamax}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="{Binding giamax,StringFormat='{0:0,0}'}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
                                             <Label Text="vnđ" VerticalTextAlignment="Center" FontSize="16" TextColor="red" />
                                         </StackLayout>
                                     </Grid>
@@ -284,9 +284,9 @@
                                         <Label Text="{Binding tenht}" FontAttributes="Bold" FontSize="18" TextColor="Black" Padding="10,0,10,0" Grid.Column="0" Grid.Row="1"/>
                                         <Label Text="{Binding diachi}" Padding="10,0,10,0" Grid.Column="0" Grid.Row="2"/>
                                         <StackLayout Orientation="Horizontal" Padding="10,0,10,10" VerticalOptions="EndAndExpand" Grid.Column="0" Grid.Row="3">
-                                            <Label Text="{Binding giamin}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="{Binding giamin,StringFormat='{0:0,0}'}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
                                             <Label Text="-" VerticalTextAlignment="Center" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
-                                            <Label Text="{Binding giamax}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
+                                            <Label Text="{Binding giamax,StringFormat='{0:0,0}'}" VerticalTextAlignment="End" FontSize="16" TextColor="#585de4" FontAttributes="Bold"/>
                                             <Label Text="vnđ" VerticalTextAlignment="Center" FontSize="16" TextColor="red" />
                                         </StackLayout>
                                     </Grid>
