@@ -76,7 +76,7 @@ namespace BookingHotel.Views
         public Page_Order()
         {
             InitializeComponent();
-            hienthiorder("KH1");
+            hienthiorder(App.BookingDb.GetUser().mauser);
         }
 
         private async void Search_Btn_Clicked(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace BookingHotel.Views
             Cancle.TextColor = Color.Gray;
             Cancle.BorderColor = Color.FromHex("#ccc");
             Cancle.FontAttributes = FontAttributes.None;
-            hienthiorder("KH1","Đang xử lí");
+            hienthiorder(App.BookingDb.GetUser().mauser, "Đang xử lí");
         }
 
         private void Pass_Clicked(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace BookingHotel.Views
             Cancle.TextColor = Color.Gray;
             Cancle.BorderColor = Color.FromHex("#ccc");
             Cancle.FontAttributes |= FontAttributes.None;
-            hienthiorder("KH1", "Thành công");
+            hienthiorder(App.BookingDb.GetUser().mauser, "Thành công");
         }
 
         private void Cancle_Clicked(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace BookingHotel.Views
             Cancle.TextColor = Color.FromHex("#585de4");
             Cancle.BorderColor = Color.FromHex("#585de4");
             Cancle.FontAttributes = FontAttributes.Bold;
-            hienthiorder("KH1", "Đã hủy");
+            hienthiorder(App.BookingDb.GetUser().mauser, "Đã hủy");
 
         }
     }
