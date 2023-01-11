@@ -92,8 +92,8 @@ namespace BookingHotel.Views
             Room_Collection.IsVisible = true;
             if (Room_Collection.ItemsSource == null)
             {
-                room_loading_gif.IsVisible = false;
-                RoomNullList.IsVisible = true;
+                //room_loading_gif.IsVisible = false;
+                //RoomNullList.IsVisible = true;
             }
         }
 
@@ -201,6 +201,67 @@ namespace BookingHotel.Views
                 }
             }
         }
-        
+        //private async void Room_Booking_SwipeItem_Invoked(object sender, EventArgs e)
+        //{
+        //    SwipeItem swipeItem = (SwipeItem)sender;
+        //    Room room = swipeItem.CommandParameter as Room;
+
+        //    HttpClient httpClient = new HttpClient();
+        //    var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
+        //    var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+
+        //    await Shell.Current.Navigation.PushAsync(new Page_Booking_Info(HotelConverted[0], room));
+        //}
+        //private async void Room_Hotel_SwipeItem_Invoked(object sender, EventArgs e)
+        //{
+        //    SwipeItem swipeItem = (SwipeItem)sender;
+        //    Room room = swipeItem.CommandParameter as Room;
+
+        //    HttpClient httpClient = new HttpClient();
+        //    var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
+        //    var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+
+        //    await Shell.Current.Navigation.PushAsync(new Page_Hotel(HotelConverted[0]));
+        //}
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            Room room = menuItem.CommandParameter as Room;
+            bool answer = await DisplayAlert("Cảnh báo", $"Bạn thật sự muốn xóa {room.tenphong} khỏi danh sách yêu thích", "Yes", "No");
+            if (answer)
+            {
+                HttpClient httpClient = new HttpClient();
+                Love_room love_Room = new Love_room();
+                love_Room.makh = App.BookingDb.GetUser().mauser;
+                love_Room.maroom = room.maroom;
+
+                HttpResponseMessage responseMessage = null;
+                responseMessage = await httpClient.DeleteAsync($"https://bookinghotel.onrender.com/loves/room?makh={love_Room.makh}&maroom={love_Room.maroom}");
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    _ = DisplayAlert("Thông báo", $"Đã xóa {room.tenphong} khỏi yêu thích", "OK");
+                    hienthidsroom($"https://bookinghotel.onrender.com/loves/room?makh={user.mauser}");
+                }
+                else
+                {
+                    _ = DisplayAlert("Thông báo", $"Xóa {room.tenphong} vào yêu thích THẤT BẠI", "OK");
+                }
+            }
+        }
+
+        private async void Room_Collection_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Room room = e.Item as Room;
+            if (room == null)
+                return;
+            Room_Collection.SelectedItem = SelectableItemsView.EmptyViewProperty;
+
+            HttpClient httpClient = new HttpClient();
+            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
+            var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+
+            await Shell.Current.Navigation.PushAsync(new Page_Room_Info(HotelConverted[0], room));
+        }
     }
 }

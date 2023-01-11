@@ -126,7 +126,7 @@
 
                             <!--Thêm khách sạn vào Yêu thích-->
 
-                            <ImageButton Source="heartWhite.png" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                            <ImageButton Source="{Binding loveurl}" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
                                          BackgroundColor="Transparent"
                                        HeightRequest="25" WidthRequest="25"
                                        HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"

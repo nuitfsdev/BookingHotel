@@ -29,7 +29,7 @@ namespace BookingHotel.Views
             if(App.quick_tinh != "")
             {
                 tinh_filter.SelectedItem = App.quick_tinh;
-                if(App.quick_tinh == "Tp Hồ Chí Minh")
+                if(App.quick_tinh == "TP Hồ Chí Minh")
                     quan_filter.ItemsSource = quan_HCM;
                 else if (App.quick_tinh == "Hà Nội")
                     quan_filter.ItemsSource = quan_HaNoi;
@@ -45,19 +45,75 @@ namespace BookingHotel.Views
             await Shell.Current.GoToAsync(state: "../");
         }
 
-        private void clear_btn_Tapped(object sender, EventArgs e)
+        private async void clear_btn_Tapped(object sender, EventArgs e)
         {
-
+            bool answer = await DisplayAlert("Cảnh báo", "Xóa tất cả các mục đã chỉnh sửa", "Yes", "No");
+            if (answer)
+            {
+                //refresh tinh va quan
+                tinh_filter.SelectedItem = -1;
+                quan_filter.SelectedItem = -1;
+                quan_filter.IsEnabled = false;
+                //refresh rangslider
+                RangeSlider.LowerValue = RangeSlider.MinimumValue;
+                RangeSlider.UpperValue = RangeSlider.MaximumValue;
+                giamin_entry.Text = RangeSlider.LowerValue.ToString();
+                giamax_entry.Text = RangeSlider.UpperValue.ToString();
+                //refresh cac so sao
+                if (_filtersosao.Contains(5))
+                {
+                    namsao.BorderColor = Color.FromHex("#ccc");
+                    namsao.BackgroundColor = Color.FromHex("#fff");
+                    namsao_label.TextColor = Color.DimGray;
+                    _filtersosao.Remove(5);
+                }
+                if (_filtersosao.Contains(4))
+                {
+                    bonsao.BorderColor = Color.FromHex("#ccc");
+                    bonsao.BackgroundColor = Color.FromHex("#fff");
+                    bonsao_label.TextColor = Color.DimGray;
+                    _filtersosao.Remove(4);
+                }
+                if (_filtersosao.Contains(3))
+                {
+                    basao.BorderColor = Color.FromHex("#ccc");
+                    basao.BackgroundColor = Color.FromHex("#fff");
+                    basao_label.TextColor = Color.DimGray;
+                    _filtersosao.Remove(3);
+                }
+                //refesh cac tien ich
+                if (_filtertienichs.Contains("hoboi"))
+                {
+                    hoboi.BorderColor = Color.FromHex("#ccc");
+                    hoboi.BackgroundColor = Color.FromHex("#fff");
+                    hoboi_label.TextColor = Color.DimGray;
+                    _filtertienichs.Remove("hoboi");
+                }
+                if (_filtertienichs.Contains("gym"))
+                {
+                    gym.BorderColor = Color.FromHex("#ccc");
+                    gym.BackgroundColor = Color.FromHex("#fff");
+                    gym_label.TextColor = Color.DimGray;
+                    _filtertienichs.Remove("gym");
+                }
+                if (_filtertienichs.Contains("bar"))
+                {
+                    bar.BorderColor = Color.FromHex("#ccc");
+                    bar.BackgroundColor = Color.FromHex("#fff");
+                    bar_label.TextColor = Color.DimGray;
+                    _filtertienichs.Remove("bar");
+                }
+            }
         }
 
-        public string[] tinhlist = new string[] { "Tp Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
+        public string[] tinhlist = new string[] { "TP Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
         public string[] quan_HCM = new string[] { "Quận Thủ Đức", "Quận 1", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè" };
         public string[] quan_HaNoi = new string[] { "Quận Hoàn Kiếm", "Quận Đống Đa", "Quận Ba Đình", "Quận Hai Bà Trưng", "Quận Hoàng Mai", "Quận Thanh Xuân", "Quận Long Biên", "Quận Nam Từ Liêm", "Quận Bắc Từ Liêm", "Quận Tây Hồ", "Quận Cầu Giấy", "Quận Hà Đông", "Thị xã Sơn Tây", "Huyện Ba Vì", "Huyện Chương Mỹ", "Huyện Phúc Thọ", "Huyện Đan Phượng", "Huyện Đông Anh", "Huyện Gia Lâm", "Huyện Hoài Đức", "Huyện Mê Linh", "Huyện Mỹ Đức", "Huyện Phú Xuyên", "Huyện Quốc Oai", "Huyện Sóc Sơn", "Huyện Thạch Thất", "Huyện Thanh Oai", "Huyện Thường Tín", "Huyện Ứng Hòa", "Huyện Thanh Trì" };
         public string[] quan_DaNang = new string[] { "Quận Hải Châu", "Quận Cẩm Lệ", "Quận Thanh Khê", "Quận Liên Chiểu", "Quận Ngũ Hành Sơn", "Quận Sơn Trà", "Huyện Hòa Vang", "Huyện Hoàng Sa" };
 
         private void tinh_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tinh_filter.SelectedItem.ToString() == "Tp Hồ Chí Minh")
+            if (tinh_filter.SelectedItem.ToString() == "TP Hồ Chí Minh")
                 quan_filter.ItemsSource = quan_HCM;
             else if (tinh_filter.SelectedItem.ToString() == "Hà Nội")
                 quan_filter.ItemsSource = quan_HaNoi;
@@ -244,8 +300,15 @@ namespace BookingHotel.Views
         {
             _filter.sosao = _filtersosao;
             _filter.tienichs = _filtertienichs;
-            _filter.tinh = tinh_filter.SelectedItem.ToString();
-            _filter.huyen = quan_filter.SelectedItem.ToString();
+            if (tinh_filter.SelectedItem == null || tinh_filter.SelectedItem.ToString() == "-1" || tinh_filter.SelectedItem.ToString() == "")
+                _filter.tinh = null;
+            else
+                _filter.tinh = tinh_filter.SelectedItem.ToString();
+
+            if (quan_filter.SelectedItem == null || quan_filter.SelectedItem.ToString() == "-1" || quan_filter.SelectedItem.ToString() == "")
+                _filter.huyen = null;
+            else
+                _filter.huyen = quan_filter.SelectedItem.ToString();
             await Shell.Current.Navigation.PushAsync(new Page_Search(_filter));
         }
     }

@@ -67,6 +67,8 @@ namespace BookingHotel.Views
         public Page_Home()
         {
             InitializeComponent();
+            ngayden_dpk.MinimumDate = DateTime.Now;
+            ngaydi_dpk.MinimumDate = DateTime.Now;
             say_greet.Text = "Xin chào, " + App.BookingDb.GetUserLastName()+"!";
             List<Banner> bannerList = new List<Banner>();
             bannerList.Add(new Banner { Image="Banner1.png"});
@@ -93,6 +95,8 @@ namespace BookingHotel.Views
             KhachSanNoiBat();
             Tintuc();
             KhuyenMai();
+            App.quick_checkinday = ngayden_dpk.Date.ToString("dd-MM-yyyy");
+            App.quick_checkoutday = ngaydi_dpk.Date.ToString("dd-MM-yyyy");
         }
 
         //private async void announcement_icon_Clicked(object sender, EventArgs e)
@@ -125,7 +129,8 @@ namespace BookingHotel.Views
                 home_Save_Filter.checkin_day = ngayden_dpk.Date.ToString("dd-MM-yyyy");
                 home_Save_Filter.checkout_day = ngaydi_dpk.Date.ToString("dd-MM-yyyy");
                 App.BookingDb.CreateHome_save_filter(home_Save_Filter);
-                DisplayAlert("TB", $"{diadiem_pk.SelectedItem} {quanhuyen_pk.SelectedItem} {ngayden_dpk.Date.ToString("dd-MM-yyyy")} {ngaydi_dpk.Date.ToString("dd-MM-yyyy")}", "Ok");
+                //DisplayAlert("TB", $"{diadiem_pk.SelectedItem} {quanhuyen_pk.SelectedItem} {ngayden_dpk.Date.ToString("dd-MM-yyyy")} {ngaydi_dpk.Date.ToString("dd-MM-yyyy")}", "Ok");
+                Shell.Current.Navigation.PushAsync(new Page_Search(App.quick_tinh,App.quick_quan));
             }    
         }
 
@@ -137,8 +142,10 @@ namespace BookingHotel.Views
         {
             MyPicker myPicker = (MyPicker)sender;
             diadiem=myPicker.SelectedItem as string;
+
             if (diadiem_pk.SelectedItem.ToString() == "Tp Hồ Chí Minh")
             {
+
                 quanhuyen_pk.ItemsSource = quan_HCM;
 
             }    
@@ -159,7 +166,10 @@ namespace BookingHotel.Views
         private void quanhuyen_pk_SelectedIndexChanged(object sender, EventArgs e)
         {
             MyPicker myPicker = (MyPicker)sender;
-            App.quick_quan = quanhuyen_pk.SelectedItem.ToString();
+            if(quanhuyen_pk.SelectedItem == null)
+                App.quick_tinh = null;
+            else
+                App.quick_quan = quanhuyen_pk.SelectedItem.ToString();
         }
 
         private void ngayden_dpk_DateSelected(object sender, DateChangedEventArgs e)

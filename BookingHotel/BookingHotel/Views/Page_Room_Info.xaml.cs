@@ -27,7 +27,7 @@ namespace BookingHotel.Views
             detail.TranslateTo(0, 0, 1000);
             Thisroom = room;
             Thishotel = hotel;
-
+            hienthiphongLove(App.BookingDb.GetUser().mauser);
              bannerCarousel.ItemsSource= room.hinh;
             tenphong.Text = room.tenphong;
             theogio.Text = String.Format("{0:0,0}", room.giagio);
@@ -65,6 +65,21 @@ namespace BookingHotel.Views
                 Label label = new Label { Text = "Đang cập nhật", HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = Color.Black, Margin = new Thickness(10), FontSize = 20 };
                 tienichlist.Children.Add(label);
             }    
+        }
+
+        async void hienthiphongLove(string makh)
+        {
+            HttpClient httpClient = new HttpClient();
+            var RoomList = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/loves/room?makh={makh}");
+            var RoomListConverted = JsonConvert.DeserializeObject<List<Room>>(RoomList);
+            //hiện trái tim đỏ khi đã nằm trong yêu thích
+            if (RoomListConverted.Count > 0)
+                foreach (Room i in RoomListConverted)
+                    if (i.maroom == Thisroom.maroom)
+                    {
+                        Add_Like_List.Source = "heart.png";
+                        break;
+                    }
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)

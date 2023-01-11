@@ -44,5 +44,6 @@ namespace BookingHotel.Models
         public string map { get; set; }
         public string createAt { get; set; }
         public string updateAt { get; set; }
+        public string loveurl { get; set; } = "heartWhite.png";
     }
 }

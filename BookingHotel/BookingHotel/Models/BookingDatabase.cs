@@ -130,6 +130,20 @@ namespace BookingHotel.Models
                 throw;
             }
         }
+        public string GetToken()
+        {
+            try
+            {
+                Token token = db.Table<Token>().First();
+                return token.token;
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("Exception: " + ex);
+                return null;
+                throw;
+            }
+        }
         //filter của Home
         //lưu thông tin khi người dùng nhấn nút Tìm kiếm ở trang Home
         public bool CreateHome_save_filter(Home_save_filter home_Save_Filter)

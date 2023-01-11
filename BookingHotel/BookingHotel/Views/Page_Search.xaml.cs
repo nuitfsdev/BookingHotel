@@ -31,6 +31,14 @@ namespace BookingHotel.Views
             hienthiks("https://bookinghotel.onrender.com/hotels");
             search_entry.Focus();
         }
+
+        public Page_Search(string tinh,string quan)
+        {
+            InitializeComponent();
+            hienthiks($"https://bookinghotel.onrender.com/hotels?tinh={tinh}&quan={quan}");
+            DisplayAlert("TB", $"https://bookinghotel.onrender.com/hotels?tinh={tinh}&quan={quan}", "OK");
+        }
+
         public Page_Search(HotelFilter hotelFilter)
         {
             InitializeComponent();

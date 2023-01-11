@@ -21,7 +21,7 @@ namespace BookingHotel.Views
         List<string> _filterloaiphong = new List<string>();
         List<string> _filterloaigiuong = new List<string>();
 
-        public string[] tinhlist = new string[] { "Tp Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
+        public string[] tinhlist = new string[] { "TP Hồ Chí Minh", "Hà Nội", "Đà Nẵng" };
         public string[] quan_HCM = new string[] { "Quận Thủ Đức", "Quận 1", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè" };
         public string[] quan_HaNoi = new string[] { "Quận Hoàn Kiếm", "Quận Đống Đa", "Quận Ba Đình", "Quận Hai Bà Trưng", "Quận Hoàng Mai", "Quận Thanh Xuân", "Quận Long Biên", "Quận Nam Từ Liêm", "Quận Bắc Từ Liêm", "Quận Tây Hồ", "Quận Cầu Giấy", "Quận Hà Đông", "Thị xã Sơn Tây", "Huyện Ba Vì", "Huyện Chương Mỹ", "Huyện Phúc Thọ", "Huyện Đan Phượng", "Huyện Đông Anh", "Huyện Gia Lâm", "Huyện Hoài Đức", "Huyện Mê Linh", "Huyện Mỹ Đức", "Huyện Phú Xuyên", "Huyện Quốc Oai", "Huyện Sóc Sơn", "Huyện Thạch Thất", "Huyện Thanh Oai", "Huyện Thường Tín", "Huyện Ứng Hòa", "Huyện Thanh Trì" };
         public string[] quan_DaNang = new string[] { "Quận Hải Châu", "Quận Cẩm Lệ", "Quận Thanh Khê", "Quận Liên Chiểu", "Quận Ngũ Hành Sơn", "Quận Sơn Trà", "Huyện Hòa Vang", "Huyện Hoàng Sa"};
@@ -37,7 +37,7 @@ namespace BookingHotel.Views
             if (App.quick_tinh != "")
             {
                 tinh_filter.SelectedItem = App.quick_tinh;
-                if (App.quick_tinh == "Tp Hồ Chí Minh")
+                if (App.quick_tinh == "TP Hồ Chí Minh")
                     quan_filter.ItemsSource = quan_HCM;
                 else if (App.quick_tinh == "Hà Nội")
                     quan_filter.ItemsSource = quan_HaNoi;
@@ -90,7 +90,7 @@ namespace BookingHotel.Views
                 ActiveCheckbox(Wifi, wifi_label, "wifi", true);
                 ActiveCheckbox(Tulanh, tulanh_label, "tulanh", true);
                 ActiveCheckbox(Dieuhoa, dieuhoa_label, "dieuhoa", true);
-                ActiveCheckbox(Cacham, cacham_label, "cacham", true);
+                //ActiveCheckbox(Cacham, cacham_label, "cacham", true);
 
                 //refresh loai phong
                 ActiveLoaiGiuong(Giuongdoi, giuongdoi_label, "giuongdoi", true);
@@ -112,7 +112,7 @@ namespace BookingHotel.Views
         
         private void tinh_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tinh_filter.SelectedItem.ToString() == "Tp Hồ Chí Minh")
+            if(tinh_filter.SelectedItem.ToString() == "TP Hồ Chí Minh")
                 quan_filter.ItemsSource = quan_HCM;
             else if (tinh_filter.SelectedItem.ToString() == "Hà Nội")
                 quan_filter.ItemsSource = quan_HaNoi;
@@ -309,13 +309,13 @@ namespace BookingHotel.Views
 
         private async void filter_btn_Clicked(object sender, EventArgs e)
         {
-            if (tinh_filter.SelectedItem == null)
+            if (tinh_filter.SelectedItem == null || tinh_filter.SelectedItem.ToString() == "-1" || tinh_filter.SelectedItem.ToString() == "")
                 _filter.tinh = null;
             else
                 _filter.tinh = tinh_filter.SelectedItem.ToString();
 
-            if (quan_filter.SelectedItem == null)
-                _filter.tinh = null;
+            if (quan_filter.SelectedItem == null || quan_filter.SelectedItem.ToString() == "-1" || quan_filter.SelectedItem.ToString() == "")
+                _filter.quan = null;
             else
                 _filter.quan = quan_filter.SelectedItem.ToString();
             _filter.giamin = (long)RangeSlider.LowerValue;
