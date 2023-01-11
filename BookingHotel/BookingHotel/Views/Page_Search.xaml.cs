@@ -44,6 +44,14 @@ namespace BookingHotel.Views
                 string queryString = "";
                 if (hotelFilter.tinh != null)
                 {
+                    if(hotelFilter.tinh=="Tp Hồ Chí Minh")
+                    {
+                        hotelFilter.tinh = "TP";
+                    }
+                    if (hotelFilter.tinh == "Hà Nội")
+                    {
+                        hotelFilter.tinh = "Ha";
+                    }
                     queryString = queryString + $"tinh={hotelFilter.tinh}";
                 }
                 if (hotelFilter.huyen != null)

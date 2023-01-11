@@ -16,7 +16,7 @@ namespace BookingHotel.Views
         public Page_Hotel_Map(Hotel hotel)
         {
             InitializeComponent();
-            //map_ht.Source = hotel.map;
+            map_ht.Source = hotel.map;
         }
 
         private void back_btn_Clicked(object sender, EventArgs e)

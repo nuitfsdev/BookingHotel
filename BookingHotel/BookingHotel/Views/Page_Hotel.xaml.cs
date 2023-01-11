@@ -30,8 +30,8 @@ namespace BookingHotel.Views
             min.Text = String.Format( "{0:0,0}" , hotel.giamin);
             max.Text = String.Format("{0:0,0 VNĐ}", hotel.giamax);
             rate.Text = hotel.sosao.ToString();
-            desc.Text = "\t" + hotel.mota;
-            contact.Text ="\t" + hotel.lienhe;
+            desc.Text =  hotel.mota;
+            contact.Text =hotel.lienhe;
             //map.Source = hotel.map;
 
             Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>

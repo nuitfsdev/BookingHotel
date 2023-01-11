@@ -21,9 +21,9 @@
                 <StackLayout>
 
                     <!--Thông tin khách sạn-->
-                    <Grid>
+                    <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="110"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
@@ -42,9 +42,9 @@
 
                             <!--Địa chỉ-->
 
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0,5,0,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0,5,0,0" >
                                 <Image Source="nam_locationpin.png" WidthRequest="20" VerticalOptions="Center"/>
-                                <Label x:Name="diachi" TextColor="Black" FontSize="14"/>
+                                <Label x:Name="diachi" TextColor="Black" FontSize="14" />
                             </StackLayout>
 
                             <!--Các tiện ích của KS-->
