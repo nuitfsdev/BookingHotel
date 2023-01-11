@@ -143,7 +143,7 @@ namespace BookingHotel.Views
             MyPicker myPicker = (MyPicker)sender;
             diadiem=myPicker.SelectedItem as string;
 
-            if (diadiem_pk.SelectedItem.ToString() == "Tp Hồ Chí Minh")
+            if (diadiem_pk.SelectedItem.ToString() == "TP Hồ Chí Minh")
             {
 
                 quanhuyen_pk.ItemsSource = quan_HCM;

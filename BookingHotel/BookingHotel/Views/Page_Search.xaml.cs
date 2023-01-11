@@ -35,6 +35,14 @@ namespace BookingHotel.Views
         public Page_Search(string tinh,string quan)
         {
             InitializeComponent();
+            if (tinh == "TP Hồ Chí Minh")
+            {
+                tinh = "TP";
+            }
+            if (tinh == "Hà Nội")
+            {
+               tinh = "Ha";
+            }
             hienthiks($"https://bookinghotel.onrender.com/hotels?tinh={tinh}&quan={quan}");
             DisplayAlert("TB", $"https://bookinghotel.onrender.com/hotels?tinh={tinh}&quan={quan}", "OK");
         }
@@ -52,7 +60,7 @@ namespace BookingHotel.Views
                 string queryString = "";
                 if (hotelFilter.tinh != null)
                 {
-                    if(hotelFilter.tinh=="Tp Hồ Chí Minh")
+                    if(hotelFilter.tinh=="TP Hồ Chí Minh")
                     {
                         hotelFilter.tinh = "TP";
                     }
