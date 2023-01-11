@@ -238,12 +238,6 @@
                                     <TapGestureRecognizer x:Name="Dieuhoa_tap" Tapped="Dieuhoa_tap_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
-                            <Frame x:Name="Cacham" HeightRequest="50" Grid.Column="0" Grid.Row="1" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                                <Label Text="Cách âm" x:Name="cacham_label" TextColor="DimGray" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="Cacham_tap" Tapped="Cacham_tap_Tapped"/>
-                                </Frame.GestureRecognizers>
-                            </Frame>
                         </Grid>
                     </StackLayout>
                     

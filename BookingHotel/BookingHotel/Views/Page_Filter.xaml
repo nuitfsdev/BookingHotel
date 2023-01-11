@@ -49,20 +49,20 @@
                     <Label Text="Loại khách sạn" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="10,10,0,0"/>
                     <StackLayout Orientation="Horizontal" Margin="10">
                         <Frame x:Name="namsao"  HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
-                            <Label  Text="5 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Label  Text="5 sao" x:Name="namsao_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="namsao_tap" Tapped="namsao_tap_Tapped"/>
                             </Frame.GestureRecognizers>
 
                         </Frame>
                         <Frame x:Name="bonsao" HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
-                            <Label Text="4 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Label Text="4 sao" x:Name="bonsao_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="bonsao_tap" Tapped="bonsao_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="basao" HeightRequest="50" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0" >
-                            <Label Text="3 sao" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Label Text="3 sao" x:Name="basao_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="basao_tap" Tapped="basao_tap_Tapped"/>
                             </Frame.GestureRecognizers>
@@ -123,19 +123,19 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Frame x:Name="hoboi" HeightRequest="50" Grid.Column="0" Grid.Row="0" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Hồ bơi" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Label Text="Hồ bơi" x:Name="hoboi_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="hoboi_tap" Tapped="hoboi_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="gym" HeightRequest="50" Grid.Column="1" Grid.Row="0" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"   >
-                            <Label Text="Phòng gym" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Label Text="Phòng gym" x:Name="gym_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="gym_tap" Tapped="gym_tap_Tapped"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame x:Name="bar" HeightRequest="50" Grid.Column="0" Grid.Row="1" WidthRequest="150" HasShadow="False" CornerRadius="30" HorizontalOptions="FillAndExpand" BorderColor="#ccc" Padding="0"  >
-                            <Label Text="Quầy bar" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
+                            <Label Text="Quầy bar" x:Name="bar_label" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18"></Label>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="bar_tap" Tapped="bar_tap_Tapped"/>
                             </Frame.GestureRecognizers>

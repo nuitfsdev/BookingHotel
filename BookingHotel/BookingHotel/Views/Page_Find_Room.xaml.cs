@@ -280,7 +280,7 @@ namespace BookingHotel.Views
 
         private async void back_btn_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(state: "../");
+            await Shell.Current.GoToAsync(state: "//main/love");
         }
 
         //async void LayHotel(string maht)

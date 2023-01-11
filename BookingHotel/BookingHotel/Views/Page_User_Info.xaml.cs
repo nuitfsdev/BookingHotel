@@ -1,7 +1,10 @@
 ﻿using BookingHotel.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.Behaviors;
@@ -33,14 +36,28 @@ namespace BookingHotel.Views
 
         }
 
-        private void save_btn_Clicked(object sender, EventArgs e)
+        private async void save_btn_Clicked(object sender, EventArgs e)
         {
-            User user = App.BookingDb.GetUser();
-            user.name = user_name.Text;
-            user.email = user_email.Text;
-            user.sdt = user_telephone.Text;
-            if(App.BookingDb.UpdateUser(user))
+            UpdateUser updateUser = new UpdateUser();
+            updateUser.name = user_name.Text;
+            updateUser.email = user_email.Text;
+            updateUser.sdt = user_telephone.Text;
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage responseMessage = null;
+            string json = JsonConvert.SerializeObject(updateUser);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.BookingDb.GetToken() );
+            responseMessage = await httpClient.PutAsync("https://bookinghotel.onrender.com/users/me", content);
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
                 DisplayAlert("Thông báo","Cập nhật thành công","Ok");
+                User user = App.BookingDb.GetUser();
+                user.name = user_name.Text;
+                user.email = user_email.Text;
+                user.sdt = user_telephone.Text;
+                App.BookingDb.UpdateUser(user);
+            }    
             else
                 DisplayAlert("Thông báo", "Thất bại!", "Ok");
         }
