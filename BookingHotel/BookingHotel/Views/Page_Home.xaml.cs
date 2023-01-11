@@ -142,12 +142,23 @@ namespace BookingHotel.Views
         {
             MyPicker myPicker = (MyPicker)sender;
             diadiem=myPicker.SelectedItem as string;
+
             if (diadiem_pk.SelectedItem.ToString() == "TP Hồ Chí Minh")
+            {
+
                 quanhuyen_pk.ItemsSource = quan_HCM;
+
+            }    
             else if (diadiem_pk.SelectedItem.ToString() == "Hà Nội")
+            {
+
                 quanhuyen_pk.ItemsSource = quan_HaNoi;
+            }    
             else
+            {
                 quanhuyen_pk.ItemsSource = quan_DaNang;
+
+            }    
             quanhuyen_pk.IsEnabled = true;
             App.quick_tinh = diadiem_pk.SelectedItem.ToString();
         }
