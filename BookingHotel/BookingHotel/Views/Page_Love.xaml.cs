@@ -201,6 +201,28 @@ namespace BookingHotel.Views
                 }
             }
         }
+        private async void Room_Booking_SwipeItem_Invoked(object sender, EventArgs e)
+        {
+            SwipeItem swipeItem = (SwipeItem)sender;
+            Room room = swipeItem.CommandParameter as Room;
+
+            HttpClient httpClient = new HttpClient();
+            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
+            var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+
+            await Shell.Current.Navigation.PushAsync(new Page_Booking_Info(HotelConverted[0], room));
+        }
+        private async void Room_Hotel_SwipeItem_Invoked(object sender, EventArgs e)
+        {
+            SwipeItem swipeItem = (SwipeItem)sender;
+            Room room = swipeItem.CommandParameter as Room;
+
+            HttpClient httpClient = new HttpClient();
+            var Hotel = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/hotels?maht={room.maht}");
+            var HotelConverted = JsonConvert.DeserializeObject<List<Hotel>>(Hotel);
+
+            await Shell.Current.Navigation.PushAsync(new Page_Hotel(HotelConverted[0]));
+        }
         
     }
 }

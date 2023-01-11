@@ -142,7 +142,17 @@
                         <SwipeView WidthRequest="200">
                             <SwipeView.RightItems>
                                 <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
-                                    <SwipeItem Text="Delete"
+                                    <SwipeItem Text="Đặt phòng"
+                                                   IconImageSource=""
+                                                   BackgroundColor="#585de4"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="Room_Booking_SwipeItem_Invoked"/>
+                                    <SwipeItem Text="Khách sạn"
+                                                   IconImageSource=""
+                                                   BackgroundColor="Brown"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="Room_Hotel_SwipeItem_Invoked"/>
+                                    <SwipeItem Text="Xóa"
                                                    IconImageSource=""
                                                    BackgroundColor="Red"
                                                    CommandParameter="{Binding .}"
