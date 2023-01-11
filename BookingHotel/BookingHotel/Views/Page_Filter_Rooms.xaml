@@ -276,7 +276,7 @@
             <!--Nút Lọc-->
             <StackLayout Margin="10,10,10,10">
                 <StackLayout >
-                    <Button Text="Lọc" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
+                    <Button Text="Lọc" TextTransform="None" BackgroundColor="#585de4" TextColor="White" FontSize="Large" FontAttributes="Bold" CornerRadius="30" BorderColor="#585de4"
                             x:Name="filter_btn" Clicked="filter_btn_Clicked"/>
                 </StackLayout>
             </StackLayout>

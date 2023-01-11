@@ -50,12 +50,12 @@ namespace BookingHotel.Views
                 {
                     if (queryString != "")
                     {
-                      queryString = queryString + $"&huyen={hotelFilter.huyen}";
+                      queryString = queryString + $"&quan={hotelFilter.huyen}";
 
                     }
                     else
                     {
-                      queryString = queryString + $"huyen={hotelFilter.huyen}";
+                      queryString = queryString + $"quan={hotelFilter.huyen}";
                     }
 
                 }
