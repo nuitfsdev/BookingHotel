@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -43,47 +44,26 @@ namespace BookingHotel.Views
                 hienthiks("https://bookinghotel.onrender.com/hotels");
             }
         }
+
         async void hienthiks(string urlAPI)
         {
             HttpClient httpClient = new HttpClient();
             var HotelList = await httpClient.GetStringAsync(urlAPI);
+            var HotelLoveList = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/loves/hotel?makh={App.BookingDb.GetUser().mauser}");
             var HoteltListConverted = JsonConvert.DeserializeObject<List<Hotel>>(HotelList);
+            var HoteltLoveListConverted = JsonConvert.DeserializeObject<List<Hotel>>(HotelLoveList);
+            if (HoteltLoveListConverted.Count > 0)
+                foreach (Hotel i in HoteltListConverted)
+                    if (HoteltLoveListConverted.Any(hotel => hotel.maht == i.maht))
+                        i.loveurl = "heart.png";
             Booking_Collection.ItemsSource = HoteltListConverted;
         }
 
-        //public Page_Booking()
-        //{
-        //    InitializeComponent();
-        //    hienthiks("https://bookinghotel.onrender.com/hotels");
-        //}
-
         public Page_Booking()
         {
-
             InitializeComponent();
-            //1 la uu dai
-            //2 la noi bat
-
-            //textOption.IsVisible = false;
-            //DisplayAlert("TB",textOption.Text, "OK");
-            //if (textOption.Text == "1")
-            //{
-            //    uudaiButton();
-            //    hienthiks("https://bookinghotel.onrender.com/hotels?uudai=true");
-            //}
-            //else if (textOption.Text == "2")
-            //{
-            //    noibatButton();
-            //    hienthiks("https://bookinghotel.onrender.com/hotels?noibat=true");
-            //}
-            //else
-            //{
-            //    allButton();
-            //    hienthiks("https://bookinghotel.onrender.com/hotels");
-            //}
             allButton();
             hienthiks("https://bookinghotel.onrender.com/hotels");
-
         }
 
         private async void Add_Like_List_Tapped(object sender, EventArgs e)

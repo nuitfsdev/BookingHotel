@@ -40,8 +40,10 @@ namespace BookingHotel.Views
                 return true;
             }));
 
+            hienthiksLove(App.BookingDb.GetUser().mauser);
+
             //Hiện thông tin các tiện ích mà khách sạn đang có
-            if(hotel.tienichs.Count > 0)
+            if (hotel.tienichs.Count > 0)
                 foreach(Tienich item in hotel.tienichs)
                 {
                     StackLayout stack= new StackLayout();
@@ -91,6 +93,21 @@ namespace BookingHotel.Views
                 tienich_hotel.Children.Add(label);
             } 
                 
+        }
+
+        async void hienthiksLove(string makh)
+        {
+            HttpClient httpClient = new HttpClient();
+            var HotelList = await httpClient.GetStringAsync($"https://bookinghotel.onrender.com/loves/hotel?makh={makh}");
+            var HoteltListConverted = JsonConvert.DeserializeObject<List<Hotel>>(HotelList);
+            //hiện trái tim đỏ khi đã nằm trong yêu thích
+            if (HoteltListConverted.Count > 0)
+                foreach (Hotel i in HoteltListConverted)
+                    if (i.maht == Thishotel.maht)
+                    {
+                        Add_Like_List.Source = "heart.png";
+                        break;
+                    }
         }
 
         private async void back_btn_Clicked(object sender, EventArgs e)
