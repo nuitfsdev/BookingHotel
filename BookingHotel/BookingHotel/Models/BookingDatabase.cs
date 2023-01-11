@@ -119,7 +119,7 @@ namespace BookingHotel.Models
             try
             {
                 User user = db.Table<User>().First();
-                var names = user.name.Split(' ');
+                var names = user.name.Trim().Split(' ');
                 string lastName = names.Last();
                 return lastName;
             }

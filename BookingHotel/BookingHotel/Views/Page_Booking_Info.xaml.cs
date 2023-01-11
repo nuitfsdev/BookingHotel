@@ -146,6 +146,7 @@ namespace BookingHotel.Views
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     await DisplayAlert("Thành công", "Đặt phòng thành công", "OK");
+                    await Shell.Current.Navigation.PopAsync();
                     await Shell.Current.GoToAsync("//main/order");
                 }
                 else

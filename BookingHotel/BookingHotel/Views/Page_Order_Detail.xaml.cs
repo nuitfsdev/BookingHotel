@@ -109,9 +109,13 @@ namespace BookingHotel.Views
              bool answer=await DisplayAlert("Cảnh báo", "Bạn có chắc chắn hủy đơn đặt phòng này không?", "Ok", "Hủy");
             if (answer)
             {
+                UpdateHoadon updateHoadon = new UpdateHoadon();
+                updateHoadon.tinhtrang = "Đã hủy";
+                string json = JsonConvert.SerializeObject(updateHoadon);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpClient httpClient = new HttpClient();
                 HttpResponseMessage httpResponseMessage = null;
-                httpResponseMessage = await httpClient.DeleteAsync($"https://bookinghotel.onrender.com/hoadons/{thisorder._id}");
+                httpResponseMessage = await httpClient.PostAsync($"https://bookinghotel.onrender.com/hoadons/{thisorder._id}", content);
                 if(httpResponseMessage != null)
                 {
                     if (httpResponseMessage.IsSuccessStatusCode)

@@ -153,7 +153,6 @@
                         <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
                             <Button Text="-" x:Name="time_decre" TextColor="#585de4" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="10" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="time_decre_Clicked"/>
                             <Label x:Name="time_uses" Text="1" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="10,0,0,0"/>
-                            <Label Text="giờ" TextColor="Black" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0"/>
                             <Button Text="+" x:Name="time_incre" TextColor="#585de4" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#f4f4f8" CornerRadius="10" WidthRequest="45" HeightRequest="45" BorderColor="#585de4" BorderWidth="1" Clicked="time_incre_Clicked"/>
                         </StackLayout>
                     </StackLayout>
