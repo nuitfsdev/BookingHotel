@@ -134,7 +134,7 @@ namespace BookingHotel.Views
                 addHoaDon.slnguoilon = int.Parse(Adult.Text);
                 addHoaDon.sltreem = int.Parse(Child.Text);
                 addHoaDon.slphong = int.Parse(Room_qty.Text);
-                addHoaDon.khac = khac.Text==null? khac.Text:"";
+                addHoaDon.khac = khac.Text!=null? khac.Text:"";
                 await DisplayAlert("TB", $"{addHoaDon.maht}\n{addHoaDon.maroom}\n{addHoaDon.makh}\n{addHoaDon.trigia}\n{addHoaDon.gia}\n{addHoaDon.ngayhd}\n{addHoaDon.ngaynhan}\n{addHoaDon.ngaytra}\n{addHoaDon.gionhan}\n{addHoaDon.giotra}\n{addHoaDon.sogio}\n{addHoaDon.songay}\n{addHoaDon.phuongthuc}\n{addHoaDon.ptdatphong}\n{addHoaDon.slnguoilon}\n{addHoaDon.sltreem}\n{addHoaDon.slphong}\n{addHoaDon.nganhang}\n{addHoaDon.tennganhang}\n{addHoaDon.sotaikhoan}\n{addHoaDon.khac}\n{addHoaDon.tenkh}\n{addHoaDon.email}\n{addHoaDon.sdt}", "OK");
                 HttpClient httpClient = new HttpClient();
                 string json = JsonConvert.SerializeObject(addHoaDon);
