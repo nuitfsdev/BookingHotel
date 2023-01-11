@@ -17,9 +17,11 @@ namespace BookingHotel.Views
     {
         Hotel thishotel;
         Room thisroom;
+        HoaDon thisorder;
 
         void hienthi(HoaDon order)
         {
+            thisorder = order;
             thishotel = order.hotel;
             thisroom = order.room;
 
@@ -100,6 +102,30 @@ namespace BookingHotel.Views
         private void Room_btn_Clicked(object sender, EventArgs e)
         {
             Shell.Current.Navigation.PushAsync(new Page_Room_Info(thishotel,thisroom));
+        }
+
+        private async void cancle_Tapped(object sender, EventArgs e)
+        {
+             bool answer=await DisplayAlert("Cảnh báo", "Bạn có chắc chắn hủy đơn đặt phòng này không?", "Ok", "Hủy");
+            if (answer)
+            {
+                HttpClient httpClient = new HttpClient();
+                HttpResponseMessage httpResponseMessage = null;
+                httpResponseMessage = await httpClient.DeleteAsync($"https://bookinghotel.onrender.com/hoadons/{thisorder._id}");
+                if(httpResponseMessage != null)
+                {
+                    if (httpResponseMessage.IsSuccessStatusCode)
+                    {
+                        await DisplayAlert("Thông báo", "Đã hủy đơn đặt phòng thành công", "Ok");
+                        await Shell.Current.GoToAsync("//main/order");
+
+                    }
+                    else
+                    {
+                        await DisplayAlert("Thất bại", "Đã có lỗi xảy ra", "Ok");
+                    }
+                }
+            }
         }
     }
 }
