@@ -124,12 +124,7 @@
                         hiển thị ra Empty View-->
                 <CollectionView.EmptyView>
                     <StackLayout>
-                        <ffimageloading:CachedImage x:Name="loading_gif" IsVisible="true"
-			                        WidthRequest="300" HeightRequest="200"
-			                        DownsampleToViewSize="true"
-			                        Source = "nam_loading.gif">
-                        </ffimageloading:CachedImage>
-                        <Label x:Name="NullList" Text="Danh sách rỗng" FontSize="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
+                        <Label Text="Danh sách rỗng" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </CollectionView.EmptyView>
             </CollectionView>
@@ -344,6 +339,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Label x:Name="RoomNullList" Text="Danh sách rỗng" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
