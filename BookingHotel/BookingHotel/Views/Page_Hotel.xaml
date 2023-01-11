@@ -57,7 +57,7 @@
                         <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,10,0,0">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="nam_locationpin.png" WidthRequest="20"></Image>
-                                <Label x:Name="diachi" TextColor="Gray" FontSize="14" VerticalOptions="End" />
+                                <Label x:Name="diachi" TextColor="Gray" FontSize="14" VerticalOptions="End"   WidthRequest="200"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
                                 <Image Source="star.png" HeightRequest="20" WidthRequest="20" 
@@ -94,9 +94,9 @@
                         <BoxView BackgroundColor="#ddd" HeightRequest="1" Margin="20,10,20,0"></BoxView>
                         <!--Mô tả về khách sạn-->
 
-                        <StackLayout Margin="10,10,0,0">
-                            <Label Text="Mô tả" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
-                            <Label x:Name="desc" TextColor="Gray" FontSize="16" />
+                        <StackLayout Margin="10,10,10,0">
+                            <Label Text="Mô tả" FontSize="Medium"  FontAttributes="Bold" TextColor="Black"/>
+                            <Label x:Name="desc" TextColor="Gray" FontSize="16"   />
                         </StackLayout>
 
                         <!--Thông tin liên hệ-->

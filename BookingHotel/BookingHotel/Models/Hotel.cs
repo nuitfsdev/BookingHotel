@@ -34,6 +34,8 @@ namespace BookingHotel.Models
         public List<string> hinh { get; set; }
         public long giamin { get; set; }
         public long giamax { get; set; }
+        public long giamgia { get; set; }
+
         public bool uudai { get; set; }
         public bool noibat { get; set; }
         public bool trangthai { get; set; }

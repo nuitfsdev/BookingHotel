@@ -62,7 +62,7 @@
                     <DataTemplate>
                         <Grid Padding="10" xct:ShadowEffect.Color="#ccc" xct:ShadowEffect.Radius="1" >
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="45"/>
                                 <RowDefinition Height="40"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="40"/>
@@ -100,7 +100,7 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="nam_discount.png" WidthRequest="20"></Image>
-                                    <Label Text="Giảm đến 10%" TextColor="Red"></Label>
+                                    <Label Text="{Binding giamgia, StringFormat='Giảm giá đến {0}%'}" TextColor="Red"></Label>
                                 </StackLayout>
                             </StackLayout>
                             <!--Giá phòng của khách sạn-->

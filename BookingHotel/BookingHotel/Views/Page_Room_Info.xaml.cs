@@ -33,7 +33,7 @@ namespace BookingHotel.Views
             theogio.Text = String.Format("{0:0,0}", room.giagio);
             theongay.Text = String.Format("{0:0,0}", room.giangay);
             dientich.Text = String.Format("{0} m²", room.dientich);
-            mota.Text = "\t"+room.mota;
+            mota.Text = room.mota;
             loaiphong.Text = room.loaiphong;
             sogiuong.Text = room.sogiuong.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>
