@@ -31,7 +31,7 @@ namespace BookingHotel.Views
             diachi.Text = thishotel.diachi;
             rate.Text = thishotel.sosao;
             madp.Text = order.mahd;
-            
+            hinh_r.Source = order.room.hinh[0];
             adult_qty.Text = String.Format("{0}", order.slnguoilon);
             child_qty.Text = String.Format("{0}", order.sltreem);
             bed_qty.Text = String.Format("{0}", order.slphong);
