@@ -106,10 +106,10 @@
                     </StackLayout>
                     
                     <!--Giá theo giờ và ngày-->
-                    <StackLayout Orientation="Horizontal">
-                        <StackLayout Margin="20,0,20,10">
+                    <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                        <StackLayout>
                             <StackLayout x:Name="cost_time_show" Orientation="Horizontal" IsVisible="True">
-                                <Label Text="Giá theo giờ:" TextColor="Black" FontAttributes="Bold"/>
+                                <Label Text="Giá giờ đầu:" TextColor="Black" FontAttributes="Bold"/>
                                 <Label x:Name="cost_time" VerticalOptions="EndAndExpand" TextColor="Green"/>
                                 <Label Text="VNĐ/giờ" TextColor="Green" VerticalOptions="EndAndExpand"/>
                             </StackLayout>
@@ -120,10 +120,16 @@
                             </StackLayout>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                            <Image Source="nam_discount.png" WidthRequest="20" VerticalOptions="StartAndExpand"/>
                             <Label Text="Giảm giá:" TextColor="Red" FontAttributes="Bold"/>
-                            <Label x:Name="sale_cost" Text="10000" VerticalOptions="EndAndExpand" TextColor="Red"/>
-                            <Label Text="%" TextColor="Red" VerticalOptions="EndAndExpand"/>
+                            <Label x:Name="sale_cost" Text="10000" VerticalOptions="StartAndExpand" TextColor="Red"/>
+                            <Label Text="%" TextColor="Red" VerticalOptions="Start" Margin="-5,0,0,0"/>
                         </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="cost_time2_show" Orientation="Horizontal" IsVisible="True" Margin="20,0,20,10">
+                        <Label Text="Giá giờ thứ hai trở đi:" TextColor="Black" FontAttributes="Bold"/>
+                        <Label x:Name="cost_time2" VerticalOptions="EndAndExpand" TextColor="Green"/>
+                        <Label Text="VNĐ/giờ" TextColor="Green" VerticalOptions="EndAndExpand"/>
                     </StackLayout>
 
                     <!--Ngày-->

@@ -32,6 +32,7 @@ namespace BookingHotel.Views
             rate.Text = hotel.sosao.ToString();
             desc.Text =  hotel.mota;
             contact.Text =hotel.lienhe;
+            sale_cost.Text = hotel.giamgia.ToString() + "%";
             //map.Source = hotel.map;
 
             Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>

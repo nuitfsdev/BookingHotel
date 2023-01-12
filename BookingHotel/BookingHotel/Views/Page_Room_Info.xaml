@@ -47,7 +47,7 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
-                        <StackLayout WidthRequest="210" Orientation="Horizontal">
+                        <StackLayout WidthRequest="185" Orientation="Horizontal">
                             <Label Text="Loại phòng: " FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
                             <Label x:Name="loaiphong" VerticalTextAlignment="End" TextColor="Black" FontSize="16"/>
                         </StackLayout>
@@ -56,37 +56,76 @@
                                 <Label x:Name="sogiuong" VerticalTextAlignment="End" TextColor="Black" FontSize="16"/>
                         </StackLayout>
                     </StackLayout>
-                    <!--Giá tiền theo gio-->
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="Diện tích: " FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label x:Name="dientich" VerticalTextAlignment="End" TextColor="Black" FontSize="16"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <Label Text="Loại giường: " FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label x:Name="loaigiuong" VerticalTextAlignment="End" TextColor="Black" FontSize="16"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--Giá tiền theo gio-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
-                        <Label Text="Giá theo giờ:" VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                        <Label Text="Giá giờ đầu:" VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
                         <Label x:Name="theogio" FontSize="Medium" TextColor="#585de4"  VerticalOptions="EndAndExpand"/>
                         <Label Text="VNĐ" TextColor="Red" VerticalOptions="CenterAndExpand"></Label>
                     </StackLayout>
 
-                    <!--Gia tien theo ngay-->
+                        <!--Giá tiền theo gio từ giờ thứ 2 trở đi-->
+                    <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                        <Label Text="Giá từ giờ thứ hai trở đi:" VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                        <Label x:Name="theogio2" FontSize="Medium" TextColor="#585de4"  VerticalOptions="EndAndExpand"/>
+                        <Label Text="VNĐ" TextColor="Red" VerticalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+
+                        <!--Gia tien theo ngay-->
                     <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
                         <Label Text="Giá theo ngày:" VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
                         <Label x:Name="theongay" FontSize="Medium" TextColor="#585de4" VerticalOptions="EndAndExpand"/>
-                        <Label Text="VNĐ" TextColor="Red" VerticalOptions="CenterAndExpand"></Label>
-
-                    </StackLayout>
+                            <Label Text="VNĐ" TextColor="Red" VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
 
                     <!--Diện tích-->
 
-                    <StackLayout Orientation="Horizontal">
+                    <!--<StackLayout Orientation="Horizontal">
                         <Label Text="Diện tích: " FontSize="16" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Gray"/>
                         <Label x:Name="dientich" FontSize="16" TextColor="Black" VerticalOptions="Center"/>
-                    </StackLayout>
+                    </StackLayout>-->
 
                     <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
+                    <!--Số lượng quy định trong phòng-->
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Số lượng người lớn:" FontSize="16" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Gray"/>
+                                <!--<Label x:Name ="adult" Text="2" FontSize="16" TextColor="Black" VerticalOptions="Center"/>-->
+                                <FlexLayout x:Name ="adult">
+                                </FlexLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Text="Số lượng trẻ em:" FontSize="16" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Gray"/>
+                                <!--<Label x:Name ="child" Text="2" FontSize="16" TextColor="Black" VerticalOptions="Center"/>-->
+                                <FlexLayout x:Name ="child">
+                                </FlexLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                <Label Text="Phụ thu trẻ em:" VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" TextColor="Gray"/>
+                                <Label x:Name="giatreem" FontSize="Medium" TextColor="#585de4" VerticalOptions="EndAndExpand"/>
+                                <Label Text="VNĐ" TextColor="Red" VerticalOptions="CenterAndExpand"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
 
-                    <!--Mô tả về phòng-->
-                    <StackLayout>
+                        <!--Mô tả về phòng-->
+                    <StackLayout Margin="0,10,0,10">
                         <Label Text="Mô tả" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
                         <Label x:Name="mota" TextColor="DimGray" FontSize="16"/>
                     </StackLayout>
+                    
+                        <BoxView Color="LightGray" Margin="0,0,10,0" HeightRequest="1"/>
 
-                    <!--Tiện tích của phòng-->
+                        <!--Tiện tích của phòng-->
                     <StackLayout>
                         <Label Text="Tiện ích" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
                         <FlexLayout x:Name="tienichlist">

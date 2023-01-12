@@ -11,6 +11,7 @@ namespace BookingHotel.Models
         public string maht { get; set; }
         public string tenphong { get; set; }
         public string loaiphong { get; set; }
+        public string loaigiuong { get; set; }
         public string dientich { get; set; }
         public int sogiuong { get; set; }
         public int soluong { get; set; }

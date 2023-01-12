@@ -91,6 +91,11 @@
                             <Label x:Name="max" TextColor="#585de4" FontSize="Medium" 
                                                    VerticalOptions="EndAndExpand"/>
                         </StackLayout>
+                        <StackLayout Orientation="Horizontal" Margin="10,10,10,0">
+                            <Image Source="nam_discount.png" WidthRequest="20"/>
+                            <Label Text="Giảm giá:" TextColor="Red" FontSize="Medium" FontAttributes="Bold" VerticalOptions="EndAndExpand"/>
+                            <Label x:Name="sale_cost" TextColor="Red" FontSize="Large" FontAttributes="Bold" />
+                        </StackLayout>
                         <BoxView BackgroundColor="#ddd" HeightRequest="1" Margin="20,10,20,0"></BoxView>
                         <!--Mô tả về khách sạn-->
 

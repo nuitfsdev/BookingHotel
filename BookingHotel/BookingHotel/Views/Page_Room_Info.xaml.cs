@@ -31,11 +31,14 @@ namespace BookingHotel.Views
              bannerCarousel.ItemsSource= room.hinh;
             tenphong.Text = room.tenphong;
             theogio.Text = String.Format("{0:0,0}", room.giagio);
+            theogio2.Text = String.Format("{0:0,0}", room.giagio2);
             theongay.Text = String.Format("{0:0,0}", room.giangay);
             dientich.Text = String.Format("{0} m²", room.dientich);
             mota.Text = room.mota;
             loaiphong.Text = room.loaiphong;
             sogiuong.Text = room.sogiuong.ToString();
+            loaigiuong.Text = room.loaigiuong;
+            giatreem.Text = room.giatreem.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>
             {
                 bannerCarousel.Position = (bannerCarousel.Position + 1) % indicatorView.Count;
@@ -65,6 +68,17 @@ namespace BookingHotel.Views
                 Label label = new Label { Text = "Đang cập nhật", HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = Color.Black, Margin = new Thickness(10), FontSize = 20 };
                 tienichlist.Children.Add(label);
             }    
+
+            //hien icon nguoi voi slnguoi tuong ung
+            for(int i=0; i <room.slnguoilon;i++)
+            {
+                adult.Children.Add(new Image { Source = "account.png", WidthRequest=20, Margin = new Thickness(0, 0,5,0) });
+            }
+            //hien icon nguoi voi sltreem tuong ung
+            for (int i = 0; i < room.sltreem; i++)
+            {
+                child.Children.Add(new Image { Source = "account.png", WidthRequest = 20, Margin = new Thickness(0, 0, 5, 0) });
+            }
         }
 
         async void hienthiphongLove(string makh)
