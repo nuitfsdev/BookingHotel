@@ -23,6 +23,8 @@ namespace BookingHotel.Views
             InitializeComponent();
             // 1000 là số giây
             detail.TranslateTo(0,0,1000);
+            back_btn.TranslateTo(0, 0, 1000);
+            Add_Like_List.TranslateTo(0, 0, 1000);
             Thishotel = hotel;
             BannerCarousel.ItemsSource = hotel.hinh;
             tenKS.Text = hotel.tenht;
