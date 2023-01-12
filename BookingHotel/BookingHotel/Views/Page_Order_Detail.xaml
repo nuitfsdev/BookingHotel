@@ -30,7 +30,7 @@
                 <StackLayout>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="112"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
@@ -89,7 +89,7 @@
                             <Label x:Name="sogiuong_r" Text="2" TextColor="Black" FontSize="16"/>
                         </StackLayout>
                         <Frame Grid.Column="1" Grid.RowSpan="3" CornerRadius="10" Padding="0">
-                            <Image  x:Name="hinh_r" Source="asia.png" Aspect="AspectFill"></Image>
+                            <Image  x:Name="hinh_r"  Aspect="AspectFill"></Image>
                         </Frame>
                     </Grid>
 
@@ -242,7 +242,7 @@
 
                 </StackLayout>
             </ScrollView>
-            <StackLayout xct:ShadowEffect.Color="Black" xct:ShadowEffect.OffsetX="-10" xct:ShadowEffect.OffsetY="-10" xct:ShadowEffect.Radius="4" xct:ShadowEffect.Opacity="0.9">
+            <StackLayout xct:ShadowEffect.Color="Black"   BackgroundColor="White" xct:ShadowEffect.OffsetX="-20" xct:ShadowEffect.OffsetY="-10" xct:ShadowEffect.Radius="4" xct:ShadowEffect.Opacity="0.9">
                 <!--Thanh toán-->
                 <StackLayout Margin="10,15,0,10" Orientation="Horizontal">
                     <Label Text="Tổng tiền:" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="0,0,10,0"/>
