@@ -18,6 +18,7 @@ namespace BookingHotel.Views
         public Page_Register()
         {
             InitializeComponent();
+            detail.TranslateTo(0, 0, 1000);
             password.Text = "";
             email.Text = "";
             sdt.Text = "";

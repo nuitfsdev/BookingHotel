@@ -19,6 +19,8 @@ namespace BookingHotel.Views
         public Page_Confirm(ForgotPassword forgotPassword)
         {
             InitializeComponent();
+            detail.TranslateTo(0, 0, 1000);
+            back_btn.TranslateTo(0, 0, 1000);
             thisForgotPassword = forgotPassword;
         }
 

@@ -18,6 +18,8 @@ namespace BookingHotel.Views
         public Page_Email_Confirm_Forgot_Password()
         {
             InitializeComponent();
+            detail.TranslateTo(0, 0, 1000);
+            back_btn.TranslateTo(0, 0, 1000);
             email.Text = "";
         }
 

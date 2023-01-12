@@ -16,10 +16,10 @@
                                 HorizontalOptions="Start"/>
                 <Label Text="Yêu thích" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
-                <ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                <!--<ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
                          x:Name="Search_Btn"
                          Clicked="Search_Btn_Clicked"
-                             HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+                             HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>-->
             </StackLayout>
             <!--Chọn khách sạn yêu thích hoặc phòng yêu thích-->
             <StackLayout Margin="20,0,20,10">
