@@ -22,6 +22,9 @@ namespace BookingHotel.Models
         public long giagio2 { get; set; }
 
         public long giangay { get; set; }
+        public long giatreem { get; set; }
+        public int slnguoilon { get; set; }
+        public int sltreem { get; set; }
         public bool uudai { get; set; }
         public bool noibat { get; set; }
         public List<string> khac { get; set; }
