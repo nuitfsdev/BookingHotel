@@ -79,7 +79,7 @@ namespace BookingHotel.Views
             {
                    await DisplayAlert("Thông báo", "Vui lòng điền đầy đủ thông tin ngân hàng", "OK");
             }
-            else if (await DisplayAlert("Cảnh báo", "Xác nhận đặt phòng", "Yes", "No"))
+            else if (await DisplayAlert("Thông báo", "Xác nhận đặt phòng", "Yes", "No"))
             {
                 addHoaDon.ngaynhan = checkin_day.Date.ToString("dd-MM-yyyy");
                 addHoaDon.ngaytra = checkout_day.Date.ToString("dd-MM-yyyy");
@@ -91,7 +91,7 @@ namespace BookingHotel.Views
                 addHoaDon.sltreem = int.Parse(Child.Text);
                 addHoaDon.slphong = int.Parse(Room_qty.Text);
                 addHoaDon.khac = khac.Text!=null? khac.Text:"";
-                await DisplayAlert("TB", $"{addHoaDon.maht}\n{addHoaDon.maroom}\n{addHoaDon.makh}\n{addHoaDon.trigia}\n{addHoaDon.gia}\n{addHoaDon.ngayhd}\n{addHoaDon.ngaynhan}\n{addHoaDon.ngaytra}\n{addHoaDon.gionhan}\n{addHoaDon.giotra}\n{addHoaDon.sogio}\n{addHoaDon.songay}\n{addHoaDon.phuongthuc}\n{addHoaDon.ptdatphong}\n{addHoaDon.slnguoilon}\n{addHoaDon.sltreem}\n{addHoaDon.slphong}\n{addHoaDon.nganhang}\n{addHoaDon.tennganhang}\n{addHoaDon.sotaikhoan}\n{addHoaDon.khac}\n{addHoaDon.tenkh}\n{addHoaDon.email}\n{addHoaDon.sdt}", "OK");
+                //await DisplayAlert("TB", $"{addHoaDon.maht}\n{addHoaDon.maroom}\n{addHoaDon.makh}\n{addHoaDon.trigia}\n{addHoaDon.gia}\n{addHoaDon.ngayhd}\n{addHoaDon.ngaynhan}\n{addHoaDon.ngaytra}\n{addHoaDon.gionhan}\n{addHoaDon.giotra}\n{addHoaDon.sogio}\n{addHoaDon.songay}\n{addHoaDon.phuongthuc}\n{addHoaDon.ptdatphong}\n{addHoaDon.slnguoilon}\n{addHoaDon.sltreem}\n{addHoaDon.slphong}\n{addHoaDon.nganhang}\n{addHoaDon.tennganhang}\n{addHoaDon.sotaikhoan}\n{addHoaDon.khac}\n{addHoaDon.tenkh}\n{addHoaDon.email}\n{addHoaDon.sdt}", "OK");
                 HttpClient httpClient = new HttpClient();
                 string json = JsonConvert.SerializeObject(addHoaDon);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
