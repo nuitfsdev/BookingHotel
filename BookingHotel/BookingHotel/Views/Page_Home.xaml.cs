@@ -123,12 +123,12 @@ namespace BookingHotel.Views
             }    
             else
             {
-                Home_save_filter home_Save_Filter = new Home_save_filter();
-                home_Save_Filter.tinh = diadiem_pk.SelectedItem.ToString();
-                home_Save_Filter.quan = quanhuyen_pk.SelectedItem.ToString();
-                home_Save_Filter.checkin_day = ngayden_dpk.Date.ToString("dd-MM-yyyy");
-                home_Save_Filter.checkout_day = ngaydi_dpk.Date.ToString("dd-MM-yyyy");
-                App.BookingDb.CreateHome_save_filter(home_Save_Filter);
+                //Home_save_filter home_Save_Filter = new Home_save_filter();
+                //home_Save_Filter.tinh = diadiem_pk.SelectedItem.ToString();
+                //home_Save_Filter.quan = quanhuyen_pk.SelectedItem.ToString();
+                //home_Save_Filter.checkin_day = ngayden_dpk.Date.ToString("dd-MM-yyyy");
+                //home_Save_Filter.checkout_day = ngaydi_dpk.Date.ToString("dd-MM-yyyy");
+                //App.BookingDb.CreateHome_save_filter(home_Save_Filter);
                 //DisplayAlert("TB", $"{diadiem_pk.SelectedItem} {quanhuyen_pk.SelectedItem} {ngayden_dpk.Date.ToString("dd-MM-yyyy")} {ngaydi_dpk.Date.ToString("dd-MM-yyyy")}", "Ok");
                 Shell.Current.Navigation.PushAsync(new Page_Search(App.quick_tinh,App.quick_quan));
             }    

@@ -44,7 +44,7 @@ namespace BookingHotel.Views
                tinh = "Ha";
             }
             hienthiks($"https://bookinghotel.onrender.com/hotels?tinh={tinh}&quan={quan}");
-            DisplayAlert("TB", $"https://bookinghotel.onrender.com/hotels?tinh={tinh}&quan={quan}", "OK");
+            //DisplayAlert("TB", $"https://bookinghotel.onrender.com/hotels?tinh={tinh}&quan={quan}", "OK");
         }
 
         public Page_Search(HotelFilter hotelFilter)
@@ -157,7 +157,7 @@ namespace BookingHotel.Views
                     }
                 }
 
-                DisplayAlert("TB", queryString, "OK");
+                //DisplayAlert("TB", queryString, "OK");
                 hienthiks($"https://bookinghotel.onrender.com/hotels?{queryString}");
             }
         }

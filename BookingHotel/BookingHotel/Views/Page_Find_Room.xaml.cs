@@ -222,7 +222,7 @@ namespace BookingHotel.Views
                     }
                 }    
 
-                DisplayAlert("TB", queryString, "OK");
+                //DisplayAlert("TB", queryString, "OK");
                 hienthidsphong($"https://bookinghotel.onrender.com/rooms?{queryString}");
             }
         }

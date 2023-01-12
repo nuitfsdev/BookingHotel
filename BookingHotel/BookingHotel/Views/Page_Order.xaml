@@ -140,7 +140,8 @@
 			                        DownsampleToViewSize="true"
 			                        Source = "nam_loading.gif">
                         </ffimageloading:CachedImage>-->
-                        <Label Text="Danh sách rỗng" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <!--<Label Text="Danh sách rỗng" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+                        <Image Source="dat_empty" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </CollectionView.EmptyView>
             </CollectionView>
