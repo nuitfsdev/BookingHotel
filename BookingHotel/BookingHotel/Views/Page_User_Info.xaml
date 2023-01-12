@@ -35,7 +35,7 @@
                 <StackLayout Margin="30,10,30,0">
                     <Label Text="Email" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Black"/>
                     <Frame BackgroundColor="#f4f4f8" CornerRadius="10" HeightRequest="50" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="#585de4" Padding="0" >
-                        <models:MyEntry x:Name="user_email" Keyboard="Email" Text="nguyenvana@gmail.com" Margin="10,0,0,0"/>
+                        <models:MyEntry x:Name="user_email" Keyboard="Email" Text="nguyenvana@gmail.com" Margin="10,0,0,0" Unfocused="user_email_Unfocused"/>
                     </Frame>
                 </StackLayout>
                 
