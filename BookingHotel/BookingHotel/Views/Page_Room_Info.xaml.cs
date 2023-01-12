@@ -38,7 +38,7 @@ namespace BookingHotel.Views
             loaiphong.Text = room.loaiphong;
             sogiuong.Text = room.sogiuong.ToString();
             loaigiuong.Text = room.loaigiuong;
-            giatreem.Text = room.giatreem.ToString();
+            giatreem.Text = String.Format("{0:0,0}", room.giatreem);
             Device.StartTimer(TimeSpan.FromSeconds(3), (Func<bool>)(() =>
             {
                 bannerCarousel.Position = (bannerCarousel.Position + 1) % indicatorView.Count;
