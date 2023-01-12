@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -29,6 +30,10 @@ namespace BookingHotel.Views
             {
                 await DisplayAlert("TB", $"Vui lòng điền vào các ô còn trống", "OK");
 
+            }
+            if (isValidEmail(email.Text) == false)
+            {
+                await DisplayAlert("Thông báo", "Email không hợp lệ!", "OK");
             }
             else
             {
@@ -71,6 +76,25 @@ namespace BookingHotel.Views
         private async void back_btn_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(state: "//login");
+        }
+
+        private void email_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (isValidEmail(email.Text) == false)
+            {
+                DisplayAlert("Thông báo", "Email không hợp lệ!", "OK");
+            }
+        }
+        bool isValidEmail(string inputEmail)
+        {
+            string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                  @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                  @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex re = new Regex(strRegex);
+            if (re.IsMatch(inputEmail))
+                return (true);
+            else
+                return (false);
         }
     }
 }
