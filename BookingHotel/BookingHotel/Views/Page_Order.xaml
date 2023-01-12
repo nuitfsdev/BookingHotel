@@ -29,10 +29,10 @@
             <StackLayout Padding="10,10,10,10"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Label Text="Lịch sử đặt phòng" TextColor="Black" FontSize="Large" FontAttributes="Bold" 
                        HorizontalOptions="StartAndExpand"/>
-                <ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
+                <!--<ImageButton Source="dat_search.png" WidthRequest="25" HeightRequest="25" BackgroundColor="White"
                              x:Name="Search_Btn"
                              Clicked="Search_Btn_Clicked"
-                             HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+                             HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>-->
             </StackLayout>
             
             <!--Các options-->

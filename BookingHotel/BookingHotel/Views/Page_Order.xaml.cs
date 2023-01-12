@@ -79,10 +79,10 @@ namespace BookingHotel.Views
             hienthiorder(App.BookingDb.GetUser().mauser);
         }
 
-        private async void Search_Btn_Clicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync(state: "//main/search");
-        }
+        //private async void Search_Btn_Clicked(object sender, EventArgs e)
+        //{
+        //    await Shell.Current.GoToAsync(state: "//main/search");
+        //}
 
         private void Order_Collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

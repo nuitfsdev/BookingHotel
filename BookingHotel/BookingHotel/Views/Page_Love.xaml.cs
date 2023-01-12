@@ -48,10 +48,10 @@ namespace BookingHotel.Views
             hienthidsroom($"https://bookinghotel.onrender.com/loves/room?makh={user.mauser}");
         }
 
-        private async void Search_Btn_Clicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync(state: "//main/search");
-        }
+        //private async void Search_Btn_Clicked(object sender, EventArgs e)
+        //{
+        //    await Shell.Current.GoToAsync(state: "//main/search");
+        //}
 
         private void Love_Collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
