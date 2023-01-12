@@ -19,6 +19,7 @@ namespace BookingHotel.Views
         public Page_Login()
         {
             InitializeComponent();
+            detail.TranslateTo(0, 0, 1000);
             email.Text = "";
             password.Text = "";
 
