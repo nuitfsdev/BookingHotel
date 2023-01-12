@@ -25,6 +25,8 @@ namespace BookingHotel.Views
             InitializeComponent();
             // 1000 là số giây
             detail.TranslateTo(0, 0, 1000);
+            back_btn.TranslateTo(0, 0, 1000);
+            Add_Like_List.TranslateTo(0, 0, 1000);
             Thisroom = room;
             Thishotel = hotel;
             hienthiphongLove(App.BookingDb.GetUser().mauser);
