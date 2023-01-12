@@ -45,6 +45,7 @@ namespace BookingHotel.Views
             save_cost_time = room.giagio;
             save_cost_day = room.giangay;
             cost_time.Text = String.Format("{0:0,0}", room.giagio);
+            cost_time2.Text = String.Format("{0:0,0}", room.giagio2);
             cost_day.Text = String.Format("{0:0,0}", room.giangay);
             sale_cost.Text = Thishotel.giamgia.ToString();
             //Add Hotel
@@ -78,7 +79,7 @@ namespace BookingHotel.Views
             {
                    await DisplayAlert("Thông báo", "Vui lòng điền đầy đủ thông tin ngân hàng", "OK");
             }
-            else
+            else if (await DisplayAlert("Cảnh báo", "Xác nhận đặt phòng", "Yes", "No"))
             {
                 addHoaDon.ngaynhan = checkin_day.Date.ToString("dd-MM-yyyy");
                 addHoaDon.ngaytra = checkout_day.Date.ToString("dd-MM-yyyy");
@@ -178,7 +179,7 @@ namespace BookingHotel.Views
             int old_value = int.Parse(Adult.Text);
             if(old_value == Thisroom.slnguoilon * int.Parse(Room_qty.Text))
             {
-                DisplayAlert("Thông báo","Số lượng người lớn vượt qua mức quy định của phòng\n Vui lòng tăng số lượng phòng!","Ok");
+                DisplayAlert("Thông báo","Số lượng người lớn đạt mức quy định của phòng\n Vui lòng tăng số lượng phòng!","Ok");
             }    
             else if (old_value < Thisroom.slnguoilon * int.Parse(Room_qty.Text))
                 Adult.Text = $"{old_value + 1}";
@@ -202,7 +203,7 @@ namespace BookingHotel.Views
             //Nếu số trẻ em lớn hơn quy định của phòng thì báo là cần tăng thêm phí
             if(old_value == Thisroom.sltreem * int.Parse(Room_qty.Text))
             {
-                DisplayAlert("Thông báo", $"Số trẻ em vượt qua số lượng trẻ em cho phép của phòng!\nBạn phải trả thêm phí là {Thisroom.giatreem} vnđ/trẻ!", "OK");
+                DisplayAlert("Thông báo", $"Số trẻ em vượt qua số lượng trẻ em cho phép của phòng!\nBạn phải trả thêm phí phụ thu trẻ em là {Thisroom.giatreem} vnđ/trẻ!", "OK");
             }
             long total_cost = TongTien(int.Parse(time_uses.Text), int.Parse(day_final.Text), int.Parse(Child.Text), int.Parse(Room_qty.Text), Thisroom.giagio, Thisroom.giagio2, Thisroom.giangay, Thisroom.giatreem, Thisroom.sltreem, Thishotel.giamgia, time_underline.IsVisible, day_underline.IsVisible);
             addHoaDon.trigia = total_cost;
@@ -322,6 +323,7 @@ namespace BookingHotel.Views
             time_underline.IsVisible = true;
 
             cost_time_show.IsVisible = true;
+            cost_time2_show.IsVisible = true;
             cost_day_show.IsVisible = false;
             
             day_underline.IsVisible = false;
@@ -347,6 +349,7 @@ namespace BookingHotel.Views
             time_underline.IsVisible = false;
 
             cost_time_show.IsVisible = false;
+            cost_time2_show.IsVisible = false;
             cost_day_show.IsVisible = true;
 
             day_underline.IsVisible = true;
