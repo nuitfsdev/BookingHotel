@@ -61,12 +61,13 @@ namespace BookingHotel.Views
                 {
                     string contentRes = await responseMessage.Content.ReadAsStringAsync();
                     LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(contentRes);
-                    await Shell.Current.GoToAsync("//main/home");
+                    await DisplayAlert("Thông báo", "Đăng kí tài khoản thành công", "OK");
                     password.Text = "";
                     email.Text = "";
                     sdt.Text = "";
                     name.Text = "";
                     confirmPassword.Text = "";
+                    await Shell.Current.GoToAsync(state:"//login");
 
                 }
                 else
