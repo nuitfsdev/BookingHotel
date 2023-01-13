@@ -81,20 +81,20 @@ namespace BookingHotel.Views
                 bed_qty.Text = "1";
 
                 //refresh loai phong
-                ActiveLoaiphong(Standard, Standard_label, "basic", true);
-                ActiveLoaiphong(Superior, Superior_label, "superior", true);
-                ActiveLoaiphong(Deluxe, Deluxe_label, "deluxe", true);
-                ActiveLoaiphong(Suite, Suite_label, "suite", true);
+                ActiveLoaiphong(Standard, Standard_label, "Basic", true);
+                ActiveLoaiphong(Superior, Superior_label, "Superior", true);
+                ActiveLoaiphong(Deluxe, Deluxe_label, "Deluxe", true);
+                ActiveLoaiphong(Suite, Suite_label, "Suite", true);
 
                 //refresh tien ich cua phong
-                ActiveCheckbox(Wifi, wifi_label, "wifi", true);
-                ActiveCheckbox(Tulanh, tulanh_label, "tulanh", true);
-                ActiveCheckbox(Dieuhoa, dieuhoa_label, "dieuhoa", true);
+                ActiveCheckbox(Wifi, wifi_label, "Wifi", true);
+                ActiveCheckbox(Tulanh, tulanh_label, "Tủ lạnh", true);
+                ActiveCheckbox(Dieuhoa, dieuhoa_label, "Máy lạnh", true);
                 //ActiveCheckbox(Cacham, cacham_label, "cacham", true);
 
                 //refresh loai phong
-                ActiveLoaiGiuong(Giuongdoi, giuongdoi_label, "giuongdoi", true);
-                ActiveLoaiGiuong(Giuongdon, giuongdon_label, "giuongdon", true);
+                ActiveLoaiGiuong(Giuongdoi, giuongdoi_label, "Giường đôi", true);
+                ActiveLoaiGiuong(Giuongdon, giuongdon_label, "Giường đơn", true);
                 //refresh khac
                 ActiveKhac(Uudai, uudai_label, "uudai", true);
                 ActiveKhac(Noibat, noibat_label, "noibat", true);
@@ -162,28 +162,28 @@ namespace BookingHotel.Views
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveLoaiphong(frame, label, "basic");
+            ActiveLoaiphong(frame, label, "Basic");
         }
 
         private void Superior_tap_Tapped(object sender, EventArgs e)
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveLoaiphong(frame, label, "superior");
+            ActiveLoaiphong(frame, label, "Superior");
         }
 
         private void Deluxe_tap_Tapped(object sender, EventArgs e)
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveLoaiphong(frame, label, "deluxe");
+            ActiveLoaiphong(frame, label, "Deluxe");
         }
 
         private void Suite_tap_Tapped(object sender, EventArgs e)
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveLoaiphong(frame, label, "suite");
+            ActiveLoaiphong(frame, label, "Suite");
         }
 
         private void gym_tap_Tapped(object sender, EventArgs e)
@@ -204,21 +204,21 @@ namespace BookingHotel.Views
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveCheckbox(frame, label, "wifi");
+            ActiveCheckbox(frame, label, "Wifi");
         }
 
         private void Tulanh_tap_Tapped(object sender, EventArgs e)
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveCheckbox(frame, label, "tulanh");
+            ActiveCheckbox(frame, label, "Tủ lạnh");
         }
 
         private void Dieuhoa_tap_Tapped(object sender, EventArgs e)
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveCheckbox(frame, label, "dieuhoa");
+            ActiveCheckbox(frame, label, "Máy lạnh");
         }
 
         private void Cacham_tap_Tapped(object sender, EventArgs e)
@@ -232,14 +232,14 @@ namespace BookingHotel.Views
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveLoaiGiuong(frame, label, "giuongdoi");
+            ActiveLoaiGiuong(frame, label, "Giường đôi");
         }
 
         private void Giuongdon_tap_Tapped(object sender, EventArgs e)
         {
             Frame frame = (Frame)sender;
             Label label = (Label)frame.Content;
-            ActiveLoaiGiuong(frame, label, "giuongdon");
+            ActiveLoaiGiuong(frame, label, "Giường đơn");
         }
 
         private void Uudai_tap_Tapped(object sender, EventArgs e)
